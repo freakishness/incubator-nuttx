@@ -1,5 +1,5 @@
 /****************************************************************************
- * include/nuttx/timers/ds3231.h
+ * include/nuttx/timers/rs8010.h
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -27,7 +27,7 @@
 
 #include <nuttx/config.h>
 
-#ifdef CONFIG_RTC_RX8010
+#ifdef CONFIG_RTC_RX8010SJ
 
 /****************************************************************************
  * Public Function Prototypes

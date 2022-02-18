@@ -35,7 +35,7 @@
 
 #include "rx8010.h"
 
-#ifdef CONFIG_RTC_RX8010
+#ifdef CONFIG_RTC_RX8010SJ
 
 /****************************************************************************
  * Pre-processor Definitions
@@ -62,7 +62,7 @@
 #  error CONFIG_RX8010SJ_I2C_FREQUENCY is out of range
 #endif
 
-#define RX8010SJ_I2C_ADDRESS 0x32
+#define RX8010_I2C_ADDRESS 0x32
 
 /****************************************************************************
  * Private Types
@@ -209,16 +209,18 @@ static int rtc_bcd2bin(uint8_t value)
 int rx8010_rtc_initialize(FAR struct i2c_master_s *i2c)
 {
   int ret;
+  
   /* Remember the i2c device and claim that the RTC is enabled */
 
   g_rx8010.i2c  = i2c;
   g_rtc_enabled = true;
 
   ret = rx8010_init();
-  if (ret < 0) 
+  if (ret < 0)
     {
       return ret;
     }
+
   return OK;
 }
 
@@ -280,6 +282,7 @@ int up_rtc_getdatetime(FAR struct tm *tp)
   /* Set up to read 7 registers: secondss, minutes, hour, day-of-week, date,
    * month, year
    */
+
   secaddr          = RX8010_TIME_SECR;
 
   msg[0].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
@@ -294,7 +297,7 @@ int up_rtc_getdatetime(FAR struct tm *tp)
   msg[1].buffer    = buffer;
   msg[1].length    = 7;
 
-    /* Read the seconds register again */
+  /* Read the seconds register again */
 
   msg[2].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
   msg[2].addr      = RX8010_I2C_ADDRESS;
@@ -313,13 +316,12 @@ int up_rtc_getdatetime(FAR struct tm *tp)
    * seconds.
    */
 
-
   ret = I2C_TRANSFER(g_rx8010.i2c, msg, 2);
   if (ret < 0)
-  {
+    {
       rtcerr("ERROR: I2C_TRANSFER failed: %d\n", ret);
       return ret;
-  }
+    }
 
   /* Format the return time */
 
@@ -492,9 +494,10 @@ static int rx8010_init()
   uint8_t buffer[4];
   int ret;
 
-  // set reserved register 0x17 with specified value of 0xD8
+  /* set reserved register 0x17 with specified value of 0xd8 */
+
   buffer[0] = RX8010_RESV17;
-  buffer[1] = 0xD8;
+  buffer[1] = 0xd8;
   msg[0].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
   msg[0].addr      = RX8010_I2C_ADDRESS;
   msg[0].flags     = 0;
@@ -508,7 +511,8 @@ static int rx8010_init()
       return ret;
     }
 
-  // set reserved register 0x30 with specified value of 0x00
+  /* set reserved register 0x30 with specified value of 0x00 */
+
   buffer[0] = RX8010_RESV30;
   buffer[1] = 0x00;
   msg[0].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
@@ -524,7 +528,8 @@ static int rx8010_init()
       return ret;
     }
 
-  // set reserved register 0x31 with specified value of 0x08
+  /* set reserved register 0x31 with specified value of 0x08 */
+
   buffer[0] = RX8010_RESV31;
   buffer[1] = 0x08;
   msg[0].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
@@ -540,7 +545,8 @@ static int rx8010_init()
       return ret;
     }
 
-  // set reserved register 0x32 with default value
+  /* set reserved register 0x32 with default value */
+
   buffer[0] = RX8010_IRQ;
   buffer[1] = 0x00;
   msg[0].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
@@ -556,7 +562,8 @@ static int rx8010_init()
       return ret;
     }
 
-  // read rx8010 flag
+  /* read rx8010 flag */
+
   uint8_t flag = RX8010_FLAG;
 
   msg[0].frequency = CONFIG_RX8010SJ_I2C_FREQUENCY;
@@ -594,12 +601,13 @@ static int rx8010_init()
 
       ret = I2C_TRANSFER(g_rx8010.i2c, msg, 1);
       if (ret < 0)
-      {
+        {
           rtcerr("ERROR: I2C_TRANSFER failed: %d\n", ret);
           return ret;
-      }
+        }
     }
+
   return 0;
 }
 
-#endif /* CONFIG_RTC_RX8010 */
+#endif /* CONFIG_RTC_RX8010SJ */
