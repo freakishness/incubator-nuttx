@@ -209,7 +209,7 @@ static int rtc_bcd2bin(uint8_t value)
 int rx8010_rtc_initialize(FAR struct i2c_master_s *i2c)
 {
   int ret;
-  
+
   /* Remember the i2c device and claim that the RTC is enabled */
 
   g_rx8010.i2c  = i2c;
