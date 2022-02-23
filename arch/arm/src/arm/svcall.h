@@ -1,5 +1,5 @@
 /****************************************************************************
- * arch/xtensa/src/common/svcall.h
+ * arch/arm/src/arm/svcall.h
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -18,8 +18,8 @@
  *
  ****************************************************************************/
 
-#ifndef __ARCH_XTENSA_SRC_COMMON_SVCALL_H
-#define __ARCH_XTENSA_SRC_COMMON_SVCALL_H
+#ifndef __ARCH_ARM_SRC_ARM_SVCALL_H
+#define __ARCH_ARM_SRC_ARM_SVCALL_H
 
 /****************************************************************************
  * Included Files
@@ -27,9 +27,7 @@
 
 #include <nuttx/config.h>
 
-#ifdef CONFIG_LIB_SYSCALL
-#  include <syscall.h>
-#endif
+#include <syscall.h>
 
 /****************************************************************************
  * Pre-processor Definitions
@@ -37,18 +35,17 @@
 
 /* Configuration ************************************************************/
 
-/* This logic uses three system calls {0,1,2} for context switching and one
- * for the syscall return.  So a minimum of four syscall values must be
- * reserved.  If CONFIG_BUILD_PROTECTED is defined, then four more syscall
- * values must be reserved.
+/* This logic uses one system call for the syscall return.  So a minimum of
+ * one syscall values must be reserved.  If CONFIG_BUILD_KERNEL is defined,
+ * then four more syscall values must be reserved.
  */
 
 #ifdef CONFIG_LIB_SYSCALL
-#  ifdef CONFIG_BUILD_PROTECTED
+#  ifdef CONFIG_BUILD_KERNEL
 #    ifndef CONFIG_SYS_RESERVED
-#      error "CONFIG_SYS_RESERVED must be defined to have the value 9"
-#    elif CONFIG_SYS_RESERVED != 9
-#      error "CONFIG_SYS_RESERVED must have the value 9"
+#      error "CONFIG_SYS_RESERVED must be defined to have the value 7"
+#    elif CONFIG_SYS_RESERVED != 7
+#      error "CONFIG_SYS_RESERVED must have the value 7"
 #    endif
 #  else
 #    ifndef CONFIG_SYS_RESERVED
@@ -59,80 +56,72 @@
 #  endif
 #endif
 
-/* Xtensa system calls ******************************************************/
+/* Cortex-A system calls ****************************************************/
 
 /* SYS call 0:
  *
- * int xtensa_saveusercontext(uint32_t *saveregs);
+ * void arm_fullcontextrestore(uint32_t *restoreregs) noreturn_function;
  */
 
-#define SYS_save_context          (0)
+#define SYS_restore_context       (0)
 
 /* SYS call 1:
  *
- * void xtensa_fullcontextrestore(uint32_t *restoreregs) noreturn_function;
+ * void arm_switchcontext(uint32_t *saveregs, uint32_t *restoreregs);
  */
 
-#define SYS_restore_context       (1)
+#define SYS_switch_context        (1)
 
+#ifdef CONFIG_LIB_SYSCALL
 /* SYS call 2:
  *
- * void xtensa_switchcontext(uint32_t *saveregs, uint32_t *restoreregs);
+ * void arm_syscall_return(void);
  */
 
-#define SYS_switch_context        (2)
+#define SYS_syscall_return        (2)
 
 #ifndef CONFIG_BUILD_FLAT
-#ifdef CONFIG_LIB_SYSCALL
+#ifdef CONFIG_BUILD_KERNEL
 /* SYS call 3:
  *
- * void xtensa_syscall_return(void);
- */
-
-#define SYS_syscall_return        (3)
-
-#ifdef CONFIG_BUILD_PROTECTED
-/* SYS call 4:
- *
- * void up_task_start(main_t taskentry, int argc, char *argv[])
+ * void up_task_start(main_t taskentry, int argc, FAR char *argv[])
  *        noreturn_function;
  */
 
-#define SYS_task_start            (4)
-/* SYS call 6:
+#define SYS_task_start            (3)
+
+/* SYS call 5:
  *
- * void signal_handler(_sa_sigaction_t sighand, int signo,
- *                     siginfo_t *info, void *ucontext);
+ * void signal_handler(_sa_sigaction_t sighand,
+ *                     int signo, FAR siginfo_t *info,
+ *                     FAR void *ucontext);
  */
 
-#define SYS_signal_handler        (6)
+#define SYS_signal_handler        (5)
 
-/* SYS call 7:
+/* SYS call 6:
  *
  * void signal_handler_return(void);
  */
 
-#define SYS_signal_handler_return (7)
+#define SYS_signal_handler_return (6)
 
-#endif /* CONFIG_BUILD_PROTECTED */
+#endif /* !CONFIG_BUILD_FLAT */
 
-/* SYS call 5:
+/* SYS call 4:
  *
- * void up_pthread_start(pthread_trampoline_t startup,
+ * void up_pthread_start(pthread_startroutine_t startup,
  *                       pthread_startroutine_t entrypt, pthread_addr_t arg)
  *        noreturn_function
  */
 
-#define SYS_pthread_start         (5)
+#define SYS_pthread_start         (4)
 
-/* SYS call 8:
- *
- * void up_pthread_exit(pthread_exitroutine_t exit, void *exit_value)
- */
-
-#define SYS_pthread_exit          (8)
-
-#endif /* !CONFIG_BUILD_FLAT */
+#endif /* CONFIG_BUILD_KERNEL */
 #endif /* CONFIG_LIB_SYSCALL */
 
-#endif /* __ARCH_XTENSA_SRC_COMMON_SVCALL_H */
+/****************************************************************************
+ * Inline Functions
+ ****************************************************************************/
+
+#endif /* __ARCH_ARM_SRC_ARM_SVCALL_H */
