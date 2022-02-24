@@ -1,0 +1,108 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+if ARCH_BOARD_OK1050_C
+
+choice
+	prompt "Boot Flash"
+	default OK1050_C_QSPI_FLASH
+
+config OK1050_C_HYPER_FLASH
+	bool "HYPER Flash"
+
+config OK1050_C_QSPI_FLASH
+	bool "QSPI Flash"
+
+endchoice # Boot Flash
+
+config OK1050_C_SDRAM
+	bool "Enable SDRAM"
+	default y
+	select IMXRT_SEMC_INIT_DONE
+	---help---
+		Activate DCD configuration of SDRAM
+
+config OK1050_C_SDHC_AUTOMOUNT
+    bool "SDHC automounter"
+    default y
+    depends on FS_AUTOMOUNTER && MMCSD
+
+if OK1050_C_SDHC_AUTOMOUNT
+
+config OK1050_C_SDHC_AUTOMOUNT_FSTYPE
+    string "SDHC file system type"
+    default "vfat"
+
+config OK1050_C_SDHC_AUTOMOUNT_BLKDEV
+    string "SDHC block device"
+    default "/dev/mmcsd0"
+
+config OK1050_C_SDHC_AUTOMOUNT_MOUNTPOINT
+    string "SDHC mount point"
+    default "/mnt/sdcard"
+
+config OK1050_C_SDHC_AUTOMOUNT_DDELAY
+    int "SDHC debounce delay (milliseconds)"
+    default 1000
+
+config OK1050_C_SDHC_AUTOMOUNT_UDELAY
+    int "SDHC unmount retry delay (milliseconds)"
+    default 2000
+
+endif # OK1050_C_SDHC_AUTOMOUNT
+
+config OK1050_C_USB_AUTOMOUNT
+    bool "USB Mass Storage automounter"
+    default n
+    depends on USBHOST_MSC && USBHOST_MSC_NOTIFIER
+
+if OK1050_C_USB_AUTOMOUNT
+
+config OK1050_C_USB_AUTOMOUNT_FSTYPE
+    string "USB file system type"
+    default "vfat"
+
+config OK1050_C_USB_AUTOMOUNT_BLKDEV
+    string "USB block device prefix"
+    default "/dev/sd"
+
+config OK1050_C_USB_AUTOMOUNT_MOUNTPOINT
+    string "USB mount point prefix"
+    default "/mnt/usb"
+
+config OK1050_C_USB_AUTOMOUNT_NUM_BLKDEV
+    int "Number of block devices to monitor."
+    range 1 26
+    default 4
+
+config OK1050_C_USB_AUTOMOUNT_UDELAY
+    int "USB unmount retry delay (milliseconds)"
+    default 2000
+
+endif # OK1050_C_USB_AUTOMOUNT
+
+config IMXRT_ROMFS
+    bool "Automount baked-in ROMFS image"
+    default n
+    depends on FS_ROMFS
+    ---help---
+        Select IMXRT_ROMFS_IMAGEFILE, IMXRT_ROMFS_DEV_MINOR, IMXRT_ROMFS_MOUNTPOINT
+
+config IMXRT_ROMFS_DEV_MINOR
+    int "Minor for the block device backing the data"
+    depends on IMXRT_ROMFS
+    default 64
+
+config IMXRT_ROMFS_MOUNTPOINT
+    string "Mountpoint of the custom romfs image"
+    depends on IMXRT_ROMFS
+    default "/rom"
+
+config IMXRT_ROMFS_IMAGEFILE
+    string "ROMFS image file to include into build"
+    depends on IMXRT_ROMFS
+    default "../../../../../rom.img"
+
+endif

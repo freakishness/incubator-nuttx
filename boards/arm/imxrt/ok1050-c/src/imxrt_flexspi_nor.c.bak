@@ -1,0 +1,928 @@
+/****************************************************************************
+ * boards/arm/imxrt/imxrt1064-evk/src/imxrt_flexspi_nor.c
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.  The
+ * ASF licenses this file to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the
+ * License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ ****************************************************************************/
+
+/****************************************************************************
+ * Included Files
+ ****************************************************************************/
+
+#include <nuttx/config.h>
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <debug.h>
+
+#include <nuttx/kmalloc.h>
+#include <nuttx/signal.h>
+#include <nuttx/fs/fs.h>
+#include <nuttx/mtd/mtd.h>
+#include <nuttx/fs/ioctl.h>
+
+#include "imxrt_flexspi.h"
+#include "ok1050-c.h"
+#include "hardware/imxrt_pinmux.h"
+#include "imxrt_edma.h"
+
+#ifdef CONFIG_IMXRT_FLEXSPI
+
+#define NOR_PAGE_SIZE   0x0100U
+#define NOR_SECTOR_SIZE 0x1000U
+
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
+
+enum {
+    READ_FAST_QUAD = 0,
+    READ_STATUS,
+    WRITE_ENABLE,
+    ERASE_SECTOR,
+    PAGEPROGRAM_QUAD,
+    ERASE_CHIP,
+    PAGRPROGRAM_SINGLE,
+    READ_NORMAL,
+    READ_ID,
+    WRITE_STATUS_REG,
+    ENTER_QPI,
+    EXIT_QPI,
+    READ_STATUS_REG,
+    READ_FAST,
+};
+
+static uint32_t g_flexspi_nor_lut[][4] = {
+  [READ_NORMAL] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x03, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_1PAD, 0x18),
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_READ_SDR,  FLEXSPI_1PAD, 0x04, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+  [READ_FAST]  = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x0b, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_1PAD, 0x18),
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_DUMMY_SDR, FLEXSPI_1PAD, 0x08, FLEXSPI_COMMAND_READ_SDR,   FLEXSPI_1PAD, 0x04),
+  },
+  [READ_FAST_QUAD] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0xeb, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_4PAD, 0x18),
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_DUMMY_SDR, FLEXSPI_4PAD, 0x06, FLEXSPI_COMMAND_READ_SDR,   FLEXSPI_4PAD, 0x04),
+  },
+  [READ_STATUS] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x81, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_1PAD, 0x04),
+  },
+  [WRITE_ENABLE] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x06, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+  [ERASE_SECTOR] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x20, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_1PAD, 0x18),
+  },
+  [PAGRPROGRAM_SINGLE] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x02, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_1PAD, 0x18),
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_WRITE_SDR, FLEXSPI_1PAD, 0x04, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+  [PAGEPROGRAM_QUAD] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x32, FLEXSPI_COMMAND_RADDR_SDR,  FLEXSPI_1PAD, 0x18),
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_WRITE_SDR, FLEXSPI_4PAD, 0x04, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+  [READ_ID] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x9f, FLEXSPI_COMMAND_READ_SDR,   FLEXSPI_1PAD, 0x04),
+  },
+  [WRITE_STATUS_REG] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x01, FLEXSPI_COMMAND_WRITE_SDR,  FLEXSPI_1PAD, 0x04),
+  },
+  [ENTER_QPI] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x35, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+  [EXIT_QPI] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_4PAD, 0xf5, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+  [READ_STATUS_REG] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0x05, FLEXSPI_COMMAND_READ_SDR,   FLEXSPI_1PAD, 0x04),
+  },
+  [ERASE_CHIP] = {
+          FLEXSPI_LUT_SEQ(FLEXSPI_COMMAND_SDR,       FLEXSPI_1PAD, 0xc7, FLEXSPI_COMMAND_STOP,       FLEXSPI_1PAD, 0x00),
+  },
+};
+
+/****************************************************************************
+ * Private Types
+ ****************************************************************************/
+
+/* FlexSPI NOR device private data */
+
+struct imxrt_flexspi_nor_dev_s
+{
+  struct mtd_dev_s mtd;
+  struct flexspi_dev_s *flexspi;   /* Saved FlexSPI interface instance */
+  uint8_t *ahb_base;
+  uint32_t start_address;
+  enum flexspi_port_e port;
+  struct flexspi_device_config_s *config;
+};
+
+/****************************************************************************
+ * Private Functions Prototypes
+ ****************************************************************************/
+
+/* MTD driver methods */
+
+static int imxrt_flexspi_nor_erase(FAR struct mtd_dev_s *dev,
+                                   off_t startblock,
+                                   size_t nblocks);
+static ssize_t imxrt_flexspi_nor_read(FAR struct mtd_dev_s *dev,
+                                      off_t offset,
+                                      size_t nbytes,
+                                      FAR uint8_t *buffer);
+static ssize_t imxrt_flexspi_nor_bread(FAR struct mtd_dev_s *dev,
+                                       off_t startblock,
+                                       size_t nblocks,
+                                       FAR uint8_t *buffer);
+static ssize_t imxrt_flexspi_nor_bwrite(FAR struct mtd_dev_s *dev,
+                                        off_t startblock,
+                                        size_t nblocks,
+                                        FAR const uint8_t *buffer);
+static int imxrt_flexspi_nor_ioctl(FAR struct mtd_dev_s *dev,
+                                   int cmd,
+                                   unsigned long arg);
+
+/****************************************************************************
+ * Private Data
+ ****************************************************************************/
+
+static struct flexspi_device_config_s g_flexspi_device_config __attribute__((section(".data")))=
+{
+  .flexspi_root_clk = 120000000,
+  .flash_size = 0x4000,
+  .cs_interval_unit = FLEXSPI_CS_INTERVAL_UNIT1_SCK_CYCLE,
+  .cs_interval = 2,
+  .cs_hold_time = 3,
+  .cs_setup_time = 3,
+  .data_valid_time = 0,
+  .columnspace = 0,
+  .enable_word_address = 0,
+  .awr_seq_index = 0,
+  .awr_seq_number = 0,
+  .ard_seq_index = READ_FAST_QUAD,
+  .ard_seq_number = 1,
+  .ahb_write_wait_unit = FLEXSPI_AHB_WRITE_WAIT_UNIT2_AHB_CYCLE,
+  .ahb_write_wait_interval = 0
+};
+
+static struct imxrt_flexspi_nor_dev_s g_flexspi_nor_a =
+{
+  .mtd =
+          {
+            .erase  = imxrt_flexspi_nor_erase,
+            .bread  = imxrt_flexspi_nor_bread,
+            .bwrite = imxrt_flexspi_nor_bwrite,
+            .read   = imxrt_flexspi_nor_read,
+            .ioctl  = imxrt_flexspi_nor_ioctl,
+#ifdef CONFIG_MTD_BYTE_WRITE
+            .write  = NULL,
+#endif
+            .name   = "imxrt_flexspi_nor"
+          },
+  .flexspi = (void *)0,
+  .ahb_base = (uint8_t *) 0x60000000,
+  .start_address = 0x0000000,
+  .port = FLEXSPI_PORT_A1,
+  .config = &g_flexspi_device_config
+};
+
+static struct imxrt_flexspi_nor_dev_s g_flexspi_nor_b =
+{
+  .mtd =
+          {
+            .erase  = imxrt_flexspi_nor_erase,
+            .bread  = imxrt_flexspi_nor_bread,
+            .bwrite = imxrt_flexspi_nor_bwrite,
+            .read   = imxrt_flexspi_nor_read,
+            .ioctl  = imxrt_flexspi_nor_ioctl,
+#ifdef CONFIG_MTD_BYTE_WRITE
+            .write  = NULL,
+#endif
+            .name   = "imxrt_flexspi_nor"
+          },
+  .flexspi = (void *)0,
+  .ahb_base = (uint8_t *) 0x61000000,
+  .start_address = 0x1000000,
+  .port = FLEXSPI_PORT_B1,
+  .config = &g_flexspi_device_config
+};
+
+/****************************************************************************
+ * Private Functions
+ ****************************************************************************/
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_get_vendor_id(
+                const struct imxrt_flexspi_nor_dev_s *dev, uint8_t *vendor_id)
+{
+  uint32_t buffer = 0;
+  int stat;
+
+  struct flexspi_transfer_s transfer =
+  {
+    .device_address = dev->start_address,
+    .port = dev->port,
+    .cmd_type = FLEXSPI_READ,
+    .seq_number = 1,
+    .seq_index = READ_ID,
+    .data = &buffer,
+    .data_size = 1,
+  };
+
+  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  *vendor_id = buffer;
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_read_status(
+                const struct imxrt_flexspi_nor_dev_s *dev,
+                uint32_t *status)
+{
+  int stat;
+
+  struct flexspi_transfer_s transfer =
+  {
+    .device_address = dev->start_address,
+    .port = dev->port,
+    .cmd_type = FLEXSPI_READ,
+    .seq_number = 1,
+    .seq_index = READ_STATUS_REG,
+    .data = status,
+    .data_size = 1,
+  };
+
+  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_write_status(
+                const struct imxrt_flexspi_nor_dev_s *dev,
+    uint32_t *status)
+{
+  int stat;
+
+  struct flexspi_transfer_s transfer =
+  {
+    .device_address = dev->start_address,
+    .port = dev->port,
+    .cmd_type = FLEXSPI_WRITE,
+    .seq_number = 1,
+    .seq_index = WRITE_STATUS_REG,
+    .data = status,
+    .data_size = 1,
+  };
+
+  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_write_enable(
+                const struct imxrt_flexspi_nor_dev_s *dev)
+{
+  int stat;
+
+  struct flexspi_transfer_s transfer =
+  {
+    .device_address = dev->start_address,
+    .port = dev->port,
+    .cmd_type = FLEXSPI_COMMAND,
+    .seq_number = 1,
+    .seq_index = WRITE_ENABLE,
+    .data = NULL,
+    .data_size = 0,
+  };
+
+  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_erase_sector(
+                const struct imxrt_flexspi_nor_dev_s *dev,  off_t offset)
+{
+  int stat;
+
+  struct flexspi_transfer_s transfer =
+  {
+    .device_address = dev->start_address + offset,
+    .port = dev->port,
+    .cmd_type = FLEXSPI_COMMAND,
+    .seq_number = 1,
+    .seq_index = ERASE_SECTOR,
+    .data = NULL,
+    .data_size = 0,
+  };
+
+  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_erase_chip(
+                const struct imxrt_flexspi_nor_dev_s *dev)
+{
+  int stat;
+
+  stat = imxrt_flexspi_nor_erase(dev, dev->start_address, 4096);
+//  struct flexspi_transfer_s transfer =
+//  {
+//    .device_address = dev->start_address,
+//    .port = dev->port,
+//    .cmd_type = FLEXSPI_COMMAND,
+//    .seq_number = 1,
+//    .seq_index = ERASE_CHIP,
+//    .data = NULL,
+//    .data_size = 0,
+//  };
+//
+//  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_page_program(
+                      const struct imxrt_flexspi_nor_dev_s *dev,
+                      off_t offset,
+                      const void *buffer,
+                      size_t len)
+{
+  int stat;
+
+  struct flexspi_transfer_s transfer =
+  {
+    .device_address = dev->start_address + offset,
+    .port = dev->port,
+    .cmd_type = FLEXSPI_WRITE,
+    .seq_number = 1,
+    .seq_index = PAGEPROGRAM_QUAD,
+    .data = (uint32_t *) buffer,
+    .data_size = len,
+  };
+
+  stat = FLEXSPI_TRANSFER(dev->flexspi, &transfer);
+  if (stat != 0)
+    {
+      return -EIO;
+    }
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_wait_bus_busy(
+                const struct imxrt_flexspi_nor_dev_s *dev)
+{
+  uint32_t status = 0;
+  int ret;
+
+  do
+    {
+      ret = imxrt_flexspi_nor_read_status(dev, &status);
+      if (ret)
+        {
+          return ret;
+        }
+    }
+  while (status & 1);
+
+  return 0;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_enable_quad_mode(
+                const struct imxrt_flexspi_nor_dev_s *dev)
+{
+  uint32_t status;
+
+  status = imxrt_flexspi_nor_write_enable(dev);
+  imxrt_flexspi_nor_write_status(dev, &status);
+  imxrt_flexspi_nor_wait_bus_busy(dev);
+  FLEXSPI_SOFTWARE_RESET(dev->flexspi);
+
+  return 0;
+}
+
+static ssize_t __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_read(FAR struct mtd_dev_s *dev,
+                                      off_t offset,
+                                      size_t nbytes,
+                                      FAR uint8_t *buffer)
+{
+  FAR struct imxrt_flexspi_nor_dev_s *priv =
+                  (FAR struct imxrt_flexspi_nor_dev_s *)dev;
+  uint8_t *src;
+
+  finfo("offset: %08lx nbytes: %d\n", (long)offset, (int)nbytes);
+
+  if (priv->port >= FLEXSPI_PORT_COUNT)
+    {
+      return -EIO;
+    }
+
+  src = priv->ahb_base + offset;
+
+  memcpy(buffer, src, nbytes);
+
+  finfo("return nbytes: %d\n", (int)nbytes);
+  return (ssize_t)nbytes;
+}
+
+static ssize_t __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_bread(FAR struct mtd_dev_s *dev,
+                                       off_t startblock,
+                                       size_t nblocks,
+                                       FAR uint8_t *buffer)
+{
+  ssize_t nbytes;
+
+  finfo("startblock: %08lx nblocks: %d\n", (long)startblock, (int)nblocks);
+
+  /* On this device, we can handle the block read just like the byte-oriented
+   * read
+   */
+
+  nbytes = imxrt_flexspi_nor_read(dev, startblock * NOR_PAGE_SIZE,
+                                  nblocks * NOR_PAGE_SIZE, buffer);
+  if (nbytes > 0)
+    {
+      nbytes /= NOR_PAGE_SIZE;
+    }
+
+  return nbytes;
+}
+
+static ssize_t __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_bwrite(FAR struct mtd_dev_s *dev,
+                                        off_t startblock,
+                                        size_t nblocks,
+                                        FAR const uint8_t *buffer)
+{
+  FAR struct imxrt_flexspi_nor_dev_s *priv =
+                  (FAR struct imxrt_flexspi_nor_dev_s *)dev;
+  size_t len = nblocks * NOR_PAGE_SIZE;
+  off_t offset = startblock * NOR_PAGE_SIZE;
+  uint8_t *src = (uint8_t *) buffer;
+  uint8_t *dst = priv->ahb_base + startblock * NOR_PAGE_SIZE;
+  int i;
+
+  finfo("startblock: %08lx nblocks: %d\n", (long)startblock, (int)nblocks);
+
+  while (len)
+    {
+      i = MIN(NOR_PAGE_SIZE, len);
+      imxrt_flexspi_nor_write_enable(priv);
+      imxrt_flexspi_nor_page_program(priv, offset, src, i);
+      imxrt_flexspi_nor_wait_bus_busy(priv);
+      FLEXSPI_SOFTWARE_RESET(priv->flexspi);
+      offset += i;
+      src += i;
+      len -= i;
+    }
+
+#ifdef CONFIG_ARMV7M_DCACHE
+  up_invalidate_dcache((uintptr_t)dst,
+                       (uintptr_t)dst + nblocks * NOR_PAGE_SIZE);
+#endif
+
+  return nblocks;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_erase(FAR struct mtd_dev_s *dev,
+                                   off_t startblock,
+                                   size_t nblocks)
+{
+  FAR struct imxrt_flexspi_nor_dev_s *priv =
+                  (FAR struct imxrt_flexspi_nor_dev_s *)dev;
+  size_t blocksleft = nblocks;
+  uint8_t *dst = priv->ahb_base + startblock * NOR_SECTOR_SIZE;
+
+  finfo("startblock: %08lx nblocks: %d\n", (long)startblock, (int)nblocks);
+
+  while (blocksleft-- > 0)
+    {
+      /* Erase each sector */
+
+      imxrt_flexspi_nor_write_enable(priv);
+      imxrt_flexspi_nor_erase_sector(priv, startblock * NOR_SECTOR_SIZE);
+      imxrt_flexspi_nor_wait_bus_busy(priv);
+      FLEXSPI_SOFTWARE_RESET(priv->flexspi);
+      startblock++;
+    }
+
+#ifdef CONFIG_ARMV7M_DCACHE
+  up_invalidate_dcache((uintptr_t)dst,
+                       (uintptr_t)dst + nblocks * NOR_SECTOR_SIZE);
+#endif
+
+  return (int)nblocks;
+}
+
+static int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_ioctl(FAR struct mtd_dev_s *dev,
+                                   int cmd,
+                                   unsigned long arg)
+{
+  FAR struct imxrt_flexspi_nor_dev_s *priv =
+                  (FAR struct imxrt_flexspi_nor_dev_s *)dev;
+  int ret = -EINVAL; /* Assume good command with bad parameters */
+
+  finfo("cmd: %d \n", cmd);
+
+  switch (cmd)
+    {
+      case MTDIOC_GEOMETRY:
+        {
+          FAR struct mtd_geometry_s *geo =
+            (FAR struct mtd_geometry_s *)((uintptr_t)arg);
+
+          if (geo)
+            {
+              /* Populate the geometry structure with information need to
+               * know the capacity and how to access the device.
+               *
+               * NOTE:
+               * that the device is treated as though it where just an array
+               * of fixed size blocks.  That is most likely not true, but the
+               * client will expect the device logic to do whatever is
+               * necessary to make it appear so.
+               */
+
+              geo->blocksize    = (NOR_PAGE_SIZE);
+              geo->erasesize    = (NOR_SECTOR_SIZE);
+              geo->neraseblocks = 4096; /* 8MB only */
+
+              ret               = OK;
+
+              finfo("blocksize: %lu erasesize: %lu neraseblocks: %lu\n",
+                    geo->blocksize, geo->erasesize, geo->neraseblocks);
+            }
+        }
+        break;
+
+      case BIOC_PARTINFO:
+        {
+          FAR struct partition_info_s *info =
+            (FAR struct partition_info_s *)arg;
+          if (info != NULL)
+            {
+              info->numsectors  = 32768; /* 8MB only */
+              info->sectorsize  = NOR_PAGE_SIZE;
+              info->startsector = 0;
+              info->parent[0]   = '\0';
+              ret               = OK;
+            }
+        }
+        break;
+
+      case MTDIOC_BULKERASE:
+        {
+          /* Erase the entire device */
+
+          imxrt_flexspi_nor_write_enable(priv);
+          imxrt_flexspi_nor_erase_chip(priv);
+          imxrt_flexspi_nor_wait_bus_busy(priv);
+          FLEXSPI_SOFTWARE_RESET(priv->flexspi);
+        }
+        break;
+
+      case MTDIOC_PROTECT:
+
+        /* TODO */
+
+        break;
+
+      case MTDIOC_UNPROTECT:
+
+        /* TODO */
+
+        break;
+
+      case MTDIOC_ERASESTATE:
+        {
+          FAR uint8_t *result = (FAR uint8_t *)arg;
+          *result = 0xff;
+
+          ret = OK;
+        }
+        break;
+      default:
+        ret = -ENOTTY; /* Bad/unsupported command */
+        break;
+    }
+
+  finfo("return %d\n", ret);
+  return ret;
+}
+
+/****************************************************************************
+ * Public Functions
+ ****************************************************************************/
+
+/****************************************************************************
+ * Name: imxrt_flexspi_nor_initialize
+ *
+ * Description:
+ *  This function is called by board-bringup logic to configure the
+ *  flash device.
+ *
+ * Returned Value:
+ *   Zero is returned on success.  Otherwise, a negated errno value is
+ *   returned to indicate the nature of the failure.
+ *
+ ****************************************************************************/
+
+int __attribute__((section(".ramfunc"))) imxrt_flexspi_nor_initialize(void)
+{
+  uint32_t vendor_id;
+//#ifdef CONFIG_FS_LITTLEFS
+  FAR struct mtd_dev_s *mtd_dev = &g_flexspi_nor_b.mtd;
+  FAR struct mtd_dev_s *master = &g_flexspi_nor_a.mtd;
+  FAR struct mtd_dev_s *part[5];
+  FAR struct mtd_geometry_s geo;
+  int ret = -1;
+//#endif
+
+
+
+  syslog(LOG_INFO, "imxrt_config_gpio\n");
+  imxrt_config_gpio(GPIO_FLEXSPI_A_CS);
+  imxrt_config_gpio(GPIO_FLEXSPI_A_IO0);
+  imxrt_config_gpio(GPIO_FLEXSPI_A_IO1);
+  imxrt_config_gpio(GPIO_FLEXSPI_A_IO2);
+  imxrt_config_gpio(GPIO_FLEXSPI_A_IO3);
+  imxrt_config_gpio(GPIO_FLEXSPI_A_SCK);
+  imxrt_config_gpio(GPIO_FLEXSPI_B_CS);
+  imxrt_config_gpio(GPIO_FLEXSPI_B_IO0);
+  imxrt_config_gpio(GPIO_FLEXSPI_B_IO1);
+  imxrt_config_gpio(GPIO_FLEXSPI_B_IO2);
+  imxrt_config_gpio(GPIO_FLEXSPI_B_IO3);
+  imxrt_config_gpio(GPIO_FLEXSPI_B_SCK);
+
+  syslog(LOG_INFO, "imxrt_flexspi_initialize\n");
+  g_flexspi_nor_a.flexspi = imxrt_flexspi_initialize(0);
+  if (!g_flexspi_nor_a.flexspi)
+    {
+      return -1;
+    }
+  g_flexspi_nor_b.flexspi = imxrt_flexspi_initialize(0);
+  if (!g_flexspi_nor_b.flexspi)
+    {
+      return -1;
+    }
+
+
+  syslog(LOG_INFO, "FLEXSPI_SET_DEVICE_CONFIG\n");
+  FLEXSPI_SET_DEVICE_CONFIG(g_flexspi_nor_a.flexspi,
+                            g_flexspi_nor_a.config,
+                            g_flexspi_nor_a.port);
+  FLEXSPI_SET_DEVICE_CONFIG(g_flexspi_nor_b.flexspi,
+                            g_flexspi_nor_b.config,
+                            g_flexspi_nor_b.port);
+  syslog(LOG_INFO, "FLEXSPI_UPDATE_LUT\n");
+  FLEXSPI_UPDATE_LUT(g_flexspi_nor_a.flexspi,
+                     0,
+                     (const uint32_t *)g_flexspi_nor_lut,
+                     sizeof(g_flexspi_nor_lut) / 4);
+  syslog(LOG_INFO, "FLEXSPI_SOFTWARE_RESET\n");
+  FLEXSPI_SOFTWARE_RESET(g_flexspi_nor_a.flexspi);
+
+  syslog(LOG_INFO, "imxrt_flexspi_nor_get_vendor_id\n");
+  if (imxrt_flexspi_nor_get_vendor_id(&g_flexspi_nor_a, &vendor_id))
+    {
+      return -EIO;
+    }
+  syslog(LOG_INFO, "imxrt_flexspi_nor_get_vendor_id:%ld\n", vendor_id);
+//
+  syslog(LOG_INFO, "imxrt_flexspi_nor_enable_quad_mode\n");
+  if (imxrt_flexspi_nor_enable_quad_mode(&g_flexspi_nor_a))
+    {
+      return -EIO;
+    }
+  if (imxrt_flexspi_nor_enable_quad_mode(&g_flexspi_nor_b))
+    {
+      return -EIO;
+    }
+
+#ifdef CONFIG_FS_LITTLEFS
+  /* Register the MTD driver so that it can be accessed from the
+   * VFS.
+   */
+
+  ret = register_mtddriver("/dev/nor", mtd_dev, 0755, NULL);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register MTD driver: %d\n",
+             ret);
+    }
+
+  /* mtd_dev->ioctl(mtd_dev, MTDIOC_BULKERASE, 0); */
+
+  /* Mount the LittleFS file system */
+
+  ret = nx_mount("/dev/nor", "/etc", "littlefs", 0,
+                 "autoformat");
+  if (ret < 0)
+    {
+      syslog(LOG_ERR,
+             "ERROR: Failed to mount LittleFS at /etc: %d\n",
+             ret);
+    }
+#endif
+
+#ifdef CONFIG_MTD_PARTITION
+//  ret = master->ioctl(master, MTDIOC_BULKERASE, 0);
+//  if (ret < 0)
+//    {
+//      syslog(LOG_ERR, "MTDIOC_BULKERASE ioctl failed: %d\n", ret);
+//      return ret;
+//    }
+//
+//  ret = ftl_initialize(0, master);
+//  if (ret < 0)
+//    {
+//      syslog(LOG_ERR, "/dev/mtdblock0 init failed: %d\n", ret);
+//      return ret;
+//    }
+//
+//  ret = bchdev_register("/dev/mtdblock0", "/dev/mtd0", false);
+//  if (ret < 0)
+//    {
+//      syslog(LOG_ERR, "/dev/bootloader register failed: %d\n", ret);
+//      return ret;
+//    }
+
+  ret = master->ioctl(master, MTDIOC_GEOMETRY, (unsigned long)((uintptr_t)&geo));
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "get geometry failed: %d\n", ret);
+      return ret;
+    }
+
+  syslog(LOG_INFO, "Flash Geometry:\n");
+  syslog(LOG_INFO, "  blocksize:      %lu\n", (unsigned long)geo.blocksize);
+  syslog(LOG_INFO, "  erasesize:      %lu\n", (unsigned long)geo.erasesize);
+  syslog(LOG_INFO, "  neraseblocks:   %lu\n", (unsigned long)geo.neraseblocks);
+  /* bootloader */
+  part[0] = mtd_partition(master, 0, 4096); // 1M for bootloader
+  if (!part[0])
+    {
+      syslog(LOG_ERR, "make partition failed. offset = 0, nblocks = 4096");
+      return -1;
+    }
+  ret = ftl_initialize(1, part[0]);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtdblock1 init failed: %d\n", ret);
+      return ret;
+    }
+
+  ret = bchdev_register("/dev/mtdblock1", "/dev/bootloader", false);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtd1 register failed: %d\n", ret);
+      return ret;
+    }
+  /* /dev/ota0 */
+  part[1] = mtd_partition(master, 4096, 20480); // 5M for ota0
+  if (!part[1])
+    {
+      syslog(LOG_ERR, "make partition failed. offset = 0, nblocks = 4096");
+      return -1;
+    }
+  ret = ftl_initialize(2, part[1]);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtdblock2 init failed: %d\n", ret);
+      return ret;
+    }
+
+  ret = bchdev_register("/dev/mtdblock2", "/dev/ota0", false);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtd2 register failed: %d\n", ret);
+      return ret;
+    }
+  /* /dev/ota1 */
+  part[2] = mtd_partition(master, 24576, 20480); // 5M for bootloader
+  if (!part[2])
+    {
+      syslog(LOG_ERR, "make partition failed. offset = 0, nblocks = 4096");
+      return -1;
+    }
+  ret = ftl_initialize(3, part[2]);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtdblock3 init failed: %d\n", ret);
+      return ret;
+    }
+
+  ret = bchdev_register("/dev/mtdblock3", "/dev/ota1", false);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtd3 register failed: %d\n", ret);
+      return ret;
+    }
+ /* /dev/ota3 */
+  part[3] = mtd_partition(master, 45056, 4096); // 1M for bootloader
+  if (!part[3])
+    {
+      syslog(LOG_ERR, "make partition failed. offset = 0, nblocks = 4096");
+      return -1;
+    }
+  ret = ftl_initialize(4, part[3]);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtdblock4 init failed: %d\n", ret);
+      return ret;
+    }
+
+  ret = bchdev_register("/dev/mtdblock4", "/dev/otascratch", false);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtd4 register failed: %d\n", ret);
+      return ret;
+    }
+
+   /* /dev/config */
+  part[4] = mtd_partition(master, 49152, 16384); // 1M for bootloader
+  if (!part[4])
+    {
+      syslog(LOG_ERR, "make partition failed. offset = 0, nblocks = 4096");
+      return -1;
+    }
+  ret = ftl_initialize(5, part[4]);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtdblock15 init failed: %d\n", ret);
+      return ret;
+    }
+
+  ret = bchdev_register("/dev/mtdblock5", "/dev/data", false);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "/dev/mtd5 register failed: %d\n", ret);
+      return ret;
+    }
+
+//  int fd = open("/dev/ota0", O_WRONLY);
+//  if (fd < 0)
+//    {
+//      syslog(LOG_ERR, "open /dev/ota0 failed: %d\n", errno);
+//    }
+//
+  uint8_t buffer_test[256] = {0};
+//  for (int i=0; i < 256; i++) {
+//    buffer_test[i] = i;
+//  }
+//  write(fd, buffer_test, geo.blocksize);
+//  close(fd);
+//  memset(buffer_test, 0, 256);
+  int fd = open("/dev/bootloader", O_RDWR);
+  lseek(fd, 0, SEEK_SET);
+  read(fd, buffer_test, geo.blocksize);
+  close(fd);
+  for (int i = 0; i < 256; i++){
+  syslog(LOG_INFO, "buffer_test[%d]: %d\n", i, buffer_test[i]);
+  }
+#endif
+  return 0;
+}
+
+#endif /* CONFIG_IMXRT_FLEXSPI */

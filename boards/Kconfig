@@ -476,6 +476,16 @@ config ARCH_BOARD_IMXRT1064_EVK
 		This is the board configuration for the port of NuttX to the NXP i.MXRT
 		evaluation kit, MIMXRT1064-EVK.  This board features the MIMXRT1064DVL6A MCU.
 
+config ARCH_BOARD_OK1050_C
+	bool "ok1050-c"
+	depends on ARCH_CHIP_MIMXRT1052CVL5A
+	select ARCH_HAVE_LEDS
+	select ARCH_HAVE_BUTTONS
+	select ARCH_HAVE_IRQBUTTONS
+	---help---
+		This is the board configuration for the port of NuttX to the NXP i.MXRT
+		evaluation kit, MIMXRT1050-EVKB.  This board features the MIMXRT1052DVL6A MCU.
+
 config ARCH_BOARD_LC823450_XGEVK
 	bool "ON Semiconductor LC823450-XGEVK development board"
 	depends on ARCH_CHIP_LC823450
@@ -2507,6 +2517,7 @@ config ARCH_BOARD
 	default "nucleo-l496zg"            if ARCH_BOARD_NUCLEO_L496ZG
 	default "nucleo-l552ze"            if ARCH_BOARD_NUCLEO_L552ZE
 	default "nutiny-nuc120"            if ARCH_BOARD_NUTINY_NUC120
+	default "ok1050-c"                 if ARCH_BOARD_OK1050_C
 	default "olimex-efm32g880f128-stk" if ARCH_BOARD_OLIMEX_EFM32G880F128_STK
 	default "olimex-lpc1766stk"        if ARCH_BOARD_LPC1766STK
 	default "olimex-lpc2378"           if ARCH_BOARD_OLIMEXLPC2378
@@ -2725,6 +2736,9 @@ source "boards/arm/imxrt/imxrt1060-evk/Kconfig"
 endif
 if ARCH_BOARD_IMXRT1064_EVK
 source "boards/arm/imxrt/imxrt1064-evk/Kconfig"
+endif
+if ARCH_BOARD_OK1050_C
+source "boards/arm/imxrt/ok1050-c/Kconfig"
 endif
 if ARCH_BOARD_TEENSY_4X
 source "boards/arm/imxrt/teensy-4.x/Kconfig"
