@@ -31,6 +31,8 @@ CFLAGS += $(INCLUDES)
 CXXFLAGS += $(INCLUDES)
 AFLAGS += $(INCLUDES)
 
+NUTTX = $(call CONVERT_PATH,$(TOPDIR)$(DELIM)nuttx$(EXEEXT))
+
 # Determine which objects are required in the link.The
 # up_head object normally draws in all that is needed, but
 # there are a fews that must be included because they
@@ -49,6 +51,8 @@ else ifeq ($(CONFIG_HOST_X86),y)
   ASRCS += up_vfork_x86.S
 else ifeq ($(CONFIG_HOST_ARM),y)
   ASRCS += up_vfork_arm.S
+else ifeq ($(CONFIG_HOST_ARM64),y)
+  ASRCS += up_vfork_arm64.S
 endif
 
 AOBJS = $(ASRCS:.S=$(OBJEXT))
@@ -73,6 +77,9 @@ endif
 
 VPATH = sim
 DEPPATH = $(patsubst %,--dep-path %,$(subst :, ,$(VPATH)))
+
+HOSTCFLAGS = $(ARCHWARNINGS) $(ARCHOPTIMIZATION) \
+   $(ARCHCFLAGS) $(HOSTINCLUDES) $(EXTRAFLAGS) -D__SIM__ -pipe
 
 HOSTCFLAGS += ${shell $(INCDIR) "$(CC)" $(ARCH_SRCDIR)}
 ifeq ($(CONFIG_HOST_MACOS),y)
@@ -136,6 +143,10 @@ else ifeq ($(CONFIG_SIM_AJOYSTICK),y)
   HOSTSRCS += up_x11eventloop.c
 else ifeq ($(CONFIG_SIM_BUTTONS),y)
   HOSTSRCS += up_x11eventloop.c
+endif
+
+ifeq ($(CONFIG_SIM_KEYBOARD),y)
+  CSRCS += up_keyboard.c
 endif
 endif
 
@@ -218,10 +229,18 @@ OBJS = $(AOBJS) $(COBJS) $(HOSTOBJS)
 # Override in Make.defs if linker is not 'ld'
 
 ifneq ($(CONFIG_HOST_MACOS),y)
-  ARCHSCRIPT += -T nuttx.ld
+  ARCHSCRIPT += nuttx.ld
   LDSTARTGROUP ?= --start-group
   LDENDGROUP ?= --end-group
 endif
+
+# Additional rules for system call wrapper
+
+ifeq ($(CONFIG_SCHED_INSTRUMENTATION_SYSCALL),y)
+  EXTRALINKCMDS += @$(TOPDIR)/syscall/syscall_wraps.ldcmd
+endif
+
+LDFLAGS += $(addprefix -T,$(call CONVERT_PATH,$(ARCHSCRIPT)))
 
 # Determine which NuttX libraries will need to be linked in
 # Most are provided by LINKLIBS on the MAKE command line
@@ -231,7 +250,6 @@ RELPATHS += -L"$(TOPDIR)/staging"
 
 # Add the board-specific library and directory
 
-LIBPATHS += -L board
 RELPATHS += -L board
 RELLIBS += -lboard
 
@@ -273,29 +291,59 @@ board/libboard$(LIBEXT):
 # So we have to skip the standard facilities and do the construction by ourself.
 # But how to achieve the goal?
 # 1.Command linker generate the default script(-verbose)
-# 2.Replace __init_array_start/__init_array_end with _sinit/_einit
-# 3.Append __init_array_start = .; __init_array_end = .;
-# Step 2 let nxtask_startup find objects need to construct
-# Step 3 cheat the host there is no object to construct
+# 2.Move input sections out of .init_array/.fini_array into new .sinit/.einit
+#   output sections
+# 3.Replace __init_array_start/__init_array_end with _sinit/_einit
+# 4.Append __init_array_start = .; __init_array_end = .;
+# Step 2 cheat the host there is no object to construct (glibc >= 2.34)
+# Step 3 let nxtask_startup find objects need to construct
+# Step 4 cheat the host there is no object to construct (glibc < 2.34)
 # Note: the destructor can be fixed in the same way.
 
 nuttx-names.dat: nuttx-names.in
 	$(call PREPROCESS, nuttx-names.in, nuttx-names.dat)
 
+define LINK_ALLSYMS
+	$(Q) $(TOPDIR)/tools/mkallsyms.sh noconst $(NUTTX) $(CROSSDEV) > allsyms.tmp
+	$(Q) $(call COMPILE, -x c allsyms.tmp, allsyms$(OBJEXT))
+	$(if $(CONFIG_HAVE_CXX),\
+	$(Q) "$(CXX)" $(CFLAGS) $(LDFLAGS) -o $(NUTTX) \
+	      $(HEADOBJ) nuttx.rel $(HOSTOBJS) $(STDLIBS) allsyms$(OBJEXT),\
+	$(Q) "$(CC)" $(CFLAGS) $(LDFLAGS) -o $(NUTTX) \
+	      $(HEADOBJ) nuttx.rel $(HOSTOBJS) $(STDLIBS) allsyms$(OBJEXT))
+	$(Q) $(call DELFILE, allsyms.tmp allsyms$(OBJEXT))
+endef
+
+# Note: Use objcopy for Linux because for some reasons visibility=hidden
+# stuff doesn't work there as we expect.
+# Note: _stext stuff is for CONFIG_CXX_INITIALIZE_SINIT, which in not
+# necessary for macOS.
 nuttx$(EXEEXT): libarch$(LIBEXT) board/libboard$(LIBEXT) $(HEADOBJ) $(LINKOBJS) $(HOSTOBJS) nuttx-names.dat
 	$(Q) echo "LD:  nuttx$(EXEEXT)"
-	$(Q) $(LD) -r $(LDLINKFLAGS) $(RELPATHS) $(EXTRA_LIBPATHS) -o nuttx.rel $(REQUIREDOBJS) $(LDSTARTGROUP) $(RELLIBS) $(EXTRA_LIBS) $(LDENDGROUP)
-ifeq ("$(shell $(CC) --version | grep clang)","")
-   # none clang based native compilers need opjcopy to build simulation
+	$(Q) $(LD) -r $(LDLINKFLAGS) $(RELPATHS) $(EXTRA_LIBPATHS) $(EXTRALINKCMDS) \
+	     -o nuttx.rel $(REQUIREDOBJS) $(LDSTARTGROUP) $(RELLIBS) $(EXTRA_LIBS) $(LDENDGROUP)
+ifneq ($(CONFIG_HOST_MACOS),y)
 	$(Q) $(OBJCOPY) --redefine-syms=nuttx-names.dat nuttx.rel
-	$(Q) $(CC) $(CCLINKFLAGS) -Wl,-verbose 2>&1 | \
-	     sed -e '/====/,/====/!d;//d' -e 's/__executable_start/_stext/g' -e 's/__init_array_start/_sinit/g' \
-	         -e 's/__init_array_end/_einit/g' -e 's/__fini_array_start/_sfini/g' -e 's/__fini_array_end/_efini/g' >nuttx.ld
+	$(Q) $(CC) $(CFLAGS) -Wl,-verbose 2>&1 | \
+	     sed -e '/====/,/====/!d;//d' -e 's/__executable_start/_stext/g' \
+	         -e 's/^\(\s\+\)\(\.init_array\)/\1\2 : { }\n\1.sinit/g' \
+	         -e 's/^\(\s\+\)\(\.fini_array\)/\1\2 : { }\n\1.einit/g' \
+	         -e 's/__init_array_start/_sinit/g' -e 's/__init_array_end/_einit/g' \
+	         -e 's/__fini_array_start/_sfini/g' -e 's/__fini_array_end/_efini/g' >nuttx.ld
 	$(Q) echo "__init_array_start = .; __init_array_end = .; __fini_array_start = .; __fini_array_end = .;" >>nuttx.ld
 endif
+ifneq ($(CONFIG_ALLSYMS),y)
 	$(if $(CONFIG_HAVE_CXX),\
-	$(Q) "$(CXX)" $(CCLINKFLAGS) $(LIBPATHS) $(ARCHSCRIPT) -o $(TOPDIR)/$@ $(HEADOBJ) nuttx.rel $(HOSTOBJS) $(STDLIBS),\
-	$(Q) "$(CC)" $(CCLINKFLAGS) $(LIBPATHS) $(ARCHSCRIPT) -o $(TOPDIR)/$@ $(HEADOBJ) nuttx.rel $(HOSTOBJS) $(STDLIBS))
+	$(Q) "$(CXX)" $(CFLAGS) $(LDFLAGS) -o $(TOPDIR)/$@ $(HEADOBJ) nuttx.rel $(HOSTOBJS) $(STDLIBS),\
+	$(Q) "$(CC)" $(CFLAGS) $(LDFLAGS) -o $(TOPDIR)/$@ $(HEADOBJ) nuttx.rel $(HOSTOBJS) $(STDLIBS))
+else
+	$(Q) # Link and generate default table
+	$(Q) $(if $(wildcard $(shell echo $(NUTTX))),,$(call LINK_ALLSYMS, $@))
+	$(Q) # Extract all symbols
+	$(Q) $(call LINK_ALLSYMS, $^)
+	$(Q) # Extract again since the table offset may changed
+	$(Q) $(call LINK_ALLSYMS, $^)
+endif
 	$(Q) $(NM) $(TOPDIR)/$@ | \
 		grep -v '\(compiled\)\|\(\.o$$\)\|\( [aUw] \)\|\(\.\.ng$$\)\|\(LASH[RL]DI\)' | \
 		sort > $(TOPDIR)/System.map

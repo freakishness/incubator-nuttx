@@ -25,7 +25,7 @@
 #include <nuttx/config.h>
 #include <nuttx/arch.h>
 
-#include "svcall.h"
+#include <arch/syscall.h>
 
 #if defined(CONFIG_BUILD_PROTECTED) || defined(CONFIG_BUILD_KERNEL)
 
@@ -58,7 +58,7 @@
  *
  ****************************************************************************/
 
-void up_task_start(main_t taskentry, int argc, FAR char *argv[])
+void up_task_start(main_t taskentry, int argc, char *argv[])
 {
   /* Let sys_call3() do all of the work */
 

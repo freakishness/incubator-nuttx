@@ -35,9 +35,7 @@
 #include <arch/irq.h>
 #include <arch/board/board.h>
 
-#include "arm_arch.h"
 #include "arm_internal.h"
-
 #include "sam_gpio.h"
 #include "sam_periphclks.h"
 #include "hardware/sam_pmc.h"
@@ -391,7 +389,7 @@ void sam_gpioirqenable(int irq)
     {
       /* Clear (all) pending interrupts and enable this pin interrupt */
 
-      /* (void)getreg32(base + SAM_PIO_ISR_OFFSET); */
+      /* getreg32(base + SAM_PIO_ISR_OFFSET); */
 
       putreg32((1 << pin), base + SAM_PIO_IER_OFFSET);
     }

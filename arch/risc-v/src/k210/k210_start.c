@@ -28,7 +28,7 @@
 #include <nuttx/arch.h>
 #include <arch/board/board.h>
 
-#include "riscv_arch.h"
+#include "riscv_internal.h"
 #include "k210_clockconfig.h"
 #include "k210_userspace.h"
 #include "k210.h"
@@ -66,6 +66,10 @@ void __k210_start(uint32_t mhartid)
 {
   const uint32_t *src;
   uint32_t *dest;
+
+  /* Configure FPU */
+
+  riscv_fpuconfig();
 
   if (0 < mhartid)
     {

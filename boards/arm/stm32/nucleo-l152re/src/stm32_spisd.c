@@ -31,7 +31,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "arm_arch.h"
+#include "arm_internal.h"
 #include "chip.h"
 #include "stm32_spi.h"
 #include "stm32_gpio.h"
@@ -67,35 +67,6 @@ int stm32_spi1register(struct spi_dev_s *dev, spi_mediachange_t callback,
   /* TODO: media change callback */
 
   return OK;
-}
-
-void stm32_spi1select(FAR struct spi_dev_s *dev, uint32_t devid,
-                                                  bool selected)
-{
-  spiinfo("devid: %d CS: %s\n", (int)devid, selected ? "assert" :
-                                                     "de-assert");
-#if defined(CONFIG_MMCSD_SPI)
-  stm32_gpiowrite(GPIO_SPI1_CS, !selected);
-#endif
-}
-
-uint8_t stm32_spi1status(FAR struct spi_dev_s *dev, uint32_t devid)
-{
-  uint8_t ret = 0;
-#if defined(CONFIG_MMCSD_SPI)
-  if (devid == SPIDEV_MMCSD(0))
-    {
-      ret |= SPI_STATUS_PRESENT;
-    }
-#endif
-
-  return ret;
-}
-
-int stm32_spi1cmddata(FAR struct spi_dev_s *dev, uint32_t devid,
-                      bool cmd)
-{
-  return -ENODEV;
 }
 
 /****************************************************************************

@@ -32,13 +32,7 @@ ifeq ($(filter y, \
 endif
 
 ifeq ($(filter y, \
-      $(CONFIG_ARMV7R_TOOLCHAIN_GNU_EABIL) \
-    ),y)
-  CONFIG_ARMV7R_TOOLCHAIN ?= GNU_EABI
-endif
-
-ifeq ($(filter y, \
-      $(CONFIG_ARMV7R_TOOLCHAIN_GNU_EABIW) \
+      $(CONFIG_ARMV7R_TOOLCHAIN_GNU_EABI) \
     ),y)
   CONFIG_ARMV7R_TOOLCHAIN ?= GNU_EABI
 endif
@@ -67,6 +61,33 @@ else
   MAXOPTIMIZATION += -fomit-frame-pointer
 endif
 
+ifeq ($(CONFIG_ARCH_CORTEXR4),y)
+  ARCHCPUFLAGS += -mcpu=cortex-r4
+else ifeq ($(CONFIG_ARCH_CORTEXR5),y)
+  ARCHCPUFLAGS += -mcpu=cortex-r5
+else ifeq ($(CONFIG_ARCH_CORTEXR7),y)
+  ARCHCPUFLAGS += -mcpu=cortex-r7
+endif
+
+ifeq ($(CONFIG_ARCH_FPU),y)
+  ARCHCPUFLAGS += -mfpu=vfpv3-d16
+  ifeq ($(CONFIG_ARM_FPU_ABI_SOFT),y)
+    ARCHCPUFLAGS += -mfloat-abi=softfp
+  else
+    ARCHCPUFLAGS += -mfloat-abi=hard
+  endif
+else
+  ARCHCPUFLAGS += -mfloat-abi=soft
+endif
+
+ifeq ($(CONFIG_ENDIAN_BIG),y)
+  ARCHCPUFLAGS += -mbig-endian
+endif
+
+ifeq ($(CONFIG_MM_KASAN),y)
+  ARCHCPUFLAGS += -fsanitize=kernel-address
+endif
+
 ifeq ($(CONFIG_ENDIAN_BIG),y)
   TARGET_ARCH := armeb
 else
@@ -89,6 +110,30 @@ ifeq ($(CONFIG_ARMV7R_TOOLCHAIN),GNU_EABI)
   CROSSDEV ?= $(TARGET_ARCH)-none-eabi-
 endif
 
+ARCHCFLAGS =
+ARCHCXXFLAGS =
+
+ifneq ($(CONFIG_CXX_EXCEPTION),y)
+  ARCHCXXFLAGS += -fno-exceptions -fcheck-new
+endif
+
+ifneq ($(CONFIG_CXX_RTTI),y)
+  ARCHCXXFLAGS += -fno-rtti
+endif
+
+# Optimization of unused sections
+
+ifeq ($(CONFIG_DEBUG_OPT_UNUSED_SECTIONS),y)
+  LDFLAGS         += --gc-sections
+  MAXOPTIMIZATION += -ffunction-sections -fdata-sections
+endif
+
+# Debug link map
+
+ifeq ($(CONFIG_DEBUG_LINK_MAP),y)
+  LDFLAGS += --cref -Map=$(call CONVERT_PATH,$(TOPDIR)$(DELIM)nuttx.map)
+endif
+
 # Default toolchain
 
 CC = $(CROSSDEV)gcc
@@ -103,12 +148,12 @@ OBJDUMP = $(CROSSDEV)objdump
 
 # Add the builtin library
 
-EXTRA_LIBS += ${shell $(CC) $(ARCHCPUFLAGS) --print-libgcc-file-name}
+EXTRA_LIBS += $(wildcard $(shell $(CC) $(ARCHCPUFLAGS) --print-libgcc-file-name))
 
 ifneq ($(CONFIG_LIBM),y)
-  EXTRA_LIBS += ${wildcard ${shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libm.a}}
+  EXTRA_LIBS += $(wildcard $(shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libm.a))
 endif
 
 ifeq ($(CONFIG_LIBSUPCXX),y)
-  EXTRA_LIBS += ${shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libsupc++.a}
+  EXTRA_LIBS += $(wildcard $(shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libsupc++.a))
 endif

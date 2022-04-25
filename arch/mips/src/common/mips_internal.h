@@ -69,6 +69,29 @@
 #  define CONFIG_ARCH_INTERRUPTSTACK 0
 #endif
 
+/* MIPS requires at least a 4-byte stack alignment.  For floating point use,
+ * however, the stack must be aligned to 8-byte addresses.
+ */
+
+#ifdef CONFIG_LIBC_FLOATINGPOINT
+#  define STACK_ALIGNMENT   8
+#else
+#  define STACK_ALIGNMENT   4
+#endif
+
+/* Stack alignment macros */
+
+#define STACK_ALIGN_MASK    (STACK_ALIGNMENT - 1)
+#define STACK_ALIGN_DOWN(a) ((a) & ~STACK_ALIGN_MASK)
+#define STACK_ALIGN_UP(a)   (((a) + STACK_ALIGN_MASK) & ~STACK_ALIGN_MASK)
+
+#define getreg8(a)          (*(volatile uint8_t *)(a))
+#define putreg8(v,a)        (*(volatile uint8_t *)(a) = (v))
+#define getreg16(a)         (*(volatile uint16_t *)(a))
+#define putreg16(v,a)       (*(volatile uint16_t *)(a) = (v))
+#define getreg32(a)         (*(volatile uint32_t *)(a))
+#define putreg32(v,a)       (*(volatile uint32_t *)(a) = (v))
+
 /* In the MIPS model, the state is copied from the stack to the TCB, but
  * only a referenced is passed to get the state from the TCB.
  */
@@ -162,13 +185,18 @@ extern uint32_t _bmxdupba_address;  /* BMX register setting */
  * functions prototyped in include/nuttx/arch.h.
  */
 
+/* Atomic modification of registers */
+
+void modifyreg8(unsigned int addr, uint8_t clearbits, uint8_t setbits);
+void modifyreg16(unsigned int addr, uint16_t clearbits, uint16_t setbits);
+void modifyreg32(unsigned int addr, uint32_t clearbits, uint32_t setbits);
+
 /* Context switching */
 
 void up_copystate(uint32_t *dest, uint32_t *src);
 
 /* Serial output */
 
-void up_puts(const char *str);
 void up_lowputs(const char *str);
 
 /* Debug */
@@ -187,7 +215,7 @@ uint32_t *up_doirq(int irq, uint32_t *regs);
 
 /* Software interrupt 0 handler */
 
-int up_swint0(int irq, FAR void *context, FAR void *arg);
+int up_swint0(int irq, void *context, void *arg);
 
 /* Signals */
 
@@ -227,10 +255,6 @@ void up_earlyserialinit(void);
 
 #ifdef USE_SERIALDRIVER
 void up_serialinit(void);
-#endif
-
-#ifdef CONFIG_RPMSG_UART
-void rpmsg_serialinit(void);
 #endif
 
 /* Network */

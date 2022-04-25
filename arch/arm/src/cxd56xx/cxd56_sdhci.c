@@ -47,7 +47,7 @@
 #include <arch/board/board.h>
 
 #include "chip.h"
-#include "arm_arch.h"
+#include "arm_internal.h"
 #include "cxd56_sdhci.h"
 #include "cxd56_clock.h"
 #include "cxd56_pinconfig.h"
@@ -3163,7 +3163,7 @@ static void cxd56_sdio_callback(void *arg)
           mcinfo("Queuing callback to %p(%p)\n",
                  priv->callback, priv->cbarg);
 
-          work_queue(HPWORK, &priv->cbwork, (worker_t)priv->callback,
+          work_queue(HPWORK, &priv->cbwork, priv->callback,
                      priv->cbarg, delay);
         }
       else

@@ -109,8 +109,7 @@ GNU Toolchain Options
   configuration options to your .config (or defconfig) file:
 
     CONFIG_ARMV7A_TOOLCHAIN_BUILDROOT=y  : NuttX buildroot under Linux or Cygwin (default)
-    CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIL=y  : Generic GCC ARM EABI toolchain for Linux
-    CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y  : Generic GCC ARM EABI toolchain for Windows
+    CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y   : Generic GCC ARM EABI toolchain
 
   NOTE about Windows native toolchains
   ------------------------------------
@@ -1047,7 +1046,6 @@ Networking
    [302074.760638] cdc_ether 1-2:1.0 usb0: register 'cdc_ether' at usb-0000:02:03.0-2, CDC Ethernet Device, 02:00:00:11:22:33
    [302074.796215] cdc_ether 1-2:1.0 ens160u4u2: renamed from usb0
 
-
   If you execute the command 'ifconfig -a' you should see a new interface:
 
   $ ifconfig -a
@@ -1089,7 +1087,6 @@ Networking
 
   The helper script also sets up Network Address Translation (NAT) so the NuttX system
   can access the Internet. If that is not what you want, you can remove the iptables
-
 
 AT25 Serial FLASH
 =================
@@ -1455,7 +1452,6 @@ USB High-Speed Device
   This allows networking to the host system via Ethernet over USB. See the
   Networking section for configuration. On USB 2.0 High Speed, the CDC ECM
   driver uses DMA and can transfer 4.4 MBytes/sec (34 Mbits/sec).
-
 
   Debugging USB Device
   --------------------
@@ -3113,7 +3109,7 @@ Configurations
        CONFIG_WINDOWS_CYGWIN=y             : Using Cygwin or other POSIX environment
 
      System Type -> Toolchain:
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y : GNU EABI toolchain for windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y  : GNU EABI toolchain
 
   4. The SAMA5Dx is running at 396MHz by default in these configurations.
      This is because the original timing for the PLLs, NOR FLASH, and SDRAM
@@ -3162,7 +3158,6 @@ Configurations
     UDP relay bridge test using apps/examples/bridge.  See
     apps/examples/README.txt for more information about this test.
 
-
     NOTES:
 
     1. This configuration uses the default DBGU serial console.  That
@@ -3177,7 +3172,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under Windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a
@@ -3239,7 +3234,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a

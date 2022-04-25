@@ -105,17 +105,12 @@ int nx_vsyslog(int priority, FAR const IPTR char *fmt, FAR va_list *ap)
 
       clock_gettime(CLOCK_REALTIME, &ts);
 
-#elif defined(CONFIG_CLOCK_MONOTONIC)
+#else
       /* Prefer monotonic when enabled, as it can be synchronized to
        * RTC with clock_resynchronize.
        */
 
       clock_gettime(CLOCK_MONOTONIC, &ts);
-
-#else
-      /* Otherwise, fall back to the system timer */
-
-      clock_systime_timespec(&ts);
 #endif
 
       /* Prepend the message with the current time, if available */
@@ -135,11 +130,16 @@ int nx_vsyslog(int priority, FAR const IPTR char *fmt, FAR va_list *ap)
 
   if (ret > 0)
     {
+#if defined(CONFIG_SYSLOG_TIMESTAMP_FORMAT_MICROSECOND)
+      ret = lib_sprintf(&stream.public, "[%s.%06ld] ",
+                        date_buf, ts.tv_nsec / NSEC_PER_USEC);
+#else
       ret = lib_sprintf(&stream.public, "[%s] ", date_buf);
+#endif
     }
 #else
   ret = lib_sprintf(&stream.public, "[%5jd.%06ld] ",
-                    (uintmax_t)ts.tv_sec, ts.tv_nsec / 1000);
+                    (uintmax_t)ts.tv_sec, ts.tv_nsec / NSEC_PER_USEC);
 #endif
 #endif
 

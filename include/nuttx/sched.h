@@ -79,7 +79,7 @@
 
 /* Special task IDS.  Any negative PID is invalid. */
 
-#define NULL_TASK_PROCESS_ID       (pid_t)0
+#define IDLE_PROCESS_ID            (pid_t)0
 #define INVALID_PROCESS_ID         (pid_t)-1
 
 /* This is the maximum number of times that a lock can be set */
@@ -193,7 +193,8 @@
 #else
 #  define TCB_NAME_OFF               0
 #endif
-#  define TCB_REG_OFF(reg)           offsetof(struct tcb_s, xcp.regs[reg])
+#  define TCB_REGS_OFF               offsetof(struct tcb_s, xcp.regs)
+#  define TCB_REG_OFF(reg)           (reg * sizeof(uint32_t))
 #endif
 
 /****************************************************************************
@@ -525,8 +526,7 @@ struct task_group_s
 #ifndef CONFIG_DISABLE_ENVIRON
   /* Environment variables **************************************************/
 
-  size_t     tg_envsize;            /* Size of environment string allocation    */
-  FAR char  *tg_envp;               /* Allocated environment strings            */
+  FAR char **tg_envp;               /* Allocated environment strings            */
 #endif
 
 #ifndef CONFIG_DISABLE_POSIX_TIMERS
@@ -771,21 +771,25 @@ begin_packed_struct struct tcbinfo_s
   uint16_t state_off;                    /* Offset of tcb.task_state        */
   uint16_t pri_off;                      /* Offset of tcb.sched_priority    */
   uint16_t name_off;                     /* Offset of tcb.name              */
-  uint16_t reg_num;                      /* Num of regs in tcbinfo.reg_offs */
+  uint16_t regs_off;                     /* Offset of tcb.regs              */
+  uint16_t basic_num;                    /* Num of genernal regs            */
+  uint16_t total_num;                    /* Num of regs in tcbinfo.reg_offs */
 
   /* Offset pointer of xcp.regs, order in GDB org.gnu.gdb.xxx feature.
    * Please refer:
    * https://sourceware.org/gdb/current/onlinedocs/gdb/ARM-Features.html
    * https://sourceware.org/gdb/current/onlinedocs/gdb/RISC_002dV-Features
    * -.html
-   * value 0: This regsiter was not priovided by NuttX
+   * value UINT16_MAX: This regsiter was not priovided by NuttX
    */
 
+  begin_packed_struct
   union
   {
     uint8_t             u[8];
     FAR const uint16_t *p;
-  } reg_off;
+  }
+  end_packed_struct reg_off;
 } end_packed_struct;
 #endif
 
@@ -929,6 +933,7 @@ FAR struct streamlist *nxsched_get_streams(void);
  *   argv       - A pointer to an array of input parameters.  The array
  *                should be terminated with a NULL argv[] value. If no
  *                parameters are required, argv may be NULL.
+ *   envp       - A pointer to the program's environment, envp may be NULL
  *
  * Returned Value:
  *   OK on success; negative error value on failure appropriately.  (See
@@ -941,7 +946,7 @@ FAR struct streamlist *nxsched_get_streams(void);
 
 int nxtask_init(FAR struct task_tcb_s *tcb, const char *name, int priority,
                 FAR void *stack, uint32_t stack_size, main_t entry,
-                FAR char * const argv[]);
+                FAR char * const argv[], FAR char * const envp[]);
 
 /****************************************************************************
  * Name: nxtask_uninit

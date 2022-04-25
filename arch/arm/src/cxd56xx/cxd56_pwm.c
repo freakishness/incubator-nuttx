@@ -34,8 +34,7 @@
 #include <debug.h>
 
 #include "chip.h"
-#include "arm_arch.h"
-
+#include "arm_internal.h"
 #include "cxd56_pinconfig.h"
 #include "cxd56_clock.h"
 #include "cxd56_pwm.h"
@@ -496,8 +495,6 @@ static int pwm_ioctl(FAR struct pwm_lowerhalf_s *dev, int cmd,
 FAR struct pwm_lowerhalf_s *cxd56_pwminitialize(uint32_t channel)
 {
   FAR struct cxd56_pwm_chan_s *pwmch;
-
-  (void)g_pwmops;
 
   switch (channel)
     {

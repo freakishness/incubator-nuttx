@@ -44,8 +44,7 @@
 #include <arch/board/board.h>
 
 #include "chip.h"
-#include "arm_arch.h"
-
+#include "arm_internal.h"
 #include "stm32.h"
 #include "stm32_dma.h"
 #include "stm32_sdio.h"
@@ -3007,7 +3006,7 @@ static void stm32_callback(void *arg)
 
            mcinfo("Queuing callback to %p(%p)\n",
                   priv->callback, priv->cbarg);
-           work_queue(HPWORK, &priv->cbwork, (worker_t)priv->callback,
+           work_queue(HPWORK, &priv->cbwork, priv->callback,
                       priv->cbarg, 0);
         }
       else

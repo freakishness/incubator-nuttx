@@ -1,5 +1,5 @@
 /****************************************************************************
- * arch/risc-v/src/rv64gc/riscv_signal_handler.S
+ * arch/risc-v/src/common/riscv_signal_handler.S
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -24,7 +24,10 @@
 
 #include <nuttx/config.h>
 
+#include <arch/arch.h>
 #include <arch/syscall.h>
+
+#include "riscv_internal.h"
 
 #if defined(CONFIG_BUILD_PROTECTED) && !defined(__KERNEL__)
 
@@ -57,7 +60,7 @@
  *
  * Returned Value:
  *   None.  This function does not return in the normal sense.  It returns
- *   via the SYS_signal_handler_return (see svcall.h)
+ *   via the SYS_signal_handler_return (see syscall.h)
  *
  ****************************************************************************/
 
@@ -69,8 +72,8 @@ up_signal_handler:
 
   /* Save ra on the stack */
 
-  addi sp, sp, -16
-  sd   ra, 8(sp)
+  addi sp, sp, -STACK_FRAME_SIZE
+  REGSTORE ra, 8(sp)
 
   /* Call the signal handler */
 
@@ -82,8 +85,8 @@ up_signal_handler:
 
   /* Restore the register */
 
-  ld   ra, 8(sp)  /* Restore ra in sp */
-  addi sp, sp, 16
+  REGLOAD ra, 8(sp)  /* Restore ra in sp */
+  addi sp, sp, STACK_FRAME_SIZE
 
   /* Execute the SYS_signal_handler_return SVCall (will not return) */
 

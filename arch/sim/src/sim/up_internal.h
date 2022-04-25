@@ -55,6 +55,18 @@
 #  endif
 #endif
 
+/* Use a stack alignment of 16 bytes.  If necessary frame_size must be
+ * rounded up to the next boundary
+ */
+
+#define STACK_ALIGNMENT     16
+
+/* Stack alignment macros */
+
+#define STACK_ALIGN_MASK    (STACK_ALIGNMENT - 1)
+#define STACK_ALIGN_DOWN(a) ((a) & ~STACK_ALIGN_MASK)
+#define STACK_ALIGN_UP(a)   (((a) + STACK_ALIGN_MASK) & ~STACK_ALIGN_MASK)
+
 /* Simulated Heap Definitions ***********************************************/
 
 /* Size of the simulated heap */
@@ -125,12 +137,7 @@ extern char **g_argv;
 
 /* Context switching */
 
-#if defined(CONFIG_HOST_X86_64) && !defined(CONFIG_SIM_M32)
 void up_copyfullstate(unsigned long *dest, unsigned long *src);
-#else
-void up_copyfullstate(uint32_t *dest, uint32_t *src);
-#endif
-
 void *up_doirq(int irq, void *regs);
 
 /* up_hostmisc.c ************************************************************/
@@ -182,12 +189,6 @@ int up_init_ipi(int irq);
 void up_timer_update(void);
 #endif
 
-/* rpmsg_serialinit *********************************************************/
-
-#ifdef CONFIG_RPMSG_UART
-void rpmsg_serialinit(void);
-#endif
-
 /* up_uart.c ****************************************************************/
 
 void up_uartinit(void);
@@ -230,10 +231,17 @@ int sim_tsc_initialize(int minor);
 int sim_tsc_uninitialize(void);
 #endif
 
+/* up_keyboard.c ************************************************************/
+
+#ifdef CONFIG_SIM_KEYBOARD
+int sim_kbd_initialize(void);
+void up_kbdevent(uint32_t key, bool is_press);
+#endif
+
 /* up_eventloop.c ***********************************************************/
 
 #if defined(CONFIG_SIM_TOUCHSCREEN) || defined(CONFIG_SIM_AJOYSTICK) || \
-    defined(CONFIG_ARCH_BUTTONS)
+    defined(CONFIG_ARCH_BUTTONS) || defined(CONFING_SIM_KEYBOARD)
 void up_x11events(void);
 void up_buttonevent(int x, int y, int buttons);
 #endif

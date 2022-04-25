@@ -30,8 +30,7 @@
 #include <arch/board/board.h>
 #include <string.h>
 
-#include "arm_arch.h"
-
+#include "arm_internal.h"
 #include "lc823450_clockconfig.h"
 #include "lc823450_syscontrol.h"
 #include "lc823450_intc.h"
@@ -120,18 +119,14 @@ uint32_t g_dvfs_freq_stat[3] =
  ****************************************************************************/
 
 /****************************************************************************
- * Name: up_get_current_time()
+ * Name: _get_current_time64()
  ****************************************************************************/
 
 static uint64_t _get_current_time64(void)
 {
   struct timespec ts;
 
-#ifdef CONFIG_CLOCK_MONOTONIC
-  clock_gettime(CLOCK_MONOTONIC, &ts);
-#else
-  clock_gettime(CLOCK_REALTIME, &ts);
-#endif
+  clock_systime_timespec(&ts);
   return (uint64_t)ts.tv_sec * NSEC_PER_SEC + (uint64_t)ts.tv_nsec;
 }
 

@@ -138,7 +138,6 @@ config ARCH_CHIP_STM32H753AI
 		STM32 H7 Cortex M7, 2048 Kb FLASH, 1024K Kb SRAM,
 		with cryptographic accelerator, UFBGA169
 
-
 config ARCH_CHIP_STM32H753BI
 	bool "STM32H753BI"
 	select STM32H7_STM32H7X3XX
@@ -332,14 +331,6 @@ config STM32H7_PROGMEM
 	---help---
 		Add progmem support, start block and end block options are provided to
 		obtain an uniform flash memory mapping.
-
-config STM32H7_PROGMEM_ERASESTATE
-	bool "Flash progmem erasestate ioctl support"
-	depends on STM32H7_PROGMEM
-	default y
-	select ARCH_HAVE_PROGMEM_ERASESTATE
-	---help---
-		Add progmem erasestate ioctl command.
 
 menu "STM32H7 Peripheral Selection"
 
@@ -1846,6 +1837,27 @@ config STM32H7_DMACAPABLE_ASSUME_CACHE_ALIGNED
 		the count does not use the complete buffer.
 
 menu "Timer Configuration"
+
+if SCHED_TICKLESS
+
+config STM32H7_TICKLESS_TIMER
+	int "Tickless hardware timer"
+	default 2
+	range 1 17
+	---help---
+		If the Tickless OS feature is enabled, then one clock must be
+		assigned to provided the timer needed by the OS.
+
+config STM32H7_TICKLESS_CHANNEL
+	int "Tickless timer channel"
+	default 1
+	range 1 4
+	---help---
+		If the Tickless OS feature is enabled, the one clock must be
+		assigned to provided the free-running timer needed by the OS
+		and one channel on that clock is needed to handle intervals.
+
+endif # SCHED_TICKLESS
 
 config STM32H7_ONESHOT
 	bool "TIM one-shot wrapper"
@@ -4221,7 +4233,6 @@ config STM32H7_TIM17_CAP
 
 		Timer devices may be used for different purposes.  One special purpose is
 		to capture input.
-
 
 menu "STM32 TIMx Outputs Configuration"
 

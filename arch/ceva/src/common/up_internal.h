@@ -71,6 +71,12 @@
 #  define USE_SERIALDRIVER 1
 #endif
 
+/* Stack alignment macros */
+
+#define STACK_ALIGN_MASK    (sizeof(uint32_t) - 1)
+#define STACK_ALIGN_DOWN(a) ((a) & ~STACK_ALIGN_MASK)
+#define STACK_ALIGN_UP(a)   (((a) + STACK_ALIGN_MASK) & ~STACK_ALIGN_MASK)
+
 /* Linker defined section addresses */
 
 #define _START_TEXT    ((const void *)&_stext)
@@ -80,7 +86,7 @@
 #define _DATA_INIT     ((const void *)&_eronly)
 #define _START_DATA    ((void *)&_sdata)
 #define _END_DATA      ((void *)&_edata)
-#define _START_HEAP    ((void *)&_ebss + B2C(CONFIG_IDLETHREAD_STACKSIZE))
+#define _START_HEAP    ((void *)&_ebss + CONFIG_IDLETHREAD_STACKSIZE)
 #define _END_HEAP      ((void *)&_eheap)
 #define _END_MEM       ((void *)~0)
 
@@ -91,6 +97,13 @@
 #define STACK_COLOR    0xdeadbeef
 #define INTSTACK_COLOR 0xdeadbeef
 #define HEAP_COLOR     'h'
+
+#define getreg8(a)     (*(volatile uint8_t *)(a))
+#define putreg8(v,a)   (*(volatile uint8_t *)(a) = (v))
+#define getreg16(a)    (*(volatile uint16_t *)(a))
+#define putreg16(v,a)  (*(volatile uint16_t *)(a) = (v))
+#define getreg32(a)    (*(volatile uint32_t *)(a))
+#define putreg32(v,a)  (*(volatile uint32_t *)(a) = (v))
 
 /****************************************************************************
  * Public Data
@@ -207,10 +220,14 @@ EXTERN char _eheap4;
  ****************************************************************************/
 
 #ifndef __ASSEMBLY__
+/* Atomic modification of registers */
+
+void modifyreg8(unsigned int addr, uint8_t clearbits, uint8_t setbits);
+void modifyreg16(unsigned int addr, uint16_t clearbits, uint16_t setbits);
+void modifyreg32(unsigned int addr, uint32_t clearbits, uint32_t setbits);
 
 /* Context switching */
 
-int  up_saveusercontext(uint32_t *saveregs);
 void up_fullcontextrestore(uint32_t *restoreregs) noreturn_function;
 void up_switchcontext(uint32_t **saveregs, uint32_t *restoreregs);
 
@@ -242,22 +259,16 @@ void up_cpu_normal(void);
 
 /* Interrupt handling *******************************************************/
 
-void up_irqinitialize(void);
-
 /* Interrupt acknowledge and dispatch */
 
 uint32_t *up_doirq(int irq, uint32_t *regs);
 
 /* Exception Handlers */
 
-int  up_svcall(int irq, FAR void *context, FAR void *arg);
-int  up_hardfault(int irq, FAR void *context, FAR void *arg);
+int  up_svcall(int irq, void *context, void *arg);
+int  up_hardfault(int irq, void *context, void *arg);
 
 void up_svcall_handler(void);
-
-/* System timer *************************************************************/
-
-void up_timer_initialize(void);
 
 /* Low level serial output **************************************************/
 
@@ -273,20 +284,6 @@ void up_earlyserialinit(void);
 #  define up_earlyserialinit()
 #endif
 
-#ifdef CONFIG_RPMSG_UART
-void rpmsg_serialinit(void);
-#else
-#  define rpmsg_serialinit()
-#endif
-
-/* Defined in drivers/lowconsole.c */
-
-#ifdef CONFIG_DEV_LOWCONSOLE
-void lowconsole_init(void);
-#else
-#  define lowconsole_init()
-#endif
-
 /* DMA **********************************************************************/
 
 #ifdef CONFIG_ARCH_DMA
@@ -300,10 +297,6 @@ void up_addregion(void);
 #else
 # define up_addregion()
 #endif
-
-/* Watchdog timer ***********************************************************/
-
-void up_wdtinit(void);
 
 /* Networking ***************************************************************/
 
@@ -331,7 +324,7 @@ void up_usbuninitialize(void);
 #endif
 
 #ifdef CONFIG_STACK_COLORATION
-void up_stack_color(FAR void *stackbase, size_t nbytes);
+void up_stack_color(void *stackbase, size_t nbytes);
 #endif
 
 #undef EXTERN

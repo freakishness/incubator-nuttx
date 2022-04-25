@@ -53,7 +53,7 @@
 #include <arch/board/board.h>
 
 #include "chip.h"
-#include "mips_arch.h"
+#include "mips_internal.h"
 #include "pic32mx_config.h"
 #include "pic32mx_ethernet.h"
 #include "pic32mx.h"
@@ -215,7 +215,7 @@
  * header
  */
 
-#define BUF ((FAR struct eth_hdr_s *)priv->pd_dev.d_buf)
+#define BUF ((struct eth_hdr_s *)priv->pd_dev.d_buf)
 
 /* PHYs *********************************************************************/
 
@@ -1889,7 +1889,7 @@ static void pic32mx_interrupt_work(void *arg)
  *
  ****************************************************************************/
 
-static int pic32mx_interrupt(int irq, void *context, FAR void *arg)
+static int pic32mx_interrupt(int irq, void *context, void *arg)
 {
   struct pic32mx_driver_s *priv;
   uint32_t status;

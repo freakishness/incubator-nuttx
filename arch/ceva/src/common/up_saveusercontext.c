@@ -25,7 +25,8 @@
 #include <nuttx/config.h>
 #include <nuttx/irq.h>
 
-#include "svcall.h"
+#include <arch/syscall.h>
+
 #include "up_internal.h"
 
 /****************************************************************************
@@ -38,7 +39,7 @@
  * Description:
  *   Save the current thread context.  Full prototype is:
  *
- *   int  up_saveusercontext(uint32_t *saveregs);
+ *   int  up_saveusercontext(void *saveregs);
  *
  * Return:
  *   0: Normal return
@@ -46,7 +47,7 @@
  *
  ****************************************************************************/
 
-int up_saveusercontext(uint32_t *saveregs)
+int up_saveusercontext(void *saveregs)
 {
   int ret;
 

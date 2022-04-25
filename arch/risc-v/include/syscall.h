@@ -31,6 +31,8 @@
 
 #include <nuttx/config.h>
 
+#include <arch/arch.h>
+
 #ifndef __ASSEMBLY__
 #  include <stdint.h>
 #endif
@@ -41,80 +43,98 @@
 
 #define SYS_syscall 0x00
 
-/* The SYS_signal_handler_return is executed here... its value is not always
- * available in this context and so is assumed to be 7.
- */
-
-#ifndef SYS_signal_handler_return
-#  define SYS_signal_handler_return (7)
-#elif SYS_signal_handler_return != 7
-#  error "SYS_signal_handler_return was assumed to be 7"
-#endif
-
 /* Configuration ************************************************************/
 
+/* This logic uses three system calls {0,1,2} for context switching and one
+ * for the syscall return.  So a minimum of four syscall values must be
+ * reserved.  If CONFIG_BUILD_FLAT isn't defined, then four more syscall
+ * values must be reserved.
+ */
+
+#ifndef CONFIG_BUILD_FLAT
+#  define CONFIG_SYS_RESERVED 8
+#else
+#  define CONFIG_SYS_RESERVED 4
+#endif
+
+/* RV64GC system calls ******************************************************/
+
 /* SYS call 1 and 2 are defined for internal use by the RISC-V port (see
- * arch/risc-v/include/rv64gc/syscall.h). In addition, SYS call 3 is the
+ * arch/risc-v/include/syscall.h). In addition, SYS call 3 is the
  * return from a SYS call in kernel mode. The first four syscall values must,
  * therefore, be reserved (0 is not used).
  */
 
-#ifdef CONFIG_BUILD_KERNEL
-#  ifndef CONFIG_SYS_RESERVED
-#    error "CONFIG_SYS_RESERVED must be defined to the value 4"
-#  elif CONFIG_SYS_RESERVED != 4
-#    error "CONFIG_SYS_RESERVED must have the value 4"
-#  endif
-#endif
-
-/* sys_call macros **********************************************************/
-
-#ifndef __ASSEMBLY__
-
-/* Context switching system calls *******************************************/
-
-/* SYS call 0:
- *
- * int riscv_saveusercontext(uint64_t *saveregs);
- *
- * Return:
- * 0: Normal Return
- * 1: Context Switch Return
- */
-
-#define SYS_save_context (0)
-#define riscv_saveusercontext(saveregs) \
-  (int)sys_call1(SYS_save_context, (uintptr_t)saveregs)
+#define SYS_save_context          (0)
 
 /* SYS call 1:
  *
- * void riscv_fullcontextrestore(uint32_t *restoreregs) noreturn_function;
+ * void riscv_fullcontextrestore(uintptr_t *restoreregs) noreturn_function;
  */
 
-#define SYS_restore_context (1)
-#define riscv_fullcontextrestore(restoreregs) \
-  sys_call1(SYS_restore_context, (uintptr_t)restoreregs)
+#define SYS_restore_context       (1)
 
 /* SYS call 2:
  *
- * void riscv_switchcontext(uint32_t *saveregs, uint32_t *restoreregs);
+ * void riscv_switchcontext(uintptr_t **saveregs, uintptr_t *restoreregs);
  */
 
-#define SYS_switch_context (2)
-#define riscv_switchcontext(saveregs, restoreregs) \
-  sys_call2(SYS_switch_context, (uintptr_t)saveregs, (uintptr_t)restoreregs)
+#define SYS_switch_context        (2)
 
-#ifdef CONFIG_BUILD_KERNEL
+#ifdef CONFIG_LIB_SYSCALL
 /* SYS call 3:
  *
  * void riscv_syscall_return(void);
  */
 
-#define SYS_syscall_return (3)
-#define riscv_syscall_return() sys_call0(SYS_syscall_return)
+#define SYS_syscall_return        (3)
+#endif /* CONFIG_LIB_SYSCALL */
 
+#ifndef CONFIG_BUILD_FLAT
+/* SYS call 4:
+ *
+ * void up_task_start(main_t taskentry, int argc, char *argv[])
+ *        noreturn_function;
+ */
+
+#define SYS_task_start            (4)
+
+/* SYS call 5:
+ *
+ * void up_pthread_start(pthread_startroutine_t startup,
+ *                       pthread_startroutine_t entrypt, pthread_addr_t arg)
+ *        noreturn_function
+ */
+
+#define SYS_pthread_start         (5)
+
+/* SYS call 6:
+ *
+ * void signal_handler(_sa_sigaction_t sighand, int signo,
+ *                     siginfo_t *info, void *ucontext);
+ */
+
+#define SYS_signal_handler        (6)
+
+/* SYS call 7:
+ *
+ * void signal_handler_return(void);
+ */
+
+#define SYS_signal_handler_return (7)
+#endif /* !CONFIG_BUILD_FLAT */
+
+#if defined (CONFIG_ARCH_USE_S_MODE) && defined (__KERNEL__)
+#  define ASM_SYS_CALL \
+     " addi sp, sp, -" STACK_FRAME_SIZE "\n" /* Make room */ \
+     REGSTORE " ra, 0(sp)\n"                 /* Save ra */ \
+     " jal  ra, riscv_dispatch_syscall\n"    /* Dispatch (modifies ra) */ \
+     REGLOAD " ra, 0(sp)\n"                  /* Restore ra */ \
+     " addi sp, sp, " STACK_FRAME_SIZE "\n"  /* Restore sp */
+#else
+#  define ASM_SYS_CALL \
+     "ecall"
 #endif
-#endif /* __ASSEMBLY__ */
 
 /****************************************************************************
  * Public Types
@@ -156,7 +176,7 @@ static inline uintptr_t sys_call0(unsigned int nbr)
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0)
      : "memory"
      );
@@ -181,7 +201,7 @@ static inline uintptr_t sys_call1(unsigned int nbr, uintptr_t parm1)
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0), "r"(r1)
      : "memory"
      );
@@ -208,7 +228,7 @@ static inline uintptr_t sys_call2(unsigned int nbr, uintptr_t parm1,
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0), "r"(r1), "r"(r2)
      : "memory"
      );
@@ -236,7 +256,7 @@ static inline uintptr_t sys_call3(unsigned int nbr, uintptr_t parm1,
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0), "r"(r1), "r"(r2), "r"(r3)
      : "memory"
      );
@@ -266,7 +286,7 @@ static inline uintptr_t sys_call4(unsigned int nbr, uintptr_t parm1,
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0), "r"(r1), "r"(r2), "r"(r3), "r"(r4)
      : "memory"
      );
@@ -297,7 +317,7 @@ static inline uintptr_t sys_call5(unsigned int nbr, uintptr_t parm1,
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0), "r"(r1), "r"(r2), "r"(r3), "r"(r4), "r"(r5)
      : "memory"
      );
@@ -330,7 +350,7 @@ static inline uintptr_t sys_call6(unsigned int nbr, uintptr_t parm1,
 
   asm volatile
     (
-     "ecall"
+     ASM_SYS_CALL
      :: "r"(r0), "r"(r1), "r"(r2), "r"(r3), "r"(r4), "r"(r5), "r"(r6)
      : "memory"
      );

@@ -37,6 +37,7 @@
 #include <nuttx/tls.h>
 
 #include "sched/sched.h"
+#include "environ/environ.h"
 #include "group/group.h"
 #include "task/task.h"
 
@@ -151,6 +152,14 @@ FAR struct task_tcb_s *nxtask_setup_vfork(start_t retaddr)
       goto errout_with_tcb;
     }
 
+  /* Duplicate the parent tasks environment */
+
+  ret = env_dup(child->cmn.group, environ);
+  if (ret < 0)
+    {
+      goto errout_with_tcb;
+    }
+
   /* Associate file descriptors with the new task */
 
   ret = group_setuptaskfiles(child);
@@ -210,17 +219,10 @@ FAR struct task_tcb_s *nxtask_setup_vfork(start_t retaddr)
 
   /* Now we have enough in place that we can join the group */
 
-  ret = group_initialize(child);
-  if (ret < OK)
-    {
-      goto errout_with_list;
-    }
-
+  group_initialize(child);
   sinfo("parent=%p, returning child=%p\n", parent, child);
   return child;
 
-errout_with_list:
-  dq_rem((FAR dq_entry_t *)child, (FAR dq_queue_t *)&g_inactivetasks);
 errout_with_tcb:
   nxsched_release_tcb((FAR struct tcb_s *)child, ttype);
 errout:
@@ -283,7 +285,7 @@ pid_t nxtask_start_vfork(FAR struct task_tcb_s *child)
 
   /* Get the assigned pid before we start the task */
 
-  pid = (int)child->cmn.pid;
+  pid = child->cmn.pid;
 
   /* Eliminate a race condition by disabling pre-emption.  The child task
    * can be instantiated, but cannot run until we call waitpid().  This

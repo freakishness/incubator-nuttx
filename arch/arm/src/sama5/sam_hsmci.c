@@ -44,8 +44,7 @@
 #include <arch/board/board.h>
 
 #include "chip.h"
-#include "arm_arch.h"
-
+#include "arm_internal.h"
 #include "sam_pio.h"
 #include "sam_dmac.h"
 #include "sam_periphclks.h"
@@ -3163,7 +3162,7 @@ static void sam_callback(void *arg)
         }
 
       mcinfo("Queuing callback to %p(%p)\n", priv->callback, priv->cbarg);
-      ret = work_queue(LPWORK, &priv->cbwork, (worker_t)priv->callback,
+      ret = work_queue(LPWORK, &priv->cbwork, priv->callback,
                        priv->cbarg, 0);
       if (ret < 0)
         {

@@ -25,7 +25,7 @@
 #include <nuttx/config.h>
 #include <nuttx/arch.h>
 
-#include "svcall.h"
+#include <arch/syscall.h>
 
 #if ((defined(CONFIG_BUILD_PROTECTED) && defined(__KERNEL__)) || \
       defined(CONFIG_BUILD_KERNEL)) && !defined(CONFIG_DISABLE_SIGNALS)
@@ -64,7 +64,7 @@
  ****************************************************************************/
 
 void up_signal_dispatch(_sa_sigaction_t sighand, int signo,
-                        FAR siginfo_t *info, FAR void *ucontext)
+                        siginfo_t *info, void *ucontext)
 {
   /* Let sys_call4() do all of the work */
 

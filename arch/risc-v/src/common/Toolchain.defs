@@ -27,11 +27,7 @@
 # command-line selection.
 #
 
-ifeq ($(filter y, $(CONFIG_RISCV_TOOLCHAIN_GNU_RVGL)),y)
-  CONFIG_RISCV_TOOLCHAIN ?= GNU_RVG
-endif
-
-ifeq ($(filter y, $(CONFIG_RISCV_TOOLCHAIN_GNU_RVGW)),y)
+ifeq ($(filter y, $(CONFIG_RISCV_TOOLCHAIN_GNU_RVG)),y)
   CONFIG_RISCV_TOOLCHAIN ?= GNU_RVG
 endif
 
@@ -59,6 +55,30 @@ else
   MAXOPTIMIZATION += -fomit-frame-pointer
 endif
 
+ARCHCFLAGS =
+ARCHCXXFLAGS =
+
+ifneq ($(CONFIG_CXX_EXCEPTION),y)
+  ARCHCXXFLAGS += -fno-exceptions -fcheck-new
+endif
+
+ifneq ($(CONFIG_CXX_RTTI),y)
+  ARCHCXXFLAGS += -fno-rtti
+endif
+
+# Optimization of unused sections
+
+ifeq ($(CONFIG_DEBUG_OPT_UNUSED_SECTIONS),y)
+  LDFLAGS         += --gc-sections
+  MAXOPTIMIZATION += -ffunction-sections -fdata-sections
+endif
+
+# Debug link map
+
+ifeq ($(CONFIG_DEBUG_LINK_MAP),y)
+  LDFLAGS += --cref -Map=$(call CONVERT_PATH,$(TOPDIR)$(DELIM)nuttx.map)
+endif
+
 # Generic GNU RVG toolchain
 
 ifeq ($(CONFIG_RISCV_TOOLCHAIN),GNU_RVG)
@@ -82,7 +102,7 @@ ifeq ($(CONFIG_RISCV_TOOLCHAIN),GNU_RVG)
   endif
 
   ifeq ($(CONFIG_ARCH_FPU),y)
-      ARCHRVISAF = f
+    ARCHRVISAF = f
   endif
 
   ifeq ($(CONFIG_ARCH_DPFPU),y)
@@ -115,6 +135,10 @@ ifeq ($(CONFIG_RISCV_TOOLCHAIN),GNU_RVG)
 
 endif
 
+ifeq ($(CONFIG_MM_KASAN),y)
+  ARCHCPUFLAGS += -fsanitize=kernel-address
+endif
+
 # Default toolchain
 
 CC = $(CROSSDEV)gcc
@@ -129,12 +153,12 @@ OBJDUMP = $(CROSSDEV)objdump
 
 # Add the builtin library
 
-EXTRA_LIBS += ${shell $(CC) $(ARCHCPUFLAGS) --print-libgcc-file-name}
+EXTRA_LIBS += $(wildcard $(shell $(CC) $(ARCHCPUFLAGS) --print-libgcc-file-name))
 
 ifneq ($(CONFIG_LIBM),y)
-  EXTRA_LIBS += ${wildcard ${shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libm.a}}
+  EXTRA_LIBS += $(wildcard $(shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libm.a))
 endif
 
 ifeq ($(CONFIG_LIBSUPCXX),y)
-  EXTRA_LIBS += ${shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libsupc++.a}
+  EXTRA_LIBS += $(wildcard $(shell $(CC) $(ARCHCPUFLAGS) --print-file-name=libsupc++.a))
 endif

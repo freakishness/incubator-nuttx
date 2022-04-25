@@ -1,10 +1,9 @@
 ===========================
-Microchip Polarfile (MPFS)
+Microchip Polarfire (MPFS)
 ===========================
 
 RV64 64-bit RISC-V multiprocessor-based Microcontroller Subsystem
 (MPFS025T, MPFS095T, MPFS160T, MPFS250T, MPFS460T)
-
 
 MPFS Toolchain
 ==============
@@ -12,14 +11,12 @@ MPFS Toolchain
 A generic RISC-V toolchain can be used to build MPFS projects.
 Like: https://xpack.github.io/riscv-none-embed-gcc or https://github.com/sifive/freedom-tools/releases
 
-
 Booting
 =======
 
 The NuttX works as a standalone operating system that may initialize all the required clocks and
 peripherals including DDR memory. Alternatively, the vendor's HSS bootloader may be used instead to
 perform all the initialization steps.
-
 
 Building and flashing
 =====================
@@ -49,18 +46,15 @@ Create HSS payload bin::
 
    hss-payload-generator -v -c hss-nuttx.yml payload.bin
 
-
 Debugging with OpenOCD
 ======================
 
 Compatible OpenOCD and configs can be downloaded from:
 https://www.microsemi.com/product-directory/design-tools/4879-softconsole#downloads
 
-
 OpenOCD can then be used::
 
    openocd -c "set DEVICE MPFS" --file board/microsemi-riscv.cfg
-
 
 Peripheral Support
 ==================
@@ -70,20 +64,19 @@ The following list indicates the state of peripherals' support in NuttX:
 ============   =======  =====
 Peripheral     Support  NOTES
 ============   =======  =====
-GPIO           Yes      
+GPIO           Yes
 MMUART         Yes      Uart mode only
-SPI            Yes      
-I2C            Yes      
+SPI            Yes
+I2C            Yes
 eMMC SD/SDIO   Yes      No PHY training
+USB            Yes
+Ethernet MAC   Yes
 Timers         No
-Watchdog       No       
-RTC            No       
-CAN            No       
-eNVM           No       
-USB            No
+Watchdog       No
+RTC            No
+CAN            No
+eNVM           No
 ============   =======  =====
-
-
 
 Supported Boards
 ================
@@ -94,4 +87,4 @@ Supported Boards
 
    boards/*/*
 
-   
+

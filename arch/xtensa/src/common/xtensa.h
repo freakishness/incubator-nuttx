@@ -32,6 +32,7 @@
 #  include <stdint.h>
 #  include <sys/types.h>
 #  include <stdbool.h>
+#  include <syscall.h>
 #endif
 
 #include <arch/chip/core-isa.h>
@@ -81,6 +82,16 @@
 #  define INTSTACK_SIZE         INTSTACK_ALIGNUP(CONFIG_ARCH_INTERRUPTSTACK)
 #endif
 
+/* XTENSA requires at least a 16-byte stack alignment. */
+
+#define STACK_ALIGNMENT     16
+
+/* Stack alignment macros */
+
+#define STACK_ALIGN_MASK    (STACK_ALIGNMENT - 1)
+#define STACK_ALIGN_DOWN(a) ((a) & ~STACK_ALIGN_MASK)
+#define STACK_ALIGN_UP(a)   (((a) + STACK_ALIGN_MASK) & ~STACK_ALIGN_MASK)
+
 /* An IDLE thread stack size for CPU0 must be defined */
 
 #if !defined(CONFIG_IDLETHREAD_STACKSIZE)
@@ -101,6 +112,14 @@
 
 #define xtensa_savestate(regs)    xtensa_copystate(regs, (uint32_t*)CURRENT_REGS)
 #define xtensa_restorestate(regs) do { CURRENT_REGS = regs; } while (0)
+
+/* Context switching via system calls ***************************************/
+
+#define xtensa_context_restore(regs)\
+  sys_call1(SYS_restore_context, (uintptr_t)regs)
+
+#define xtensa_switchcontext(saveregs, restoreregs)\
+  sys_call2(SYS_switch_context, (uintptr_t)saveregs, (uintptr_t)restoreregs)
 
 /* Interrupt codes from other CPUs: */
 
@@ -223,7 +242,6 @@ void xtensa_copystate(uint32_t *dest, uint32_t *src);
 
 /* Serial output */
 
-void up_puts(const char *str);
 void up_lowputs(const char *str);
 
 /* Debug */
@@ -244,7 +262,16 @@ void xtensa_coproc_enable(struct xtensa_cpstate_s *cpstate, int cpset);
 void xtensa_coproc_disable(struct xtensa_cpstate_s *cpstate, int cpset);
 #endif
 
+/* Window Spill */
+
+void xtensa_window_spill(void);
+
 /* IRQs */
+
+#if defined(CONFIG_SMP) && CONFIG_ARCH_INTERRUPTSTACK > 15
+uintptr_t xtensa_intstack_alloc(void);
+uintptr_t xtensa_intstack_top(void);
+#endif
 
 uint32_t *xtensa_int_decode(uint32_t cpuints, uint32_t *regs);
 uint32_t *xtensa_irq_dispatch(int irq, uint32_t *regs);
@@ -260,11 +287,6 @@ uint32_t *xtensa_user(int exccause, uint32_t *regs);
 int xtensa_intercpu_interrupt(int tocpu, int intcode);
 void xtensa_pause_handler(void);
 #endif
-
-/* Synchronous context switching */
-
-int xtensa_context_save(uint32_t *regs);
-void xtensa_context_restore(uint32_t *regs) noreturn_function;
 
 #if XCHAL_CP_NUM > 0
 void xtensa_coproc_savestate(struct xtensa_cpstate_s *cpstate);
@@ -299,13 +321,16 @@ void xtensa_add_region(void);
 # define xtensa_add_region()
 #endif
 
+/* Watchdog timer ***********************************************************/
+
+struct oneshot_lowerhalf_s *
+xtensa_oneshot_initialize(uint32_t irq, uint32_t freq);
+
 /* Serial output */
 
 void up_lowputc(char ch);
 void xtensa_earlyserialinit(void);
 void xtensa_serialinit(void);
-
-void rpmsg_serialinit(void);
 
 /* Network */
 
@@ -337,7 +362,7 @@ void xtensa_pminitialize(void);
 
 /* Exception Handlers */
 
-int xtensa_svcall(int irq, void *context, void *arg);
+int xtensa_swint(int irq, void *context, void *arg);
 
 /* Debug ********************************************************************/
 

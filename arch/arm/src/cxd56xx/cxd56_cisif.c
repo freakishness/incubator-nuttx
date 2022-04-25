@@ -36,8 +36,7 @@
 
 #include <arch/chip/cisif.h>
 #include <nuttx/video/imgdata.h>
-#include "arm_arch.h"
-
+#include "arm_internal.h"
 #include "cxd56_clock.h"
 #include "hardware/cxd56_cisif.h"
 
@@ -271,7 +270,7 @@ static uint64_t cisif_get_msec_time(void)
 {
   struct timespec tp;
 
-  if (clock_gettime(CLOCK_REALTIME, &tp))
+  if (clock_systime_timespec(&tp) < 0)
     {
       return 0;
     }

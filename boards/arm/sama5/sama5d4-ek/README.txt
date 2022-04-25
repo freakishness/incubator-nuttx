@@ -125,8 +125,7 @@ GNU Toolchain Options
   configuration options to your .config (or defconfig) file:
 
     CONFIG_ARMV7A_TOOLCHAIN_BUILDROOT=y  : NuttX buildroot under Linux or Cygwin (default)
-    CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIL=y  : Generic GCC ARM EABI toolchain for Linux
-    CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y  : Generic GCC ARM EABI toolchain for Windows
+    CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y   : Generic GCC ARM EABI toolchain
 
 IDEs
 ====
@@ -3573,7 +3572,7 @@ Configurations
        CONFIG_WINDOWS_CYGWIN=y             : Using Cygwin or other POSIX environment
 
      System Type -> Toolchain:
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y : GNU EABI toolchain for windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y  : GNU EABI toolchain
 
   4. The SAMA5Dx is running at 528MHz by default in these configurations.
 
@@ -3649,7 +3648,6 @@ Configurations
     UDP relay bridge test using apps/examples/bridge.  See
     apps/examples/README.txt for more information about this test.
 
-
     NOTES:
 
     1. This configuration uses the USART3 for the serial console
@@ -3666,7 +3664,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under Windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a
@@ -3735,7 +3733,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under Windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a
@@ -3814,7 +3812,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIL=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y     : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a
@@ -3848,7 +3846,6 @@ Configurations
       RTOS Features -> System call support
         CONFIG_LIB_SYSCALL=y                   : Enable system call support
         CONFIG_SYS_NNEST=2                     : Max number of nested system calls
-        CONFIG_SYS_RESERVED=1                  : SYStem call 0 is reserved on this platform
 
       Application Configurations -> Examples -> ELF Loader Example
         CONFIG_EXAMPLES_ELF_SYSCALL=y          : Link apps with the SYStem call library
@@ -3984,7 +3981,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under Windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a
@@ -4001,9 +3998,6 @@ Configurations
          CONFIG_INIT_FILE=y                     : Start-up is via an ELF file
          CONFIG_INIT_FILEPATH="/bin/init"       : The location of the startup
          CONFIG_SCHED_HAVE_PARENT=y             : Needed to handle task exit
-
-       RTOS Features -> System call support
-         CONFIG_SYS_RESERVED=5                  : More reserved SYSCALLs
 
        RTOS Features -> RTOS hooks
          CONFIG_SCHED_ONEXIT=y                 : Needed to handle task exit
@@ -4233,7 +4227,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a
@@ -4885,7 +4879,7 @@ Configurations
 
        CONFIG_HOST_WINDOWS=y                   : Windows operating system
        CONFIG_WINDOWS_CYGWIN=y                 : POSIX environment under Windows
-       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABIW=y     : GNU EABI toolchain for Windows
+       CONFIG_ARMV7A_TOOLCHAIN_GNU_EABI=y      : GNU EABI toolchain
 
        If you are running on Linux, make *certain* that you have
        CONFIG_HOST_LINUX=y *before* the first make or you will create a

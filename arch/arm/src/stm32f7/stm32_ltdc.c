@@ -41,7 +41,6 @@
 
 #include <arch/board/board.h>
 
-#include "arm_arch.h"
 #include "arm_internal.h"
 #include "hardware/stm32_ltdc.h"
 #include "hardware/stm32_dma2d.h"
@@ -1284,9 +1283,11 @@ static void stm32_ltdc_periphconfig(void)
 
   reginfo("configured RCC_PLLSAI=%08x\n", getreg32(STM32_RCC_PLLSAICFGR));
 
-  /* Configure dedicated clock external */
+  /* Configure dedicated clock external.
+   * Division factor for LCD_CLK in DCKCFGR1
+   */
 
-  reginfo("configured RCC_DCKCFGR=%08x\n", getreg32(STM32_RCC_DCKCFGR));
+  reginfo("configured RCC_DCKCFGR1=%08x\n", getreg32(STM32_RCC_DCKCFGR1));
 
   /* Configure LTDC_SSCR */
 

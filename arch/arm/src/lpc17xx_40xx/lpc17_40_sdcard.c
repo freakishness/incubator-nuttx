@@ -44,8 +44,7 @@
 #include <arch/board/board.h>
 
 #include "chip.h"
-#include "arm_arch.h"
-
+#include "arm_internal.h"
 #include "lpc17_40_gpdma.h"
 #include "lpc17_40_gpio.h"
 #include "lpc17_40_sdcard.h"
@@ -2698,8 +2697,8 @@ static void lpc17_40_callback(void *arg)
 
            mcinfo("Queuing callback to %p(%p)\n", priv->callback,
                                                   priv->cbarg);
-           work_queue(HPWORK, &priv->cbwork, (worker_t)priv->callback,
-                                              priv->cbarg, 0);
+           work_queue(HPWORK, &priv->cbwork, priv->callback,
+                      priv->cbarg, 0);
         }
       else
         {

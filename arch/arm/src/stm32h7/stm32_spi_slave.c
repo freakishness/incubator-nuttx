@@ -44,8 +44,6 @@
 #include <arch/board/board.h>
 
 #include "arm_internal.h"
-#include "arm_arch.h"
-
 #include "chip.h"
 #include "stm32_rcc.h"
 #include "stm32_gpio.h"
@@ -923,7 +921,7 @@ static int spi_lock(FAR struct spi_slave_ctrlr_s *ctrlr, bool lock)
     }
   else
     {
-      (void)nxsem_post(&priv->exclsem);
+      nxsem_post(&priv->exclsem);
       ret = OK;
     }
 
@@ -1158,8 +1156,8 @@ static void spi_bind(struct spi_slave_ctrlr_s *ctrlr,
 
   /* Bind to NSS interrupt */
 
-  (void)stm32_gpiosetevent(priv->nss_pin, false, true, false,
-                           spi_nssinterrupt, priv);
+  stm32_gpiosetevent(priv->nss_pin, false, true, false,
+                     spi_nssinterrupt, priv);
 
 #ifdef CONFIG_PM
   /* Register to receive power management callbacks */
@@ -1198,15 +1196,15 @@ static int spi_nssinterrupt(int irq, void *context, void *arg)
     {
       /* Bind to NSS rising edge interrupt */
 
-      (void)stm32_gpiosetevent(priv->nss_pin, true, false, false,
-                               spi_nssinterrupt, priv);
+      stm32_gpiosetevent(priv->nss_pin, true, false, false,
+                         spi_nssinterrupt, priv);
       return OK;
     }
 
   /* Disable NSS interrupt */
 
-  (void)stm32_gpiosetevent(priv->nss_pin, false, false, false,
-                           NULL, priv);
+  stm32_gpiosetevent(priv->nss_pin, false, false, false,
+                     NULL, priv);
 
   /* Re-configure nss pin */
 
