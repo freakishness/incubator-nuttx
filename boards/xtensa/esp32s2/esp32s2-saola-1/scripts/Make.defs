@@ -38,16 +38,6 @@ endif
 ARCHSCRIPT += $(BOARD_DIR)$(DELIM)scripts$(DELIM)esp32s2_rom.ld
 ARCHSCRIPT += $(BOARD_DIR)$(DELIM)scripts$(DELIM)esp32s2_peripherals.ld
 
-ifeq ($(CONFIG_DEBUG_SYMBOLS),y)
-  ARCHOPTIMIZATION = -g
-endif
-
-ifneq ($(CONFIG_DEBUG_NOOPT),y)
-  ARCHOPTIMIZATION += $(MAXOPTIMIZATION) -fno-strict-aliasing
-endif
-
-ARCHCFLAGS += -fno-common
-ARCHCXXFLAGS += -fno-common -std=c++17
 ARCHWARNINGS = -Wall -Wstrict-prototypes -Wshadow -Wundef
 ARCHWARNINGSXX = -Wall -Wshadow -Wundef
 ARCHPICFLAGS = -fpic
@@ -73,7 +63,3 @@ CXXELFFLAGS = $(CXXFLAGS) -mtext-section-literals
 
 LDELFFLAGS = -r -e main
 LDELFFLAGS += -T $(call CONVERT_PATH,$(TOPDIR)/binfmt/libelf/gnu-elf.ld)
-
-ifeq ($(CONFIG_DEBUG_SYMBOLS),y)
-  LDFLAGS += -g
-endif
