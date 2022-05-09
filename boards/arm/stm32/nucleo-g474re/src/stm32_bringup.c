@@ -1,5 +1,5 @@
 /****************************************************************************
- * arch/arm/src/common/arm_etherstub.c
+ * boards/arm/stm32/nucleo-g474re/src/stm32_bringup.c
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -24,34 +24,70 @@
 
 #include <nuttx/config.h>
 
-#include "arm_internal.h"
+#include <sys/types.h>
+#include <syslog.h>
+
+#include <nuttx/board.h>
+#include <nuttx/leds/userled.h>
+#include <nuttx/usb/cdcacm.h>
+
+#include "nucleo-g474re.h"
+
+/****************************************************************************
+ * Pre-processor Definitions
+ ****************************************************************************/
+
+#undef HAVE_LEDS
+
+#if !defined(CONFIG_ARCH_LEDS) && defined(CONFIG_USERLED_LOWER)
+#  define HAVE_LEDS 1
+#endif
 
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
 
 /****************************************************************************
- * Name: arm_netinitialize (stub)
+ * Name: stm32_bringup
  *
  * Description:
- *   This is a stub version os arm_netinitialize. Normally, arm_netinitialize
- *   is defined in board/xyz_network.c for board-specific Ethernet
- *   implementations, or chip/xyx_ethernet.c for chip-specific Ethernet
- *   implementations.  The stub version here is used in the corner case where
- *   the network is enable yet there is no Ethernet driver to be initialized.
- *   In this case, up_initialize will still try to call arm_netinitialize()
- *   when one does not exist.  This corner case would occur if, for example,
- *   only a USB network interface is being used or perhaps if a SLIP is
- *   being used).
+ *   Perform architecture-specific initialization
  *
- *   Use of this stub is deprecated.  The preferred mechanism is to use
- *   CONFIG_NETDEV_LATEINIT=y to suppress the call to arm_netinitialize() in
- *   up_initialize().  Then this stub would not be needed.
+ *   CONFIG_BOARD_LATE_INITIALIZE=y :
+ *     Called from board_late_initialize().
+ *
+ *   CONFIG_BOARD_LATE_INITIALIZE=n && CONFIG_BOARDCTL=y :
+ *     Called from the NSH library
  *
  ****************************************************************************/
 
-#if defined(CONFIG_NET) && !defined(CONFIG_NETDEV_LATEINIT)
-void arm_netinitialize(void)
+int stm32_bringup(void)
 {
-}
+  int ret;
+
+#if defined(HAVE_LEDS)
+  /* Register the LED driver */
+
+  ret = userled_lower_initialize(LED_DRIVER_PATH);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: userled_lower_initialize() failed: %d\n", ret);
+      return ret;
+    }
 #endif
+
+#if defined(CONFIG_CDCACM) && !defined(CONFIG_CDCACM_CONSOLE)
+  /* Initialize CDCACM */
+
+  syslog(LOG_INFO, "Initialize CDCACM device\n");
+
+  ret = cdcacm_initialize(0, NULL);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: cdcacm_initialize failed: %d\n", ret);
+    }
+#endif /* CONFIG_CDCACM & !CONFIG_CDCACM_CONSOLE */
+
+  UNUSED(ret);
+  return OK;
+}

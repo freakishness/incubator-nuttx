@@ -1,5 +1,5 @@
 /****************************************************************************
- * libs/libc/sched/cxx_initialize_macho.c
+ * boards/arm/stm32/nucleo-g474re/src/stm32_usbdev.c
  *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -24,38 +24,34 @@
 
 #include <nuttx/config.h>
 
+#include <sys/types.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <debug.h>
+
+#include <nuttx/usb/usbdev.h>
+#include <nuttx/usb/usbdev_trace.h>
+
+#include "arm_internal.h"
+#include "stm32.h"
+#include "nucleo-g474re.h"
+
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
 
 /****************************************************************************
- * Name: cxx_initialize
+ * Name:  stm32_usbsuspend
  *
  * Description:
- *   If C++ and C++ static constructors are supported, then this function
- *   must be provided by board-specific logic in order to perform
- *   initialization of the static C++ class instances.
- *
- *   This function should then be called in the application-specific
- *   user_start logic in order to perform the C++ initialization.  NOTE
- *   that no component of the core NuttX RTOS logic is involved; this
- *   function definition only provides the 'contract' between application
- *   specific C++ code and platform-specific toolchain support.
+ *   Board logic must provide the stm32_usbsuspend logic if the USBDEV driver
+ *   is used.  This function is called whenever the USB enters or leaves
+ *   suspend mode. This is an opportunity for the board logic to shutdown
+ *   clocks, power, etc. while the USB is suspended.
  *
  ****************************************************************************/
 
-void cxx_initialize(void)
+void stm32_usbsuspend(FAR struct usbdev_s *dev, bool resume)
 {
-#ifdef CONFIG_HAVE_CXXINITIALIZE
-  static int inited = 0;
-
-  if (inited == 0)
-    {
-      extern void macho_call_saved_init_funcs(void);
-
-      macho_call_saved_init_funcs();
-
-      inited = 1;
-    }
-#endif
+  uinfo("resume: %d\n", resume);
 }
