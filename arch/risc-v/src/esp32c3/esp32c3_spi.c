@@ -425,17 +425,7 @@ static int esp32c3_spi_lock(struct spi_dev_s *dev, bool lock)
 #ifdef CONFIG_ESP32C3_SPI2_DMA
 static int esp32c3_spi_sem_waitdone(struct esp32c3_spi_priv_s *priv)
 {
-  int ret;
-  struct timespec abstime;
-
-  clock_gettime(CLOCK_REALTIME, &abstime);
-
-  abstime.tv_sec += 10;
-  abstime.tv_nsec += 0;
-
-  ret = nxsem_timedwait_uninterruptible(&priv->sem_isr, &abstime);
-
-  return ret;
+  return nxsem_tickwait_uninterruptible(&priv->sem_isr, SEC2TICK(10));
 }
 #endif
 
@@ -653,7 +643,7 @@ static void esp32c3_spi_setmode(struct spi_dev_s *dev,
 
           default:
             spierr("Invalid mode: %d\n", mode);
-            DEBUGASSERT(false);
+            DEBUGPANIC();
             return;
         }
 
@@ -1195,7 +1185,7 @@ void esp32c3_spi_dma_init(struct spi_dev_s *dev)
     {
       spierr("Failed to allocate GDMA channel\n");
 
-      DEBUGASSERT(false);
+      DEBUGPANIC();
     }
 
   /* Disable segment transaction mode for SPI Master */

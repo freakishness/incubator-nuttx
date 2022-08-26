@@ -85,7 +85,6 @@
 #include <nuttx/compiler.h>
 #include <nuttx/cache.h>
 #include <nuttx/sched.h>
-#include <nuttx/tls.h>
 
 /****************************************************************************
  * Pre-processor definitions
@@ -802,6 +801,18 @@ void up_textheap_free(FAR void *p);
 #endif
 
 /****************************************************************************
+ * Name: up_textheap_heapmember
+ *
+ * Description:
+ *   Test if memory is from text heap.
+ *
+ ****************************************************************************/
+
+#if defined(CONFIG_ARCH_USE_TEXT_HEAP)
+bool up_textheap_heapmember(FAR void *p);
+#endif
+
+/****************************************************************************
  * Name: up_setpicbase and up_getpicbase
  *
  * Description:
@@ -1186,14 +1197,16 @@ int up_addrenv_detach(FAR struct task_group_s *group, FAR struct tcb_s *tcb);
 #endif
 
 /****************************************************************************
- * Name: up_addrenv_text_enable_write
+ * Name: up_addrenv_mprot
  *
  * Description:
- *   Temporarily enable write access to the .text section. This must be
- *   called prior to loading the process code into memory.
+ *   Modify access rights to an address range.
  *
  * Input Parameters:
  *   addrenv - The address environment to be modified.
+ *   addr - Base address of the region.
+ *   len - Size of the region.
+ *   prot - Access right flags.
  *
  * Returned Value:
  *   Zero (OK) on success; a negated errno value on failure.
@@ -1201,26 +1214,8 @@ int up_addrenv_detach(FAR struct task_group_s *group, FAR struct tcb_s *tcb);
  ****************************************************************************/
 
 #ifdef CONFIG_ARCH_ADDRENV
-int up_addrenv_text_enable_write(FAR group_addrenv_t *addrenv);
-#endif
-
-/****************************************************************************
- * Name: up_addrenv_text_disable_write
- *
- * Description:
- *   Disable write access to the .text section. This must be called after the
- *   process code is loaded into memory.
- *
- * Input Parameters:
- *   addrenv - The address environment to be modified.
- *
- * Returned Value:
- *   Zero (OK) on success; a negated errno value on failure.
- *
- ****************************************************************************/
-
-#ifdef CONFIG_ARCH_ADDRENV
-int up_addrenv_text_disable_write(FAR group_addrenv_t *addrenv);
+int up_addrenv_mprot(FAR group_addrenv_t *addrenv, uintptr_t addr,
+                     size_t len, int prot);
 #endif
 
 /****************************************************************************
@@ -1452,17 +1447,6 @@ int up_shmdt(uintptr_t vaddr, unsigned int npages);
  ****************************************************************************/
 
 void up_irqinitialize(void);
-
-/****************************************************************************
- * Name: up_interrupt_context
- *
- * Description:
- *   Return true is we are currently executing in
- *   the interrupt handler context.
- *
- ****************************************************************************/
-
-bool up_interrupt_context(void);
 
 /****************************************************************************
  * Name: up_enable_irq
@@ -1841,14 +1825,6 @@ int up_timer_start(FAR const struct timespec *ts);
  * implementation provided here assume the arch has a "push down" stack.
  */
 
-#ifndef up_tls_info
-#  if defined(CONFIG_TLS_ALIGNED) && !defined(__KERNEL__)
-#    define up_tls_info() TLS_INFO((uintptr_t)up_getsp())
-#  else
-#    define up_tls_info() tls_get_info()
-#  endif
-#endif
-
 /****************************************************************************
  * Name: up_tls_size
  *
@@ -1862,8 +1838,6 @@ int up_timer_start(FAR const struct timespec *ts);
 
 #ifdef CONFIG_SCHED_THREAD_LOCAL
 int up_tls_size(void);
-#else
-#define up_tls_size() sizeof(struct tls_info_s) 
 #endif
 
 /****************************************************************************
@@ -1878,6 +1852,7 @@ int up_tls_size(void);
  ****************************************************************************/
 
 #ifdef CONFIG_SCHED_THREAD_LOCAL
+struct tls_info_s;
 void up_tls_initialize(FAR struct tls_info_s *info);
 #else
 #define up_tls_initialize(x)
@@ -1953,28 +1928,6 @@ int8_t up_fetchadd8(FAR volatile int8_t *addr, int8_t value);
 int32_t up_fetchsub32(FAR volatile int32_t *addr, int32_t value);
 int16_t up_fetchsub16(FAR volatile int16_t *addr, int16_t value);
 int8_t up_fetchsub8(FAR volatile int8_t *addr, int8_t value);
-#endif
-
-/****************************************************************************
- * Name: up_cpu_index
- *
- * Description:
- *   Return an index in the range of 0 through (CONFIG_SMP_NCPUS-1) that
- *   corresponds to the currently executing CPU.
- *
- * Input Parameters:
- *   None
- *
- * Returned Value:
- *   An integer index in the range of 0 through (CONFIG_SMP_NCPUS-1) that
- *   corresponds to the currently executing CPU.
- *
- ****************************************************************************/
-
-#ifdef CONFIG_SMP
-int up_cpu_index(void);
-#else
-#  define up_cpu_index() (0)
 #endif
 
 /****************************************************************************
@@ -2279,7 +2232,7 @@ void nxsched_alarm_expiration(FAR const struct timespec *ts);
 #endif
 
 /****************************************************************************
- * Name: nxsched_process_cpuload
+ * Name: nxsched_process_cpuload_ticks
  *
  * Description:
  *   Collect data that can be used for CPU load measurements.  When
@@ -2288,7 +2241,7 @@ void nxsched_alarm_expiration(FAR const struct timespec *ts);
  *   interface.
  *
  * Input Parameters:
- *   None
+ *   ticks - The ticks that we increment in this cpuload
  *
  * Returned Value:
  *   None
@@ -2300,7 +2253,8 @@ void nxsched_alarm_expiration(FAR const struct timespec *ts);
  ****************************************************************************/
 
 #if defined(CONFIG_SCHED_CPULOAD) && defined(CONFIG_SCHED_CPULOAD_EXTCLK)
-void weak_function nxsched_process_cpuload(void);
+void nxsched_process_cpuload_ticks(uint32_t ticks);
+#  define nxsched_process_cpuload() nxsched_process_cpuload_ticks(1)
 #endif
 
 /****************************************************************************
@@ -2575,7 +2529,8 @@ int up_putc(int ch);
  *
  ****************************************************************************/
 
-void up_puts(FAR const char *str);
+#define up_puts(str) up_nputs(str, ~((size_t)0))
+void up_nputs(FAR const char *str, size_t len);
 
 /****************************************************************************
  * Name: arch_sporadic_*

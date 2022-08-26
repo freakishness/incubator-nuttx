@@ -923,7 +923,6 @@ static inline ssize_t can_rtrread(FAR struct file *filep,
 {
   FAR struct can_dev_s *dev = filep->f_inode->i_private;
   FAR struct can_rtrwait_s *wait = NULL;
-  struct timespec           abstimeout;
   irqstate_t                flags;
   int                       i;
   int                       sval;
@@ -1002,15 +1001,9 @@ static inline ssize_t can_rtrread(FAR struct file *filep,
         {
           /* Then wait for the response */
 
-          ret = clock_gettime(CLOCK_REALTIME, &abstimeout);
-
-          if (ret >= 0)
-            {
-              clock_timespec_add(&abstimeout,
-                                 &request->ci_timeout,
-                                 &abstimeout);
-              ret = nxsem_timedwait(&wait->cr_sem, &abstimeout);
-            }
+          ret = nxsem_tickwait(&wait->cr_sem,
+                               SEC2TICK(request->ci_timeout.tv_sec) +
+                               NSEC2TICK(request->ci_timeout.tv_nsec));
         }
     }
 
@@ -1172,7 +1165,7 @@ static int can_poll(FAR struct file *filep, FAR struct pollfd *fds,
 
       if (ret < 0)
         {
-          DEBUGASSERT(false);
+          DEBUGPANIC();
           goto return_with_irqdisabled;
         }
       else if (sval > 0)
@@ -1413,7 +1406,7 @@ int can_receive(FAR struct can_dev_s *dev, FAR struct can_hdr_s *hdr,
           sval = 0;
           if (nxsem_get_value(&fifo->rx_sem, &sval) < 0)
             {
-              DEBUGASSERT(false);
+              DEBUGPANIC();
 #ifdef CONFIG_CAN_ERRORS
               /* Report unspecified error */
 

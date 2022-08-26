@@ -696,7 +696,6 @@ static int stm32_1wire_process(struct stm32_1wire_priv_s *priv,
                                int count)
 {
   irqstate_t irqs;
-  struct timespec abstime;
   int indx;
   int ret;
 
@@ -734,9 +733,7 @@ static int stm32_1wire_process(struct stm32_1wire_priv_s *priv,
 
           /* Wait.  Break on timeout if TX line closed to GND */
 
-          clock_gettime(CLOCK_REALTIME, &abstime);
-          abstime.tv_sec += BUS_TIMEOUT;
-          nxsem_timedwait(&priv->sem_isr, &abstime);
+          nxsem_tickwait(&priv->sem_isr, SEC2TICK(BUS_TIMEOUT));
           break;
 
         case ONEWIRETASK_WRITE:
@@ -759,9 +756,7 @@ static int stm32_1wire_process(struct stm32_1wire_priv_s *priv,
 
           /* Wait.  Break on timeout if TX line closed to GND */
 
-          clock_gettime(CLOCK_REALTIME, &abstime);
-          abstime.tv_sec += BUS_TIMEOUT;
-          nxsem_timedwait(&priv->sem_isr, &abstime);
+          nxsem_tickwait(&priv->sem_isr, SEC2TICK(BUS_TIMEOUT));
           break;
 
         case ONEWIRETASK_READ:
@@ -783,9 +778,7 @@ static int stm32_1wire_process(struct stm32_1wire_priv_s *priv,
 
           /* Wait.  Break on timeout if TX line closed to GND */
 
-          clock_gettime(CLOCK_REALTIME, &abstime);
-          abstime.tv_sec += BUS_TIMEOUT;
-          nxsem_timedwait(&priv->sem_isr, &abstime);
+          nxsem_tickwait(&priv->sem_isr, SEC2TICK(BUS_TIMEOUT));
           break;
         }
 
@@ -1162,7 +1155,7 @@ static int stm32_1wire_pm_prepare(struct pm_callback_s *cb, int domain,
 
       if (nxsem_get_value(&priv->sem_excl, &sval) < 0)
         {
-          DEBUGASSERT(false);
+          DEBUGPANIC();
           return -EINVAL;
         }
 

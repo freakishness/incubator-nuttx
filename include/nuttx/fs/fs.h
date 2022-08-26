@@ -33,7 +33,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <time.h>
+#include <dirent.h>
 
+#include <nuttx/mutex.h>
 #include <nuttx/semaphore.h>
 
 /****************************************************************************
@@ -147,13 +149,6 @@
 #define INODE_SET_SOFTLINK(i) INODE_SET_TYPE(i,FSNODEFLAG_TYPE_SOFTLINK)
 #define INODE_SET_SOCKET(i)   INODE_SET_TYPE(i,FSNODEFLAG_TYPE_SOCKET)
 
-/* Mountpoint fd_flags values */
-
-#define DIRENTFLAGS_PSEUDONODE 1
-
-#define DIRENT_SETPSEUDONODE(f) do (f) |= DIRENTFLAGS_PSEUDONODE; while (0)
-#define DIRENT_ISPSEUDONODE(f) (((f) & DIRENTFLAGS_PSEUDONODE) != 0)
-
 /* The status change flags.
  * These should be or-ed together to figure out what want to change.
  */
@@ -179,8 +174,28 @@ struct inode;
 struct stat;
 struct statfs;
 struct pollfd;
-struct fs_dirent_s;
 struct mtd_dev_s;
+
+/* The internal representation of type DIR is just a container for an inode
+ * reference, and the path of directory.
+ */
+
+struct fs_dirent_s
+{
+  /* This is the node that was opened by opendir.  The type of the inode
+   * determines the way that the readdir() operations are performed. For the
+   * pseudo root pseudo-file system, it is also used to support rewind.
+   *
+   * We hold a reference on this inode so we know that it will persist until
+   * closedir() is called (although inodes linked to this inode may change).
+   */
+
+  FAR struct inode *fd_root;
+
+  /* The path name of current directory for FIOC_FILEPATH */
+
+  FAR char *fd_path;
+};
 
 /* This structure is provided by devices when they are registered with the
  * system.  It is used to call back to perform device specific operations.
@@ -307,11 +322,11 @@ struct mountpt_operations
   /* Directory operations */
 
   int     (*opendir)(FAR struct inode *mountpt, FAR const char *relpath,
-            FAR struct fs_dirent_s *dir);
+            FAR struct fs_dirent_s **dir);
   int     (*closedir)(FAR struct inode *mountpt,
             FAR struct fs_dirent_s *dir);
   int     (*readdir)(FAR struct inode *mountpt,
-            FAR struct fs_dirent_s *dir);
+            FAR struct fs_dirent_s *dir, FAR struct dirent *entry);
   int     (*rewinddir)(FAR struct inode *mountpt,
             FAR struct fs_dirent_s *dir);
 
@@ -461,9 +476,7 @@ struct file_struct
   FAR struct file_struct *fs_next;      /* Pointer to next file stream */
   int                     fs_fd;        /* File descriptor associated with stream */
 #ifndef CONFIG_STDIO_DISABLE_BUFFERING
-  sem_t                   fs_sem;       /* For thread safety */
-  pid_t                   fs_holder;    /* Holder of sem */
-  int                     fs_counts;    /* Number of times sem is held */
+  rmutex_t                fs_lock;      /* Recursive lock */
   FAR unsigned char      *fs_bufstart;  /* Pointer to start of buffer */
   FAR unsigned char      *fs_bufend;    /* Pointer to 1 past end of buffer */
   FAR unsigned char      *fs_bufpos;    /* Current position in buffer */
@@ -1397,7 +1410,7 @@ int nx_stat(FAR const char *path, FAR struct stat *buf, int resolve);
  * Input Parameters:
  *   filep  - File structure instance
  *   buf    - The stat to be modified
- *   flags  - The vaild field in buf
+ *   flags  - The valid field in buf
  *
  * Returned Value:
  *   Upon successful completion, 0 shall be returned. Otherwise, the

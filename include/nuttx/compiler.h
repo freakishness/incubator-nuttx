@@ -73,6 +73,20 @@
 
 #ifdef __GNUC__
 
+/* Built-ins */
+#  if __GNUC__ >= 4
+#    define CONFIG_HAVE_BUILTIN_BSWAP16 1
+#    define CONFIG_HAVE_BUILTIN_BSWAP32 1
+#    define CONFIG_HAVE_BUILTIN_BSWAP64 1
+#    define CONFIG_HAVE_BUILTIN_CTZ 1
+#    define CONFIG_HAVE_BUILTIN_CLZ 1
+#    define CONFIG_HAVE_BUILTIN_POPCOUNT 1
+#    define CONFIG_HAVE_BUILTIN_POPCOUNTLL 1
+#    define CONFIG_HAVE_BUILTIN_FFS 1
+#    define CONFIG_HAVE_BUILTIN_FFSL 1
+#    define CONFIG_HAVE_BUILTIN_FFSLL 1
+#  endif
+
 /* Pre-processor */
 
 #  define CONFIG_CPP_HAVE_VARARGS 1 /* Supports variable argument macros */
@@ -102,18 +116,6 @@
  */
 
 #  define offsetof(a, b) __builtin_offsetof(a, b)
-
-/* GCC 4.x have __builtin_ctz(|l|ll) and __builtin_clz(|l|ll). These count
- * trailing/leading zeros of input number and typically will generate few
- * fast bit-counting instructions. Inputting zero to these functions is
- * undefined and needs to be taken care of by the caller.
- */
-
-#  if __GNUC__ >= 4
-#    define CONFIG_HAVE_BUILTIN_CTZ      1
-#    define CONFIG_HAVE_BUILTIN_CLZ      1
-#    define CONFIG_HAVE_BUILTIN_POPCOUNT 1
-#  endif
 
 /* Attributes
  *
@@ -188,6 +190,10 @@
 /* The noinstrument_function attribute informs GCC don't instrument it */
 
 #  define noinstrument_function __attribute__ ((no_instrument_function))
+
+/* The nosanitize_address attribute informs GCC don't sanitize it */
+
+#  define nosanitize_address __attribute__ ((no_sanitize_address))
 
 /* The nostackprotect_function attribute disables stack protection in
  * sensitive functions, e.g., stack coloration routines.
@@ -383,7 +389,7 @@
 
 /* Indicate that a local variable is not used */
 
-#  define UNUSED(a) ((void)(1 || (a)))
+#  define UNUSED(a) ((void)(1 || &(a)))
 
 #  if defined(__clang__)
 #    define no_builtin(n) __attribute__((no_builtin(n)))
@@ -458,6 +464,7 @@
 #  define inline_function
 #  define noinline_function
 #  define noinstrument_function
+#  define nosanitize_address
 #  define nostackprotect_function
 
 #  define unused_code
@@ -483,7 +490,7 @@
 
 /* Indicate that a local variable is not used */
 
-#  define UNUSED(a) ((void)(1 || (a)))
+#  define UNUSED(a) ((void)(1 || &(a)))
 
 /* It is assumed that the system is build using the small
  * data model with storage defaulting to internal RAM.
@@ -589,6 +596,7 @@
 #  define inline_function
 #  define noinline_function
 #  define noinstrument_function
+#  define nosanitize_address
 #  define nostackprotect_function
 #  define unused_code
 #  define unused_data
@@ -652,7 +660,7 @@
 
 /* Indicate that a local variable is not used */
 
-#  define UNUSED(a) ((void)(1 || (a)))
+#  define UNUSED(a) ((void)(1 || &(a)))
 
 /* Older Zilog compilers support both types double and long long, but the
  * size is 32-bits (same as long and single precision) so it is safer to say
@@ -689,6 +697,7 @@
 #  define inline_function
 #  define noinline_function
 #  define noinstrument_function
+#  define nosanitize_address
 #  define nostackprotect_function
 #  define unused_code
 #  define unused_data
@@ -719,7 +728,7 @@
 
 /* Indicate that a local variable is not used */
 
-#  define UNUSED(a) ((void)(1 || (a)))
+#  define UNUSED(a) ((void)(1 || &(a)))
 
 #  define CONFIG_CPP_HAVE_VARARGS 1 /* Supports variable argument macros */
 #  define CONFIG_HAVE_FILENAME 1    /* Has __FILE__ */
@@ -755,6 +764,7 @@
 #  define inline_function
 #  define noinline_function
 #  define noinstrument_function
+#  define nosanitize_address
 #  define nostackprotect_function
 #  define unused_code
 #  define unused_data
@@ -770,6 +780,8 @@
 #  define NEAR
 #  define DSEG
 #  define CODE
+#  define IOBJ
+#  define IPTR
 
 #  undef  CONFIG_SMALL_MEMORY
 #  undef  CONFIG_LONG_IS_NOT_INT
@@ -779,7 +791,7 @@
 #  undef  CONFIG_HAVE_DOUBLE
 #  undef  CONFIG_HAVE_LONG_DOUBLE
 
-#  define UNUSED(a) ((void)(1 || (a)))
+#  define UNUSED(a) ((void)(1 || &(a)))
 
 #  define offsetof(a, b) ((size_t)(&(((a *)(0))->b)))
 

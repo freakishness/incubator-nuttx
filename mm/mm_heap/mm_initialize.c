@@ -105,7 +105,14 @@ void mm_addregion(FAR struct mm_heap_s *heap, FAR void *heapstart,
   heapend  = MM_ALIGN_DOWN((uintptr_t)heapstart + (uintptr_t)heapsize);
   heapsize = heapend - heapbase;
 
+#if defined(CONFIG_FS_PROCFS) && \
+    !defined(CONFIG_FS_PROCFS_EXCLUDE_MEMINFO) && \
+    (defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__))
+  minfo("[%s] Region %d: base=%p size=%zu\n",
+        heap->mm_procfs.name, IDX + 1, heapstart, heapsize);
+#else
   minfo("Region %d: base=%p size=%zu\n", IDX + 1, heapstart, heapsize);
+#endif
 
   /* Add the size of this region to the total size of the heap */
 
@@ -209,20 +216,49 @@ FAR struct mm_heap_s *mm_initialize(FAR const char *name,
 
   mm_seminitialize(heap);
 
+#if defined(CONFIG_FS_PROCFS) && !defined(CONFIG_FS_PROCFS_EXCLUDE_MEMINFO)
+#  if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
+  heap->mm_procfs.name = name;
+  heap->mm_procfs.heap = heap;
+#    ifdef CONFIG_MM_BACKTRACE_DEFAULT
+  heap->mm_procfs.backtrace = true;
+#    endif
+#  endif
+#endif
+
   /* Add the initial region of memory to the heap */
 
   mm_addregion(heap, heapstart, heapsize);
 
 #if defined(CONFIG_FS_PROCFS) && !defined(CONFIG_FS_PROCFS_EXCLUDE_MEMINFO)
-#if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
-  heap->mm_procfs.name = name;
-  heap->mm_procfs.heap = heap;
-#if defined (CONFIG_DEBUG_MM) && defined(CONFIG_MM_BACKTRACE_DEFAULT)
-  heap->mm_procfs.backtrace = true;
-#endif
+#  if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
   procfs_register_meminfo(&heap->mm_procfs);
-#endif
+#  endif
 #endif
 
   return heap;
+}
+
+/****************************************************************************
+ * Name: mm_uninitialize
+ *
+ * Description:
+ *   Uninitialize the selected heap data structures.
+ *
+ * Input Parameters:
+ *   heap - The heap to uninitialize
+ *
+ * Returned Value:
+ *   None
+ *
+ ****************************************************************************/
+
+void mm_uninitialize(FAR struct mm_heap_s *heap)
+{
+#if defined(CONFIG_FS_PROCFS) && !defined(CONFIG_FS_PROCFS_EXCLUDE_MEMINFO)
+#  if defined(CONFIG_BUILD_FLAT) || defined(__KERNEL__)
+  procfs_unregister_meminfo(&heap->mm_procfs);
+#  endif
+#endif
+  mm_semuninitialize(heap);
 }

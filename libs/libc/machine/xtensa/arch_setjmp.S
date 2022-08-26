@@ -26,6 +26,8 @@
 #include <arch/chip/core-isa.h>
 #include <arch/xtensa/xtensa_abi.h>
 
+#include <arch/syscall.h>
+
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
@@ -70,8 +72,8 @@ setjmp:
 # if XCHAL_HAVE_XEA3
 /*
   a2 points to the jmp_buf structure of 68 bytes length:
-  8 * 4 to save the regester save area of setjmp that contains the callers resgisters
-  8 * 4 to save the caller's register save area which is pottentally
+  8 * 4 to save the register save area of setjmp that contains the callers registers
+  8 * 4 to save the caller's register save area which is potentially
   clobbered by an alloca() in the caller
 */
 
@@ -127,8 +129,10 @@ setjmp:
 
   /* Flush registers.  */
   mov a4, a2      # save a2 (jmp_buf)
-  movi  a2, 0
-  syscall
+  movi  a2, SYS_flush_context
+  movi a3, XCHAL_SWINT_CALL
+  wsr  a3, intset
+  isync
   mov a2, a4      # restore a2
 
   /* Copy the register save area at (sp - 16).  */

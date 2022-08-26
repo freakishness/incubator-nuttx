@@ -94,12 +94,11 @@ struct usrsock_conn_s
   int8_t        type;                /* Socket type (SOCK_STREAM, etc) */
   int16_t       usockid;             /* Connection number used for kernel<->daemon */
   uint16_t      flags;               /* Socket state flags */
-  struct usrsockdev_s *dev;          /* Device node used for this conn */
 
   struct
   {
     sem_t    sem;               /* Request semaphore (only one outstanding request) */
-    uint64_t xid;               /* Expected message exchange id */
+    uint32_t xid;               /* Expected message exchange id */
     bool     inprogress;        /* Request was received but daemon is still processing */
     uint16_t valuelen;          /* Length of value from daemon */
     uint16_t valuelen_nontrunc; /* Actual length of value at daemon */

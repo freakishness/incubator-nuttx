@@ -827,7 +827,7 @@ static void semphr_delete_wrapper(void *semphr)
 
 static int semphr_take_from_isr_wrapper(void *semphr, void *hptw)
 {
-  DEBUGASSERT(0);
+  DEBUGPANIC();
   return false;
 }
 
@@ -915,12 +915,11 @@ static void esp_update_time(struct timespec *timespec, uint32_t ticks)
 static int semphr_take_wrapper(void *semphr, uint32_t block_time_ms)
 {
   int ret;
-  struct timespec timeout;
   struct bt_sem_s *bt_sem = (struct bt_sem_s *)semphr;
 
   if (block_time_ms == OSI_FUNCS_TIME_BLOCKING)
     {
-      ret = sem_wait(&bt_sem->sem);
+      ret = nxsem_wait(&bt_sem->sem);
       if (ret)
         {
           wlerr("Failed to wait sem\n");
@@ -930,18 +929,11 @@ static int semphr_take_wrapper(void *semphr, uint32_t block_time_ms)
     {
       if (block_time_ms > 0)
         {
-          ret = clock_gettime(CLOCK_REALTIME, &timeout);
-          if (ret < 0)
-            {
-              wlerr("Failed to get time\n");
-              return false;
-            }
-          esp_update_time(&timeout, MSEC2TICK(block_time_ms));
-          ret = sem_timedwait(&bt_sem->sem, &timeout);
+          ret = nxsem_tickwait(&bt_sem->sem, MSEC2TICK(block_time_ms));
         }
       else
         {
-          ret = sem_trywait(&bt_sem->sem);
+          ret = nxsem_trywait(&bt_sem->sem);
         }
     }
 
@@ -967,7 +959,7 @@ static int semphr_give_wrapper(void *semphr)
   int ret;
   struct bt_sem_s *bt_sem = (struct bt_sem_s *)semphr;
 
-  ret = sem_post(&bt_sem->sem);
+  ret = nxsem_post(&bt_sem->sem);
   if (ret)
     {
       wlerr("Failed to post sem error=%d\n", ret);
@@ -1191,7 +1183,7 @@ static int IRAM_ATTR queue_send_from_isr_wrapper(void *queue,
 
 static int queue_recv_from_isr_wrapper(void *queue, void *item, void *hptw)
 {
-  DEBUGASSERT(0);
+  DEBUGPANIC();
   return false;
 }
 
@@ -1545,7 +1537,7 @@ static void btdm_sleep_enter_phase1_wrapper(uint32_t lpcycles)
   else
     {
       wlerr("timer start failed");
-      DEBUGASSERT(0);
+      DEBUGPANIC();
     }
 }
 
@@ -1574,7 +1566,7 @@ static void btdm_sleep_enter_phase2_wrapper(void)
         }
       else
         {
-          DEBUGASSERT(0);
+          DEBUGPANIC();
         }
 
       if (g_lp_stat.pm_lock_released == false)
@@ -1610,7 +1602,7 @@ static void btdm_sleep_exit_phase3_wrapper(void)
   if (btdm_sleep_clock_sync())
     {
       wlerr("sleep eco state err\n");
-      DEBUGASSERT(0);
+      DEBUGPANIC();
     }
 
   if (btdm_controller_get_sleep_mode() == ESP_BT_SLEEP_MODE_1)
@@ -2162,7 +2154,7 @@ int esp32c3_bt_controller_deinit(void)
     }
   else
     {
-      DEBUGASSERT(0);
+      DEBUGPANIC();
     }
 
 #ifdef CONFIG_PM
@@ -2238,7 +2230,7 @@ int esp32c3_bt_controller_disable(void)
     }
   else
     {
-      DEBUGASSERT(0);
+      DEBUGPANIC();
     }
 #endif
 

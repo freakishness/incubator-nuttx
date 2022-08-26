@@ -33,11 +33,11 @@
 #include <sched.h>
 #include <signal.h>
 #include <semaphore.h>
+#include <pthread.h>
 #include <time.h>
 
 #include <nuttx/clock.h>
 #include <nuttx/irq.h>
-#include <nuttx/tls.h>
 #include <nuttx/wdog.h>
 #include <nuttx/mm/shm.h>
 #include <nuttx/fs/fs.h>
@@ -107,7 +107,7 @@
 #define TCB_FLAG_SYSCALL           (1 << 10)                     /* Bit 9: In a system call */
 #define TCB_FLAG_EXIT_PROCESSING   (1 << 11)                     /* Bit 10: Exitting */
 #define TCB_FLAG_FREE_STACK        (1 << 12)                     /* Bit 12: Free stack after exit */
-#define TCB_FLAG_MEM_CHECK         (1 << 13)                     /* Bit 13: Memory check */
+#define TCB_FLAG_HEAPCHECK         (1 << 13)                     /* Bit 13: Heap check */
                                                                  /* Bits 14-15: Available */
 
 /* Values for struct task_group tg_flags */
@@ -170,18 +170,6 @@
 #  define _SCHED_SETAFFINITY(t,c,m)  sched_setaffinity(t,c,m)
 #  define _SCHED_ERRNO(r)            errno
 #  define _SCHED_ERRVAL(r)           (-errno)
-#endif
-
-/* The number of callback can be saved */
-
-#if defined(CONFIG_SCHED_ONEXIT_MAX)
-#  define CONFIG_SCHED_EXIT_MAX CONFIG_SCHED_ONEXIT_MAX
-#elif defined(CONFIG_SCHED_ATEXIT_MAX)
-#  define CONFIG_SCHED_EXIT_MAX CONFIG_SCHED_ATEXIT_MAX
-#endif
-
-#if defined(CONFIG_SCHED_EXIT_MAX) && CONFIG_SCHED_EXIT_MAX < 1
-#  error "CONFIG_SCHED_EXIT_MAX < 1"
 #endif
 
 #ifdef CONFIG_DEBUG_TCBINFO
@@ -271,18 +259,6 @@ typedef union entry_u entry_t;
 
 #ifdef CONFIG_SCHED_STARTHOOK
 typedef CODE void (*starthook_t)(FAR void *arg);
-#endif
-
-/* These are the types of the functions that are executed with exit() is
- * called (if registered via atexit() on on_exit()).
- */
-
-#ifdef CONFIG_SCHED_ATEXIT
-typedef CODE void (*atexitfunc_t)(void);
-#endif
-
-#ifdef CONFIG_SCHED_ONEXIT
-typedef CODE void (*onexitfunc_t)(int exitcode, FAR void *arg);
 #endif
 
 /* struct sporadic_s ********************************************************/
@@ -392,24 +368,6 @@ struct stackinfo_s
                                          /* from the stack.                     */
 };
 
-/* struct exitinfo_s ********************************************************/
-
-struct exitinfo_s
-{
-  union
-  {
-#ifdef CONFIG_SCHED_ATEXIT
-    atexitfunc_t at;
-#endif
-#ifdef CONFIG_SCHED_ONEXIT
-    onexitfunc_t on;
-#endif
-  } func;
-#ifdef CONFIG_SCHED_ONEXIT
-  FAR void *arg;
-#endif
-};
-
 /* struct task_group_s ******************************************************/
 
 /* All threads created by pthread_create belong in the same task group (along
@@ -434,6 +392,8 @@ struct exitinfo_s
  * leaving the group.  When the reference count decrements to zero,
  * the struct task_group_s is free.
  */
+
+struct task_info_s;
 
 #ifndef CONFIG_DISABLE_PTHREAD
 struct join_s;                      /* Forward reference                        */
@@ -466,12 +426,6 @@ struct task_group_s
 #ifdef HAVE_GROUP_MEMBERS
   uint8_t    tg_mxmembers;          /* Number of members in allocation          */
   FAR pid_t *tg_members;            /* Members of the group                     */
-#endif
-
-  /* [at|on]exit support ****************************************************/
-
-#ifdef CONFIG_SCHED_EXIT_MAX
-  struct exitinfo_s tg_exit[CONFIG_SCHED_EXIT_MAX];
 #endif
 
 #ifdef CONFIG_BINFMT_LOADABLE
@@ -968,6 +922,74 @@ int nxtask_init(FAR struct task_tcb_s *tcb, const char *name, int priority,
  ****************************************************************************/
 
 void nxtask_uninit(FAR struct task_tcb_s *tcb);
+
+/****************************************************************************
+ * Name: nxtask_create
+ *
+ * Description:
+ *   This function creates and activates a new user task with a specified
+ *   priority and returns its system-assigned ID.
+ *
+ *   The entry address entry is the address of the "main" function of the
+ *   task.  This function will be called once the C environment has been
+ *   set up.  The specified function will be called with four arguments.
+ *   Should the specified routine return, a call to exit() will
+ *   automatically be made.
+ *
+ *   Note that four (and only four) arguments must be passed for the spawned
+ *   functions.
+ *
+ *   nxtask_create() is identical to the function task_create(), differing
+ *   only in its return value:  This function does not modify the errno
+ *   variable.  This is a non-standard, internal OS function and is not
+ *   intended for use by application logic.  Applications should use
+ *   task_create().
+ *
+ * Input Parameters:
+ *   name       - Name of the new task
+ *   priority   - Priority of the new task
+ *   stack_size - size (in bytes) of the stack needed
+ *   entry      - Entry point of a new task
+ *   arg        - A pointer to an array of input parameters.  The array
+ *                should be terminated with a NULL argv[] value. If no
+ *                parameters are required, argv may be NULL.
+ *
+ * Returned Value:
+ *   Returns the positive, non-zero process ID of the new task or a negated
+ *   errno value to indicate the nature of any failure.  If memory is
+ *   insufficient or the task cannot be created -ENOMEM will be returned.
+ *
+ ****************************************************************************/
+
+int nxtask_create(FAR const char *name, int priority,
+                  int stack_size, main_t entry, FAR char * const argv[]);
+
+/****************************************************************************
+ * Name: nxtask_delete
+ *
+ * Description:
+ *   This function causes a specified task to cease to exist.  Its stack and
+ *   TCB will be deallocated.
+ *
+ *   The logic in this function only deletes non-running tasks.  If the
+ *   'pid' parameter refers to the currently running task, then processing
+ *   is redirected to exit(). This can only happen if a task calls
+ *   nxtask_delete() in order to delete itself.
+ *
+ *   This function obeys the semantics of pthread cancellation:  task
+ *   deletion is deferred if cancellation is disabled or if deferred
+ *   cancellation is supported (with cancellation points enabled).
+ *
+ * Input Parameters:
+ *   pid - The task ID of the task to delete.  A pid of zero
+ *         signifies the calling task.
+ *
+ * Returned Value:
+ *   OK on success; or negated errno on failure
+ *
+ ****************************************************************************/
+
+int nxtask_delete(pid_t pid);
 
 /****************************************************************************
  * Name: nxtask_activate

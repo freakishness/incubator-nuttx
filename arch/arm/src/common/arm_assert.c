@@ -24,12 +24,14 @@
 
 #include <nuttx/config.h>
 
+#include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <debug.h>
 
 #include <nuttx/irq.h>
+#include <nuttx/tls.h>
 #include <nuttx/arch.h>
 #include <nuttx/board.h>
 #include <nuttx/syslog/syslog.h>
@@ -137,6 +139,7 @@ static void arm_registerdump(volatile uint32_t *regs)
 
 static void arm_dump_task(struct tcb_s *tcb, void *arg)
 {
+  char args[64] = "";
 #ifdef CONFIG_STACK_COLORATION
   uint32_t stack_filled = 0;
   uint32_t stack_used;
@@ -172,44 +175,58 @@ static void arm_dump_task(struct tcb_s *tcb, void *arg)
     }
 #endif
 
+#ifndef CONFIG_DISABLE_PTHREAD
+  if ((tcb->flags & TCB_FLAG_TTYPE_MASK) == TCB_FLAG_TTYPE_PTHREAD)
+    {
+      FAR struct pthread_tcb_s *ptcb = (FAR struct pthread_tcb_s *)tcb;
+
+      snprintf(args, sizeof(args), " %p", ptcb->arg);
+    }
+  else
+#endif
+    {
+      FAR char **argv = tcb->group->tg_info->argv + 1;
+      size_t npos = 0;
+
+      while (*argv != NULL && npos < sizeof(args))
+        {
+          npos += snprintf(args + npos, sizeof(args) - npos, " %s", *argv++);
+        }
+    }
+
   /* Dump interesting properties of this task */
 
   _alert("  %4d   %4d"
 #ifdef CONFIG_SMP
          "  %4d"
 #endif
-#ifdef CONFIG_STACK_COLORATION
-         "   %7lu"
-#endif
          "   %7lu"
 #ifdef CONFIG_STACK_COLORATION
-         "   %3" PRId32 ".%1" PRId32 "%%%c"
+         "   %7lu   %3" PRId32 ".%1" PRId32 "%%%c"
 #endif
 #ifdef CONFIG_SCHED_CPULOAD
          "   %3" PRId32 ".%01" PRId32 "%%"
 #endif
-#if CONFIG_TASK_NAME_SIZE > 0
-         "   %s"
-#endif
-         "\n",
-         tcb->pid, tcb->sched_priority,
+         "   %s%s\n"
+         , tcb->pid, tcb->sched_priority
 #ifdef CONFIG_SMP
-         tcb->cpu,
+         , tcb->cpu
 #endif
+         , (unsigned long)tcb->adj_stack_size
 #ifdef CONFIG_STACK_COLORATION
-         (unsigned long)up_check_tcbstack(tcb),
-#endif
-         (unsigned long)tcb->adj_stack_size
-#ifdef CONFIG_STACK_COLORATION
-         , stack_filled / 10, stack_filled % 10,
-         (stack_filled >= 10 * 80 ? '!' : ' ')
+         , (unsigned long)up_check_tcbstack(tcb)
+         , stack_filled / 10, stack_filled % 10
+         , (stack_filled >= 10 * 80 ? '!' : ' ')
 #endif
 #ifdef CONFIG_SCHED_CPULOAD
          , intpart, fracpart
 #endif
 #if CONFIG_TASK_NAME_SIZE > 0
          , tcb->name
+#else
+         , "<noname>"
 #endif
+         , args
         );
 }
 
@@ -253,45 +270,31 @@ static void arm_showtasks(void)
 #ifdef CONFIG_SMP
          "   CPU"
 #endif
-#ifdef CONFIG_STACK_COLORATION
-         "      USED"
-#endif
          "     STACK"
 #ifdef CONFIG_STACK_COLORATION
-         "   FILLED "
+         "      USED   FILLED "
 #endif
 #ifdef CONFIG_SCHED_CPULOAD
          "      CPU"
 #endif
-#if CONFIG_TASK_NAME_SIZE > 0
-         "   COMMAND"
-#endif
-         "\n");
+         "   COMMAND\n");
 
 #if CONFIG_ARCH_INTERRUPTSTACK > 7
   _alert("  ----   ----"
 #  ifdef CONFIG_SMP
          "  ----"
 #  endif
+         "   %7u"
 #  ifdef CONFIG_STACK_COLORATION
-         "   %7lu"
-#  endif
-         "   %7lu"
-#  ifdef CONFIG_STACK_COLORATION
-         "   %3" PRId32 ".%1" PRId32 "%%%c"
+         "   %7" PRId32 "   %3" PRId32 ".%1" PRId32 "%%%c"
 #  endif
 #  ifdef CONFIG_SCHED_CPULOAD
          "     ----"
 #  endif
-#  if CONFIG_TASK_NAME_SIZE > 0
-         "   irq"
-#  endif
-         "\n"
+         "   irq\n"
+         , (CONFIG_ARCH_INTERRUPTSTACK & ~7)
 #  ifdef CONFIG_STACK_COLORATION
-         , (unsigned long)stack_used
-#  endif
-         , (unsigned long)(CONFIG_ARCH_INTERRUPTSTACK & ~7)
-#  ifdef CONFIG_STACK_COLORATION
+         , stack_used
          , stack_filled / 10, stack_filled % 10,
          (stack_filled >= 10 * 80 ? '!' : ' ')
 #  endif
@@ -349,10 +352,24 @@ static void arm_dump_stack(const char *tag, uint32_t sp,
   else
     {
       _alert("ERROR: %s Stack pointer is not within the stack\n", tag);
-
       if (force)
         {
-          arm_stackdump(base, top);
+#ifdef CONFIG_STACK_COLORATION
+          uint32_t remain;
+
+          remain = size - arm_stack_check((FAR void *)(uintptr_t)base, size);
+          base  += remain;
+          size  -= remain;
+#endif
+
+#if CONFIG_ARCH_STACKDUMP_MAX_LENGTH > 0
+          if (size > CONFIG_ARCH_STACKDUMP_MAX_LENGTH)
+            {
+              size = CONFIG_ARCH_STACKDUMP_MAX_LENGTH;
+            }
+#endif
+
+          arm_stackdump(base, base + size);
         }
     }
 }
@@ -450,21 +467,22 @@ static void arm_assert(void)
 
   if (CURRENT_REGS || (running_task())->flink == NULL)
     {
+#if CONFIG_BOARD_RESET_ON_ASSERT >= 1
+      board_reset(CONFIG_BOARD_ASSERT_RESET_VALUE);
+#endif
+
       /* Disable interrupts on this CPU */
 
       up_irq_save();
 
+#ifdef CONFIG_SMP
+      /* Try (again) to stop activity on other CPUs */
+
+      spin_trylock(&g_cpu_irqlock);
+#endif
+
       for (; ; )
         {
-#ifdef CONFIG_SMP
-          /* Try (again) to stop activity on other CPUs */
-
-          spin_trylock(&g_cpu_irqlock);
-#endif
-
-#if CONFIG_BOARD_RESET_ON_ASSERT >= 1
-          board_reset(CONFIG_BOARD_ASSERT_RESET_VALUE);
-#endif
 #ifdef CONFIG_ARCH_LEDS
           /* FLASH LEDs a 2Hz */
 

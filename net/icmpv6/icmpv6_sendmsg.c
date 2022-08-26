@@ -349,7 +349,7 @@ ssize_t icmpv6_sendmsg(FAR struct socket *psock, FAR struct msghdr *msg,
       conn->nreqs = 0;
       conn->dev   = NULL;
 
-      iob_free_queue(&conn->readahead, IOBUSER_NET_SOCK_ICMPv6);
+      iob_free_queue(&conn->readahead);
     }
 
 #ifdef CONFIG_NET_ICMPv6_NEIGHBOR
@@ -430,6 +430,10 @@ ssize_t icmpv6_sendmsg(FAR struct socket *psock, FAR struct msghdr *msg,
 
                   ret = -ENETUNREACH;
                 }
+              else
+                {
+                  ret = -EAGAIN;
+                }
             }
 
           state.snd_result = ret;
@@ -458,7 +462,7 @@ errout:
   conn->nreqs = 0;
   conn->dev   = NULL;
 
-  iob_free_queue(&conn->readahead, IOBUSER_NET_SOCK_ICMPv6);
+  iob_free_queue(&conn->readahead);
   return ret;
 }
 

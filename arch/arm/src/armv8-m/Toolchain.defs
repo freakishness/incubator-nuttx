@@ -60,7 +60,7 @@ endif
 ifeq ($(CONFIG_DEBUG_CUSTOMOPT),y)
   ARCHOPTIMIZATION += $(CONFIG_DEBUG_OPTLEVEL)
 else ifeq ($(CONFIG_DEBUG_FULLOPT),y)
-  ifeq ($(CONFIG_ARMV6M_TOOLCHAIN),CLANG)
+  ifeq ($(CONFIG_ARMV8M_TOOLCHAIN),CLANG)
     ARCHOPTIMIZATION += -Oz
   else
     ARCHOPTIMIZATION += -Os
@@ -81,12 +81,20 @@ ifeq ($(CONFIG_STACK_CANARIES),y)
   ARCHOPTIMIZATION += -fstack-protector-all
 endif
 
-ifeq ($(CONFIG_ARCH_COVERAGE),y)
+ifeq ($(CONFIG_ARCH_COVERAGE_ALL),y)
   ARCHOPTIMIZATION += -fprofile-generate -ftest-coverage
 endif
 
 ifeq ($(CONFIG_ARMV8M_STACKCHECK),y)
   ARCHOPTIMIZATION += -finstrument-functions -ffixed-r10
+endif
+
+ifeq ($(CONFIG_MM_UBSAN_ALL),y)
+  ARCHOPTIMIZATION += -fsanitize=undefined
+endif
+
+ifeq ($(CONFIG_MM_UBSAN_TRAP_ON_ERROR),y)
+  ARCHOPTIMIZATION += -fsanitize-undefined-trap-on-error
 endif
 
 # Parametrization for ARCHCPUFLAGS
@@ -180,8 +188,8 @@ else
 endif
 endif
 
-ifeq ($(CONFIG_MM_KASAN),y)
-  ARCHCPUFLAGS += -fsanitize=kernel-address
+ifeq ($(CONFIG_MM_KASAN_ALL),y)
+  ARCHOPTIMIZATION += -fsanitize=kernel-address
 endif
 
 # Generic GNU EABI toolchain
@@ -231,7 +239,6 @@ else
       AR := $(CROSSDEV)gcc-ar rcs
       NM := $(CROSSDEV)gcc-nm
       ARCHOPTIMIZATION += -fno-builtin
-      ARCHOPTIMIZATION += -nodefaultlibs
     endif
   endif
 endif
@@ -241,6 +248,9 @@ endif
 ARCHCFLAGS += -fno-common
 ARCHCXXFLAGS += -fno-common -nostdinc++
 
+ARCHCFLAGS += -Wall -Wstrict-prototypes -Wshadow -Wundef
+ARCHCXXFLAGS += -Wall -Wshadow -Wundef
+
 ifneq ($(CONFIG_CXX_EXCEPTION),y)
   ARCHCXXFLAGS += -fno-exceptions -fcheck-new
 endif
@@ -248,6 +258,8 @@ endif
 ifneq ($(CONFIG_CXX_RTTI),y)
   ARCHCXXFLAGS += -fno-rtti
 endif
+
+LDFLAGS += -nostdlib
 
 # Optimization of unused sections
 
@@ -263,7 +275,6 @@ ifeq ($(CONFIG_DEBUG_LINK_MAP),y)
 endif
 
 ifeq ($(CONFIG_DEBUG_SYMBOLS),y)
-  LDFLAGS          += -g
   ARCHOPTIMIZATION += -g
 endif
 

@@ -29,6 +29,8 @@
 
 #ifndef __ASSEMBLY__
 #  include <stdint.h>
+#  include <nuttx/arch.h>
+#  include <nuttx/irq.h>
 #endif
 
 #ifdef CONFIG_ARCH_FAMILY_AVR32
@@ -168,6 +170,10 @@ void up_usbuninitialize(void);
 #else
 # define up_usbinitialize()
 # define up_usbuninitialize()
+#endif
+
+#ifdef CONFIG_STACK_COLORATION
+size_t avr_stack_check(uintptr_t alloc, size_t size);
 #endif
 
 #endif /* __ASSEMBLY__ */

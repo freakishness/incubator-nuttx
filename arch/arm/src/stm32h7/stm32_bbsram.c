@@ -39,8 +39,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <nuttx/fs/fs.h>
-
-#include <crc32.h>
+#include <nuttx/crc32.h>
 
 #include "stm32_bbsram.h"
 #include "chip.h"
@@ -800,7 +799,6 @@ int stm32_bbsraminitialize(char *devpath, int *sizes)
 {
   int i;
   int fcnt;
-  char path[32];
   char devname[32];
 
   int ret = OK;
@@ -811,7 +809,7 @@ int stm32_bbsraminitialize(char *devpath, int *sizes)
     }
 
   i = strlen(devpath);
-  if (i == 0 || i > sizeof(path) + 3)
+  if (i == 0 || i > sizeof(devname) - 3)
     {
       return -EINVAL;
     }
@@ -853,12 +851,9 @@ int stm32_bbsraminitialize(char *devpath, int *sizes)
 
   fcnt = stm32_bbsram_probe(sizes, g_bbsram);
 
-  strncpy(path, devpath, sizeof(path));
-  strcat(path, "%d");
-
   for (i = 0; i < fcnt && ret >= OK; i++)
     {
-      snprintf(devname, sizeof(devname), path, i);
+      snprintf(devname, sizeof(devname), "%s%d", devpath, i);
       ret = register_driver(devname, &stm32_bbsram_fops, 0666, &g_bbsram[i]);
     }
 

@@ -75,7 +75,7 @@
 #  include "esp32_ble.h"
 #endif
 
-#ifdef CONFIG_ESP32_WIRELESS
+#ifdef CONFIG_ESP32_WIFI
 #  include "esp32_board_wlan.h"
 #endif
 
@@ -93,6 +93,10 @@
 
 #ifdef CONFIG_SENSORS_BMP180
 #  include "esp32_bmp180.h"
+#endif
+
+#ifdef CONFIG_SENSORS_BMP280
+#  include "esp32_bmp280.h"
 #endif
 
 #ifdef CONFIG_SENSORS_SHT3X
@@ -281,7 +285,7 @@ int esp32_bringup(void)
     }
 #endif
 
-#ifdef CONFIG_ESP32_WIRELESS
+#ifdef CONFIG_ESP32_WIFI
   ret = board_wlan_init();
   if (ret < 0)
     {
@@ -435,6 +439,17 @@ int esp32_bringup(void)
   if (ret < 0)
     {
       syslog(LOG_ERR, "Failed to initialize BMP180 driver: %d\n", ret);
+    }
+#endif
+
+#ifdef CONFIG_SENSORS_BMP280
+  /* Try to register BMP280 device in I2C0 */
+
+  ret = board_bmp280_initialize(0, 0);
+
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "Failed to initialize BMP280 driver: %d\n", ret);
     }
 #endif
 

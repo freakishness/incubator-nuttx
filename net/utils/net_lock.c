@@ -97,27 +97,15 @@ _net_timedwait(sem_t *sem, bool interruptible, unsigned int timeout)
 
   if (timeout != UINT_MAX)
     {
-      struct timespec abstime;
-
-      DEBUGVERIFY(clock_gettime(CLOCK_REALTIME, &abstime));
-
-      abstime.tv_sec  += timeout / MSEC_PER_SEC;
-      abstime.tv_nsec += timeout % MSEC_PER_SEC * NSEC_PER_MSEC;
-      if (abstime.tv_nsec >= NSEC_PER_SEC)
-        {
-          abstime.tv_sec++;
-          abstime.tv_nsec -= NSEC_PER_SEC;
-        }
-
       /* Wait until we get the lock or until the timeout expires */
 
       if (interruptible)
         {
-          ret = nxsem_timedwait(sem, &abstime);
+          ret = nxsem_tickwait(sem, MSEC2TICK(timeout));
         }
       else
         {
-          ret = nxsem_timedwait_uninterruptible(sem, &abstime);
+          ret = nxsem_tickwait_uninterruptible(sem, MSEC2TICK(timeout));
         }
     }
   else
@@ -447,7 +435,7 @@ int net_lockedwait_uninterruptible(sem_t *sem)
  * Description:
  *   Allocate an IOB.  If no IOBs are available, then atomically wait for
  *   for the IOB while temporarily releasing the lock on the network.
- *   This function is wrapped version of nxsem_timedwait(), this wait will
+ *   This function is wrapped version of nxsem_tickwait(), this wait will
  *   be terminated when the specified timeout expires.
  *
  *   Caution should be utilized.  Because the network lock is relinquished
@@ -458,7 +446,6 @@ int net_lockedwait_uninterruptible(sem_t *sem)
  * Input Parameters:
  *   throttled  - An indication of the IOB allocation is "throttled"
  *   timeout    - The relative time to wait until a timeout is declared.
- *   consumerid - id representing who is consuming the IOB
  *
  * Returned Value:
  *   A pointer to the newly allocated IOB is returned on success.  NULL is
@@ -466,12 +453,11 @@ int net_lockedwait_uninterruptible(sem_t *sem)
  *
  ****************************************************************************/
 
-FAR struct iob_s *net_iobtimedalloc(bool throttled, unsigned int timeout,
-                                    enum iob_user_e consumerid)
+FAR struct iob_s *net_iobtimedalloc(bool throttled, unsigned int timeout)
 {
   FAR struct iob_s *iob;
 
-  iob = iob_tryalloc(throttled, consumerid);
+  iob = iob_tryalloc(throttled);
   if (iob == NULL && timeout != 0)
     {
       unsigned int count;
@@ -482,7 +468,7 @@ FAR struct iob_s *net_iobtimedalloc(bool throttled, unsigned int timeout,
        */
 
       blresult = net_breaklock(&count);
-      iob      = iob_timedalloc(throttled, timeout, consumerid);
+      iob      = iob_timedalloc(throttled, timeout);
       if (blresult >= 0)
         {
           net_restorelock(count);
@@ -506,7 +492,6 @@ FAR struct iob_s *net_iobtimedalloc(bool throttled, unsigned int timeout,
  *
  * Input Parameters:
  *   throttled  - An indication of the IOB allocation is "throttled"
- *   consumerid - id representing who is consuming the IOB
  *
  * Returned Value:
  *   A pointer to the newly allocated IOB is returned on success.  NULL is
@@ -514,8 +499,8 @@ FAR struct iob_s *net_iobtimedalloc(bool throttled, unsigned int timeout,
  *
  ****************************************************************************/
 
-FAR struct iob_s *net_ioballoc(bool throttled, enum iob_user_e consumerid)
+FAR struct iob_s *net_ioballoc(bool throttled)
 {
-  return net_iobtimedalloc(throttled, UINT_MAX, consumerid);
+  return net_iobtimedalloc(throttled, UINT_MAX);
 }
 #endif

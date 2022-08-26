@@ -31,11 +31,29 @@
 #include <nuttx/spi/spi_flash.h>
 #include <nuttx/spi/qspi_flash.h>
 
+#include <stdlib.h>
+
 #include "up_internal.h"
 
 /****************************************************************************
  * Private Functions
  ****************************************************************************/
+
+#ifndef CONFIG_DISABLE_ENVIRON
+static void up_init_cmdline(void)
+{
+  char cmdline[ARG_MAX] = "";
+  int i;
+
+  for (i = 1; i < g_argc; i++)
+    {
+      strlcat(cmdline, g_argv[i], sizeof(cmdline));
+      strlcat(cmdline, " ", sizeof(cmdline));
+    }
+
+  setenv("CMDLINE", cmdline, true);
+}
+#endif
 
 /****************************************************************************
  * Name: up_init_smartfs
@@ -226,6 +244,10 @@ void up_initialize(void)
   pm_initialize();
 #endif
 
+#ifndef CONFIG_DISABLE_ENVIRON
+  up_init_cmdline();
+#endif
+
   /* Register some tty-port to access tty-port on sim platform */
 
   up_uartinit();
@@ -254,7 +276,7 @@ void up_initialize(void)
   audio_register("pcm0c", sim_audio_initialize(false));
 #endif
 
-  kthread_create("loop_task", SCHED_PRIORITY_MIN,
+  kthread_create("loop_task", SCHED_PRIORITY_MAX,
                  CONFIG_DEFAULT_TASK_STACKSIZE,
                  up_loop_task, NULL);
 }
