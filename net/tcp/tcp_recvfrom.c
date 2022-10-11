@@ -363,7 +363,7 @@ static inline void tcp_sender(FAR struct net_driver_s *dev,
  *
  * Input Parameters:
  *   dev      The structure of the network driver that generated the event.
- *   pvconn   The connection structure associated with the socket
+ *   pvpriv   An instance of struct tcp_recvfrom_s cast to void*
  *   flags    Set of events describing why the callback was invoked
  *
  * Returned Value:
@@ -375,24 +375,9 @@ static inline void tcp_sender(FAR struct net_driver_s *dev,
  ****************************************************************************/
 
 static uint16_t tcp_recvhandler(FAR struct net_driver_s *dev,
-                                FAR void *pvconn, FAR void *pvpriv,
-                                uint16_t flags)
+                                FAR void *pvpriv, uint16_t flags)
 {
-  FAR struct tcp_recvfrom_s *pstate = (struct tcp_recvfrom_s *)pvpriv;
-
-#if 0 /* REVISIT: The assertion fires.  Why? */
-  FAR struct tcp_conn_s *conn = (FAR struct tcp_conn_s *)pvconn;
-
-  /* The TCP socket is connected and, hence, should be bound to a device.
-   * Make sure that the polling device is the own that we are bound to.
-   */
-
-  DEBUGASSERT(conn->dev == NULL || conn->dev == dev);
-  if (conn->dev != NULL && conn->dev != dev)
-    {
-      return flags;
-    }
-#endif
+  FAR struct tcp_recvfrom_s *pstate = pvpriv;
 
   ninfo("flags: %04x\n", flags);
 
@@ -609,11 +594,8 @@ static ssize_t tcp_recvfrom_result(int result, struct tcp_recvfrom_s *pstate)
  *
  * Input Parameters:
  *   psock    Pointer to the socket structure for the SOCK_DRAM socket
- *   buf      Buffer to receive data
- *   len      Length of buffer
+ *   msg      Receive info and buffer for receive data
  *   flags    Receive flags
- *   from     INET address of source (may be NULL)
- *   fromlen  The length of the address structure
  *
  * Returned Value:
  *   On success, returns the number of characters received.  On  error,
@@ -623,10 +605,13 @@ static ssize_t tcp_recvfrom_result(int result, struct tcp_recvfrom_s *pstate)
  *
  ****************************************************************************/
 
-ssize_t psock_tcp_recvfrom(FAR struct socket *psock, FAR void *buf,
-                           size_t len, int flags, FAR struct sockaddr *from,
-                           FAR socklen_t *fromlen)
+ssize_t psock_tcp_recvfrom(FAR struct socket *psock, FAR struct msghdr *msg,
+                           int flags)
 {
+  FAR struct sockaddr   *from    = msg->msg_name;
+  FAR socklen_t         *fromlen = &msg->msg_namelen;
+  FAR void              *buf     = msg->msg_iov->iov_base;
+  size_t                 len     = msg->msg_iov->iov_len;
   struct tcp_recvfrom_s  state;
   FAR struct tcp_conn_s *conn;
   int                    ret;

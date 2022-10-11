@@ -96,6 +96,7 @@
 
 typedef CODE void (*sig_deliver_t)(FAR struct tcb_s *tcb);
 typedef CODE void (*phy_enable_t)(bool enable);
+typedef CODE void (*initializer_t)(void);
 
 /****************************************************************************
  * Public Data
@@ -147,6 +148,15 @@ EXTERN volatile bool g_rtc_enabled;
 
 /* EXTERN const irq_mapped_t g_irqmap[NR_IRQS]; */
 
+#endif
+
+#ifdef CONFIG_HAVE_CXXINITIALIZE
+/* _sinit and _einit are symbols exported by the linker script that mark the
+ * beginning and the end of the C++ initialization section.
+ */
+
+extern initializer_t _sinit[];
+extern initializer_t _einit[];
 #endif
 
 /****************************************************************************
@@ -1490,6 +1500,18 @@ void up_disable_irq(int irq);
 #endif
 
 /****************************************************************************
+ * Name: up_affinity_irq
+ *
+ * Description:
+ *   Set an IRQ affinity by software.
+ *
+ ****************************************************************************/
+
+#ifdef CONFIG_SMP
+void up_affinity_irq(int irq, cpu_set_t cpuset);
+#endif
+
+/****************************************************************************
  * Name: up_trigger_irq
  *
  * Description:
@@ -1498,7 +1520,7 @@ void up_disable_irq(int irq);
  ****************************************************************************/
 
 #ifdef CONFIG_ARCH_HAVE_IRQTRIGGER
-void up_trigger_irq(int irq);
+void up_trigger_irq(int irq, cpu_set_t cpuset);
 #endif
 
 /****************************************************************************
@@ -2594,7 +2616,14 @@ int up_saveusercontext(FAR void *saveregs);
  * Name: up_fpucmp
  *
  * Description:
- *   compare FPU areas from thread context
+ *   Compare FPU areas from thread context.
+ *
+ * Input Parameters:
+ *   saveregs1 - Pointer to the saved FPU registers.
+ *   saveregs2 - Pointer to the saved FPU registers.
+ *
+ * Returned Value:
+ *   True if FPU areas compare equal, False otherwise.
  *
  ****************************************************************************/
 

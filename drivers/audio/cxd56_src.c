@@ -25,7 +25,6 @@
 #include <debug.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <queue.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -34,6 +33,7 @@
 #include <nuttx/spinlock.h>
 #include <nuttx/kmalloc.h>
 #include <nuttx/mqueue.h>
+#include <nuttx/queue.h>
 
 #include "cxd56.h"
 #include "cxd56_src.h"
@@ -147,9 +147,7 @@ static struct ap_buffer_s *cxd56_src_get_apb(void)
   src_apb->flags = 0;
 
 errorout_with_lock:
-
   spin_unlock_irqrestore(NULL, flags);
-
   return src_apb;
 }
 

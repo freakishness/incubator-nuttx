@@ -33,8 +33,8 @@
 #include <debug.h>
 #include <assert.h>
 #include <errno.h>
-#include <queue.h>
 
+#include <nuttx/queue.h>
 #include <nuttx/sched.h>
 #include <nuttx/arch.h>
 #include <nuttx/semaphore.h>
@@ -575,7 +575,7 @@ int nx_pthread_create(pthread_trampoline_t trampoline, FAR pthread_t *thread,
   else
     {
       sched_unlock();
-      dq_rem((FAR dq_entry_t *)ptcb, (FAR dq_queue_t *)&g_inactivetasks);
+      dq_rem((FAR dq_entry_t *)ptcb, &g_inactivetasks);
       nxsem_destroy(&pjoin->exit_sem);
 
       errcode = EIO;

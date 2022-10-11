@@ -29,7 +29,6 @@
 
 #include <sys/types.h>
 #include <stdint.h>
-#include <queue.h>
 #include <sched.h>
 #include <signal.h>
 #include <semaphore.h>
@@ -38,6 +37,7 @@
 
 #include <nuttx/clock.h>
 #include <nuttx/irq.h>
+#include <nuttx/queue.h>
 #include <nuttx/wdog.h>
 #include <nuttx/mm/shm.h>
 #include <nuttx/fs/fs.h>
@@ -559,10 +559,7 @@ struct tcb_s
   uint8_t  task_state;                   /* Current state of the thread     */
 
 #ifdef CONFIG_PRIORITY_INHERITANCE
-#if CONFIG_SEM_NNESTPRIO > 0
-  uint8_t  npend_reprio;             /* Number of nested reprioritizations  */
-  uint8_t  pend_reprios[CONFIG_SEM_NNESTPRIO];
-#endif
+  uint8_t  boost_priority;               /* "Boosted" priority of the thread */
   uint8_t  base_priority;                /* "Normal" priority of the thread */
   FAR struct semholder_s *holdsem;       /* List of held semaphores         */
 #endif
@@ -608,9 +605,9 @@ struct tcb_s
   FAR struct dspace_s *dspace;           /* Allocated area for .bss and .data   */
 #endif
 
-  /* POSIX Semaphore Control Fields *****************************************/
+  /* POSIX Semaphore and Message Queue Control Fields ***********************/
 
-  sem_t *waitsem;                        /* Semaphore ID waiting on         */
+  FAR void *waitobj;                     /* Object thread waiting on        */
 
   /* POSIX Signal Control Fields ********************************************/
 
@@ -619,12 +616,6 @@ struct tcb_s
   sq_queue_t sigpendactionq;             /* List of pending signal actions  */
   sq_queue_t sigpostedq;                 /* List of posted signals          */
   siginfo_t  sigunbinfo;                 /* Signal info when task unblocked */
-
-  /* POSIX Named Message Queue Fields ***************************************/
-
-#ifndef CONFIG_DISABLE_MQUEUE
-  FAR struct mqueue_inode_s *msgwaitq;   /* Waiting for this message queue  */
-#endif
 
   /* Robust mutex support ***************************************************/
 
@@ -641,12 +632,12 @@ struct tcb_s
   /* Pre-emption monitor support ********************************************/
 
 #ifdef CONFIG_SCHED_CRITMONITOR
-  uint32_t premp_start;                  /* Time when preemption disabled       */
-  uint32_t premp_max;                    /* Max time preemption disabled        */
-  uint32_t crit_start;                   /* Time critical section entered       */
-  uint32_t crit_max;                     /* Max time in critical section        */
-  uint32_t run_start;                    /* Time when thread begin run          */
-  uint32_t run_max;                      /* Max time thread run                 */
+  uint32_t premp_start;                  /* Time when preemption disabled   */
+  uint32_t premp_max;                    /* Max time preemption disabled    */
+  uint32_t crit_start;                   /* Time critical section entered   */
+  uint32_t crit_max;                     /* Max time in critical section    */
+  uint32_t run_start;                    /* Time when thread begin run      */
+  uint32_t run_max;                      /* Max time thread run             */
 #endif
 
   /* State save areas *******************************************************/
@@ -676,7 +667,7 @@ struct task_tcb_s
 {
   /* Common TCB fields ******************************************************/
 
-  struct tcb_s cmn;                      /* Common TCB fields                   */
+  struct tcb_s cmn;                      /* Common TCB fields               */
 
   /* Task Management Fields *************************************************/
 
