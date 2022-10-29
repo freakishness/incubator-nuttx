@@ -276,14 +276,14 @@ static int file_mq_vopen(FAR struct file *mq, FAR const char *mq_name,
 
       /* Create an inode in the pseudo-filesystem at this path */
 
-      ret = inode_semtake();
+      ret = inode_lock();
       if (ret < 0)
         {
           goto errout_with_lock;
         }
 
       ret = inode_reserve(fullpath, mode, &inode);
-      inode_semgive();
+      inode_unlock();
 
       if (ret < 0)
         {
@@ -349,11 +349,11 @@ static mqd_t nxmq_vopen(FAR const char *mq_name, int oflags, va_list ap)
       return ret;
     }
 
-  ret = files_allocate(mq.f_inode, mq.f_oflags, mq.f_pos, mq.f_priv, 0);
+  ret = file_allocate(mq.f_inode, mq.f_oflags,
+                      mq.f_pos, mq.f_priv, 0, false);
   if (ret < 0)
     {
       file_mq_close(&mq);
-
       if (created)
         {
           file_mq_unlink(mq_name);

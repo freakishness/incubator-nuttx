@@ -1494,6 +1494,15 @@ config ARCH_BOARD_NUCLEO_L552ZE
 	---help---
 		STMicro Nucleo STM32L552 board based on the STMicro STM32L552ZET6 MCU.
 
+config ARCH_BOARD_FLIPPERZERO
+	bool "Flipper Zero"
+	depends on ARCH_CHIP_STM32WB55RG
+	select ARCH_HAVE_LEDS
+	select ARCH_HAVE_BUTTONS
+	select ARCH_HAVE_IRQBUTTONS
+	---help---
+		Flipper Zero device based on the STMicro STM32WB55RGV6 MCU.
+
 config ARCH_BOARD_NUCLEO_WB55RG
 	bool "STM32WB55 Nucleo WB55RG"
 	depends on ARCH_CHIP_STM32WB55RG
@@ -1707,13 +1716,13 @@ config ARCH_BOARD_SABRE_6QUAD
 		This options selects support for NuttX on the NXP/Freescale Sabre
 		board featuring the iMX 6Quad CPU.
 
-config ARCH_BOARD_QEMU_A53
-	bool "Qemu A53 board"
-	depends on ARCH_CHIP_QEMU_A53
+config ARCH_BOARD_QEMU_ARMV8A
+	bool "Qemu ARMv8a CPUs board"
+	depends on ARCH_CHIP_QEMU
 	select ARCH_HAVE_IRQBUTTONS
 	---help---
-		This options selects support for NuttX on the QEMU A53
-		board featuring the qemu a53 CPU.
+		This options selects support for NuttX on the QEMU ARMv8a + virt
+		board featuring the qemu ARMv8a CPUs.
 
 config ARCH_BOARD_SAMA5D2_XULT
 	bool "Atmel SAMA5D2 Xplained Ultra development board"
@@ -2737,6 +2746,7 @@ config ARCH_BOARD
 	default "steval-stlcs01v1"         if ARCH_BOARD_STEVAL_STLCS01V1
 	default "nucleo-l496zg"            if ARCH_BOARD_NUCLEO_L496ZG
 	default "nucleo-l552ze"            if ARCH_BOARD_NUCLEO_L552ZE
+	default "flipperzero"              if ARCH_BOARD_FLIPPERZERO
 	default "nucleo-wb55rg"            if ARCH_BOARD_NUCLEO_WB55RG
 	default "nucleo-wl55jc"            if ARCH_BOARD_NUCLEO_WL55JC
 	default "nutiny-nuc120"            if ARCH_BOARD_NUTINY_NUC120
@@ -2784,7 +2794,7 @@ config ARCH_BOARD
 	default "rv32m1-vega"              if ARCH_BOARD_RV32M1_VEGA
 	default "rv-virt"                  if ARCH_BOARD_QEMU_RV_VIRT
 	default "sabre-6quad"              if ARCH_BOARD_SABRE_6QUAD
-	default "qemu-a53"                 if ARCH_BOARD_QEMU_A53
+	default "qemu-armv8a"              if ARCH_BOARD_QEMU_ARMV8A
 	default "sama5d2-xult"             if ARCH_BOARD_SAMA5D2_XULT
 	default "giant-board"              if ARCH_BOARD_GIANT_BOARD
 	default "sama5d3x-ek"              if ARCH_BOARD_SAMA5D3X_EK
@@ -2969,8 +2979,8 @@ endif
 if ARCH_BOARD_SABRE_6QUAD
 source "boards/arm/imx6/sabre-6quad/Kconfig"
 endif
-if ARCH_BOARD_QEMU_A53
-source "boards/arm64/qemu/qemu-a53/Kconfig"
+if ARCH_BOARD_QEMU_ARMV8A
+source "boards/arm64/qemu/qemu-armv8a/Kconfig"
 endif
 if ARCH_BOARD_IMXRT1020_EVK
 source "boards/arm/imxrt/imxrt1020-evk/Kconfig"
@@ -3307,6 +3317,9 @@ source "boards/arm/stm32l4/stm32l4r9ai-disco/Kconfig"
 endif
 if ARCH_BOARD_STM32L562E_DK
 source "boards/arm/stm32l5/stm32l562e-dk/Kconfig"
+endif
+if ARCH_BOARD_FLIPPERZERO
+source "boards/arm/stm32wb/flipperzero/Kconfig"
 endif
 if ARCH_BOARD_NUCLEO_WB55RG
 source "boards/arm/stm32wb/nucleo-wb55rg/Kconfig"
