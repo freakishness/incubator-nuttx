@@ -32,11 +32,11 @@
 #include <errno.h>
 #include <string.h>
 #include <debug.h>
-#include <semaphore.h>
 
 #include <nuttx/clock.h>
 #include <nuttx/fs/fs.h>
 #include <nuttx/kmalloc.h>
+#include <nuttx/mutex.h>
 
 #include "inode/inode.h"
 
@@ -49,7 +49,7 @@ struct epoll_head
   int size;
   int occupied;
   int crefs;
-  sem_t sem;
+  mutex_t lock;
   struct file fp;
   struct inode in;
   FAR epoll_data_t *data;
@@ -129,14 +129,14 @@ static int epoll_do_open(FAR struct file *filep)
   FAR struct epoll_head *eph = filep->f_priv;
   int ret;
 
-  ret = nxsem_wait(&eph->sem);
+  ret = nxmutex_lock(&eph->lock);
   if (ret < 0)
     {
       return ret;
     }
 
   eph->crefs++;
-  nxsem_post(&eph->sem);
+  nxmutex_unlock(&eph->lock);
   return ret;
 }
 
@@ -145,16 +145,17 @@ static int epoll_do_close(FAR struct file *filep)
   FAR struct epoll_head *eph = filep->f_priv;
   int ret;
 
-  ret = nxsem_wait(&eph->sem);
+  ret = nxmutex_lock(&eph->lock);
   if (ret < 0)
     {
       return ret;
     }
 
   eph->crefs--;
-  nxsem_post(&eph->sem);
+  nxmutex_unlock(&eph->lock);
   if (eph->crefs <= 0)
     {
+      nxmutex_destroy(&eph->lock);
       kmm_free(eph);
     }
 
@@ -180,10 +181,11 @@ static int epoll_do_create(int size, int flags)
   if (eph == NULL)
     {
       set_errno(ENOMEM);
-      return -1;
+      return ERROR;
     }
 
-  nxsem_init(&eph->sem, 0, 0);
+  nxmutex_init(&eph->lock);
+
   eph->size = size;
   eph->data = (FAR epoll_data_t *)(eph + 1);
   eph->poll = (FAR struct pollfd *)(eph->data + reserve);
@@ -201,13 +203,12 @@ static int epoll_do_create(int size, int flags)
   fd = file_allocate(&g_epoll_inode, flags, 0, eph, 0, true);
   if (fd < 0)
     {
-      nxsem_destroy(&eph->sem);
+      nxmutex_destroy(&eph->lock);
       kmm_free(eph);
       set_errno(-fd);
-      return -1;
+      return ERROR;
     }
 
-  nxsem_post(&eph->sem);
   return fd;
 }
 
@@ -274,15 +275,22 @@ void epoll_close(int epfd)
  *
  ****************************************************************************/
 
-int epoll_ctl(int epfd, int op, int fd, struct epoll_event *ev)
+int epoll_ctl(int epfd, int op, int fd, FAR struct epoll_event *ev)
 {
   FAR struct epoll_head *eph;
+  int ret;
   int i;
 
   eph = epoll_head_from_fd(epfd);
   if (eph == NULL)
     {
-      return -1;
+      return ERROR;
+    }
+
+  ret = nxmutex_lock(&eph->lock);
+  if (ret < 0)
+    {
+      goto err_without_lock;
     }
 
   switch (op)
@@ -292,16 +300,16 @@ int epoll_ctl(int epfd, int op, int fd, struct epoll_event *ev)
               epfd, eph->occupied, fd, ev->events);
         if (eph->occupied >= eph->size)
           {
-            set_errno(ENOMEM);
-            return -1;
+            ret = -ENOMEM;
+            goto err;
           }
 
         for (i = 1; i <= eph->occupied; i++)
           {
             if (eph->poll[i].fd == fd)
               {
-                set_errno(EEXIST);
-                return -1;
+                ret = -EEXIST;
+                goto err;
               }
           }
 
@@ -330,8 +338,8 @@ int epoll_ctl(int epfd, int op, int fd, struct epoll_event *ev)
 
         if (i > eph->occupied)
           {
-            set_errno(ENOENT);
-            return -1;
+            ret = -ENOENT;
+            goto err;
           }
 
         eph->occupied--;
@@ -352,19 +360,26 @@ int epoll_ctl(int epfd, int op, int fd, struct epoll_event *ev)
 
         if (i > eph->occupied)
           {
-            set_errno(ENOENT);
-            return -1;
+            ret = -ENOENT;
+            goto err;
           }
 
         break;
 
       default:
-        set_errno(EINVAL);
-        return -1;
+        ret = -EINVAL;
+        goto err;
     }
 
+  nxmutex_unlock(&eph->lock);
   poll_notify(&eph->poll, 1, POLLIN);
-  return 0;
+  return OK;
+
+err:
+  nxmutex_unlock(&eph->lock);
+err_without_lock:
+  set_errno(-ret);
+  return ERROR;
 }
 
 /****************************************************************************
@@ -385,7 +400,7 @@ int epoll_pwait(int epfd, FAR struct epoll_event *evs,
   eph = epoll_head_from_fd(epfd);
   if (eph == NULL)
     {
-      return -1;
+      return ERROR;
     }
 
   if (timeout >= 0)

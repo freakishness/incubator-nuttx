@@ -121,9 +121,6 @@
 # define MMSIZE_MAX      UINT32_MAX
 #endif
 
-#define MM_IS_ALLOCATED(n) \
-  ((int)((FAR struct mm_allocnode_s *)(n)->preceding) < 0)
-
 /* What is the size of the allocnode? */
 
 #define SIZEOF_MM_ALLOCNODE sizeof(struct mm_allocnode_s)
@@ -196,7 +193,7 @@ struct mm_heap_s
    * the following un-named mutex.
    */
 
-  sem_t mm_lock;
+  mutex_t mm_lock;
 
   /* This is the size of the heap provided to mm */
 
@@ -240,7 +237,7 @@ typedef CODE void (*mmchunk_handler_t)(FAR struct mm_allocnode_s *node,
 
 /* Functions contained in mm_lock.c *****************************************/
 
-bool mm_lock(FAR struct mm_heap_s *heap);
+int mm_lock(FAR struct mm_heap_s *heap);
 void mm_unlock(FAR struct mm_heap_s *heap);
 
 /* Functions contained in mm_shrinkchunk.c **********************************/

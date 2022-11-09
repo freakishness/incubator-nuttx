@@ -57,7 +57,6 @@ FAR void *mm_memalign(FAR struct mm_heap_s *heap, size_t alignment,
   size_t mask = (size_t)(alignment - 1);
   size_t allocsize;
   size_t newsize;
-  bool ret;
 
   /* Make sure that alignment is less than half max size_t */
 
@@ -79,7 +78,9 @@ FAR void *mm_memalign(FAR struct mm_heap_s *heap, size_t alignment,
 
   if (alignment <= MM_MIN_CHUNK)
     {
-      return mm_malloc(heap, size);
+      FAR void *ptr = mm_malloc(heap, size);
+      DEBUGASSERT(ptr == NULL || ((uintptr_t)ptr) % alignment == 0);
+      return ptr;
     }
 
   /* Adjust the size to account for (1) the size of the allocated node, (2)
@@ -119,8 +120,7 @@ FAR void *mm_memalign(FAR struct mm_heap_s *heap, size_t alignment,
    * nodelist.
    */
 
-  ret = mm_lock(heap);
-  DEBUGASSERT(ret);
+  DEBUGVERIFY(mm_lock(heap));
 
   /* Get the node associated with the allocation and the next node after
    * the allocation.
@@ -230,5 +230,6 @@ FAR void *mm_memalign(FAR struct mm_heap_s *heap, size_t alignment,
   kasan_unpoison((FAR void *)alignedchunk,
                  mm_malloc_size((FAR void *)alignedchunk));
 
+  DEBUGASSERT(alignedchunk % alignment == 0);
   return (FAR void *)alignedchunk;
 }
