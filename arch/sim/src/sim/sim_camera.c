@@ -44,6 +44,7 @@ typedef struct
   struct imgdata_s data;
   struct imgsensor_s sensor;
   imgdata_capture_t capture_cb;
+  void *capture_arg;
   uint32_t buf_size;
   uint8_t  *next_buf;
   struct timeval *next_ts;
@@ -86,7 +87,8 @@ static int sim_camera_data_start_capture(struct imgdata_s *data,
                                          uint8_t nr_datafmt,
                                          imgdata_format_t *datafmt,
                                          imgdata_interval_t *interval,
-                                         imgdata_capture_t callback);
+                                         imgdata_capture_t callback,
+                                         void *arg);
 static int sim_camera_data_stop_capture(struct imgdata_s *data);
 static int sim_camera_data_set_buf(struct imgdata_s *data,
                                    uint8_t *addr, uint32_t size);
@@ -139,6 +141,10 @@ static uint32_t imgdata_fmt_to_v4l2(uint32_t pixelformat)
   uint32_t fourcc;
   switch (pixelformat)
     {
+      case IMGDATA_PIX_FMT_NV12:
+        fourcc = V4L2_PIX_FMT_NV12;
+        break;
+
       case IMGDATA_PIX_FMT_YUV420P:
         fourcc = V4L2_PIX_FMT_YUV420;
         break;
@@ -177,7 +183,7 @@ static uint32_t imgdata_fmt_to_v4l2(uint32_t pixelformat)
 
 static bool sim_camera_is_available(struct imgsensor_s *sensor)
 {
-  return host_video_is_available(CONFIG_HOST_VIDEO_DEV_PATH);
+  return true;
 }
 
 static int sim_camera_init(struct imgsensor_s *sensor)
@@ -289,7 +295,8 @@ static int sim_camera_data_start_capture(struct imgdata_s *data,
                                          uint8_t nr_datafmt,
                                          imgdata_format_t *datafmt,
                                          imgdata_interval_t *interval,
-                                         imgdata_capture_t callback)
+                                         imgdata_capture_t callback,
+                                         void *arg)
 {
   sim_camera_priv_t *priv = (sim_camera_priv_t *)data;
   int ret;
@@ -306,6 +313,7 @@ static int sim_camera_data_start_capture(struct imgdata_s *data,
     }
 
   priv->capture_cb = callback;
+  priv->capture_arg = arg;
   return host_video_start_capture(priv->vdev);
 }
 
@@ -344,7 +352,7 @@ void sim_camera_loop(void)
         {
           clock_gettime(CLOCK_MONOTONIC, &ts);
           TIMESPEC_TO_TIMEVAL(&tv, &ts);
-          priv->capture_cb(0, ret, &tv);
+          priv->capture_cb(0, ret, &tv, priv->capture_arg);
         }
     }
 }

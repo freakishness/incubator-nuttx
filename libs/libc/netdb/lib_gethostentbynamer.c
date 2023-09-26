@@ -228,7 +228,10 @@ static int lib_localhost(FAR const char *name, FAR struct hostent_s *host,
   FAR struct hostent_info_s *info;
   FAR char *dest;
   int namelen;
+
+#if defined(CONFIG_NET_IPv4) || defined(CONFIG_NET_IPv6)
   int i = 0;
+#endif
 
   if (strcmp(name, g_lo_hostname) == 0)
     {
@@ -499,15 +502,15 @@ static int lib_dns_lookup(FAR const char *name, FAR struct hostent_s *host,
 
   naddr = (buflen - (namelen + 1)) / sizeof(union dns_addr_u);
   DEBUGASSERT(naddr >= 1);
+
+  /* We can read more than maximum, limit here. */
+
+  naddr = MIN(naddr, CONFIG_NETDB_MAX_IPADDR);
   ret = lib_dns_query(name, (FAR union dns_addr_u *)ptr, &naddr);
   if (ret < 0)
     {
       return ret;
     }
-
-  /* We can read more than maximum, limit here. */
-
-  naddr = MIN(naddr, CONFIG_NETDB_MAX_IPADDR);
 
   for (i = 0; i < naddr; i++)
     {

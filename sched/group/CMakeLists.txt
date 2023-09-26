@@ -40,11 +40,17 @@ elseif(CONFIG_SCHED_WAITPID)
 endif()
 
 if(CONFIG_SCHED_USER_IDENTITY)
-  list(APPEND SRCS group_setuid.c group_setgid.c group_getuid.c group_getgid.c)
-endif()
-
-if(CONFIG_ARCH_ADDRENV)
-  list(APPEND SRCS group_addrenv.c)
+  list(
+    APPEND
+    SRCS
+    group_setuid.c
+    group_setgid.c
+    group_getuid.c
+    group_getgid.c
+    group_seteuid.c
+    group_setegid.c
+    group_geteuid.c
+    group_getegid.c)
 endif()
 
 if(CONFIG_SIG_SIGSTOP_ACTION)
@@ -55,7 +61,7 @@ if(CONFIG_BINFMT_LOADABLE)
   list(APPEND SRCS group_exitinfo.c)
 endif()
 
-if(NOT CONFIG_BUILD_FLAT)
+if(CONFIG_MM_KERNEL_HEAP)
   list(APPEND SRCS group_malloc.c group_realloc.c group_zalloc.c group_free.c)
 endif()
 

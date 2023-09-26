@@ -95,6 +95,16 @@ static int sim_setcursor(struct fb_vtable_s *vtable,
                         struct fb_setcursor_s *settings);
 #endif
 
+/* Open/close window. */
+
+static int sim_openwindow(struct fb_vtable_s *vtable);
+static int sim_closewindow(struct fb_vtable_s *vtable);
+
+/* Get/set the panel power status (0: full off). */
+
+static int sim_getpower(struct fb_vtable_s *vtable);
+static int sim_setpower(struct fb_vtable_s *vtable, int power);
+
 /****************************************************************************
  * Private Data
  ****************************************************************************/
@@ -104,6 +114,8 @@ static int sim_setcursor(struct fb_vtable_s *vtable,
 #ifndef CONFIG_SIM_X11FB
 static uint8_t g_fb[FB_SIZE];
 #endif
+
+static int g_fb_power = 100;
 
 /* This structure describes the simulated video controller */
 
@@ -160,11 +172,48 @@ static struct fb_vtable_s g_fbobject =
   .getcursor     = sim_getcursor,
   .setcursor     = sim_setcursor,
 #endif
+
+  .open          = sim_openwindow,
+  .close         = sim_closewindow,
+  .getpower      = sim_getpower,
+  .setpower      = sim_setpower,
 };
 
 /****************************************************************************
  * Private Functions
  ****************************************************************************/
+
+/****************************************************************************
+ * Name: sim_openwindow
+ ****************************************************************************/
+
+static int sim_openwindow(struct fb_vtable_s *vtable)
+{
+  int ret = OK;
+  ginfo("vtable=%p\n", vtable);
+
+#ifdef CONFIG_SIM_X11FB
+  ret = sim_x11openwindow();
+#endif
+
+  return ret;
+}
+
+/****************************************************************************
+ * Name: sim_closewindow
+ ****************************************************************************/
+
+static int sim_closewindow(struct fb_vtable_s *vtable)
+{
+  int ret = OK;
+  ginfo("vtable=%p\n", vtable);
+
+#ifdef CONFIG_SIM_X11FB
+  ret = sim_x11closewindow();
+#endif
+
+  return ret;
+}
 
 /****************************************************************************
  * Name: sim_getvideoinfo
@@ -333,6 +382,33 @@ static int sim_setcursor(struct fb_vtable_s *vtable,
 #endif
 
 /****************************************************************************
+ * Name: sim_getpower
+ ****************************************************************************/
+
+static int sim_getpower(struct fb_vtable_s *vtable)
+{
+  ginfo("vtable=%p power=%d\n", vtable, g_fb_power);
+  return g_fb_power;
+}
+
+/****************************************************************************
+ * Name: sim_setpower
+ ****************************************************************************/
+
+static int sim_setpower(struct fb_vtable_s *vtable, int power)
+{
+  ginfo("vtable=%p power=%d\n", vtable, power);
+  if (power < 0)
+    {
+      gerr("ERROR: power=%d < 0\n", power);
+      return -EINVAL;
+    }
+
+  g_fb_power = power;
+  return OK;
+}
+
+/****************************************************************************
  * Public Functions
  ****************************************************************************/
 
@@ -345,15 +421,22 @@ void sim_x11loop(void)
 #ifdef CONFIG_SIM_X11FB
   static clock_t last;
   clock_t now = clock_systime_ticks();
+  union fb_paninfo_u info;
 
   if (now - last >= MSEC2TICK(16))
     {
-      if (sim_x11update() >= 0)
+      last = now;
+      if (fb_paninfo_count(&g_fbobject, FB_NO_OVERLAY) > 1)
         {
-          fb_pollnotify(&g_fbobject);
+          fb_remove_paninfo(&g_fbobject, FB_NO_OVERLAY);
         }
 
-      last = now;
+      if (fb_peek_paninfo(&g_fbobject, &info, FB_NO_OVERLAY) == OK)
+        {
+          sim_x11setoffset(info.planeinfo.yoffset * info.planeinfo.stride);
+        }
+
+      sim_x11update();
     }
 #endif
 }
@@ -379,9 +462,12 @@ int up_fbinitialize(int display)
   int ret = OK;
 
 #ifdef CONFIG_SIM_X11FB
+  g_planeinfo.xres_virtual = CONFIG_SIM_FBWIDTH;
+  g_planeinfo.yres_virtual = CONFIG_SIM_FBHEIGHT * CONFIG_SIM_FRAMEBUFFER_COUNT;
   ret = sim_x11initialize(CONFIG_SIM_FBWIDTH, CONFIG_SIM_FBHEIGHT,
                           &g_planeinfo.fbmem, &g_planeinfo.fblen,
-                          &g_planeinfo.bpp, &g_planeinfo.stride);
+                          &g_planeinfo.bpp, &g_planeinfo.stride,
+                          CONFIG_SIM_FRAMEBUFFER_COUNT);
 #endif
 
   return ret;

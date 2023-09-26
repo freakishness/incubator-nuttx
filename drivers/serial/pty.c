@@ -24,6 +24,7 @@
 
 #include <nuttx/config.h>
 
+#include <ctype.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
 #include <stdbool.h>
@@ -33,9 +34,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <poll.h>
+#include <fcntl.h>
 #include <assert.h>
 #include <errno.h>
 
+#include <nuttx/ascii.h>
 #include <nuttx/kmalloc.h>
 #include <nuttx/mutex.h>
 #include <nuttx/semaphore.h>
@@ -73,6 +76,7 @@ struct pty_dev_s
   struct file pd_src;           /* Provides data to read() method (pipe output) */
   struct file pd_sink;          /* Accepts data from write() method (pipe input) */
   bool pd_master;               /* True: this is the master */
+  uint8_t pd_escape;            /* Number of the character to be escaped */
   tcflag_t pd_iflag;            /* Terminal input modes */
   tcflag_t pd_lflag;            /* Terminal local modes */
   tcflag_t pd_oflag;            /* Terminal output modes */
@@ -198,7 +202,7 @@ static int pty_pipe(FAR struct pty_devpair_s *devpair)
   pipe_a[0] = &devpair->pp_master.pd_src;
   pipe_a[1] = &devpair->pp_slave.pd_sink;
 
-  ret = file_pipe(pipe_a, CONFIG_PSEUDOTERM_TXBUFSIZE, 0);
+  ret = file_pipe(pipe_a, CONFIG_PSEUDOTERM_TXBUFSIZE, O_CLOEXEC);
   if (ret < 0)
     {
       return ret;
@@ -207,7 +211,7 @@ static int pty_pipe(FAR struct pty_devpair_s *devpair)
   pipe_b[0] = &devpair->pp_slave.pd_src;
   pipe_b[1] = &devpair->pp_master.pd_sink;
 
-  ret = file_pipe(pipe_b, CONFIG_PSEUDOTERM_RXBUFSIZE, 0);
+  ret = file_pipe(pipe_b, CONFIG_PSEUDOTERM_RXBUFSIZE, O_CLOEXEC);
   if (ret < 0)
     {
       file_close(pipe_a[0]);
@@ -228,7 +232,6 @@ static int pty_open(FAR struct file *filep)
   FAR struct pty_devpair_s *devpair;
   int ret = OK;
 
-  DEBUGASSERT(filep != NULL && filep->f_inode != NULL);
   inode   = filep->f_inode;
   dev     = inode->i_private;
   DEBUGASSERT(dev != NULL && dev->pd_devpair != NULL);
@@ -325,7 +328,6 @@ static int pty_close(FAR struct file *filep)
   FAR struct pty_devpair_s *devpair;
   int ret;
 
-  DEBUGASSERT(filep != NULL && filep->f_inode != NULL);
   inode   = filep->f_inode;
   dev     = inode->i_private;
   DEBUGASSERT(dev != NULL && dev->pd_devpair != NULL);
@@ -397,7 +399,6 @@ static ssize_t pty_read(FAR struct file *filep, FAR char *buffer, size_t len)
   ssize_t j;
   char ch;
 
-  DEBUGASSERT(filep != NULL && filep->f_inode != NULL);
   inode = filep->f_inode;
   dev   = inode->i_private;
   DEBUGASSERT(dev != NULL);
@@ -473,7 +474,66 @@ static ssize_t pty_read(FAR struct file *filep, FAR char *buffer, size_t len)
 
   if ((dev->pd_lflag & ECHO) && (ntotal > 0))
     {
-      pty_write(filep, buffer, ntotal);
+      size_t n = 0;
+
+      for (i = j = 0; i < ntotal; i++)
+        {
+          ch = buffer[i];
+
+          /* Check for the beginning of a VT100 escape sequence, 3 byte */
+
+          if (ch == ASCII_ESC)
+            {
+              /* Mark that we should skip 2 more bytes */
+
+              dev->pd_escape = 2;
+              continue;
+            }
+          else if (dev->pd_escape == 2 && ch != ASCII_LBRACKET)
+            {
+              /* It's not an <esc>[x 3 byte sequence, show it */
+
+              dev->pd_escape = 0;
+            }
+          else if (dev->pd_escape > 0)
+            {
+              /* Skipping character count down */
+
+              if (--dev->pd_escape > 0)
+                {
+                  continue;
+                }
+            }
+
+          /* Echo if the character in batch */
+
+          if (ch == '\n' || (n != 0 && j + n != i))
+            {
+              if (n != 0)
+                {
+                  pty_write(filep, buffer + j, n);
+                  n = 0;
+                }
+
+              if (ch == '\n')
+                {
+                  pty_write(filep, "\r\n", 2);
+                  continue;
+                }
+            }
+
+          /* Record the character can be echo */
+
+          if (!iscntrl(ch & 0xff) && n++ == 0)
+            {
+              j = i;
+            }
+        }
+
+      if (n != 0)
+        {
+          pty_write(filep, buffer + j, n);
+        }
     }
 
   return ntotal;
@@ -493,7 +553,6 @@ static ssize_t pty_write(FAR struct file *filep,
   size_t i;
   char ch;
 
-  DEBUGASSERT(filep != NULL && filep->f_inode != NULL);
   inode = filep->f_inode;
   dev   = inode->i_private;
   DEBUGASSERT(dev != NULL);
@@ -603,7 +662,6 @@ static int pty_ioctl(FAR struct file *filep, int cmd, unsigned long arg)
   FAR struct pty_devpair_s *devpair;
   int ret;
 
-  DEBUGASSERT(filep != NULL && filep->f_inode != NULL);
   inode   = filep->f_inode;
   dev     = inode->i_private;
   DEBUGASSERT(dev != NULL && dev->pd_devpair != NULL);
@@ -695,7 +753,7 @@ static int pty_ioctl(FAR struct file *filep, int cmd, unsigned long arg)
 
           termiosp->c_iflag = dev->pd_iflag;
           termiosp->c_oflag = dev->pd_oflag;
-          termiosp->c_lflag = 0;
+          termiosp->c_lflag = dev->pd_lflag;
           ret = OK;
         }
         break;
@@ -792,7 +850,6 @@ static int pty_poll(FAR struct file *filep, FAR struct pollfd *fds,
   int ret;
   int i;
 
-  DEBUGASSERT(filep != NULL && filep->f_inode != NULL);
   inode   = filep->f_inode;
   dev     = inode->i_private;
   devpair = dev->pd_devpair;
@@ -881,7 +938,7 @@ static int pty_unlink(FAR struct inode *inode)
   FAR struct pty_devpair_s *devpair;
   int ret;
 
-  DEBUGASSERT(inode != NULL && inode->i_private != NULL);
+  DEBUGASSERT(inode->i_private != NULL);
   dev     = inode->i_private;
   devpair = dev->pd_devpair;
   DEBUGASSERT(dev->pd_devpair != NULL);

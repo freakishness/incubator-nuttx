@@ -38,14 +38,23 @@
 
 /* See ELF-64 Object File Format: Version 1.5 Draft 2 */
 
+#define ELF64_ST_BIND(i)     ((i) >> 4)
+#define ELF64_ST_TYPE(i)     ((i) & 0xf)
+#define ELF64_ST_INFO(b,t)   (((b) << 4) | ((t) & 0xf))
+
+/* Generic macro to abstract ELF32/ELF64 type/bind */
+
+#define ELF_ST_TYPE(a)       ELF64_ST_TYPE(a)
+#define ELF_ST_BIND(a)       ELF64_ST_BIND(a)
+
 /* Definitions for Elf64_Rel*::r_info */
 
-#define ELF64_R_SYM(i)    ((i) >> 32)
-#define ELF64_R_TYPE(i)   ((i) & 0xffffffffL)
-#define ELF64_R_INFO(s,t) (((s)<< 32) + ((t) & 0xffffffffL))
+#define ELF64_R_SYM(i)       ((i) >> 32)
+#define ELF64_R_TYPE(i)      ((i) & 0xffffffffL)
+#define ELF64_R_INFO(s,t)    (((s)<< 32) + ((t) & 0xffffffffL))
 
-#define ELF_R_SYM(i)      ELF64_R_SYM(i)
-#define ELF_R_TYPE(i)     ELF64_R_TYPE(i)
+#define ELF_R_SYM(i)         ELF64_R_SYM(i)
+#define ELF_R_TYPE(i)        ELF64_R_TYPE(i)
 
 /****************************************************************************
  * Public Type Definitions
@@ -133,9 +142,9 @@ typedef struct
   Elf64_Off     p_offset;   /* Offset in file */
   Elf64_Addr    p_vaddr;    /* Virtual address in memory */
   Elf64_Addr    p_paddr;    /* Reserved */
-  Elf64_Word    p_filesz;   /* Size of segment in file */
-  Elf64_Word    p_memsz;    /* Size of segment in memory */
-  Elf64_Word    p_align;    /* Alignment of segment */
+  Elf64_Xword   p_filesz;   /* Size of segment in file */
+  Elf64_Xword   p_memsz;    /* Size of segment in memory */
+  Elf64_Xword   p_align;    /* Alignment of segment */
 } Elf64_Phdr;
 
 /* Figure 7. Format of a Note Section */

@@ -51,7 +51,7 @@ Getting Started
      -net none -chardev stdio,id=con,mux=on -serial chardev:con \
      -mon chardev=con,mode=readline -kernel ./nuttx
 
-  3.1.1 Single Core with virtio network and block driver (GICv3)
+  3.1.1 Single Core with virtio network, block, rng, serial driver (GICv3)
    Configuring NuttX and compile:
    $ ./tools/configure.sh -l qemu-armv8a:netnsh
    $ make
@@ -61,10 +61,30 @@ Getting Started
      -machine virt,virtualization=on,gic-version=3 \
      -chardev stdio,id=con,mux=on -serial chardev:con \
      -global virtio-mmio.force-legacy=false \
-     -drive file=./mydisk-1gb.img,if=none,format=raw,id=hd -device virtio-blk-device,drive=hd \
+     -device virtio-serial-device,bus=virtio-mmio-bus.0 \
+     -chardev socket,telnet=on,host=127.0.0.1,port=3450,server=on,wait=off,id=foo \
+     -device virtconsole,chardev=foo \
+     -device virtio-rng-device,bus=virtio-mmio-bus.1 \
      -netdev user,id=u1,hostfwd=tcp:127.0.0.1:10023-10.0.2.15:23,hostfwd=tcp:127.0.0.1:15001-10.0.2.15:5001 \
-     -device virtio-net-device,netdev=u1,bus=virtio-mmio-bus.0 \
+     -device virtio-net-device,netdev=u1,bus=virtio-mmio-bus.2 \
+     -drive file=./mydisk-1gb.img,if=none,format=raw,id=hd \
+     -device virtio-blk-device,bus=virtio-mmio-bus.3,drive=hd \
      -mon chardev=con,mode=readline -kernel ./nuttx
+
+  3.1.2 Single Core with virtio gpu driver (GICv3)
+  Configuring NuttX and compile:
+   $ ./tools/configure.sh qemu-armv8a:fb
+   $ make -j
+   Running with qemu
+   $ qemu-system-aarch64 -cpu cortex-a53 \
+    -machine virt,virtualization=on,gic-version=3 \
+    -chardev stdio,id=con,mux=on -serial chardev:con \
+    -global virtio-mmio.force-legacy=false \
+    -device virtio-gpu-device,xres=640,yres=480,bus=virtio-mmio-bus.0 \
+    -mon chardev=con,mode=readline -kernel ./nuttx
+
+   NuttShell (NSH) NuttX-10.4.0
+   nsh> fb
 
   3.2 SMP (GICv3)
    Configuring NuttX and compile:
@@ -319,7 +339,7 @@ save/restore FPU context directly maybe become a solution. Linux kernel introduc
 kernel_neon_begin/kernel_neon_end function for this case. Similar function will
 be add to NuttX if this issue need to be handle.
 
-3. More reading 
+3. More reading
 for Linux kernel, please reference:
 - https://www.kernel.org/doc/html/latest/arm/kernel_mode_neon.html
 

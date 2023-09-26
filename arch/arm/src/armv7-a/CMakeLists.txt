@@ -47,8 +47,11 @@ list(
   arm_syscall.c
   arm_tcbinfo.c
   arm_undefinedinsn.c
-  arm_perf.c
   cp15_cacheops.c)
+
+if(CONFIG_ARCH_PERF_EVENTS)
+  list(APPEND SRCS arm_perf.c)
+endif()
 
 if(CONFIG_ARMV7A_HAVE_PTM)
   list(APPEND SRCS arm_timer.c)
@@ -105,6 +108,10 @@ if(CONFIG_SMP)
     arm_cpupause.c
     arm_cpuidlestack.c
     arm_scu.c)
+endif()
+
+if(CONFIG_ARCH_HAVE_PSCI)
+  list(APPEND SRCS arm_cpu_psci.c arm_smccc.S)
 endif()
 
 target_sources(arch PRIVATE ${SRCS})

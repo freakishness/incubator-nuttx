@@ -19,5 +19,9 @@
 # ##############################################################################
 
 if(CONFIG_FS_RPMSGFS)
-  target_sources(fs PRIVATE rpmsgfs.c rpmsgfs_client.c rpmsgfs_server.c)
+  target_sources(fs PRIVATE rpmsgfs.c rpmsgfs_client.c)
+endif()
+
+if(CONFIG_FS_RPMSGFS_SERVER)
+  target_sources(fs PRIVATE rpmsgfs_server.c)
 endif()

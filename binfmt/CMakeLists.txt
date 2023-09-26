@@ -51,6 +51,10 @@ if(CONFIG_ELF)
   list(APPEND SRCS elf.c)
 endif()
 
+if(CONFIG_NXFLAT)
+  list(APPEND SRCS nxflat.c)
+endif()
+
 # Builtin application interfaces
 
 if(CONFIG_BUILTIN)
@@ -59,3 +63,4 @@ endif()
 
 target_sources(binfmt PRIVATE ${SRCS})
 target_include_directories(binfmt PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(binfmt PRIVATE ${CMAKE_SOURCE_DIR}/sched)

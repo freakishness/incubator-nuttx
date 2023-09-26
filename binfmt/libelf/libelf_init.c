@@ -45,7 +45,7 @@
  * be defined or CONFIG_ELF_DUMPBUFFER does nothing.
  */
 
-#if !defined(CONFIG_DEBUG_INFO) || !defined (CONFIG_DEBUG_BINFMT)
+#if !defined(CONFIG_DEBUG_INFO) || !defined(CONFIG_DEBUG_BINFMT)
 #  undef CONFIG_ELF_DUMPBUFFER
 #endif
 
@@ -64,10 +64,10 @@
  ****************************************************************************/
 
 /****************************************************************************
- * Name: elf_filelen
+ * Name: elf_fileinfo
  *
  * Description:
- *  Get the size of the ELF file
+ *  Get some stats info of the ELF file
  *
  * Returned Value:
  *   0 (OK) is returned on success and a negated errno is returned on
@@ -75,7 +75,7 @@
  *
  ****************************************************************************/
 
-static inline int elf_filelen(FAR struct elf_loadinfo_s *loadinfo)
+static inline int elf_fileinfo(FAR struct elf_loadinfo_s *loadinfo)
 {
   struct stat buf;
   int ret;
@@ -89,17 +89,12 @@ static inline int elf_filelen(FAR struct elf_loadinfo_s *loadinfo)
       return ret;
     }
 
-  /* Verify that it is a regular file */
+  /* Return some stats info of the file in the loadinfo structure */
 
-  if (!S_ISREG(buf.st_mode))
-    {
-      berr("Not a regular file.  mode: %d\n", buf.st_mode);
-      return -ENOENT;
-    }
-
-  /* Return the size of the file in the loadinfo structure */
-
-  loadinfo->filelen = buf.st_size;
+  loadinfo->filelen  = buf.st_size;
+  loadinfo->fileuid  = buf.st_uid;
+  loadinfo->filegid  = buf.st_gid;
+  loadinfo->filemode = buf.st_mode;
   return OK;
 }
 
@@ -132,19 +127,19 @@ int elf_init(FAR const char *filename, FAR struct elf_loadinfo_s *loadinfo)
 
   /* Open the binary file for reading (only) */
 
-  ret = file_open(&loadinfo->file, filename, O_RDONLY);
+  ret = file_open(&loadinfo->file, filename, O_RDONLY | O_CLOEXEC);
   if (ret < 0)
     {
       berr("Failed to open ELF binary %s: %d\n", filename, ret);
       return ret;
     }
 
-  /* Get the length of the file. */
+  /* Get some stats info of the file. */
 
-  ret = elf_filelen(loadinfo);
+  ret = elf_fileinfo(loadinfo);
   if (ret < 0)
     {
-      berr("elf_filelen failed: %d\n", ret);
+      berr("elf_fileinfo failed: %d\n", ret);
       return ret;
     }
 

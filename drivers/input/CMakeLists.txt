@@ -27,6 +27,10 @@ if(CONFIG_INPUT)
     list(APPEND SRCS touchscreen_upper.c)
   endif()
 
+  if(CONFIG_INPUT_MOUSE)
+    list(APPEND SRCS mouse_upper.c)
+  endif()
+
   if(CONFIG_INPUT_UINPUT)
     list(APPEND SRCS uinput.c)
   endif()
@@ -70,6 +74,10 @@ if(CONFIG_INPUT)
 
   if(CONFIG_INPUT_CYPRESS_MBR3108)
     list(APPEND SRCS cypress_mbr3108.c)
+  endif()
+
+  if(CONFIG_INPUT_GT9XX)
+    list(APPEND SRCS gt9xx.c)
   endif()
 
   if(CONFIG_INPUT_BUTTONS)

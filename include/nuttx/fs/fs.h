@@ -114,6 +114,7 @@
 #define   FSNODEFLAG_TYPE_MTD       0x00000007 /*   Named MTD driver       */
 #define   FSNODEFLAG_TYPE_SOFTLINK  0x00000008 /*   Soft link              */
 #define   FSNODEFLAG_TYPE_SOCKET    0x00000009 /*   Socket                 */
+#define   FSNODEFLAG_TYPE_PIPE      0x0000000a /*   Pipe                   */
 #define FSNODEFLAG_DELETED          0x00000010 /* Unlinked                 */
 
 #define INODE_IS_TYPE(i,t) \
@@ -129,6 +130,7 @@
 #define INODE_IS_MTD(i)       INODE_IS_TYPE(i,FSNODEFLAG_TYPE_MTD)
 #define INODE_IS_SOFTLINK(i)  INODE_IS_TYPE(i,FSNODEFLAG_TYPE_SOFTLINK)
 #define INODE_IS_SOCKET(i)    INODE_IS_TYPE(i,FSNODEFLAG_TYPE_SOCKET)
+#define INODE_IS_PIPE(i)      INODE_IS_TYPE(i,FSNODEFLAG_TYPE_PIPE)
 
 #define INODE_GET_TYPE(i)     ((i)->i_flags & FSNODEFLAG_TYPE_MASK)
 #define INODE_SET_TYPE(i,t) \
@@ -147,6 +149,7 @@
 #define INODE_SET_MTD(i)      INODE_SET_TYPE(i,FSNODEFLAG_TYPE_MTD)
 #define INODE_SET_SOFTLINK(i) INODE_SET_TYPE(i,FSNODEFLAG_TYPE_SOFTLINK)
 #define INODE_SET_SOCKET(i)   INODE_SET_TYPE(i,FSNODEFLAG_TYPE_SOCKET)
+#define INODE_SET_PIPE(i)     INODE_SET_TYPE(i,FSNODEFLAG_TYPE_PIPE)
 
 /* The status change flags.
  * These should be or-ed together to figure out what want to change.
@@ -217,7 +220,7 @@ struct file_operations
   CODE int     (*ioctl)(FAR struct file *filep, int cmd, unsigned long arg);
   CODE int     (*mmap)(FAR struct file *filep,
                        FAR struct mm_map_entry_s *map);
-  int     (*truncate)(FAR struct file *filep, off_t length);
+  CODE int     (*truncate)(FAR struct file *filep, off_t length);
 
   /* The two structures need not be common after this point */
 
@@ -297,7 +300,7 @@ struct mountpt_operations
    */
 
   CODE int     (*open)(FAR struct file *filep, FAR const char *relpath,
-            int oflags, mode_t mode);
+                       int oflags, mode_t mode);
 
   /* The following methods must be identical in signature and position
    * because the struct file_operations and struct mountpt_operations are
@@ -361,6 +364,7 @@ struct mountpt_operations
                        FAR struct stat *buf);
   CODE int     (*chstat)(FAR struct inode *mountpt, FAR const char *relpath,
                          FAR const struct stat *buf, int flags);
+  CODE int     (*syncfs)(FAR struct inode *mountpt);
 };
 #endif /* CONFIG_DISABLE_MOUNTPOINT */
 
@@ -405,6 +409,9 @@ struct inode
   uint16_t          i_flags;    /* Flags for inode */
   union inode_ops_u u;          /* Inode operations */
   ino_t             i_ino;      /* Inode serial number */
+#ifdef CONFIG_PSEUDOFS_FILE
+  size_t            i_size;     /* The size of per inode driver */
+#endif
 #ifdef CONFIG_PSEUDOFS_ATTRIBUTES
   mode_t            i_mode;     /* Access mode flags */
   uid_t             i_owner;    /* Owner */
@@ -714,6 +721,47 @@ int register_mtdpartition(FAR const char *partition,
 #ifdef CONFIG_MTD
 int unregister_mtddriver(FAR const char *path);
 #endif
+
+#ifdef CONFIG_PIPES
+
+/****************************************************************************
+ * Name: register_pipedriver
+ *
+ * Description:
+ *   Register a pipe driver inode the pseudo file system.
+ *
+ * Input Parameters:
+ *   path - The path to the inode to create
+ *   fops - The file operations structure
+ *   mode - inmode privileges
+ *   priv - Private, user data that will be associated with the inode.
+ *
+ * Returned Value:
+ *   Zero on success (with the inode point in 'inode'); A negated errno
+ *   value is returned on a failure (all error values returned by
+ *   inode_reserve):
+ *
+ *   EINVAL - 'path' is invalid for this operation
+ *   EEXIST - An inode already exists at 'path'
+ *   ENOMEM - Failed to allocate in-memory resources for the operation
+ *
+ ****************************************************************************/
+
+int register_pipedriver(FAR const char *path,
+                        FAR const struct file_operations *fops,
+                        mode_t mode, FAR void *priv);
+
+/****************************************************************************
+ * Name: unregister_pipedriver
+ *
+ * Description:
+ *   Remove the pipe driver inode at 'path' from the pseudo-file system
+ *
+ ****************************************************************************/
+
+int unregister_pipedriver(FAR const char *path);
+
+#endif /* CONFIG_PIPES */
 
 /****************************************************************************
  * Name: nx_mount
@@ -1334,6 +1382,18 @@ off_t nx_seek(int fd, off_t offset, int whence);
  ****************************************************************************/
 
 int file_fsync(FAR struct file *filep);
+
+/****************************************************************************
+ * Name: file_syncfs
+ *
+ * Description:
+ *   Equivalent to the standard syncsf() function except that is accepts a
+ *   struct file instance instead of a fd descriptor and it does not set
+ *   the errno variable
+ *
+ ****************************************************************************/
+
+int file_syncfs(FAR struct file *filep);
 
 /****************************************************************************
  * Name: file_truncate

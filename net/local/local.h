@@ -122,9 +122,13 @@ struct local_conn_s
   char lc_path[UNIX_PATH_MAX];   /* Path assigned by bind() */
   int32_t lc_instance_id;        /* Connection instance ID for stream
                                   * server<->client connection pair */
-#ifdef CONFIG_NET_LOCAL_SCM
+#ifdef CONFIG_NET_LOCAL_DGRAM
+  uint16_t pktlen;                 /* Read-ahead packet length */
+#endif /* CONFIG_NET_LOCAL_DGRAM */
+
   FAR struct local_conn_s *
                         lc_peer; /* Peer connection instance */
+#ifdef CONFIG_NET_LOCAL_SCM
   uint16_t lc_cfpcount;          /* Control file pointer counter */
   FAR struct file *
      lc_cfps[LOCAL_NCONTROLFDS]; /* Socket message control filep */
@@ -132,6 +136,7 @@ struct local_conn_s
 #endif /* CONFIG_NET_LOCAL_SCM */
 
   mutex_t lc_sendlock;           /* Make sending multi-thread safe */
+  mutex_t lc_polllock;           /* Lock for net poll */
 
 #ifdef CONFIG_NET_LOCAL_STREAM
   /* SOCK_STREAM fields common to both client and server */
@@ -217,6 +222,40 @@ FAR struct local_conn_s *local_alloc(void);
  ****************************************************************************/
 
 void local_free(FAR struct local_conn_s *conn);
+
+/****************************************************************************
+ * Name: local_addref
+ *
+ * Description:
+ *   Increment the reference count on the underlying connection structure.
+ *
+ * Input Parameters:
+ *   conn - Socket structure of the socket whose reference count will be
+ *           incremented.
+ *
+ * Returned Value:
+ *   None
+ *
+ ****************************************************************************/
+
+void local_addref(FAR struct local_conn_s *conn);
+
+/****************************************************************************
+ * Name: local_subref
+ *
+ * Description:
+ *   Subtract the reference count on the underlying connection structure.
+ *
+ * Input Parameters:
+ *   conn - Socket structure of the socket whose reference count will be
+ *           incremented.
+ *
+ * Returned Value:
+ *   None
+ *
+ ****************************************************************************/
+
+void local_subref(FAR struct local_conn_s *conn);
 
 /****************************************************************************
  * Name: local_nextconn
@@ -490,9 +529,7 @@ int local_sync(FAR struct file *filep);
  *
  ****************************************************************************/
 
-#ifdef CONFIG_NET_LOCAL_STREAM
 int local_create_fifos(FAR struct local_conn_s *conn);
-#endif
 
 /****************************************************************************
  * Name: local_create_halfduplex
@@ -515,9 +552,7 @@ int local_create_halfduplex(FAR struct local_conn_s *conn,
  *
  ****************************************************************************/
 
-#ifdef CONFIG_NET_LOCAL_STREAM
 int local_release_fifos(FAR struct local_conn_s *conn);
-#endif
 
 /****************************************************************************
  * Name: local_release_halfduplex
@@ -539,9 +574,7 @@ int local_release_halfduplex(FAR struct local_conn_s *conn);
  *
  ****************************************************************************/
 
-#ifdef CONFIG_NET_LOCAL_STREAM
 int local_open_client_rx(FAR struct local_conn_s *client, bool nonblock);
-#endif
 
 /****************************************************************************
  * Name: local_open_client_tx
@@ -551,9 +584,7 @@ int local_open_client_rx(FAR struct local_conn_s *client, bool nonblock);
  *
  ****************************************************************************/
 
-#ifdef CONFIG_NET_LOCAL_STREAM
 int local_open_client_tx(FAR struct local_conn_s *client, bool nonblock);
-#endif
 
 /****************************************************************************
  * Name: local_open_server_rx
@@ -563,9 +594,7 @@ int local_open_client_tx(FAR struct local_conn_s *client, bool nonblock);
  *
  ****************************************************************************/
 
-#ifdef CONFIG_NET_LOCAL_STREAM
 int local_open_server_rx(FAR struct local_conn_s *server, bool nonblock);
-#endif
 
 /****************************************************************************
  * Name: local_open_server_tx
@@ -575,9 +604,7 @@ int local_open_server_rx(FAR struct local_conn_s *server, bool nonblock);
  *
  ****************************************************************************/
 
-#ifdef CONFIG_NET_LOCAL_STREAM
 int local_open_server_tx(FAR struct local_conn_s *server, bool nonblock);
-#endif
 
 /****************************************************************************
  * Name: local_open_receiver
@@ -656,6 +683,19 @@ int local_pollteardown(FAR struct socket *psock, FAR struct pollfd *fds);
  ****************************************************************************/
 
 int32_t local_generate_instance_id(void);
+
+/****************************************************************************
+ * Name: local_set_pollthreshold
+ *
+ * Description:
+ *   Set the local pollin and pollout threshold:
+ *
+ ****************************************************************************/
+
+#ifdef CONFIG_NET_LOCAL_DGRAM
+int local_set_pollthreshold(FAR struct local_conn_s *conn,
+                            unsigned long threshold);
+#endif
 
 #undef EXTERN
 #ifdef __cplusplus

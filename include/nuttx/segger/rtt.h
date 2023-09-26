@@ -40,7 +40,7 @@
 #ifdef CONFIG_STREAM_RTT
 struct lib_rttoutstream_s
 {
-  struct lib_outstream_s public;
+  struct lib_outstream_s common;
   char name[32];
   FAR char *buffer;
   int channel;
@@ -48,7 +48,7 @@ struct lib_rttoutstream_s
 
 struct lib_rttinstream_s
 {
-  struct lib_instream_s public;
+  struct lib_instream_s common;
   char name[32];
   FAR char *buffer;
   int channel;
@@ -96,6 +96,14 @@ void lib_rttinstream_close(FAR struct lib_rttinstream_s *stream);
 int syslog_rtt_putc(FAR struct syslog_channel_s *channel, int ch);
 ssize_t syslog_rtt_write(FAR struct syslog_channel_s *channel,
                          FAR const char *buffer, size_t buflen);
+#endif
+
+/****************************************************************************
+* Name: serial_rtt_initialize
+*****************************************************************************/
+
+#ifdef CONFIG_SERIAL_RTT
+void serial_rtt_initialize(void);
 #endif
 
 #ifdef __cplusplus

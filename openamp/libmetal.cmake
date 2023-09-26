@@ -33,6 +33,9 @@ if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/libmetal)
         ""
         INSTALL_COMMAND
         ""
+    PATCH_COMMAND
+      patch -p0 -d ${CMAKE_CURRENT_LIST_DIR} <
+      ${CMAKE_CURRENT_LIST_DIR}/0001-libmetal-add-metal_list_for_each_safe-support.patch
     DOWNLOAD_NO_PROGRESS true
     TIMEOUT 30)
 
@@ -47,6 +50,8 @@ if("${CONFIG_ARCH}" STREQUAL "sim")
   set(LIBMETAL_ARCH x86_64)
 elseif("${CONFIG_ARCH}" STREQUAL "risc-v")
   set(LIBMETAL_ARCH riscv)
+elseif("${CONFIG_ARCH}" STREQUAL "arm64")
+  set(LIBMETAL_ARCH aarch64)
 else()
   set(LIBMETAL_ARCH ${CONFIG_ARCH})
 endif()

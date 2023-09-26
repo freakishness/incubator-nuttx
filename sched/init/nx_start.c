@@ -41,6 +41,7 @@
 #include <nuttx/kmalloc.h>
 #include <nuttx/pgalloc.h>
 #include <nuttx/sched_note.h>
+#include <nuttx/trace.h>
 #include <nuttx/binfmt/binfmt.h>
 #include <nuttx/drivers/drivers.h>
 #include <nuttx/init.h>
@@ -278,9 +279,9 @@ static struct task_tcb_s g_idletcb[CONFIG_SMP_NCPUS];
 
 #if CONFIG_TASK_NAME_SIZE <= 0 || !defined(CONFIG_SMP)
 #  ifdef CONFIG_SMP
-static const char g_idlename[] = "CPU Idle";
+static const char g_idlename[] = "CPU_Idle";
 #  else
-static const char g_idlename[] = "Idle Task";
+static const char g_idlename[] = "Idle_Task";
 #  endif
 #endif
 
@@ -322,6 +323,8 @@ void nx_start(void)
   g_nx_initstate = OSINIT_BOOT;
 
   /* Initialize RTOS Data ***************************************************/
+
+  sched_trace_begin();
 
   /* Initialize the IDLE task TCB *******************************************/
 
@@ -691,6 +694,7 @@ void nx_start(void)
 
   /* Let other threads have access to the memory manager */
 
+  sched_trace_end();
   sched_unlock();
 
   /* The IDLE Loop **********************************************************/
@@ -698,10 +702,12 @@ void nx_start(void)
   /* When control is return to this point, the system is idle. */
 
   sinfo("CPU0: Beginning Idle Loop\n");
+#ifndef CONFIG_DISABLE_IDLE_LOOP
   for (; ; )
     {
       /* Perform any processor-specific idle state operations */
 
       up_idle();
     }
+#endif
 }

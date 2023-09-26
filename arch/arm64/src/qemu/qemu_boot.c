@@ -45,6 +45,10 @@
 #include "qemu_boot.h"
 #include "qemu_serial.h"
 
+#ifdef CONFIG_DEVICE_TREE
+#  include <nuttx/fdt.h>
+#endif
+
 /****************************************************************************
  * Private Data
  ****************************************************************************/
@@ -121,6 +125,19 @@ uint64_t arm64_get_mpid(int cpu)
   return CORE_TO_MPID(cpu, 0);
 }
 
+/****************************************************************************
+ * Name: arm64_get_cpuid
+ *
+ * Description:
+ *   The function from mpid to get cpu id
+ *
+ ****************************************************************************/
+
+int arm64_get_cpuid(uint64_t mpid)
+{
+  return MPID_TO_CORE(mpid, 0);
+}
+
 #endif /* CONFIG_SMP */
 
 /****************************************************************************
@@ -154,9 +171,13 @@ void arm64_chip_boot(void)
 
   arm64_mmu_init(true);
 
+#ifdef CONFIG_DEVICE_TREE
+  fdt_register((const char *)0x40000000);
+#endif
+
 #if defined(CONFIG_ARCH_CHIP_QEMU_WITH_HV)
   arm64_psci_init("hvc");
-#elif defined(CONFIG_SMP) || defined(CONFIG_ARCH_HAVE_PSCI)
+#elif defined(CONFIG_ARCH_HAVE_PSCI)
   arm64_psci_init("smc");
 #endif
 

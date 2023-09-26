@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/param.h>
+#include <sys/socket.h>
 #include <debug.h>
 
 #include <nuttx/kmalloc.h>
@@ -49,8 +50,9 @@
 
 #define RPMSG_SOCKET_CMD_SYNC           1
 #define RPMSG_SOCKET_CMD_DATA           2
-#define RPMSG_SOCKET_NAME_PREFIX        "rpmsg-socket:"
-#define RPMSG_SOCKET_NAME_PREFIX_LEN    13
+#define RPMSG_SOCKET_NAME_PREFIX        "sk:"
+#define RPMSG_SOCKET_NAME_PREFIX_LEN    3
+#define RPMSG_SOCKET_NAME_ID_LEN        13
 
 static_assert(RPMSG_SOCKET_NAME_SIZE + RPMSG_SOCKET_NAME_PREFIX_LEN
               <= RPMSG_NAME_SIZE, "socket name size config error");
@@ -63,6 +65,9 @@ begin_packed_struct struct rpmsg_socket_sync_s
 {
   uint32_t                       cmd;
   uint32_t                       size;
+  uint32_t                       pid;
+  uint32_t                       uid;
+  uint32_t                       gid;
 } end_packed_struct;
 
 begin_packed_struct struct rpmsg_socket_data_s
@@ -86,6 +91,7 @@ struct rpmsg_socket_conn_s
   struct rpmsg_endpoint          ept;
 
   struct sockaddr_rpmsg          rpaddr;
+  char                           nameid[RPMSG_SOCKET_NAME_ID_LEN];
   uint16_t                       crefs;
 
   FAR struct pollfd              *fds[CONFIG_NET_RPMSG_NPOLLWAITERS];
@@ -110,6 +116,10 @@ struct rpmsg_socket_conn_s
    */
 
   int                            backlog;
+
+  /* The remote connection's credentials */
+
+  struct ucred                   cred;
 
   /* Flow control, descript send side */
 
@@ -151,6 +161,11 @@ static ssize_t    rpmsg_socket_recvmsg(FAR struct socket *psock,
 static int        rpmsg_socket_close(FAR struct socket *psock);
 static int        rpmsg_socket_ioctl(FAR struct socket *psock,
                                      int cmd, unsigned long arg);
+#ifdef CONFIG_NET_SOCKOPTS
+static int        rpmsg_socket_getsockopt(FAR struct socket *psock,
+                    int level, int option, FAR void *value,
+                    FAR socklen_t *value_len);
+#endif
 
 /****************************************************************************
  * Public Data
@@ -172,13 +187,19 @@ const struct sock_intf_s g_rpmsg_sockif =
   rpmsg_socket_recvmsg,     /* si_recvmsg */
   rpmsg_socket_close,       /* si_close */
   rpmsg_socket_ioctl,       /* si_ioctl */
+  NULL,                     /* si_socketpair */
+  NULL                      /* si_shutdown */
+#ifdef CONFIG_NET_SOCKOPTS
+  , rpmsg_socket_getsockopt /* si_getsockopt */
+  , NULL                    /* si_setsockopt */
+#endif
 };
 
 /****************************************************************************
  * Private Data
  ****************************************************************************/
 
-static unsigned int g_rpmsg_id;
+static uint64_t g_rpmsg_id;
 
 /****************************************************************************
  * Private Functions
@@ -207,6 +228,7 @@ static inline void rpmsg_socket_poll_notify(
 static FAR struct rpmsg_socket_conn_s *rpmsg_socket_alloc(void)
 {
   FAR struct rpmsg_socket_conn_s *conn;
+  int ret;
 
   conn = kmm_zalloc(sizeof(struct rpmsg_socket_conn_s));
   if (!conn)
@@ -214,7 +236,12 @@ static FAR struct rpmsg_socket_conn_s *rpmsg_socket_alloc(void)
       return NULL;
     }
 
-  circbuf_init(&conn->recvbuf, NULL, 0);
+  ret = circbuf_init(&conn->recvbuf, NULL, 0);
+  if (ret < 0)
+    {
+      kmm_free(conn);
+      return NULL;
+    }
 
   nxmutex_init(&conn->polllock);
   nxmutex_init(&conn->sendlock);
@@ -284,6 +311,9 @@ static int rpmsg_socket_ept_cb(FAR struct rpmsg_endpoint *ept,
     {
       nxmutex_lock(&conn->recvlock);
       conn->sendsize = head->size;
+      conn->cred.pid = head->pid;
+      conn->cred.uid = head->uid;
+      conn->cred.gid = head->gid;
 
       conn->sconn.s_flags |= _SF_CONNECTED;
 
@@ -378,7 +408,7 @@ static inline void rpmsg_socket_destroy_ept(
 
   if (conn->ept.rdev)
     {
-      if (conn->backlog)
+      if (conn->backlog > 0)
         {
           /* Listen socket */
 
@@ -402,6 +432,9 @@ static void rpmsg_socket_ns_bound(struct rpmsg_endpoint *ept)
 
   msg.cmd  = RPMSG_SOCKET_CMD_SYNC;
   msg.size = circbuf_size(&conn->recvbuf);
+  msg.pid  = nxsched_getpid();
+  msg.uid  = getuid();
+  msg.gid  = getgid();
 
   rpmsg_send(&conn->ept, &msg, sizeof(msg));
 }
@@ -440,8 +473,8 @@ static void rpmsg_socket_device_created(FAR struct rpmsg_device *rdev,
     {
       conn->ept.priv = conn;
       conn->ept.ns_bound_cb = rpmsg_socket_ns_bound;
-      snprintf(buf, sizeof(buf), "%s%s", RPMSG_SOCKET_NAME_PREFIX,
-               conn->rpaddr.rp_name);
+      snprintf(buf, sizeof(buf), "%s%s%s", RPMSG_SOCKET_NAME_PREFIX,
+               conn->rpaddr.rp_name, conn->nameid);
 
       rpmsg_create_ept(&conn->ept, rdev, buf,
                        RPMSG_ADDR_ANY, RPMSG_ADDR_ANY,
@@ -524,6 +557,8 @@ static void rpmsg_socket_ns_bind(FAR struct rpmsg_device *rdev,
   strlcpy(new->rpaddr.rp_name, name + RPMSG_SOCKET_NAME_PREFIX_LEN,
           sizeof(new->rpaddr.rp_name));
 
+  rpmsg_socket_ns_bound(&new->ept);
+
   nxmutex_lock(&server->recvlock);
 
   for (tmp = server; tmp->next; tmp = tmp->next)
@@ -542,8 +577,6 @@ static void rpmsg_socket_ns_bind(FAR struct rpmsg_device *rdev,
   tmp->next = new;
 
   nxmutex_unlock(&server->recvlock);
-
-  rpmsg_socket_ns_bound(&new->ept);
 
   rpmsg_socket_post(&server->recvsem);
   rpmsg_socket_poll_notify(server, POLLIN);
@@ -580,12 +613,12 @@ static int rpmsg_socket_setaddr(FAR struct rpmsg_socket_conn_s *conn,
 
   if (suffix)
     {
-      size_t len;
-
-      rpaddr = &conn->rpaddr;
-      len = strlen(rpaddr->rp_name);
-      snprintf(&rpaddr->rp_name[len], sizeof(rpaddr->rp_name) - len - 1,
-               ":%u", g_rpmsg_id++);
+      snprintf(conn->nameid, sizeof(conn->nameid), ":%" PRIx64,
+               g_rpmsg_id++);
+    }
+  else
+    {
+      conn->nameid[0] = 0;
     }
 
   return 0;
@@ -690,8 +723,10 @@ static int rpmsg_socket_connect_internal(FAR struct socket *psock)
       return ret;
     }
 
+  nxmutex_lock(&conn->recvlock);
   if (conn->sendsize == 0)
     {
+      nxmutex_unlock(&conn->recvlock);
       if (_SS_ISNONBLOCK(conn->sconn.s_flags))
         {
           return -EINPROGRESS;
@@ -708,6 +743,10 @@ static int rpmsg_socket_connect_internal(FAR struct socket *psock)
                                     NULL,
                                     NULL);
         }
+    }
+  else
+    {
+      nxmutex_unlock(&conn->recvlock);
     }
 
   return ret;
@@ -873,35 +912,35 @@ static int rpmsg_socket_poll(FAR struct socket *psock,
             {
               eventset |= POLLHUP;
             }
+
+          nxmutex_lock(&conn->sendlock);
+
+          if (rpmsg_socket_get_space(conn) > 0)
+            {
+              eventset |= POLLOUT;
+            }
+
+          nxmutex_unlock(&conn->sendlock);
+
+          nxmutex_lock(&conn->recvlock);
+
+          if (!circbuf_is_empty(&conn->recvbuf))
+            {
+              eventset |= POLLIN;
+            }
+
+          nxmutex_unlock(&conn->recvlock);
+        }
+      else /* !_SS_ISCONNECTED(conn->sconn.s_flags) */
+        {
+          if (!conn->ept.rdev || conn->unbind)
+            {
+              eventset |= POLLHUP;
+            }
           else
             {
-              nxmutex_lock(&conn->sendlock);
-
-              if (rpmsg_socket_get_space(conn) > 0)
-                {
-                  eventset |= POLLOUT;
-                }
-
-              nxmutex_unlock(&conn->sendlock);
-
-              nxmutex_lock(&conn->recvlock);
-
-              if (!circbuf_is_empty(&conn->recvbuf))
-                {
-                  eventset |= POLLIN;
-                }
-
-              nxmutex_unlock(&conn->recvlock);
+              ret = OK;
             }
-        }
-      else if (!_SS_ISCONNECTED(conn->sconn.s_flags) &&
-               _SS_ISNONBLOCK(conn->sconn.s_flags))
-        {
-          ret = OK;
-        }
-      else
-        {
-          eventset |= POLLERR;
         }
 
       rpmsg_socket_poll_notify(conn, eventset);
@@ -1322,6 +1361,25 @@ static int rpmsg_socket_close(FAR struct socket *psock)
   return 0;
 }
 
+static void rpmsg_socket_path(FAR struct rpmsg_socket_conn_s *conn,
+                              FAR char *buf, size_t len)
+{
+  if (conn->backlog) /* Server */
+    {
+      snprintf(buf, len,
+               "rpmsg:[%s:[%s%s]<->%s]",
+               CONFIG_RPTUN_LOCAL_CPUNAME, conn->rpaddr.rp_name,
+               conn->nameid, conn->rpaddr.rp_cpu);
+    }
+  else /* Client */
+    {
+      snprintf(buf, len,
+               "rpmsg:[%s<->%s:[%s%s]]",
+               CONFIG_RPTUN_LOCAL_CPUNAME, conn->rpaddr.rp_cpu,
+               conn->rpaddr.rp_name, conn->nameid);
+    }
+}
+
 static int rpmsg_socket_ioctl(FAR struct socket *psock,
                               int cmd, unsigned long arg)
 {
@@ -1338,6 +1396,10 @@ static int rpmsg_socket_ioctl(FAR struct socket *psock,
         *(FAR int *)((uintptr_t)arg) = rpmsg_socket_get_space(conn);
         break;
 
+      case FIOC_FILEPATH:
+        rpmsg_socket_path(conn, (FAR char *)(uintptr_t)arg, PATH_MAX);
+        break;
+
       default:
         ret = -ENOTTY;
         break;
@@ -1345,3 +1407,24 @@ static int rpmsg_socket_ioctl(FAR struct socket *psock,
 
   return ret;
 }
+
+#ifdef CONFIG_NET_SOCKOPTS
+static int rpmsg_socket_getsockopt(FAR struct socket *psock, int level,
+                                   int option, FAR void *value,
+                                   FAR socklen_t *value_len)
+{
+  if (level == SOL_SOCKET && option == SO_PEERCRED)
+    {
+      FAR struct rpmsg_socket_conn_s *conn = psock->s_conn;
+      if (*value_len != sizeof(struct ucred))
+        {
+          return -EINVAL;
+        }
+
+      memcpy(value, &conn->cred, sizeof(struct ucred));
+      return OK;
+    }
+
+  return -ENOPROTOOPT;
+}
+#endif

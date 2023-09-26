@@ -244,7 +244,7 @@ include/nuttx/version.h: $(TOPDIR)/.version tools/mkversion$(HOSTEXEEXT)
 # part of the overall NuttX configuration sequence. Notice that the
 # tools/mkconfig tool is built and used to create include/nuttx/config.h
 
-tools/mkconfig$(HOSTEXEEXT):
+tools/mkconfig$(HOSTEXEEXT): prebuild
 	$(Q) $(MAKE) -C tools -f Makefile.host mkconfig$(HOSTEXEEXT)
 
 include/nuttx/config.h: $(TOPDIR)/.config tools/mkconfig$(HOSTEXEEXT)
@@ -486,6 +486,16 @@ clean_context: clean_dirlinks
 
 include tools/LibTargets.mk
 
+# prebuild
+#
+# Some architectures require the use of special tools and special handling
+# BEFORE building NuttX. The `Make.defs` files for those architectures
+# should override the following define with the correct operations for
+# that platform.
+
+prebuild:
+	$(call PREBUILD, $(TOPDIR))
+
 # pass1 and pass2
 #
 # If the 2 pass build option is selected, then this pass1 target is
@@ -638,10 +648,10 @@ else
                               rm kwarning; \
                           fi
   MODULE_WARNING        = "warning: the 'modules' option is not supported"
-  PURGE_MODULE_WARNING  = 2> >(grep -v ${MODULE_WARNING} | tee kwarning) && ${KCONFIG_WARNING}
+  PURGE_MODULE_WARNING  = 2> >(grep -v ${MODULE_WARNING} | tee kwarning) | cat && ${KCONFIG_WARNING}
   KCONFIG_OLDCONFIG     = oldconfig ${PURGE_MODULE_WARNING}
   KCONFIG_OLDDEFCONFIG  = olddefconfig ${PURGE_MODULE_WARNING}
-  KCONFIG_MENUCONFIG    = menuconfig ${PURGE_MODULE_WARNING}
+  KCONFIG_MENUCONFIG    = menuconfig $(subst | cat,,${PURGE_MODULE_WARNING})
   KCONFIG_NCONFIG       = guiconfig ${PURGE_MODULE_WARNING}
   KCONFIG_QCONFIG       = ${KCONFIG_NCONFIG}
   KCONFIG_GCONFIG       = ${KCONFIG_NCONFIG}

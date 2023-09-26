@@ -49,7 +49,7 @@
 
 static int        local_setup(FAR struct socket *psock);
 static sockcaps_t local_sockcaps(FAR struct socket *psock);
-static void       local_addref(FAR struct socket *psock);
+static void       local_sockaddref(FAR struct socket *psock);
 static int        local_bind(FAR struct socket *psock,
                     FAR const struct sockaddr *addr, socklen_t addrlen);
 static int        local_getsockname(FAR struct socket *psock,
@@ -80,7 +80,7 @@ const struct sock_intf_s g_local_sockif =
 {
   local_setup,       /* si_setup */
   local_sockcaps,    /* si_sockcaps */
-  local_addref,      /* si_addref */
+  local_sockaddref,  /* si_addref */
   local_bind,        /* si_bind */
   local_getsockname, /* si_getsockname */
   local_getpeername, /* si_getpeername */
@@ -137,8 +137,7 @@ static int local_sockif_alloc(FAR struct socket *psock)
    * count will be incremented only if the socket is dup'ed
    */
 
-  DEBUGASSERT(conn->lc_crefs == 0);
-  conn->lc_crefs = 1;
+  local_addref(conn);
 
   /* Save the pre-allocated connection in the socket structure */
 
@@ -243,7 +242,7 @@ static sockcaps_t local_sockcaps(FAR struct socket *psock)
 }
 
 /****************************************************************************
- * Name: local_addref
+ * Name: local_sockaddref
  *
  * Description:
  *   Increment the reference count on the underlying connection structure.
@@ -257,16 +256,10 @@ static sockcaps_t local_sockcaps(FAR struct socket *psock)
  *
  ****************************************************************************/
 
-static void local_addref(FAR struct socket *psock)
+static void local_sockaddref(FAR struct socket *psock)
 {
-  FAR struct local_conn_s *conn;
-
-  DEBUGASSERT(psock != NULL && psock->s_conn != NULL &&
-              psock->s_domain == PF_LOCAL);
-
-  conn = psock->s_conn;
-  DEBUGASSERT(conn->lc_crefs > 0 && conn->lc_crefs < 255);
-  conn->lc_crefs++;
+  DEBUGASSERT(psock->s_domain == PF_LOCAL);
+  local_addref(psock->s_conn);
 }
 
 /****************************************************************************
@@ -368,9 +361,6 @@ static int local_getsockname(FAR struct socket *psock,
   FAR struct sockaddr_un *unaddr = (FAR struct sockaddr_un *)addr;
   FAR struct local_conn_s *conn;
 
-  DEBUGASSERT(psock != NULL && psock->s_conn != NULL &&
-              unaddr != NULL && addrlen != NULL);
-
   if (*addrlen < sizeof(sa_family_t))
     {
       /* This is apparently not an error */
@@ -463,7 +453,79 @@ static int local_getpeername(FAR struct socket *psock,
                              FAR struct sockaddr *addr,
                              FAR socklen_t *addrlen)
 {
-  return local_getsockname(psock, addr, addrlen);
+  FAR struct sockaddr_un *unaddr = (FAR struct sockaddr_un *)addr;
+  FAR struct local_conn_s *conn;
+  FAR struct local_conn_s *peer;
+
+  if (*addrlen < sizeof(sa_family_t))
+    {
+      /* This is apparently not an error */
+
+      *addrlen = 0;
+      return OK;
+    }
+
+  /* Verify that the socket has been connected */
+
+  conn = psock->s_conn;
+
+  if (conn->lc_state != LOCAL_STATE_CONNECTED)
+    {
+      return -ENOTCONN;
+    }
+
+  peer = conn->lc_peer;
+
+  /* Save the address family */
+
+  unaddr->sun_family = AF_LOCAL;
+  if (*addrlen > sizeof(sa_family_t))
+    {
+      /* Now copy the address description.  */
+
+      if (peer->lc_type == LOCAL_TYPE_UNNAMED)
+        {
+          /* Zero-length sun_path... This is an abstract Unix domain socket */
+
+          *addrlen = sizeof(sa_family_t);
+        }
+      else /* conn->lc_type = LOCAL_TYPE_PATHNAME */
+        {
+          /* Get the full length of the socket name (incl. null terminator) */
+
+          size_t namelen = strlen(peer->lc_path) + 1 +
+                           (peer->lc_type == LOCAL_TYPE_ABSTRACT);
+
+          /* Get the available length in the user-provided buffer. */
+
+          size_t pathlen = *addrlen - sizeof(sa_family_t);
+
+          /* Clip the socket name size so that if fits in the user buffer */
+
+          if (pathlen < namelen)
+            {
+              namelen = pathlen;
+            }
+
+          /* Copy the path into the user address structure */
+
+          if (peer->lc_type == LOCAL_TYPE_ABSTRACT)
+            {
+              unaddr->sun_path[0] = '\0';
+              strlcpy(&unaddr->sun_path[1],
+                      peer->lc_path, namelen - 1);
+            }
+          else
+            {
+               strlcpy(unaddr->sun_path,
+                      peer->lc_path, namelen);
+            }
+
+          *addrlen = sizeof(sa_family_t) + namelen;
+        }
+    }
+
+  return OK;
 }
 
 #ifdef CONFIG_NET_SOCKOPTS
@@ -498,8 +560,7 @@ static int local_getpeername(FAR struct socket *psock,
 static int local_getsockopt(FAR struct socket *psock, int level, int option,
                             FAR void *value, FAR socklen_t *value_len)
 {
-  DEBUGASSERT(psock != NULL && psock->s_conn != NULL &&
-              psock->s_domain == PF_LOCAL);
+  DEBUGASSERT(psock->s_domain == PF_LOCAL);
 
 #ifdef CONFIG_NET_LOCAL_SCM
   if (level == SOL_SOCKET && option == SO_PEERCRED)
@@ -706,23 +767,11 @@ static int local_close(FAR struct socket *psock)
 #endif
       case SOCK_CTRL:
         {
-          FAR struct local_conn_s *conn = psock->s_conn;
-
           /* Is this the last reference to the connection structure (there
            * could be more if the socket was dup'ed).
            */
 
-          if (conn->lc_crefs <= 1)
-            {
-              conn->lc_crefs = 0;
-              local_release(conn);
-            }
-          else
-           {
-             /* No.. Just decrement the reference count */
-
-             conn->lc_crefs--;
-           }
+          local_subref(psock->s_conn);
 
           return OK;
         }
@@ -787,6 +836,30 @@ static int local_ioctl(FAR struct socket *psock, int cmd, unsigned long arg)
             ret = -ENOTCONN;
           }
         break;
+      case PIPEIOC_POLLINTHRD:
+        if (conn->lc_infile.f_inode != NULL)
+          {
+            ret = file_ioctl(&conn->lc_infile, cmd, arg);
+          }
+        else
+          {
+            ret = -ENOTCONN;
+          }
+        break;
+      case PIPEIOC_POLLOUTTHRD:
+        if (conn->lc_outfile.f_inode != NULL)
+          {
+            ret = file_ioctl(&conn->lc_outfile, cmd, arg);
+          }
+        else
+          {
+            ret = -ENOTCONN;
+          }
+        break;
+      case FIOC_FILEPATH:
+        snprintf((FAR char *)(uintptr_t)arg, PATH_MAX, "local:[%s]",
+                 conn->lc_path);
+        break;
       case BIOC_FLUSH:
         ret = -EINVAL;
         break;
@@ -811,12 +884,9 @@ static int local_ioctl(FAR struct socket *psock, int cmd, unsigned long arg)
 
 static int local_socketpair(FAR struct socket *psocks[2])
 {
-#if defined(CONFIG_NET_LOCAL_STREAM) || defined(CONFIG_NET_LOCAL_DGRAM)
   FAR struct local_conn_s *conns[2];
-#ifdef CONFIG_NET_LOCAL_STREAM
   bool nonblock;
   int ret;
-#endif /* CONFIG_NET_LOCAL_STREAM */
   int i;
 
   for (i = 0; i < 2; i++)
@@ -830,18 +900,12 @@ static int local_socketpair(FAR struct socket *psocks[2])
       conns[i]->lc_state = LOCAL_STATE_BOUND;
     }
 
-#ifdef CONFIG_NET_LOCAL_DGRAM
-#ifdef CONFIG_NET_LOCAL_STREAM
-  if (psocks[0]->s_type == SOCK_DGRAM)
-#endif /* CONFIG_NET_LOCAL_STREAM */
-    {
-      return OK;
-    }
-#endif /* CONFIG_NET_LOCAL_DGRAM */
-
-#ifdef CONFIG_NET_LOCAL_STREAM
   conns[0]->lc_instance_id = conns[1]->lc_instance_id
+#ifdef CONFIG_NET_LOCAL_STREAM
                            = local_generate_instance_id();
+#else
+                           = -1;
+#endif
 
   /* Create the FIFOs needed for the connection */
 
@@ -887,15 +951,22 @@ static int local_socketpair(FAR struct socket *psocks[2])
 
   conns[0]->lc_state = conns[1]->lc_state
                      = LOCAL_STATE_CONNECTED;
+
+#ifdef CONFIG_NET_LOCAL_DGRAM
+  if (psocks[0]->s_type == SOCK_DGRAM)
+    {
+      for (i = 0; i < 2; i++)
+        {
+          ret = local_set_pollthreshold(conns[i], sizeof(uint16_t));
+        }
+    }
+#endif
+
   return OK;
 
 errout:
   local_release_fifos(conns[0]);
   return ret;
-#endif /* CONFIG_NET_LOCAL_STREAM */
-#else
-  return -EOPNOTSUPP;
-#endif /* CONFIG_NET_LOCAL_STREAM || CONFIG_NET_LOCAL_DGRAM */
 }
 
 /****************************************************************************
@@ -921,8 +992,7 @@ errout:
 
 static int local_shutdown(FAR struct socket *psock, int how)
 {
-  DEBUGASSERT(psock != NULL && psock->s_conn != NULL &&
-              psock->s_domain == PF_LOCAL);
+  DEBUGASSERT(psock->s_domain == PF_LOCAL);
 
   switch (psock->s_type)
     {

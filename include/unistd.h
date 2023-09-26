@@ -45,7 +45,6 @@
 #define POSIX_VERSION
 #undef  _POSIX_SAVED_IDS
 #undef  _POSIX_JOB_CONTROL
-#define _POSIX_REALTIME_SIGNALS 1
 #define _POSIX_MESSAGE_PASSING 1
 #undef  _POSIX_MAPPED_FILES
 #undef  _POSIX_SHARED_MEMORY_OBJECTS
@@ -65,6 +64,9 @@
 #define _POSIX_PRIORITIZED_IO _POSIX_VERSION
 #define _POSIX_CPUTIME _POSIX_VERSION
 #define _POSIX_THREAD_CPUTIME _POSIX_VERSION
+#define _POSIX_REALTIME_SIGNALS _POSIX_VERSION
+#define _POSIX_THREAD_PRIORITY_SCHEDULING _POSIX_VERSION
+#define _POSIX_SEMAPHORES _POSIX_VERSION
 
 #ifdef CONFIG_FS_AIO
 #  define _POSIX_ASYNCHRONOUS_IO _POSIX_VERSION
@@ -256,7 +258,6 @@
 
 /* Helpers and legacy compatibility definitions */
 
-#define syncfs(f)                        fsync(f)
 #define fdatasync(f)                     fsync(f)
 #define getdtablesize(f)                 ((int)sysconf(_SC_OPEN_MAX))
 #define getpagesize(f)                   ((int)sysconf(_SC_PAGESIZE))
@@ -307,8 +308,10 @@ extern "C"
 
 /* Task Control Interfaces */
 
+pid_t   fork(void);
 pid_t   vfork(void);
 pid_t   getpid(void);
+pid_t   getpgid(pid_t pid);
 pid_t   getpgrp(void);
 pid_t   gettid(void);
 pid_t   getppid(void);
@@ -437,6 +440,7 @@ int     setregid(gid_t rgid, gid_t egid);
 int     getentropy(FAR void *buffer, size_t length);
 
 void    sync(void);
+int     syncfs(int fd);
 
 #if CONFIG_FORTIFY_SOURCE > 0
 fortify_function(getcwd) FAR char *getcwd(FAR char *buf,
