@@ -218,7 +218,7 @@
                  CONFIG_USART_RXDMAPRIO)
 #  endif
 
-#endif  /* SERIAL_HAVE_RXDMA */
+#endif /* SERIAL_HAVE_RXDMA */
 
 #ifdef SERIAL_HAVE_TXDMA
 
@@ -368,7 +368,7 @@
 #    error "Unknown STM32 DMA"
 #  endif
 
-#endif  /* SERIAL_HAVE_TXDMA */
+#endif /* SERIAL_HAVE_TXDMA */
 
 /* Power management definitions */
 
@@ -1445,6 +1445,10 @@ static void up_set_format(struct uart_dev_s *dev)
 
   regval = up_serialin(priv, STM32_USART_CR1_OFFSET);
 
+#if defined(CONFIG_STM32_STM32G4XXX)
+  regval &= ~(USART_CR1_UE | USART_CR1_TE | USART_CR1_RE);
+  up_serialout(priv, STM32_USART_CR1_OFFSET, regval);
+#endif
 #if defined(CONFIG_STM32_STM32F30XX) || defined(CONFIG_STM32_STM32F33XX)|| \
     defined(CONFIG_STM32_STM32F37XX) || defined(CONFIG_STM32_STM32G4XXX)
   /* This first implementation is for U[S]ARTs that support oversampling
@@ -1623,6 +1627,11 @@ static void up_set_format(struct uart_dev_s *dev)
 #endif
 
   up_serialout(priv, STM32_USART_CR3_OFFSET, regval);
+#if defined(CONFIG_STM32_STM32G4XXX)
+  regval      = up_serialin(priv, STM32_USART_CR1_OFFSET);
+  regval     |= (USART_CR1_UE | USART_CR1_TE | USART_CR1_RE);
+  up_serialout(priv, STM32_USART_CR1_OFFSET, regval);
+#endif
 }
 #endif /* CONFIG_SUPPRESS_UART_CONFIG */
 

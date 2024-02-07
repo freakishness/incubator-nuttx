@@ -119,10 +119,9 @@ void group_remove_children(FAR struct task_group_s *group);
 
 /* Group data resource configuration */
 
-int  group_setupidlefiles(FAR struct task_tcb_s *tcb);
-int  group_setuptaskfiles(FAR struct task_tcb_s *tcb);
-#ifdef CONFIG_FILE_STREAM
-int  group_setupstreams(FAR struct task_tcb_s *tcb);
-#endif
+int  group_setupidlefiles(void);
+int  group_setuptaskfiles(FAR struct task_tcb_s *tcb,
+                          FAR const posix_spawn_file_actions_t *actions,
+                          bool cloexec);
 
 #endif /* __SCHED_GROUP_GROUP_H */

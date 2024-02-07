@@ -37,7 +37,9 @@
 
 #include <nuttx/mutex.h>
 #include <nuttx/semaphore.h>
+#include <nuttx/spinlock.h>
 #include <nuttx/mm/map.h>
+#include <nuttx/spawn.h>
 
 /****************************************************************************
  * Pre-processor Definitions
@@ -317,7 +319,8 @@ struct mountpt_operations
   CODE int     (*mmap)(FAR struct file *filep,
                        FAR struct mm_map_entry_s *map);
   CODE int     (*truncate)(FAR struct file *filep, off_t length);
-
+  CODE int     (*poll)(FAR struct file *filep, FAR struct pollfd *fds,
+                       bool setup);
   /* The two structures need not be common after this point. The following
    * are extended methods needed to deal with the unique needs of mounted
    * file systems.
@@ -409,7 +412,7 @@ struct inode
   uint16_t          i_flags;    /* Flags for inode */
   union inode_ops_u u;          /* Inode operations */
   ino_t             i_ino;      /* Inode serial number */
-#ifdef CONFIG_PSEUDOFS_FILE
+#if defined(CONFIG_PSEUDOFS_FILE) || defined(CONFIG_FS_SHMFS)
   size_t            i_size;     /* The size of per inode driver */
 #endif
 #ifdef CONFIG_PSEUDOFS_ATTRIBUTES
@@ -425,6 +428,33 @@ struct inode
 };
 
 #define FSNODE_SIZE(n) (sizeof(struct inode) + (n))
+
+/* Definitions for custom stream operations with fopencookie. The
+ * implementation is as defined in Standard C library (libc). The only
+ * difference is that we use off_t instead of off64_t. This means
+ * off_t is int64_t if CONFIG_FS_LARGEFILE is defined and int32_t if not.
+ *
+ * These callbacks can either lead to custom functions if fopencookie is used
+ * or to standard file system functions if not.
+ */
+
+typedef CODE ssize_t cookie_read_function_t(FAR void *cookie, FAR char *buf,
+                                            size_t size);
+typedef CODE ssize_t cookie_write_function_t(FAR void *cookie,
+                                             FAR const char *buf,
+                                             size_t size);
+typedef CODE off_t cookie_seek_function_t(FAR void *cookie,
+                                          FAR off_t *offset,
+                                          int whence);
+typedef CODE int cookie_close_function_t(FAR void *cookie);
+
+typedef struct cookie_io_functions_t
+{
+  FAR cookie_read_function_t *read;
+  FAR cookie_write_function_t *write;
+  FAR cookie_seek_function_t *seek;
+  FAR cookie_close_function_t *close;
+} cookie_io_functions_t;
 
 /* This is the underlying representation of an open file.  A file
  * descriptor is an index into an array of such types. The type associates
@@ -451,7 +481,7 @@ struct file
 
 struct filelist
 {
-  mutex_t           fl_lock;    /* Manage access to the file list */
+  spinlock_t        fl_lock;    /* Manage access to the file list */
   uint8_t           fl_rows;    /* The number of rows of fl_files array */
   FAR struct file **fl_files;   /* The pointer of two layer file descriptors array */
 };
@@ -497,21 +527,22 @@ struct file_struct
 {
   FAR struct file_struct *fs_next;      /* Pointer to next file stream */
   rmutex_t                fs_lock;      /* Recursive lock */
-  int                     fs_fd;        /* File descriptor associated with stream */
+  cookie_io_functions_t   fs_iofunc;    /* Callbacks to user / system functions */
+  FAR void               *fs_cookie;    /* Pointer to file descriptor / cookie struct */
 #ifndef CONFIG_STDIO_DISABLE_BUFFERING
-  FAR unsigned char      *fs_bufstart;  /* Pointer to start of buffer */
-  FAR unsigned char      *fs_bufend;    /* Pointer to 1 past end of buffer */
-  FAR unsigned char      *fs_bufpos;    /* Current position in buffer */
-  FAR unsigned char      *fs_bufread;   /* Pointer to 1 past last buffered read char. */
+  FAR char               *fs_bufstart;  /* Pointer to start of buffer */
+  FAR char               *fs_bufend;    /* Pointer to 1 past end of buffer */
+  FAR char               *fs_bufpos;    /* Current position in buffer */
+  FAR char               *fs_bufread;   /* Pointer to 1 past last buffered read char. */
 #  if CONFIG_STDIO_BUFFER_SIZE > 0
-  unsigned char           fs_buffer[CONFIG_STDIO_BUFFER_SIZE];
+  char                    fs_buffer[CONFIG_STDIO_BUFFER_SIZE];
 #  endif
 #endif
   uint16_t                fs_oflags;    /* Open mode flags */
   uint8_t                 fs_flags;     /* Stream flags */
 #if CONFIG_NUNGET_CHARS > 0
   uint8_t                 fs_nungotten; /* The number of characters buffered for ungetc */
-  unsigned char           fs_ungotten[CONFIG_NUNGET_CHARS];
+  char                    fs_ungotten[CONFIG_NUNGET_CHARS];
 #endif
 };
 
@@ -824,6 +855,19 @@ void files_initlist(FAR struct filelist *list);
 void files_releaselist(FAR struct filelist *list);
 
 /****************************************************************************
+ * Name: files_countlist
+ *
+ * Description:
+ *   Get file count from file list
+ *
+ * Returned Value:
+ *   file count of file list
+ *
+ ****************************************************************************/
+
+int files_countlist(FAR struct filelist *list);
+
+/****************************************************************************
  * Name: files_duplist
  *
  * Description:
@@ -835,7 +879,26 @@ void files_releaselist(FAR struct filelist *list);
  *
  ****************************************************************************/
 
-int files_duplist(FAR struct filelist *plist, FAR struct filelist *clist);
+int files_duplist(FAR struct filelist *plist, FAR struct filelist *clist,
+                  FAR const posix_spawn_file_actions_t *actions,
+                  bool cloexec);
+
+/****************************************************************************
+ * Name: files_fget
+ *
+ * Description:
+ *   Get the instance of struct file from file list by file descriptor.
+ *
+ * Input Parameters:
+ *   list - The list of files for a task.
+ *   fd   - A valid descriptor between 0 and files_countlist(list).
+ *
+ * Returned Value:
+ *   Pointer to file structure of list[fd].
+ *
+ ****************************************************************************/
+
+FAR struct file *files_fget(FAR struct filelist *list, int fd);
 
 /****************************************************************************
  * Name: file_allocate_from_tcb
@@ -883,7 +946,7 @@ int file_allocate(FAR struct inode *inode, int oflags, off_t pos,
  *
  ****************************************************************************/
 
-int file_dup(FAR struct file *filep, int minfd, bool cloexec);
+int file_dup(FAR struct file *filep, int minfd, int flags);
 
 /****************************************************************************
  * Name: file_dup2
@@ -941,6 +1004,24 @@ int nx_dup2_from_tcb(FAR struct tcb_s *tcb, int fd1, int fd2);
  ****************************************************************************/
 
 int nx_dup2(int fd1, int fd2);
+
+/****************************************************************************
+ * Name: file_dup3
+ *
+ * Description:
+ *   Assign an inode to a specific files structure.  This is the heart of
+ *   dup3.
+ *
+ *   Equivalent to the non-standard dup3() function except that it
+ *   accepts struct file instances instead of file descriptors.
+ *
+ * Returned Value:
+ *   Zero (OK) is returned on success; a negated errno value is return on
+ *   any failure.
+ *
+ ****************************************************************************/
+
+int file_dup3(FAR struct file *filep1, FAR struct file *filep2, int flags);
 
 /****************************************************************************
  * Name: file_open
@@ -1137,6 +1218,31 @@ int open_blockdriver(FAR const char *pathname, int mountflags,
 int close_blockdriver(FAR struct inode *inode);
 
 /****************************************************************************
+ * Name: find_blockdriver
+ *
+ * Description:
+ *   Return the inode of the block driver specified by 'pathname'
+ *
+ * Input Parameters:
+ *   pathname   - The full path to the block driver to be located
+ *   mountflags - If MS_RDONLY is not set, then driver must support write
+ *                operations (see include/sys/mount.h)
+ *   ppinode    - Address of the location to return the inode reference
+ *
+ * Returned Value:
+ *   Returns zero on success or a negated errno on failure:
+ *
+ *   ENOENT  - No block driver of this name is registered
+ *   ENOTBLK - The inode associated with the pathname is not a block driver
+ *   EACCESS - The MS_RDONLY option was not set but this driver does not
+ *             support write access
+ *
+ ****************************************************************************/
+
+int find_blockdriver(FAR const char *pathname, int mountflags,
+                     FAR struct inode **ppinode);
+
+/****************************************************************************
  * Name: find_mtddriver
  *
  * Description:
@@ -1173,33 +1279,6 @@ int find_mtddriver(FAR const char *pathname, FAR struct inode **ppinode);
  ****************************************************************************/
 
 int close_mtddriver(FAR struct inode *pinode);
-
-/****************************************************************************
- * Name: fs_fdopen
- *
- * Description:
- *   This function does the core operations for fopen and fdopen.  It is
- *   used by the OS to clone stdin, stdout, stderr
- *
- ****************************************************************************/
-
-#ifdef CONFIG_FILE_STREAM
-int fs_fdopen(int fd, int oflags, FAR struct tcb_s *tcb,
-              FAR struct file_struct **filep);
-#endif
-
-/****************************************************************************
- * Name: lib_flushall
- *
- * Description:
- *   Called either (1) by the OS when a task exits, or (2) from fflush()
- *   when a NULL stream argument is provided.
- *
- ****************************************************************************/
-
-#ifdef CONFIG_FILE_STREAM
-int lib_flushall(FAR struct streamlist *list);
-#endif
 
 /****************************************************************************
  * Name: file_read

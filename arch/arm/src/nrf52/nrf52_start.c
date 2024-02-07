@@ -188,6 +188,10 @@ void __start(void)
 
   showprogress('C');
 
+#ifdef CONFIG_ARMV7M_STACKCHECK
+  arm_stack_check_init();
+#endif
+
 #if defined(CONFIG_ARCH_CHIP_NRF52832)
   /* Initialize the errdata work-around */
 
@@ -201,6 +205,10 @@ void __start(void)
 #ifdef CONFIG_NRF52_FLASH_PREFETCH
   nrf52_enable_icache(true);
   nrf52_enable_profile(true);
+#endif
+
+#ifdef CONFIG_ARCH_PERF_EVENTS
+  up_perf_init((void *)BOARD_SYSTICK_CLOCK);
 #endif
 
   showprogress('D');

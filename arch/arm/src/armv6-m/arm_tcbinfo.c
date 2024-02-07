@@ -51,20 +51,21 @@ static const uint16_t g_reg_offs[] =
   TCB_REG_OFF(REG_R14),
   TCB_REG_OFF(REG_R15),
   TCB_REG_OFF(REG_XPSR),
-
+#if 0
   UINT16_MAX,                     /* msp */
   TCB_REG_OFF(REG_R13),
   TCB_REG_OFF(REG_PRIMASK),
   UINT16_MAX,                     /* basepri */
   UINT16_MAX,                     /* faultmask */
   UINT16_MAX,                     /* control */
+#endif
 };
 
 /****************************************************************************
  * Public Data
  ****************************************************************************/
 
-const struct tcbinfo_s g_tcbinfo =
+const struct tcbinfo_s g_tcbinfo used_data =
 {
   .pid_off        = TCB_PID_OFF,
   .state_off      = TCB_STATE_OFF,
@@ -73,8 +74,7 @@ const struct tcbinfo_s g_tcbinfo =
   .stack_off      = TCB_STACK_OFF,
   .stack_size_off = TCB_STACK_SIZE_OFF,
   .regs_off       = TCB_REGS_OFF,
-  .basic_num      = 17,
-  .total_num      = nitems(g_reg_offs),
+  .regs_num       = nitems(g_reg_offs),
   {
     .p = g_reg_offs,
   },

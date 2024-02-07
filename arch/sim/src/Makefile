@@ -65,6 +65,7 @@ CSRCS += sim_createstack.c sim_usestack.c sim_releasestack.c sim_stackframe.c
 CSRCS += sim_exit.c sim_schedulesigaction.c sim_switchcontext.c sim_heap.c
 CSRCS += sim_uart.c sim_copyfullstate.c sim_sigdeliver.c sim_tcbinfo.c sim_cpuinfo.c
 CSRCS += sim_registerdump.c sim_saveusercontext.c sim_textheap.c
+CSRCS += sim_checkhostfstypes.c
 
 ifeq ($(CONFIG_SCHED_BACKTRACE),y)
 CSRCS += sim_backtrace.c
@@ -177,6 +178,10 @@ endif
 ifeq ($(CONFIG_FS_FAT),y)
   CSRCS += sim_blockdevice.c sim_deviceimage.c
   STDLIBS += -lz
+endif
+
+ifneq ($(CONFIG_SIM_WIFIDEV_NUMBER),0)
+  CFLAGS += -DTOPDIR=\"$(TOPDIR)\"
 endif
 
 ifeq ($(CONFIG_SIM_NETDEV_TAP),y)
@@ -349,7 +354,7 @@ nuttx-names.dat: nuttx-names.in
 define LINK_ALLSYMS
 	$(if $(CONFIG_HOST_MACOS), \
 	$(Q) $(TOPDIR)/tools/mkallsyms.sh noconst $(NUTTX) $(CROSSDEV) > allsyms.tmp, \
-	$(Q) $(TOPDIR)/tools/mkallsyms.py $(NUTTX) allsyms.tmp)
+	$(Q) $(TOPDIR)/tools/mkallsyms.py $(NUTTX) allsyms.tmp --orderbyname $(CONFIG_SYMTAB_ORDEREDBYNAME))
 	$(Q) $(call COMPILE, allsyms.tmp, allsyms$(OBJEXT), -x c)
 	$(if $(CONFIG_HAVE_CXX),\
 	$(Q) "$(CXX)" $(CFLAGS) $(LDFLAGS) -o $(NUTTX) \

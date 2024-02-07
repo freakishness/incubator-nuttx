@@ -121,20 +121,27 @@ typedef uint16_t     size_t;
 typedef int16_t      ssize_t;
 typedef uint16_t     rsize_t;
 
-#else /* CONFIG_SMALL_MEMORY */
-
-typedef _size_t      size_t;
-typedef _ssize_t     ssize_t;
-typedef _size_t      rsize_t;
-
-#endif /* CONFIG_SMALL_MEMORY */
-
 /* uid_t is used for user IDs
  * gid_t is used for group IDs.
  */
 
 typedef int16_t      uid_t;
 typedef int16_t      gid_t;
+
+#else /* CONFIG_SMALL_MEMORY */
+
+typedef _size_t      size_t;
+typedef _ssize_t     ssize_t;
+typedef _size_t      rsize_t;
+
+/* uid_t is used for user IDs
+ * gid_t is used for group IDs.
+ */
+
+typedef unsigned int uid_t;
+typedef unsigned int gid_t;
+
+#endif /* CONFIG_SMALL_MEMORY */
 
 /* dev_t is used for device IDs */
 
@@ -242,7 +249,7 @@ typedef uint16_t     sa_family_t;
 
 #ifdef CONFIG_SYSTEM_TIME64
 typedef uint64_t     clock_t;
-typedef int64_t      time_t;         /* Holds time in seconds */
+typedef uint64_t     time_t;         /* Holds time in seconds */
 #else
 typedef uint32_t     clock_t;
 typedef uint32_t     time_t;         /* Holds time in seconds */

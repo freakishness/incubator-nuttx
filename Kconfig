@@ -638,6 +638,15 @@ config NDEBUG
 	bool "Define NDEBUG globally"
 	default !DEBUG_ASSERTIONS
 
+config ASSERTIONS_FILENAME
+	bool "Enable library call assert(3) show the file name"
+	default DEBUG_ASSERTIONS_FILENAME || !DEFAULT_SMALL
+	depends on !NDEBUG
+	---help---
+		This option can display the file information of the library call assert(3)
+		function when it is enabled. This option maybe will take up a lot
+		of space from applications.
+
 config DEBUG_ALERT
 	bool
 	default n
@@ -1682,10 +1691,45 @@ config DEBUG_RC_INFO
 
 endif # DEBUG_RC
 
+config DEBUG_REGMAP
+	bool "REGMAP Debug Features"
+	default n
+	depends on REGMAP
+	---help---
+		Enable REGMAP debug features.
+
+		Support for this debug option is architecture-specific and may not
+		be available for some MCUs.
+
+if DEBUG_REGMAP
+
+config DEBUG_REGMAP_ERROR
+	bool "Regmap Error Output"
+	default n
+	depends on DEBUG_ERROR
+	---help---
+		Enable regmap subsystems error output to SYSLOG.
+
+config DEBUG_REGMAP_WARN
+	bool "Regmap Warnings Output"
+	default n
+	depends on DEBUG_WARN
+	---help---
+		Enable regmap subsystems warning output to SYSLOG.
+
+config DEBUG_REGMAP_INFO
+	bool "Regmap Informational Output"
+	default n
+	depends on DEBUG_INFO
+	---help---
+		Enable regmap subsystems informational output to SYSLOG.
+
+endif # DEBUG_REGMAP
+
 config DEBUG_RMT
 	bool "RMT Debug Features"
 	default n
-	depends on ESP32_RMT
+	depends on RMT
 	---help---
 		Enable RMT debug features.
 
@@ -1999,6 +2043,39 @@ config DEBUG_MOTOR_INFO
 
 endif # DEBUG_MOTOR
 
+config DEBUG_STEPPER
+	bool "Stepper Motor Debug Features"
+	default n
+	depends on STEPPER
+	---help---
+		Enable motor debug features.
+
+if DEBUG_STEPPER
+
+config DEBUG_STEPPER_ERROR
+	bool "Stepper Motor Error Output"
+	default n
+	depends on DEBUG_ERROR
+	---help---
+		Enable motor error output to SYSLOG.
+
+config DEBUG_STEPPER_WARN
+	bool "Stepper Motor Warnings Output"
+	default n
+	depends on DEBUG_WARN
+	---help---
+		Enable motor warning output to SYSLOG.
+
+config DEBUG_STEPPER_INFO
+	bool "Stepper Motor Informational Output"
+	default n
+	depends on DEBUG_INFO
+	---help---
+		Enable motor informational output to SYSLOG.
+
+endif # DEBUG_STEPPER
+
+
 config DEBUG_VIDEO
 	bool "Video Debug Features"
 	default n
@@ -2119,6 +2196,40 @@ config DEBUG_IPC_INFO
 
 endif # DEBUG_IPC
 
+config DEBUG_PCI
+	bool "PCI Debug Features"
+	default n
+	depends on PCI
+	---help---
+		Enable PCI driver debug features.
+
+		Support for this debug option is architecture-specific and may not
+		be available for some MCUs.
+
+if DEBUG_PCI
+
+config DEBUG_PCI_ERROR
+	bool "PCI Error Output"
+	default n
+	depends on DEBUG_ERROR
+	---help---
+		Enable PCI driver error output to SYSLOG.
+
+config DEBUG_PCI_WARN
+	bool "PCI Warnings Output"
+	default n
+	depends on DEBUG_WARN
+	---help---
+		Enable PCI driver warning output to SYSLOG.
+
+config DEBUG_PCI_INFO
+	bool "PCI Informational Output"
+	default n
+	depends on DEBUG_INFO
+	---help---
+		Enable PCI driver informational output to SYSLOG.
+
+endif # DEBUG_PCI
 endif # DEBUG_FEATURES
 
 config ARCH_HAVE_STACKCHECK

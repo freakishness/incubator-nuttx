@@ -32,9 +32,11 @@
  */
 #ifndef __ASSEMBLY__
   #include <stdint.h>
+  #include <nuttx/nuttx.h>
 #endif
 
 #include <sys/param.h>
+#include <nuttx/bits.h>
 
 #include "barriers.h"
 
@@ -42,7 +44,6 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define BIT(n)          ((1UL) << (n))
 #define BIT64(n)        ((1ULL) << (n))
 
 /* Bit mask with bits 0 through n-1 (inclusive) set,
@@ -142,8 +143,6 @@
 /****************************************************************************
  * Pre-processor Definitions
  ****************************************************************************/
-
-#define STRINGIFY(x)    #x
 
 #define GET_EL(mode)  (((mode) >> MODE_EL_SHIFT) & MODE_EL_MASK)
 

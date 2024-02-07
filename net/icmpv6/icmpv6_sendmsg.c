@@ -115,7 +115,8 @@ static void sendto_request(FAR struct net_driver_s *dev,
   dev->d_len = IPv6_HDRLEN + pstate->snd_buflen;
 
   ipv6_build_header(IPv6BUF, pstate->snd_buflen, IP_PROTO_ICMP6,
-                    dev->d_ipv6addr, pstate->snd_toaddr.s6_addr16, 255, 0);
+                    netdev_ipv6_srcaddr(dev, pstate->snd_toaddr.s6_addr16),
+                    pstate->snd_toaddr.s6_addr16, 255, 0);
 
   /* Copy the ICMPv6 request and payload into place after the IPv6 header */
 
@@ -298,8 +299,18 @@ ssize_t icmpv6_sendmsg(FAR struct socket *psock, FAR struct msghdr *msg,
 
   /* Get the device that will be used to route this ICMPv6 ECHO request */
 
-  dev = netdev_findby_ripv6addr(g_ipv6_unspecaddr,
-                               inaddr->sin6_addr.s6_addr16);
+#ifdef CONFIG_NET_BINDTODEVICE
+  if (conn->sconn.s_boundto != 0)
+    {
+      dev = netdev_findbyindex(conn->sconn.s_boundto);
+    }
+  else
+#endif
+    {
+      dev = netdev_findby_ripv6addr(g_ipv6_unspecaddr,
+                                    inaddr->sin6_addr.s6_addr16);
+    }
+
   if (dev == NULL)
     {
       nerr("ERROR: Not reachable\n");
@@ -395,8 +406,7 @@ ssize_t icmpv6_sendmsg(FAR struct socket *psock, FAR struct msghdr *msg,
                * destination device.
                */
 
-              if (!net_ipv6addr_maskcmp(state.snd_toaddr.s6_addr16,
-                                        dev->d_ipv6addr, dev->d_ipv6netmask))
+              if (!NETDEV_V6ADDR_ONLINK(dev, state.snd_toaddr.s6_addr16))
                 {
                   /* Destination address was not on the local network served
                    * by this device.  If a timeout occurs, then the most

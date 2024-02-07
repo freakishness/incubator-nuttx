@@ -205,7 +205,7 @@
 #define TICK2HSEC(tick)       (((tick) + (TICK_PER_HSEC / 2)) / TICK_PER_HSEC)
 #define TICK2SEC(tick)        (((tick) + (TICK_PER_SEC / 2)) / TICK_PER_SEC)
 
-#if defined(CONFIG_DEBUG_FEATURES) && defined(CONFIG_SYSTEM_TIME64) && \
+#if defined(CONFIG_DEBUG_SCHED) && defined(CONFIG_SYSTEM_TIME64) && \
     !defined(CONFIG_SCHED_TICKLESS)
 /* Initial system timer ticks value close to maximum 32-bit value, to test
  * 64-bit system-timer after going over 32-bit value. This is to make errors
@@ -274,7 +274,7 @@
 
 /* This structure is used to report CPU usage for a particular thread */
 
-#ifdef CONFIG_SCHED_CPULOAD
+#ifndef CONFIG_SCHED_CPULOAD_NONE
 struct cpuload_s
 {
   volatile uint32_t total;   /* Total number of clock ticks */
@@ -615,7 +615,7 @@ int clock_systime_timespec(FAR struct timespec *ts);
  *
  ****************************************************************************/
 
-#ifdef CONFIG_SCHED_CPULOAD
+#ifndef CONFIG_SCHED_CPULOAD_NONE
 int clock_cpuload(int pid, FAR struct cpuload_s *cpuload);
 #endif
 
@@ -662,6 +662,24 @@ void nxsched_oneshot_extclk(FAR struct oneshot_lowerhalf_s *lower);
 struct timer_lowerhalf_s;
 void nxsched_period_extclk(FAR struct timer_lowerhalf_s *lower);
 #endif
+
+/****************************************************************************
+ * perf_gettime
+ ****************************************************************************/
+
+clock_t perf_gettime(void);
+
+/****************************************************************************
+ * perf_convert
+ ****************************************************************************/
+
+void perf_convert(clock_t elapsed, FAR struct timespec *ts);
+
+/****************************************************************************
+ * perf_gettfreq
+ ****************************************************************************/
+
+unsigned long perf_getfreq(void);
 
 #undef EXTERN
 #ifdef __cplusplus

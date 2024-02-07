@@ -47,8 +47,8 @@ ssize_t lib_fwrite_unlocked(FAR const void *ptr, size_t count,
                             FAR FILE *stream)
 #ifndef CONFIG_STDIO_DISABLE_BUFFERING
 {
-  FAR const unsigned char *start = ptr;
-  FAR const unsigned char *src   = ptr;
+  FAR const char *start = ptr;
+  FAR const char *src   = ptr;
   ssize_t ret = ERROR;
   size_t gulp_size;
 
@@ -72,7 +72,15 @@ ssize_t lib_fwrite_unlocked(FAR const void *ptr, size_t count,
 
   if (stream->fs_bufstart == NULL)
     {
-      ret = _NX_WRITE(stream->fs_fd, ptr, count);
+      if (stream->fs_iofunc.write != NULL)
+        {
+          ret = stream->fs_iofunc.write(stream->fs_cookie, ptr, count);
+        }
+      else
+        {
+          ret = _NX_WRITE((int)(intptr_t)stream->fs_cookie, ptr, count);
+        }
+
       if (ret < 0)
         {
           _NX_SETERRNO(ret);
@@ -122,7 +130,7 @@ ssize_t lib_fwrite_unlocked(FAR const void *ptr, size_t count,
         {
           /* Flush the buffered data to the IO stream */
 
-          int bytes_buffered = lib_fflush_unlocked(stream, false);
+          int bytes_buffered = lib_fflush_unlocked(stream);
           if (bytes_buffered < 0)
             {
               goto errout;
@@ -132,7 +140,15 @@ ssize_t lib_fwrite_unlocked(FAR const void *ptr, size_t count,
 
   if (count >= CONFIG_STDIO_BUFFER_SIZE)
     {
-      ret = _NX_WRITE(stream->fs_fd, src, count);
+      if (stream->fs_iofunc.write != NULL)
+        {
+          ret = stream->fs_iofunc.write(stream->fs_cookie, src, count);
+        }
+      else
+        {
+          ret = _NX_WRITE((int)(intptr_t)stream->fs_cookie, src, count);
+        }
+
       if (ret < 0)
         {
           _NX_SETERRNO(ret);
@@ -163,7 +179,16 @@ errout:
 }
 #else
 {
-  ssize_t ret = _NX_WRITE(stream->fs_fd, ptr, count);
+  ssize_t ret;
+  if (stream->fs_iofunc.write != NULL)
+    {
+      ret = stream->fs_iofunc.write(stream->fs_cookie, ptr, count);
+    }
+  else
+    {
+      ret = _NX_WRITE((int)(intptr_t)stream->fs_cookie, ptr, count);
+    }
+
   if (ret < 0)
     {
       stream->fs_flags |= __FS_FLAG_ERROR;

@@ -236,6 +236,10 @@ void __start(void)
 
   showprogress('C');
 
+#ifdef CONFIG_ARMV8M_STACKCHECK
+  arm_stack_check_init();
+#endif
+
 #ifdef CONFIG_ARCH_HAVE_FPU
   /* Initialize the FPU (if available) */
 
@@ -245,6 +249,10 @@ void __start(void)
 #ifdef CONFIG_NRF53_FLASH_PREFETCH
   nrf53_enable_icache(true);
   nrf53_enable_profile(true);
+#endif
+
+#ifdef CONFIG_ARCH_PERF_EVENTS
+  up_perf_init((void *)BOARD_SYSTICK_CLOCK);
 #endif
 
   showprogress('D');

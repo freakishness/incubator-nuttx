@@ -40,6 +40,7 @@ config ARM_TOOLCHAIN_GNU_OABI
 
 config ARM_TOOLCHAIN_CLANG
 	bool "LLVM Clang toolchain"
+	depends on !LIBM_TOOLCHAIN
 	select ARCH_TOOLCHAIN_CLANG
 
 config ARM_TOOLCHAIN_ARMCLANG
@@ -82,7 +83,7 @@ config ARCH_CHIP_AM335X
 
 config ARCH_CHIP_FVP_ARMV8R_AARCH32
 	bool "ARM FVP virt platform (ARMv8r AARCH32)"
-	select ARCH_ARMV8R
+	select ARCH_CORTEXR52
 	select ARCH_HAVE_LOWVECTORS
 	select ARCH_HAVE_FETCHADD
 	select ARMV8R_HAVE_DECODEFIQ
@@ -284,6 +285,7 @@ config ARCH_CHIP_NRF52
 	select ARCH_HAVE_FPU
 	select ARCH_HAVE_PWM_MULTICHAN
 	select ARCH_HAVE_SERIAL_TERMIOS
+	select ARCH_DMA_NO_FLASH_TRANSFER
 	---help---
 		Nordic nRF52 architectures (ARM Cortex-M4).
 
@@ -291,6 +293,7 @@ config ARCH_CHIP_NRF53
 	bool "Nordic nRF53"
 	select ARCH_CORTEXM33
 	select ARCH_HAVE_PWM_MULTICHAN
+	select ARCH_DMA_NO_FLASH_TRANSFER
 	depends on EXPERIMENTAL
 	---help---
 		Nordic nRF53 architectures (ARM dual Cortex-M33).
@@ -301,6 +304,7 @@ config ARCH_CHIP_NRF91
 	select ARCH_HAVE_PWM_MULTICHAN
 	select ARCH_HAVE_TRUSTZONE
 	select ARCH_HAVE_TICKLESS
+	select ARCH_DMA_NO_FLASH_TRANSFER
 	depends on EXPERIMENTAL
 	---help---
 		Nordic nRF91 architectures (ARM Cortex-M33 with integrated
@@ -429,6 +433,7 @@ config ARCH_CHIP_STM32
 	select ARCH_HAVE_TIMEKEEPING
 	select ARM_HAVE_MPU_UNIFIED
 	select ARMV7M_HAVE_STACKCHECK
+	select ARCH_HAVE_ADJTIME
 	---help---
 		STMicro STM32 architectures (ARM Cortex-M3/4).
 
@@ -785,6 +790,7 @@ config ARCH_ARMV7M
 	bool
 	default n
 	select ARCH_HAVE_CPUINFO
+	select ARCH_HAVE_DEBUG
 	select ARCH_HAVE_PERF_EVENTS
 
 config ARCH_CORTEXM3
@@ -920,10 +926,18 @@ config ARCH_CORTEXR7
 	select ARCH_HAVE_MPU
 	select ARCH_HAVE_TESTSET
 
+config ARCH_CORTEXR52
+	bool
+	default n
+	select ARCH_ARMV8R
+	select ARCH_HAVE_MPU
+	select ARCH_HAVE_TESTSET
+
 config ARCH_ARMV8M
 	bool
 	default n
 	select ARCH_HAVE_CPUINFO
+	select ARCH_HAVE_DEBUG
 	select ARCH_HAVE_PERF_EVENTS
 
 config ARCH_CORTEXM23
@@ -1342,7 +1356,7 @@ config ARM_SEMIHOSTING_HOSTFS_CACHE_COHERENCE
 	---help---
 		Flush & Invalidte cache before & after bkpt instruction.
 
-endif
+endif # ARM_SEMIHOSTING_HOSTFS
 
 if SCHED_BACKTRACE
 

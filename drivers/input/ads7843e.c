@@ -310,7 +310,7 @@ static int ads7843e_sample(FAR struct ads7843e_dev_s *priv,
   irqstate_t flags;
   int ret = -EAGAIN;
 
-  /* Interrupts me be disabled when this is called to (1) prevent posting
+  /* Interrupts must be disabled when this is called to (1) prevent posting
    * of semaphores from interrupt handlers, and (2) to prevent sampled data
    * from changing until it has been reported.
    */
@@ -364,7 +364,7 @@ static int ads7843e_waitsample(FAR struct ads7843e_dev_s *priv,
   irqstate_t flags;
   int ret;
 
-  /* Interrupts me be disabled when this is called to (1) prevent posting
+  /* Interrupts must be disabled when this is called to (1) prevent posting
    * of semaphores from interrupt handlers, and (2) to prevent sampled data
    * from changing until it has been reported.
    *
@@ -994,7 +994,7 @@ static int ads7843e_poll(FAR struct file *filep, FAR struct pollfd *fds,
   inode = filep->f_inode;
 
   DEBUGASSERT(inode->i_private);
-  priv  = inode->i_private;
+  priv = inode->i_private;
 
   /* Are we setting up the poll?  Or tearing it down? */
 
@@ -1034,8 +1034,8 @@ static int ads7843e_poll(FAR struct file *filep, FAR struct pollfd *fds,
 
       if (i >= CONFIG_ADS7843E_NPOLLWAITERS)
         {
-          fds->priv    = NULL;
-          ret          = -EBUSY;
+          fds->priv = NULL;
+          ret       = -EBUSY;
           goto errout;
         }
 
@@ -1043,7 +1043,7 @@ static int ads7843e_poll(FAR struct file *filep, FAR struct pollfd *fds,
 
       if (priv->penchange)
         {
-          ads7843e_notify(priv);
+          poll_notify(&fds, 1, POLLIN);
         }
     }
   else if (fds->priv)
@@ -1055,8 +1055,8 @@ static int ads7843e_poll(FAR struct file *filep, FAR struct pollfd *fds,
 
       /* Remove all memory of the poll setup */
 
-      *slot                = NULL;
-      fds->priv            = NULL;
+      *slot     = NULL;
+      fds->priv = NULL;
     }
 
 errout:

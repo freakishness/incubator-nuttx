@@ -75,25 +75,23 @@ SYSCALL_LOOKUP(sethostname,                2)
 
 /* Semaphores */
 
+SYSCALL_LOOKUP(nxsem_destroy,              1)
+SYSCALL_LOOKUP(nxsem_post,                 1)
+SYSCALL_LOOKUP(nxsem_clockwait,            3)
+SYSCALL_LOOKUP(nxsem_timedwait,            2)
+SYSCALL_LOOKUP(nxsem_trywait,              1)
 SYSCALL_LOOKUP(nxsem_wait,                 1)
 
-SYSCALL_LOOKUP(sem_destroy,                1)
-SYSCALL_LOOKUP(sem_post,                   1)
-SYSCALL_LOOKUP(sem_clockwait,              3)
-SYSCALL_LOOKUP(sem_timedwait,              2)
-SYSCALL_LOOKUP(sem_trywait,                1)
-SYSCALL_LOOKUP(sem_wait,                   1)
-
 #ifdef CONFIG_PRIORITY_INHERITANCE
-  SYSCALL_LOOKUP(sem_setprotocol,          2)
+  SYSCALL_LOOKUP(nxsem_set_protocol,       2)
 #endif
 
 /* Named semaphores */
 
 #ifdef CONFIG_FS_NAMED_SEMAPHORES
-  SYSCALL_LOOKUP(sem_open,                 4)
-  SYSCALL_LOOKUP(sem_close,                1)
-  SYSCALL_LOOKUP(sem_unlink,               1)
+  SYSCALL_LOOKUP(nxsem_open,               4)
+  SYSCALL_LOOKUP(nxsem_close,              1)
+  SYSCALL_LOOKUP(nxsem_unlink,             1)
 #endif
 
 #ifndef CONFIG_BUILD_KERNEL
@@ -103,13 +101,6 @@ SYSCALL_LOOKUP(sem_wait,                   1)
   SYSCALL_LOOKUP(task_restart,             1)
 #else
   SYSCALL_LOOKUP(pgalloc,                  2)
-#endif
-
-SYSCALL_LOOKUP(task_setcancelstate,        2)
-
-#ifdef CONFIG_CANCELLATION_POINTS
-  SYSCALL_LOOKUP(task_setcanceltype,       2)
-  SYSCALL_LOOKUP(task_testcancel,          0)
 #endif
 
 /* The following can be individually enabled */
@@ -271,10 +262,6 @@ SYSCALL_LOOKUP(munmap,                     2)
 
 #if defined(CONFIG_PIPES) && CONFIG_DEV_FIFO_SIZE > 0
   SYSCALL_LOOKUP(nx_mkfifo,                3)
-#endif
-
-#ifdef CONFIG_FILE_STREAM
-  SYSCALL_LOOKUP(fs_fdopen,                4)
 #endif
 
 #ifndef CONFIG_DISABLE_MOUNTPOINT

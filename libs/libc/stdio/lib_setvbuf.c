@@ -77,7 +77,7 @@
 int setvbuf(FAR FILE *stream, FAR char *buffer, int mode, size_t size)
 {
 #ifndef CONFIG_STDIO_DISABLE_BUFFERING
-  FAR unsigned char *newbuf = NULL;
+  FAR char *newbuf = NULL;
   uint8_t flags;
   int errcode;
 
@@ -131,14 +131,6 @@ int setvbuf(FAR FILE *stream, FAR char *buffer, int mode, size_t size)
    * BEFORE any operations have been performed on the stream.
    */
 
-  /* Return EBADF if the file is not open */
-
-  if (stream->fs_fd < 0)
-    {
-      errcode = EBADF;
-      goto errout_with_lock;
-    }
-
   /* Return EBUSY if operations have already been performed on the buffer.
    * Here we really only verify that there is no valid data in the existing
    * buffer.
@@ -182,7 +174,7 @@ int setvbuf(FAR FILE *stream, FAR char *buffer, int mode, size_t size)
 
             if (buffer != NULL)
               {
-                newbuf = (FAR unsigned char *)buffer;
+                newbuf = buffer;
 
                 /* Indicate that we have an I/O buffer managed by the caller
                  * of setvbuf.
@@ -192,7 +184,7 @@ int setvbuf(FAR FILE *stream, FAR char *buffer, int mode, size_t size)
               }
             else
               {
-                newbuf = (FAR unsigned char *)lib_malloc(size);
+                newbuf = lib_malloc(size);
                 if (newbuf == NULL)
                   {
                     errcode = ENOMEM;

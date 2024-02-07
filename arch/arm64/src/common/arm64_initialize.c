@@ -51,7 +51,7 @@
  ****************************************************************************/
 
 /* g_current_regs[] holds a references to the current interrupt level
- * register storage structure.  If is non-NULL only during interrupt
+ * register storage structure.  It is non-NULL only during interrupt
  * processing.  Access to g_current_regs[] must be through the macro
  * CURRENT_REGS for portability.
  */
@@ -71,11 +71,22 @@ INIT_STACK_ARRAY_DEFINE(g_cpu_idlestackalloc, CONFIG_SMP_NCPUS,
                           SMP_STACK_SIZE);
 INIT_STACK_ARRAY_DEFINE(g_interrupt_stacks, CONFIG_SMP_NCPUS,
                           INTSTACK_SIZE);
+
+#ifdef CONFIG_ARM64_DECODEFIQ
+INIT_STACK_ARRAY_DEFINE(g_interrupt_fiq_stacks, CONFIG_SMP_NCPUS,
+                          INTSTACK_SIZE);
+#endif
+
 #else
 /* idle thread stack for primary core */
 
 INIT_STACK_DEFINE(g_idle_stack, CONFIG_IDLETHREAD_STACKSIZE);
 INIT_STACK_DEFINE(g_interrupt_stack, INTSTACK_SIZE);
+
+#ifdef CONFIG_ARM64_DECODEFIQ
+INIT_STACK_DEFINE(g_interrupt_fiq_stack, INTSTACK_SIZE);
+#endif
+
 #endif
 
 /****************************************************************************

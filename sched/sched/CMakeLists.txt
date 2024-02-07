@@ -43,6 +43,7 @@ set(SRCS
     sched_idletask.c
     sched_self.c
     sched_get_stackinfo.c
+    sched_get_tls.c
     sched_sysinfo.c
     sched_reprioritizertr.c
     sched_get_stateinfo.c)
@@ -91,7 +92,7 @@ elseif(CONFIG_SCHED_RESUMESCHEDULER)
   list(APPEND SRCS sched_resumescheduler.c)
 endif()
 
-if(CONFIG_SCHED_CPULOAD)
+if(NOT CONFIG_SCHED_CPULOAD_NONE)
   list(APPEND SRCS sched_cpuload.c)
   if(CONFIG_CPULOAD_ONESHOT)
     list(APPEND SRCS sched_cpuload_oneshot.c)
@@ -117,6 +118,10 @@ endif()
 
 if(CONFIG_SCHED_BACKTRACE)
   list(APPEND SRCS sched_backtrace.c)
+endif()
+
+if(CONFIG_SMP_CALL)
+  list(APPEND SRCS sched_smp.c)
 endif()
 
 target_sources(sched PRIVATE ${SRCS})

@@ -650,6 +650,24 @@
 #  define rcinfo      _none
 #endif
 
+#ifdef CONFIG_DEBUG_REGMAP_ERROR
+#  define regmaperr       _err
+#else
+#  define regmaperr      _none
+#endif
+
+#ifdef CONFIG_DEBUG_REGMAP_WARN
+#  define regmapwarn     _warn
+#else
+#  define regmapwarn     _none
+#endif
+
+#ifdef CONFIG_DEBUG_REGMAP_INFO
+#  define regmapinfo     _info
+#else
+#  define regmapinfo     _none
+#endif
+
 #ifdef CONFIG_DEBUG_RMT_ERROR
 #  define rmterr        _err
 #else
@@ -812,6 +830,24 @@
 #  define mtrinfo     _none
 #endif
 
+#ifdef CONFIG_DEBUG_STEPPER_ERROR
+#  define stperr      _err
+#else
+#  define stperr      _none
+#endif
+
+#ifdef CONFIG_DEBUG_STEPPER_WARN
+#  define stpwarn     _warn
+#else
+#  define stpwarn     _none
+#endif
+
+#ifdef CONFIG_DEBUG_STEPPER_INFO
+#  define stpinfo     _info
+#else
+#  define stpinfo     _none
+#endif
+
 #ifdef CONFIG_DEBUG_VIDEO_ERROR
 #  define verr        _err
 #else
@@ -882,6 +918,24 @@
 #  define ipcinfo     _info
 #else
 #  define ipcinfo     _none
+#endif
+
+#ifdef CONFIG_DEBUG_PCI_ERROR
+#  define pcierr       _err
+#else
+#  define pcierr      _none
+#endif
+
+#ifdef CONFIG_DEBUG_PCI_WARN
+#  define pciwarn     _warn
+#else
+#  define pciwarn     _none
+#endif
+
+#ifdef CONFIG_DEBUG_PCI_INFO
+#  define pciinfo     _info
+#else
+#  define pciinfo     _none
 #endif
 
 /* Buffer dumping macros do not depend on varargs */
