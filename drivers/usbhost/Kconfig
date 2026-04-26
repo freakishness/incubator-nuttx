@@ -293,6 +293,15 @@ config USBHOST_CDCACM_TXBUFSIZE
 
 endif # USBHOST_CDCACM
 
+config USBHOST_CDCECM
+    bool "CDC/ECM support"
+    default n
+    depends on USBHOST_HAVE_ASYNCH && !USBHOST_BULK_DISABLE && !USBHOST_INT_DISABLE
+    select USBHOST_ASYNCH
+    ---help---
+        Select this option to build in host support for CDC/ECM network
+        devices.
+
 config USBHOST_CDCMBIM
 	bool "CDC/MBIM support"
 	default n
@@ -302,6 +311,15 @@ config USBHOST_CDCMBIM
 	---help---
 		Select this option to build in host support for CDC/MBIM network
 		devices.
+
+config USBHOST_RNDIS
+    bool "RNDIS support"
+    default n
+    depends on USBHOST_HAVE_ASYNCH && !USBHOST_BULK_DISABLE && !USBHOST_INT_DISABLE && EXPERIMENTAL
+    select USBHOST_ASYNCH
+    ---help---
+        Select this option to build in host support for RNDIS network
+        devices.
 
 menuconfig USBHOST_HID
 	bool "USB Host HID Driver Support"

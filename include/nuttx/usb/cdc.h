@@ -182,6 +182,7 @@
 #define ACM_SERIAL_STATE        0x20 /* Returns the current state of the carrier detect, DSR,
                                       * break, and ring signal. (Optional)
                                       */
+#define ACM_CONNECTION_SPEED_CHANGE 0x2a
 
 /* Table 6: Requests, Telephone Control Model */
 
