@@ -1,0 +1,45 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+if ARCH_CHIP_N32H7
+
+comment "NationTech N32H7 Configuration Options"
+
+choice
+	prompt "N32H7 Chip Selection"
+	default ARCH_CHIP_N32H765ZI
+	depends on ARCH_CHIP_N32H7
+
+config ARCH_CHIP_N32H765ZI
+	bool "N32H765ZI"
+	select N32H7_N32H7X3XX
+	select N32H7_N32H72XXX_OR_N32H73XXX
+	select N32H7_FLASH_CONFIG_G
+	select N32H7_IO_CONFIG_V
+	select N32H7_HAVE_FDCAN1
+	select N32H7_HAVE_FDCAN2
+	select N32H7_HAVE_FDCAN3
+	---help---
+		N32H7 Cortex M7, 1024 Kb FLASH, 564K Kb SRAM,
+		LQFP144
+
+endchoice # N32 H7 Chip Selection
+
+choice
+	prompt "N32H7 Core selection"
+	default ARCH_CHIP_N32H7_CORTEXM7
+
+config ARCH_CHIP_N32H7_CORTEXM7
+	bool "N32H7 Cortex-M7 core"
+	select ARCH_CORTEXM7
+	select ARMV7M_HAVE_ICACHE
+	select ARMV7M_HAVE_DCACHE
+	select ARMV7M_HAVE_ITCM
+	select ARMV7M_HAVE_DTCM
+
+endchoice # N32 H7 Core selection
+
+
+endif # ARCH_CHIP_N32H7
