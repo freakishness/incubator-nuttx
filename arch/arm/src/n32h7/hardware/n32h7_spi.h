@@ -33,233 +33,354 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_SPI_CTRL1_OFFSET 0x0 /* SPI_CTRL1 */
-#define N32_SPI_CTRL2_OFFSET 0x4 /* SPI_CTRL2 */
-#define N32_SPI_STS_OFFSET 0x8 /* SPI_STS */
-#define N32_SPI_DAT_OFFSET 0xC /* SPI_DAT */
-#define N32_SPI_CRCTDAT_OFFSET 0x10 /* SPI_CRCTDAT */
-#define N32_SPI_CRCRDAT_OFFSET 0x14 /* SPI_CRCRDAT */
-#define N32_SPI_CRCPOLY_OFFSET 0x18 /* SPI_CRCPOLY */
-#define N32_SPI_I2S_CFGR_OFFSET 0x1C /* SPI_I2S_CFGR */
-#define N32_SPI_I2S_PREDIV_OFFSET 0x20 /* SPI_I2S_PREDIV */
-#define N32_SPI_RX_FIFO_OFFSET 0x24 /* SPI_RX_FIFO */
-#define N32_SPI_FIFO_NUM_OFFSET 0x28 /* SPI_FIFO_NUM */
-#define N32_SPI_FIFO_CNT_OFFSET 0x30 /* SPI_FIFO_CNT */
-#define N32_SPI_TRANS_NUM_OFFSET 0x34 /* SPI_TRANS_NUM */
-#define N32_SPI_CR3_OFFSET 0x38 /* SPI_CR3 */
+#define N32_SPI_CTRL1_OFFSET            0x0     /* SPI_CTRL1 */
+#define N32_SPI_CTRL2_OFFSET            0x4     /* SPI_CTRL2 */
+#define N32_SPI_STS_OFFSET              0x8     /* SPI_STS */
+#define N32_SPI_DAT_OFFSET              0xC     /* SPI_DAT */
+#define N32_SPI_CRCTDAT_OFFSET          0x10    /* SPI_CRCTDAT */
+#define N32_SPI_CRCRDAT_OFFSET          0x14    /* SPI_CRCRDAT */
+#define N32_SPI_CRCPOLY_OFFSET          0x18    /* SPI_CRCPOLY */
+#define N32_SPI_I2S_CFGR_OFFSET         0x1C    /* SPI_I2S_CFGR */
+#define N32_SPI_I2S_PREDIV_OFFSET       0x20    /* SPI_I2S_PREDIV */
+#define N32_SPI_RX_FIFO_OFFSET          0x24    /* SPI_RX_FIFO */
+#define N32_SPI_FIFO_NUM_OFFSET         0x28    /* SPI_FIFO_NUM */
+#define N32_SPI_FIFO_CNT_OFFSET         0x30    /* SPI_FIFO_CNT */
+#define N32_SPI_TRANS_NUM_OFFSET        0x34    /* SPI_TRANS_NUM */
+#define N32_SPI_CR3_OFFSET              0x38    /* SPI_CR3 */
 
-#define N32_SPI1_CTRL1 (N32_SPI1_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI1_CTRL2 (N32_SPI1_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI1_STS (N32_SPI1_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI1_DAT (N32_SPI1_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI1_CRCTDAT (N32_SPI1_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI1_CRCRDAT (N32_SPI1_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI1_CRCPOLY (N32_SPI1_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI1_I2S_CFGR (N32_SPI1_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI1_I2S_PREDIV (N32_SPI1_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI1_RX_FIFO (N32_SPI1_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI1_FIFO_NUM (N32_SPI1_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI1_FIFO_CNT (N32_SPI1_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI1_TRANS_NUM (N32_SPI1_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI1_CR3 (N32_SPI1_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI1_CTRL1                  (N32_SPI1_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI1_CTRL2                  (N32_SPI1_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI1_STS                    (N32_SPI1_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI1_DAT                    (N32_SPI1_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI1_CRCTDAT                (N32_SPI1_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI1_CRCRDAT                (N32_SPI1_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI1_CRCPOLY                (N32_SPI1_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI1_I2S_CFGR               (N32_SPI1_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI1_I2S_PREDIV             (N32_SPI1_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI1_RX_FIFO                (N32_SPI1_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI1_FIFO_NUM               (N32_SPI1_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI1_FIFO_CNT               (N32_SPI1_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI1_TRANS_NUM              (N32_SPI1_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI1_CR3                    (N32_SPI1_BASE + N32_SPI_CR3_OFFSET)
 
-#define N32_SPI2_CTRL1 (N32_SPI2_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI2_CTRL2 (N32_SPI2_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI2_STS (N32_SPI2_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI2_DAT (N32_SPI2_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI2_CRCTDAT (N32_SPI2_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI2_CRCRDAT (N32_SPI2_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI2_CRCPOLY (N32_SPI2_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI2_I2S_CFGR (N32_SPI2_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI2_I2S_PREDIV (N32_SPI2_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI2_RX_FIFO (N32_SPI2_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI2_FIFO_NUM (N32_SPI2_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI2_FIFO_CNT (N32_SPI2_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI2_TRANS_NUM (N32_SPI2_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI2_CR3 (N32_SPI2_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI2_CTRL1                  (N32_SPI2_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI2_CTRL2                  (N32_SPI2_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI2_STS                    (N32_SPI2_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI2_DAT                    (N32_SPI2_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI2_CRCTDAT                (N32_SPI2_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI2_CRCRDAT                (N32_SPI2_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI2_CRCPOLY                (N32_SPI2_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI2_I2S_CFGR               (N32_SPI2_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI2_I2S_PREDIV             (N32_SPI2_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI2_RX_FIFO                (N32_SPI2_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI2_FIFO_NUM               (N32_SPI2_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI2_FIFO_CNT               (N32_SPI2_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI2_TRANS_NUM              (N32_SPI2_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI2_CR3                    (N32_SPI2_BASE + N32_SPI_CR3_OFFSET)
 
-#define N32_SPI3_CTRL1 (N32_SPI3_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI3_CTRL2 (N32_SPI3_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI3_STS (N32_SPI3_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI3_DAT (N32_SPI3_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI3_CRCTDAT (N32_SPI3_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI3_CRCRDAT (N32_SPI3_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI3_CRCPOLY (N32_SPI3_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI3_I2S_CFGR (N32_SPI3_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI3_I2S_PREDIV (N32_SPI3_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI3_RX_FIFO (N32_SPI3_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI3_FIFO_NUM (N32_SPI3_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI3_FIFO_CNT (N32_SPI3_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI3_TRANS_NUM (N32_SPI3_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI3_CR3 (N32_SPI3_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI3_CTRL1                  (N32_SPI3_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI3_CTRL2                  (N32_SPI3_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI3_STS                    (N32_SPI3_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI3_DAT                    (N32_SPI3_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI3_CRCTDAT                (N32_SPI3_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI3_CRCRDAT                (N32_SPI3_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI3_CRCPOLY                (N32_SPI3_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI3_I2S_CFGR               (N32_SPI3_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI3_I2S_PREDIV             (N32_SPI3_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI3_RX_FIFO                (N32_SPI3_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI3_FIFO_NUM               (N32_SPI3_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI3_FIFO_CNT               (N32_SPI3_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI3_TRANS_NUM              (N32_SPI3_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI3_CR3                    (N32_SPI3_BASE + N32_SPI_CR3_OFFSET)
 
-#define N32_SPI4_CTRL1 (N32_SPI4_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI4_CTRL2 (N32_SPI4_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI4_STS (N32_SPI4_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI4_DAT (N32_SPI4_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI4_CRCTDAT (N32_SPI4_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI4_CRCRDAT (N32_SPI4_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI4_CRCPOLY (N32_SPI4_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI4_I2S_CFGR (N32_SPI4_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI4_I2S_PREDIV (N32_SPI4_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI4_RX_FIFO (N32_SPI4_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI4_FIFO_NUM (N32_SPI4_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI4_FIFO_CNT (N32_SPI4_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI4_TRANS_NUM (N32_SPI4_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI4_CR3 (N32_SPI4_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI4_CTRL1                  (N32_SPI4_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI4_CTRL2                  (N32_SPI4_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI4_STS                    (N32_SPI4_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI4_DAT                    (N32_SPI4_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI4_CRCTDAT                (N32_SPI4_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI4_CRCRDAT                (N32_SPI4_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI4_CRCPOLY                (N32_SPI4_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI4_I2S_CFGR               (N32_SPI4_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI4_I2S_PREDIV             (N32_SPI4_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI4_RX_FIFO                (N32_SPI4_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI4_FIFO_NUM               (N32_SPI4_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI4_FIFO_CNT               (N32_SPI4_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI4_TRANS_NUM              (N32_SPI4_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI4_CR3                    (N32_SPI4_BASE + N32_SPI_CR3_OFFSET)
 
-#define N32_SPI5_CTRL1 (N32_SPI5_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI5_CTRL2 (N32_SPI5_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI5_STS (N32_SPI5_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI5_DAT (N32_SPI5_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI5_CRCTDAT (N32_SPI5_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI5_CRCRDAT (N32_SPI5_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI5_CRCPOLY (N32_SPI5_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI5_I2S_CFGR (N32_SPI5_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI5_I2S_PREDIV (N32_SPI5_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI5_RX_FIFO (N32_SPI5_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI5_FIFO_NUM (N32_SPI5_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI5_FIFO_CNT (N32_SPI5_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI5_TRANS_NUM (N32_SPI5_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI5_CR3 (N32_SPI5_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI5_CTRL1                  (N32_SPI5_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI5_CTRL2                  (N32_SPI5_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI5_STS                    (N32_SPI5_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI5_DAT                    (N32_SPI5_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI5_CRCTDAT                (N32_SPI5_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI5_CRCRDAT                (N32_SPI5_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI5_CRCPOLY                (N32_SPI5_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI5_I2S_CFGR               (N32_SPI5_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI5_I2S_PREDIV             (N32_SPI5_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI5_RX_FIFO                (N32_SPI5_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI5_FIFO_NUM               (N32_SPI5_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI5_FIFO_CNT               (N32_SPI5_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI5_TRANS_NUM              (N32_SPI5_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI5_CR3                    (N32_SPI5_BASE + N32_SPI_CR3_OFFSET)
 
-#define N32_SPI6_CTRL1 (N32_SPI6_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI6_CTRL2 (N32_SPI6_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI6_STS (N32_SPI6_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI6_DAT (N32_SPI6_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI6_CRCTDAT (N32_SPI6_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI6_CRCRDAT (N32_SPI6_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI6_CRCPOLY (N32_SPI6_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI6_I2S_CFGR (N32_SPI6_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI6_I2S_PREDIV (N32_SPI6_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI6_RX_FIFO (N32_SPI6_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI6_FIFO_NUM (N32_SPI6_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI6_FIFO_CNT (N32_SPI6_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI6_TRANS_NUM (N32_SPI6_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI6_CR3 (N32_SPI6_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI6_CTRL1                  (N32_SPI6_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI6_CTRL2                  (N32_SPI6_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI6_STS                    (N32_SPI6_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI6_DAT                    (N32_SPI6_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI6_CRCTDAT                (N32_SPI6_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI6_CRCRDAT                (N32_SPI6_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI6_CRCPOLY                (N32_SPI6_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI6_I2S_CFGR               (N32_SPI6_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI6_I2S_PREDIV             (N32_SPI6_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI6_RX_FIFO                (N32_SPI6_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI6_FIFO_NUM               (N32_SPI6_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI6_FIFO_CNT               (N32_SPI6_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI6_TRANS_NUM              (N32_SPI6_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI6_CR3                    (N32_SPI6_BASE + N32_SPI_CR3_OFFSET)
 
-#define N32_SPI7_CTRL1 (N32_SPI7_BASE + N32_SPI_CTRL1_OFFSET)
-#define N32_SPI7_CTRL2 (N32_SPI7_BASE + N32_SPI_CTRL2_OFFSET)
-#define N32_SPI7_STS (N32_SPI7_BASE + N32_SPI_STS_OFFSET)
-#define N32_SPI7_DAT (N32_SPI7_BASE + N32_SPI_DAT_OFFSET)
-#define N32_SPI7_CRCTDAT (N32_SPI7_BASE + N32_SPI_CRCTDAT_OFFSET)
-#define N32_SPI7_CRCRDAT (N32_SPI7_BASE + N32_SPI_CRCRDAT_OFFSET)
-#define N32_SPI7_CRCPOLY (N32_SPI7_BASE + N32_SPI_CRCPOLY_OFFSET)
-#define N32_SPI7_I2S_CFGR (N32_SPI7_BASE + N32_SPI_I2S_CFGR_OFFSET)
-#define N32_SPI7_I2S_PREDIV (N32_SPI7_BASE + N32_SPI_I2S_PREDIV_OFFSET)
-#define N32_SPI7_RX_FIFO (N32_SPI7_BASE + N32_SPI_RX_FIFO_OFFSET)
-#define N32_SPI7_FIFO_NUM (N32_SPI7_BASE + N32_SPI_FIFO_NUM_OFFSET)
-#define N32_SPI7_FIFO_CNT (N32_SPI7_BASE + N32_SPI_FIFO_CNT_OFFSET)
-#define N32_SPI7_TRANS_NUM (N32_SPI7_BASE + N32_SPI_TRANS_NUM_OFFSET)
-#define N32_SPI7_CR3 (N32_SPI7_BASE + N32_SPI_CR3_OFFSET)
+#define N32_SPI7_CTRL1                  (N32_SPI7_BASE + N32_SPI_CTRL1_OFFSET)
+#define N32_SPI7_CTRL2                  (N32_SPI7_BASE + N32_SPI_CTRL2_OFFSET)
+#define N32_SPI7_STS                    (N32_SPI7_BASE + N32_SPI_STS_OFFSET)
+#define N32_SPI7_DAT                    (N32_SPI7_BASE + N32_SPI_DAT_OFFSET)
+#define N32_SPI7_CRCTDAT                (N32_SPI7_BASE + \
+                                         N32_SPI_CRCTDAT_OFFSET)
+#define N32_SPI7_CRCRDAT                (N32_SPI7_BASE + \
+                                         N32_SPI_CRCRDAT_OFFSET)
+#define N32_SPI7_CRCPOLY                (N32_SPI7_BASE + \
+                                         N32_SPI_CRCPOLY_OFFSET)
+#define N32_SPI7_I2S_CFGR               (N32_SPI7_BASE + \
+                                         N32_SPI_I2S_CFGR_OFFSET)
+#define N32_SPI7_I2S_PREDIV             (N32_SPI7_BASE + \
+                                         N32_SPI_I2S_PREDIV_OFFSET)
+#define N32_SPI7_RX_FIFO                (N32_SPI7_BASE + \
+                                         N32_SPI_RX_FIFO_OFFSET)
+#define N32_SPI7_FIFO_NUM               (N32_SPI7_BASE + \
+                                         N32_SPI_FIFO_NUM_OFFSET)
+#define N32_SPI7_FIFO_CNT               (N32_SPI7_BASE + \
+                                         N32_SPI_FIFO_CNT_OFFSET)
+#define N32_SPI7_TRANS_NUM              (N32_SPI7_BASE + \
+                                         N32_SPI_TRANS_NUM_OFFSET)
+#define N32_SPI7_CR3                    (N32_SPI7_BASE + N32_SPI_CR3_OFFSET)
 
 /******** Bit definition for SPI_CTRL1 register  ********/
-#define SPI_CTRL1_BIDIRMODE (1 << 15) /* BIDIRMODE */
-#define SPI_CTRL1_BIDIROEN (1 << 14) /* BIDIROEN */
-#define SPI_CTRL1_RONLY (1 << 13) /* RONLY */
-#define SPI_CTRL1_SSMEN (1 << 12) /* SSMEN */
-#define SPI_CTRL1_SSEL (1 << 11) /* SSEL */
-#define SPI_CTRL1_SSOEN (1 << 10) /* SSOEN */
-#define SPI_CTRL1_CRCNEXT (1 << 9) /* CRCNEXT */
-#define SPI_CTRL1_DATFF (1 << 8) /* DATFF */
-#define SPI_CTRL1_LSBFF (1 << 7) /* LSBFF */
-#define SPI_CTRL1_MSEL (1 << 6) /* MSEL */
-#define SPI_CTRL1_CLKPHA (1 << 5) /* CLKPHA */
-#define SPI_CTRL1_CLKPOL (1 << 4) /* CLKPOL */
-#define SPI_CTRL1_BR_SHIFT (0)
-#define SPI_CTRL1_BR_MASK (0x7 << SPI_CTRL1_BR_SHIFT) /* BR */
+#define SPI_CTRL1_BIDIRMODE             (1 << 15)                   /*
+                                                                     * BIDIRMODE
+                                                                     */
+#define SPI_CTRL1_BIDIROEN              (1 << 14)                   /*
+                                                                     * BIDIROEN
+                                                                     */
+#define SPI_CTRL1_RONLY                 (1 << 13)                   /* RONLY
+                                                                     */
+#define SPI_CTRL1_SSMEN                 (1 << 12)                   /* SSMEN
+                                                                     */
+#define SPI_CTRL1_SSEL                  (1 << 11)                   /* SSEL */
+#define SPI_CTRL1_SSOEN                 (1 << 10)                   /* SSOEN
+                                                                     */
+#define SPI_CTRL1_CRCNEXT               (1 << 9)                    /* CRCNEXT
+                                                                     */
+#define SPI_CTRL1_DATFF                 (1 << 8)                    /* DATFF
+                                                                     */
+#define SPI_CTRL1_LSBFF                 (1 << 7)                    /* LSBFF
+                                                                     */
+#define SPI_CTRL1_MSEL                  (1 << 6)                    /* MSEL */
+#define SPI_CTRL1_CLKPHA                (1 << 5)                    /* CLKPHA
+                                                                     */
+#define SPI_CTRL1_CLKPOL                (1 << 4)                    /* CLKPOL
+                                                                     */
+#define SPI_CTRL1_BR_SHIFT              (0)
+#define SPI_CTRL1_BR_MASK               (0x7 << SPI_CTRL1_BR_SHIFT) /* BR */
 
 /******** Bit definition for SPI_CTRL2 register  ********/
-#define SPI_CTRL2_RNEDMABYPASS (1 << 15) /* RNEDMABYPASS */
-#define SPI_CTRL2_RXCPINTEN (1 << 14) /* RXCPINTEN */
-#define SPI_CTRL2_CRCNMISEN (1 << 13) /* CRCNMISEN */
-#define SPI_CTRL2_RXFFUINTEN (1 << 12) /* RXFFUINTEN */
-#define SPI_CTRL2_RXFHFINTEN (1 << 11) /* RXFHFINTEN */
-#define SPI_CTRL2_TXFHEINTEN (1 << 10) /* TXFHEINTEN */
-#define SPI_CTRL2_FIFOCLR (1 << 9) /* FIFOCLR */
-#define SPI_CTRL2_FIFOEN (1 << 8) /* FIFOEN */
-#define SPI_CTRL2_SS_POL (1 << 7) /* SS_POL */
-#define SPI_CTRL2_ERRINTEN (1 << 6) /* ERRINTEN */
-#define SPI_CTRL2_RNEINTEN (1 << 5) /* RNEINTEN */
-#define SPI_CTRL2_TEINTEN (1 << 4) /* TEINTEN */
-#define SPI_CTRL2_CRCEN (1 << 3) /* CRCEN */
-#define SPI_CTRL2_TDMAEN (1 << 2) /* TDMAEN */
-#define SPI_CTRL2_RDMAEN (1 << 1) /* RDMAEN */
-#define SPI_CTRL2_SPIEN (1 << 0) /* SPIEN */
+#define SPI_CTRL2_RNEDMABYPASS          (1 << 15)   /* RNEDMABYPASS */
+#define SPI_CTRL2_RXCPINTEN             (1 << 14)   /* RXCPINTEN */
+#define SPI_CTRL2_CRCNMISEN             (1 << 13)   /* CRCNMISEN */
+#define SPI_CTRL2_RXFFUINTEN            (1 << 12)   /* RXFFUINTEN */
+#define SPI_CTRL2_RXFHFINTEN            (1 << 11)   /* RXFHFINTEN */
+#define SPI_CTRL2_TXFHEINTEN            (1 << 10)   /* TXFHEINTEN */
+#define SPI_CTRL2_FIFOCLR               (1 << 9)    /* FIFOCLR */
+#define SPI_CTRL2_FIFOEN                (1 << 8)    /* FIFOEN */
+#define SPI_CTRL2_SS_POL                (1 << 7)    /* SS_POL */
+#define SPI_CTRL2_ERRINTEN              (1 << 6)    /* ERRINTEN */
+#define SPI_CTRL2_RNEINTEN              (1 << 5)    /* RNEINTEN */
+#define SPI_CTRL2_TEINTEN               (1 << 4)    /* TEINTEN */
+#define SPI_CTRL2_CRCEN                 (1 << 3)    /* CRCEN */
+#define SPI_CTRL2_TDMAEN                (1 << 2)    /* TDMAEN */
+#define SPI_CTRL2_RDMAEN                (1 << 1)    /* RDMAEN */
+#define SPI_CTRL2_SPIEN                 (1 << 0)    /* SPIEN */
 
 /******** Bit definition for SPI_STS register  ********/
-#define SPI_STS_RXTSCP (1 << 12) /* RXTSCP */
-#define SPI_STS_RXFIFFU (1 << 11) /* RXFIFFU */
-#define SPI_STS_TXFIFFU (1 << 10) /* TXFIFFU */
-#define SPI_STS_RXFIFHF (1 << 9) /* RXFIFHF */
-#define SPI_STS_TXFIFHE (1 << 8) /* TXFIFHE */
-#define SPI_STS_CHSIDE (1 << 7) /* CHSIDE */
-#define SPI_STS_UNDER (1 << 6) /* UNDER */
-#define SPI_STS_OVER (1 << 5) /* OVER */
-#define SPI_STS_MODERR (1 << 4) /* MODERR */
-#define SPI_STS_CRCERR (1 << 3) /* CRCERR */
-#define SPI_STS_BUSY (1 << 2) /* BUSY */
-#define SPI_STS_RNE (1 << 1) /* RNE */
-#define SPI_STS_TE (1 << 0) /* TE */
+#define SPI_STS_RXTSCP                  (1 << 12)   /* RXTSCP */
+#define SPI_STS_RXFIFFU                 (1 << 11)   /* RXFIFFU */
+#define SPI_STS_TXFIFFU                 (1 << 10)   /* TXFIFFU */
+#define SPI_STS_RXFIFHF                 (1 << 9)    /* RXFIFHF */
+#define SPI_STS_TXFIFHE                 (1 << 8)    /* TXFIFHE */
+#define SPI_STS_CHSIDE                  (1 << 7)    /* CHSIDE */
+#define SPI_STS_UNDER                   (1 << 6)    /* UNDER */
+#define SPI_STS_OVER                    (1 << 5)    /* OVER */
+#define SPI_STS_MODERR                  (1 << 4)    /* MODERR */
+#define SPI_STS_CRCERR                  (1 << 3)    /* CRCERR */
+#define SPI_STS_BUSY                    (1 << 2)    /* BUSY */
+#define SPI_STS_RNE                     (1 << 1)    /* RNE */
+#define SPI_STS_TE                      (1 << 0)    /* TE */
 
 /******** Bit definition for SPI_DAT register  ********/
-#define SPI_DAT_DAT_SHIFT (0)
-#define SPI_DAT_DAT_MASK (0xFFFF << SPI_DAT_DAT_SHIFT) /* DAT */
+#define SPI_DAT_DAT_SHIFT               (0)
+#define SPI_DAT_DAT_MASK                (0xFFFF << SPI_DAT_DAT_SHIFT) /* DAT
+                                                                       */
 
 /******** Bit definition for SPI_CRCTDAT register  ********/
-#define SPI_CRCTDAT_CRCTDAT_SHIFT (0)
-#define SPI_CRCTDAT_CRCTDAT_MASK (0xFFFF << SPI_CRCTDAT_CRCTDAT_SHIFT) /* CRCTDAT */
+#define SPI_CRCTDAT_CRCTDAT_SHIFT       (0)
+#define SPI_CRCTDAT_CRCTDAT_MASK        (0xFFFF << SPI_CRCTDAT_CRCTDAT_SHIFT) /*
+                                                                               * CRCTDAT
+                                                                               */
 
 /******** Bit definition for SPI_CRCRDAT register  ********/
-#define SPI_CRCRDAT_CRCRDAT_SHIFT (0)
-#define SPI_CRCRDAT_CRCRDAT_MASK (0xFFFF << SPI_CRCRDAT_CRCRDAT_SHIFT) /* CRCRDAT */
+#define SPI_CRCRDAT_CRCRDAT_SHIFT       (0)
+#define SPI_CRCRDAT_CRCRDAT_MASK        (0xFFFF << SPI_CRCRDAT_CRCRDAT_SHIFT) /*
+                                                                               * CRCRDAT
+                                                                               */
 
 /******** Bit definition for SPI_CRCPOLY register  ********/
-#define SPI_CRCPOLY_CRCPOLY_SHIFT (0)
-#define SPI_CRCPOLY_CRCPOLY_MASK (0xFFFF << SPI_CRCPOLY_CRCPOLY_SHIFT) /* CRCPOLY */
+#define SPI_CRCPOLY_CRCPOLY_SHIFT       (0)
+#define SPI_CRCPOLY_CRCPOLY_MASK        (0xFFFF << SPI_CRCPOLY_CRCPOLY_SHIFT) /*
+                                                                               * CRCPOLY
+                                                                               */
 
 /******** Bit definition for SPI_I2S_CFGR register  ********/
-#define SPI_I2S_CFGR_PCMBYPASS (1 << 11) /* PCMBYPASS */
-#define SPI_I2S_CFGR_CLKPOL (1 << 10) /* CLKPOL */
-#define SPI_I2S_CFGR_PCMSYNC (1 << 9) /* PCMSYNC */
-#define SPI_I2S_CFGR_CHLEN (1 << 8) /* CHLEN */
-#define SPI_I2S_CFGR_DATLEN_SHIFT (6)
-#define SPI_I2S_CFGR_DATLEN_MASK (0x3 << SPI_I2S_CFGR_DATLEN_SHIFT) /* DATLEN */
-#define SPI_I2S_CFGR_I2SCFG_SHIFT (4)
-#define SPI_I2S_CFGR_I2SCFG_MASK (0x3 << SPI_I2S_CFGR_I2SCFG_SHIFT) /* I2SCFG */
-#define SPI_I2S_CFGR_I2SSTD_SHIFT (2)
-#define SPI_I2S_CFGR_I2SSTD_MASK (0x3 << SPI_I2S_CFGR_I2SSTD_SHIFT) /* I2SSTD */
-#define SPI_I2S_CFGR_I2SMOD (1 << 1) /* I2SMOD */
-#define SPI_I2S_CFGR_I2SE (1 << 0) /* I2SE */
+#define SPI_I2S_CFGR_PCMBYPASS          (1 << 11)                           /*
+                                                                             * PCMBYPASS
+                                                                             */
+#define SPI_I2S_CFGR_CLKPOL             (1 << 10)                           /*
+                                                                             * CLKPOL
+                                                                             */
+#define SPI_I2S_CFGR_PCMSYNC            (1 << 9)                            /*
+                                                                             * PCMSYNC
+                                                                             */
+#define SPI_I2S_CFGR_CHLEN              (1 << 8)                            /*
+                                                                             * CHLEN
+                                                                             */
+#define SPI_I2S_CFGR_DATLEN_SHIFT       (6)
+#define SPI_I2S_CFGR_DATLEN_MASK        (0x3 << SPI_I2S_CFGR_DATLEN_SHIFT)  /*
+                                                                             * DATLEN
+                                                                             */
+#define SPI_I2S_CFGR_I2SCFG_SHIFT       (4)
+#define SPI_I2S_CFGR_I2SCFG_MASK        (0x3 << SPI_I2S_CFGR_I2SCFG_SHIFT)  /*
+                                                                             * I2SCFG
+                                                                             */
+#define SPI_I2S_CFGR_I2SSTD_SHIFT       (2)
+#define SPI_I2S_CFGR_I2SSTD_MASK        (0x3 << SPI_I2S_CFGR_I2SSTD_SHIFT)  /*
+                                                                             * I2SSTD
+                                                                             */
+#define SPI_I2S_CFGR_I2SMOD             (1 << 1)                            /*
+                                                                             * I2SMOD
+                                                                             */
+#define SPI_I2S_CFGR_I2SE               (1 << 0)                            /*
+                                                                             * I2SE
+                                                                             */
 
 /******** Bit definition for SPI_I2S_PREDIV register  ********/
-#define SPI_I2S_PREDIV_MCLKOEN (1 << 11) /* MCLKOEN */
-#define SPI_I2S_PREDIV_ODDEVEN (1 << 10) /* ODDEVEN */
-#define SPI_I2S_PREDIV_LDIV_SHIFT (0)
-#define SPI_I2S_PREDIV_LDIV_MASK (0x3FF << SPI_I2S_PREDIV_LDIV_SHIFT) /* LDIV */
+#define SPI_I2S_PREDIV_MCLKOEN          (1 << 11)                               /*
+                                                                                 * MCLKOEN
+                                                                                 */
+#define SPI_I2S_PREDIV_ODDEVEN          (1 << 10)                               /*
+                                                                                 * ODDEVEN
+                                                                                 */
+#define SPI_I2S_PREDIV_LDIV_SHIFT       (0)
+#define SPI_I2S_PREDIV_LDIV_MASK        (0x3FF << SPI_I2S_PREDIV_LDIV_SHIFT)    /*
+                                                                                 * LDIV
+                                                                                 */
 
 /******** Bit definition for SPI_RX_FIFO register  ********/
-#define SPI_RX_FIFO_RXFIFDAT_SHIFT (0)
-#define SPI_RX_FIFO_RXFIFDAT_MASK (0xFFFF << SPI_RX_FIFO_RXFIFDAT_SHIFT) /* RXFIFDAT */
+#define SPI_RX_FIFO_RXFIFDAT_SHIFT      (0)
+#define SPI_RX_FIFO_RXFIFDAT_MASK       (0xFFFF << SPI_RX_FIFO_RXFIFDAT_SHIFT) /*
+                                                                                * RXFIFDAT
+                                                                                */
 
 /******** Bit definition for SPI_FIFO_NUM register  ********/
-#define SPI_FIFO_NUM_RXFBSNUM_SHIFT (4)
-#define SPI_FIFO_NUM_RXFBSNUM_MASK (0x7 << SPI_FIFO_NUM_RXFBSNUM_SHIFT) /* RXFBSNUM */
-#define SPI_FIFO_NUM_TXFBSNUM_SHIFT (0)
-#define SPI_FIFO_NUM_TXFBSNUM_MASK (0x7 << SPI_FIFO_NUM_TXFBSNUM_SHIFT) /* TXFBSNUM */
+#define SPI_FIFO_NUM_RXFBSNUM_SHIFT     (4)
+#define SPI_FIFO_NUM_RXFBSNUM_MASK      (0x7 << SPI_FIFO_NUM_RXFBSNUM_SHIFT)    /*
+                                                                                 * RXFBSNUM
+                                                                                 */
+#define SPI_FIFO_NUM_TXFBSNUM_SHIFT     (0)
+#define SPI_FIFO_NUM_TXFBSNUM_MASK      (0x7 << SPI_FIFO_NUM_TXFBSNUM_SHIFT)    /*
+                                                                                 * TXFBSNUM
+                                                                                 */
 
 /******** Bit definition for SPI_FIFO_CNT register  ********/
-#define SPI_FIFO_CNT_RXFIFCNT_SHIFT (4)
-#define SPI_FIFO_CNT_RXFIFCNT_MASK (0xF << SPI_FIFO_CNT_RXFIFCNT_SHIFT) /* RXFIFCNT */
-#define SPI_FIFO_CNT_TXFIFCNT_SHIFT (0)
-#define SPI_FIFO_CNT_TXFIFCNT_MASK (0xF << SPI_FIFO_CNT_TXFIFCNT_SHIFT) /* TXFIFCNT */
+#define SPI_FIFO_CNT_RXFIFCNT_SHIFT     (4)
+#define SPI_FIFO_CNT_RXFIFCNT_MASK      (0xF << SPI_FIFO_CNT_RXFIFCNT_SHIFT)    /*
+                                                                                 * RXFIFCNT
+                                                                                 */
+#define SPI_FIFO_CNT_TXFIFCNT_SHIFT     (0)
+#define SPI_FIFO_CNT_TXFIFCNT_MASK      (0xF << SPI_FIFO_CNT_TXFIFCNT_SHIFT)    /*
+                                                                                 * TXFIFCNT
+                                                                                 */
 
 /******** Bit definition for SPI_TRANS_NUM register  ********/
-#define SPI_TRANS_NUM_TRANSNUM_SHIFT (0)
-#define SPI_TRANS_NUM_TRANSNUM_MASK (0xFFFF << SPI_TRANS_NUM_TRANSNUM_SHIFT) /* TRANSNUM */
+#define SPI_TRANS_NUM_TRANSNUM_SHIFT    (0)
+#define SPI_TRANS_NUM_TRANSNUM_MASK     (0xFFFF << \
+  SPI_TRANS_NUM_TRANSNUM_SHIFT)                                              /*
+                                                                              * TRANSNUM
+                                                                              */
 
 /******** Bit definition for SPI_CR3 register  ********/
-#define SPI_CR3_DELAYTIME_SHIFT (0)
-#define SPI_CR3_DELAYTIME_MASK (0xF << SPI_CR3_DELAYTIME_SHIFT) /* DELAYTIME */
+#define SPI_CR3_DELAYTIME_SHIFT         (0)
+#define SPI_CR3_DELAYTIME_MASK          (0xF << SPI_CR3_DELAYTIME_SHIFT) /*
+                                                                          * DELAYTIME
+                                                                          */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_SPI_H */

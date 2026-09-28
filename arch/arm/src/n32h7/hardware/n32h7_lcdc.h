@@ -33,1066 +33,2100 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_LCDC_SYNCCTRL_OFFSET 0x8 /* LCDC_SYNCCTRL */
-#define N32_LCDC_BPCTRL_OFFSET 0xC /* LCDC_BPCTRL */
-#define N32_LCDC_AWCTRL_OFFSET 0x10 /* LCDC_AWCTRL */
-#define N32_LCDC_TWCTRL_OFFSET 0x14 /* LCDC_TWCTRL */
-#define N32_LCDC_GCTRL_OFFSET 0x18 /* LCDC_GCTRL */
-#define N32_LCDC_SRCTRL_OFFSET 0x24 /* LCDC_SRCTRL */
-#define N32_LCDC_BCCTRL_OFFSET 0x2C /* LCDC_BCCTRL */
-#define N32_LCDC_INTEN_OFFSET 0x34 /* LCDC_INTEN */
-#define N32_LCDC_INTSTS_OFFSET 0x38 /* LCDC_INTSTS */
-#define N32_LCDC_INTCLR_OFFSET 0x3C /* LCDC_INTCLR */
-#define N32_LCDC_LINTPCTRL_OFFSET 0x40 /* LCDC_LINTPCTRL */
-#define N32_LCDC_CPSTS_OFFSET 0x44 /* LCDC_CPSTS */
-#define N32_LCDC_CDSTS_OFFSET 0x48 /* LCDC_CDSTS */
-#define N32_LCDC_EXTDCTRL_OFFSET 0x60 /* LCDC_EXTDCTRL */
-#define N32_LCDC_LSRCTRL_Layer1_OFFSET 0x108 /* LCDC_LSRCTRL */
-#define N32_LCDC_LCTRL_Layer1_OFFSET 0x10C /* LCDC_LCTRL */
-#define N32_LCDC_WHPCTRL_Layer1_OFFSET 0x110 /* LCDC_WHPCTRL */
-#define N32_LCDC_WVPCTRL_Layer1_OFFSET 0x114 /* LCDC_WVPCTRL */
-#define N32_LCDC_CKCTRL_Layer1_OFFSET 0x118 /* LCDC_CKCTRL */
-#define N32_LCDC_PFCTRL_Layer1_OFFSET 0x11C /* LCDC_PFCTRL */
-#define N32_LCDC_CACTRL_Layer1_OFFSET 0x120 /* LCDC_CACTRL */
-#define N32_LCDC_DCCTRL_Layer1_OFFSET 0x124 /* LCDC_DCCTRL */
-#define N32_LCDC_BFCTRL_Layer1_OFFSET 0x128 /* LCDC_BFCTRL */
-#define N32_LCDC_AFBCTRL_Layer1_OFFSET 0x130 /* LCDC_AFBCTRL */
-#define N32_LCDC_CFBADDR_Layer1_OFFSET 0x134 /* LCDC_CFBADDR */
-#define N32_LCDC_CFBLEN_Layer1_OFFSET 0x138 /* LCDC_CFBLEN */
-#define N32_LCDC_CFBLNUM_Layer1_OFFSET 0x13C /* LCDC_CFBLNUM */
-#define N32_LCDC_AFBADDR0_Layer1_OFFSET 0x140 /* LCDC_AFBADDR0 */
-#define N32_LCDC_AFBADDR1_Layer1_OFFSET 0x144 /* LCDC_AFBADDR1 */
-#define N32_LCDC_AFBLEN_Layer1_OFFSET 0x148 /* LCDC_AFBLEN */
-#define N32_LCDC_AFBLNUM_Layer1_OFFSET 0x14C /* LCDC_AFBLNUM */
-#define N32_LCDC_CLUTWR_Layer1_OFFSET 0x150 /* LCDC_CLUTWR */
-#define N32_LCDC_SINS_Layer1_OFFSET 0x154 /* LCDC_SINS */
-#define N32_LCDC_SOUTS_Layer1_OFFSET 0x158 /* LCDC_SOUTS */
-#define N32_LCDC_VSF_Layer1_OFFSET 0x15C /* LCDC_VSF */
-#define N32_LCDC_VSP_Layer1_OFFSET 0x160 /* LCDC_VSP */
-#define N32_LCDC_HSF_Layer1_OFFSET 0x164 /* LCDC_HSF */
-#define N32_LCDC_HSP_Layer1_OFFSET 0x168 /* LCDC_HSP */
-#define N32_LCDC_YUVS1_Layer1_OFFSET 0x16C /* LCDC_YUVS1 */
-#define N32_LCDC_YUVS2_Layer1_OFFSET 0x170 /* LCDC_YUVS2 */
-#define N32_LCDC_FCF1_Layer1_OFFSET 0x174 /* LCDC_FCF1 */
-#define N32_LCDC_FCF2_Layer1_OFFSET 0x178 /* LCDC_FCF2 */
-#define N32_LCDC_LSRCTRL_Layer2_OFFSET 0x208 /* LCDC_LSRCTRL */
-#define N32_LCDC_LCTRL_Layer2_OFFSET 0x20C /* LCDC_LCTRL */
-#define N32_LCDC_WHPCTRL_Layer2_OFFSET 0x210 /* LCDC_WHPCTRL */
-#define N32_LCDC_WVPCTRL_Layer2_OFFSET 0x214 /* LCDC_WVPCTRL */
-#define N32_LCDC_CKCTRL_Layer2_OFFSET 0x218 /* LCDC_CKCTRL */
-#define N32_LCDC_PFCTRL_Layer2_OFFSET 0x21C /* LCDC_PFCTRL */
-#define N32_LCDC_CACTRL_Layer2_OFFSET 0x220 /* LCDC_CACTRL */
-#define N32_LCDC_DCCTRL_Layer2_OFFSET 0x224 /* LCDC_DCCTRL */
-#define N32_LCDC_BFCTRL_Layer2_OFFSET 0x228 /* LCDC_BFCTRL */
-#define N32_LCDC_AFBCTRL_Layer2_OFFSET 0x230 /* LCDC_AFBCTRL */
-#define N32_LCDC_CFBADDR_Layer2_OFFSET 0x234 /* LCDC_CFBADDR */
-#define N32_LCDC_CFBLEN_Layer2_OFFSET 0x238 /* LCDC_CFBLEN */
-#define N32_LCDC_CFBLNUM_Layer2_OFFSET 0x23C /* LCDC_CFBLNUM */
-#define N32_LCDC_AFBADDR0_Layer2_OFFSET 0x240 /* LCDC_AFBADDR0 */
-#define N32_LCDC_AFBADDR1_Layer2_OFFSET 0x244 /* LCDC_AFBADDR1 */
-#define N32_LCDC_AFBLEN_Layer2_OFFSET 0x248 /* LCDC_AFBLEN */
-#define N32_LCDC_AFBLNUM_Layer2_OFFSET 0x24C /* LCDC_AFBLNUM */
-#define N32_LCDC_CLUTWR_Layer2_OFFSET 0x250 /* LCDC_CLUTWR */
-#define N32_LCDC_SINS_Layer2_OFFSET 0x254 /* LCDC_SINS */
-#define N32_LCDC_SOUTS_Layer2_OFFSET 0x258 /* LCDC_SOUTS */
-#define N32_LCDC_VSF_Layer2_OFFSET 0x25C /* LCDC_VSF */
-#define N32_LCDC_VSP_Layer2_OFFSET 0x260 /* LCDC_VSP */
-#define N32_LCDC_HSF_Layer2_OFFSET 0x264 /* LCDC_HSF */
-#define N32_LCDC_HSP_Layer2_OFFSET 0x268 /* LCDC_HSP */
-#define N32_LCDC_YUVS1_Layer2_OFFSET 0x26C /* LCDC_YUVS1 */
-#define N32_LCDC_YUVS2_Layer2_OFFSET 0x270 /* LCDC_YUVS2 */
-#define N32_LCDC_FCF1_Layer2_OFFSET 0x274 /* LCDC_FCF1 */
-#define N32_LCDC_FCF2_Layer2_OFFSET 0x278 /* LCDC_FCF2 */
-#define N32_LCDC_LSRCTRL_Layer3_OFFSET 0x308 /* LCDC_LSRCTRL */
-#define N32_LCDC_LCTRL_Layer3_OFFSET 0x30C /* LCDC_LCTRL */
-#define N32_LCDC_WHPCTRL_Layer3_OFFSET 0x310 /* LCDC_WHPCTRL */
-#define N32_LCDC_WVPCTRL_Layer3_OFFSET 0x314 /* LCDC_WVPCTRL */
-#define N32_LCDC_CKCTRL_Layer3_OFFSET 0x318 /* LCDC_CKCTRL */
-#define N32_LCDC_PFCTRL_Layer3_OFFSET 0x31C /* LCDC_PFCTRL */
-#define N32_LCDC_CACTRL_Layer3_OFFSET 0x320 /* LCDC_CACTRL */
-#define N32_LCDC_DCCTRL_Layer3_OFFSET 0x324 /* LCDC_DCCTRL */
-#define N32_LCDC_BFCTRL_Layer3_OFFSET 0x328 /* LCDC_BFCTRL */
-#define N32_LCDC_AFBCTRL_Layer3_OFFSET 0x330 /* LCDC_AFBCTRL */
-#define N32_LCDC_CFBADDR_Layer3_OFFSET 0x334 /* LCDC_CFBADDR */
-#define N32_LCDC_CFBLEN_Layer3_OFFSET 0x338 /* LCDC_CFBLEN */
-#define N32_LCDC_CFBLNUM_Layer3_OFFSET 0x33C /* LCDC_CFBLNUM */
-#define N32_LCDC_AFBADDR0_Layer3_OFFSET 0x340 /* LCDC_AFBADDR0 */
-#define N32_LCDC_AFBADDR1_Layer3_OFFSET 0x344 /* LCDC_AFBADDR1 */
-#define N32_LCDC_AFBLEN_Layer3_OFFSET 0x348 /* LCDC_AFBLEN */
-#define N32_LCDC_AFBLNUM_Layer3_OFFSET 0x34C /* LCDC_AFBLNUM */
-#define N32_LCDC_CLUTWR_Layer3_OFFSET 0x350 /* LCDC_CLUTWR */
-#define N32_LCDC_SINS_Layer3_OFFSET 0x354 /* LCDC_SINS */
-#define N32_LCDC_SOUTS_Layer3_OFFSET 0x358 /* LCDC_SOUTS */
-#define N32_LCDC_VSF_Layer3_OFFSET 0x35C /* LCDC_VSF */
-#define N32_LCDC_VSP_Layer3_OFFSET 0x360 /* LCDC_VSP */
-#define N32_LCDC_HSF_Layer3_OFFSET 0x364 /* LCDC_HSF */
-#define N32_LCDC_HSP_Layer3_OFFSET 0x368 /* LCDC_HSP */
-#define N32_LCDC_YUVS1_Layer3_OFFSET 0x36C /* LCDC_YUVS1 */
-#define N32_LCDC_YUVS2_Layer3_OFFSET 0x370 /* LCDC_YUVS2 */
-#define N32_LCDC_FCF1_Layer3_OFFSET 0x374 /* LCDC_FCF1 */
-#define N32_LCDC_FCF2_Layer3_OFFSET 0x378 /* LCDC_FCF2 */
-#define N32_LCDC_LSRCTRL_Layer4_OFFSET 0x408 /* LCDC_LSRCTRL */
-#define N32_LCDC_LCTRL_Layer4_OFFSET 0x40C /* LCDC_LCTRL */
-#define N32_LCDC_WHPCTRL_Layer4_OFFSET 0x410 /* LCDC_WHPCTRL */
-#define N32_LCDC_WVPCTRL_Layer4_OFFSET 0x414 /* LCDC_WVPCTRL */
-#define N32_LCDC_CKCTRL_Layer4_OFFSET 0x418 /* LCDC_CKCTRL */
-#define N32_LCDC_PFCTRL_Layer4_OFFSET 0x41C /* LCDC_PFCTRL */
-#define N32_LCDC_CACTRL_Layer4_OFFSET 0x420 /* LCDC_CACTRL */
-#define N32_LCDC_DCCTRL_Layer4_OFFSET 0x424 /* LCDC_DCCTRL */
-#define N32_LCDC_BFCTRL_Layer4_OFFSET 0x428 /* LCDC_BFCTRL */
-#define N32_LCDC_AFBCTRL_Layer4_OFFSET 0x430 /* LCDC_AFBCTRL */
-#define N32_LCDC_CFBADDR_Layer4_OFFSET 0x434 /* LCDC_CFBADDR */
-#define N32_LCDC_CFBLEN_Layer4_OFFSET 0x438 /* LCDC_CFBLEN */
-#define N32_LCDC_CFBLNUM_Layer4_OFFSET 0x43C /* LCDC_CFBLNUM */
-#define N32_LCDC_AFBADDR0_Layer4_OFFSET 0x440 /* LCDC_AFBADDR0 */
-#define N32_LCDC_AFBADDR1_Layer4_OFFSET 0x444 /* LCDC_AFBADDR1 */
-#define N32_LCDC_AFBLEN_Layer4_OFFSET 0x448 /* LCDC_AFBLEN */
-#define N32_LCDC_AFBLNUM_Layer4_OFFSET 0x44C /* LCDC_AFBLNUM */
-#define N32_LCDC_CLUTWR_Layer4_OFFSET 0x450 /* LCDC_CLUTWR */
-#define N32_LCDC_SINS_Layer4_OFFSET 0x454 /* LCDC_SINS */
-#define N32_LCDC_SOUTS_Layer4_OFFSET 0x458 /* LCDC_SOUTS */
-#define N32_LCDC_VSF_Layer4_OFFSET 0x45C /* LCDC_VSF */
-#define N32_LCDC_VSP_Layer4_OFFSET 0x460 /* LCDC_VSP */
-#define N32_LCDC_HSF_Layer4_OFFSET 0x464 /* LCDC_HSF */
-#define N32_LCDC_HSP_Layer4_OFFSET 0x468 /* LCDC_HSP */
-#define N32_LCDC_YUVS1_Layer4_OFFSET 0x46C /* LCDC_YUVS1 */
-#define N32_LCDC_YUVS2_Layer4_OFFSET 0x470 /* LCDC_YUVS2 */
-#define N32_LCDC_FCF1_Layer4_OFFSET 0x474 /* LCDC_FCF1 */
-#define N32_LCDC_FCF2_Layer4_OFFSET 0x478 /* LCDC_FCF2 */
+#define N32_LCDC_SYNCCTRL_OFFSET                0x8     /* LCDC_SYNCCTRL */
+#define N32_LCDC_BPCTRL_OFFSET                  0xC     /* LCDC_BPCTRL */
+#define N32_LCDC_AWCTRL_OFFSET                  0x10    /* LCDC_AWCTRL */
+#define N32_LCDC_TWCTRL_OFFSET                  0x14    /* LCDC_TWCTRL */
+#define N32_LCDC_GCTRL_OFFSET                   0x18    /* LCDC_GCTRL */
+#define N32_LCDC_SRCTRL_OFFSET                  0x24    /* LCDC_SRCTRL */
+#define N32_LCDC_BCCTRL_OFFSET                  0x2C    /* LCDC_BCCTRL */
+#define N32_LCDC_INTEN_OFFSET                   0x34    /* LCDC_INTEN */
+#define N32_LCDC_INTSTS_OFFSET                  0x38    /* LCDC_INTSTS */
+#define N32_LCDC_INTCLR_OFFSET                  0x3C    /* LCDC_INTCLR */
+#define N32_LCDC_LINTPCTRL_OFFSET               0x40    /* LCDC_LINTPCTRL */
+#define N32_LCDC_CPSTS_OFFSET                   0x44    /* LCDC_CPSTS */
+#define N32_LCDC_CDSTS_OFFSET                   0x48    /* LCDC_CDSTS */
+#define N32_LCDC_EXTDCTRL_OFFSET                0x60    /* LCDC_EXTDCTRL */
+#define N32_LCDC_LSRCTRL_Layer1_OFFSET          0x108   /* LCDC_LSRCTRL */
+#define N32_LCDC_LCTRL_Layer1_OFFSET            0x10C   /* LCDC_LCTRL */
+#define N32_LCDC_WHPCTRL_Layer1_OFFSET          0x110   /* LCDC_WHPCTRL */
+#define N32_LCDC_WVPCTRL_Layer1_OFFSET          0x114   /* LCDC_WVPCTRL */
+#define N32_LCDC_CKCTRL_Layer1_OFFSET           0x118   /* LCDC_CKCTRL */
+#define N32_LCDC_PFCTRL_Layer1_OFFSET           0x11C   /* LCDC_PFCTRL */
+#define N32_LCDC_CACTRL_Layer1_OFFSET           0x120   /* LCDC_CACTRL */
+#define N32_LCDC_DCCTRL_Layer1_OFFSET           0x124   /* LCDC_DCCTRL */
+#define N32_LCDC_BFCTRL_Layer1_OFFSET           0x128   /* LCDC_BFCTRL */
+#define N32_LCDC_AFBCTRL_Layer1_OFFSET          0x130   /* LCDC_AFBCTRL */
+#define N32_LCDC_CFBADDR_Layer1_OFFSET          0x134   /* LCDC_CFBADDR */
+#define N32_LCDC_CFBLEN_Layer1_OFFSET           0x138   /* LCDC_CFBLEN */
+#define N32_LCDC_CFBLNUM_Layer1_OFFSET          0x13C   /* LCDC_CFBLNUM */
+#define N32_LCDC_AFBADDR0_Layer1_OFFSET         0x140   /* LCDC_AFBADDR0 */
+#define N32_LCDC_AFBADDR1_Layer1_OFFSET         0x144   /* LCDC_AFBADDR1 */
+#define N32_LCDC_AFBLEN_Layer1_OFFSET           0x148   /* LCDC_AFBLEN */
+#define N32_LCDC_AFBLNUM_Layer1_OFFSET          0x14C   /* LCDC_AFBLNUM */
+#define N32_LCDC_CLUTWR_Layer1_OFFSET           0x150   /* LCDC_CLUTWR */
+#define N32_LCDC_SINS_Layer1_OFFSET             0x154   /* LCDC_SINS */
+#define N32_LCDC_SOUTS_Layer1_OFFSET            0x158   /* LCDC_SOUTS */
+#define N32_LCDC_VSF_Layer1_OFFSET              0x15C   /* LCDC_VSF */
+#define N32_LCDC_VSP_Layer1_OFFSET              0x160   /* LCDC_VSP */
+#define N32_LCDC_HSF_Layer1_OFFSET              0x164   /* LCDC_HSF */
+#define N32_LCDC_HSP_Layer1_OFFSET              0x168   /* LCDC_HSP */
+#define N32_LCDC_YUVS1_Layer1_OFFSET            0x16C   /* LCDC_YUVS1 */
+#define N32_LCDC_YUVS2_Layer1_OFFSET            0x170   /* LCDC_YUVS2 */
+#define N32_LCDC_FCF1_Layer1_OFFSET             0x174   /* LCDC_FCF1 */
+#define N32_LCDC_FCF2_Layer1_OFFSET             0x178   /* LCDC_FCF2 */
+#define N32_LCDC_LSRCTRL_Layer2_OFFSET          0x208   /* LCDC_LSRCTRL */
+#define N32_LCDC_LCTRL_Layer2_OFFSET            0x20C   /* LCDC_LCTRL */
+#define N32_LCDC_WHPCTRL_Layer2_OFFSET          0x210   /* LCDC_WHPCTRL */
+#define N32_LCDC_WVPCTRL_Layer2_OFFSET          0x214   /* LCDC_WVPCTRL */
+#define N32_LCDC_CKCTRL_Layer2_OFFSET           0x218   /* LCDC_CKCTRL */
+#define N32_LCDC_PFCTRL_Layer2_OFFSET           0x21C   /* LCDC_PFCTRL */
+#define N32_LCDC_CACTRL_Layer2_OFFSET           0x220   /* LCDC_CACTRL */
+#define N32_LCDC_DCCTRL_Layer2_OFFSET           0x224   /* LCDC_DCCTRL */
+#define N32_LCDC_BFCTRL_Layer2_OFFSET           0x228   /* LCDC_BFCTRL */
+#define N32_LCDC_AFBCTRL_Layer2_OFFSET          0x230   /* LCDC_AFBCTRL */
+#define N32_LCDC_CFBADDR_Layer2_OFFSET          0x234   /* LCDC_CFBADDR */
+#define N32_LCDC_CFBLEN_Layer2_OFFSET           0x238   /* LCDC_CFBLEN */
+#define N32_LCDC_CFBLNUM_Layer2_OFFSET          0x23C   /* LCDC_CFBLNUM */
+#define N32_LCDC_AFBADDR0_Layer2_OFFSET         0x240   /* LCDC_AFBADDR0 */
+#define N32_LCDC_AFBADDR1_Layer2_OFFSET         0x244   /* LCDC_AFBADDR1 */
+#define N32_LCDC_AFBLEN_Layer2_OFFSET           0x248   /* LCDC_AFBLEN */
+#define N32_LCDC_AFBLNUM_Layer2_OFFSET          0x24C   /* LCDC_AFBLNUM */
+#define N32_LCDC_CLUTWR_Layer2_OFFSET           0x250   /* LCDC_CLUTWR */
+#define N32_LCDC_SINS_Layer2_OFFSET             0x254   /* LCDC_SINS */
+#define N32_LCDC_SOUTS_Layer2_OFFSET            0x258   /* LCDC_SOUTS */
+#define N32_LCDC_VSF_Layer2_OFFSET              0x25C   /* LCDC_VSF */
+#define N32_LCDC_VSP_Layer2_OFFSET              0x260   /* LCDC_VSP */
+#define N32_LCDC_HSF_Layer2_OFFSET              0x264   /* LCDC_HSF */
+#define N32_LCDC_HSP_Layer2_OFFSET              0x268   /* LCDC_HSP */
+#define N32_LCDC_YUVS1_Layer2_OFFSET            0x26C   /* LCDC_YUVS1 */
+#define N32_LCDC_YUVS2_Layer2_OFFSET            0x270   /* LCDC_YUVS2 */
+#define N32_LCDC_FCF1_Layer2_OFFSET             0x274   /* LCDC_FCF1 */
+#define N32_LCDC_FCF2_Layer2_OFFSET             0x278   /* LCDC_FCF2 */
+#define N32_LCDC_LSRCTRL_Layer3_OFFSET          0x308   /* LCDC_LSRCTRL */
+#define N32_LCDC_LCTRL_Layer3_OFFSET            0x30C   /* LCDC_LCTRL */
+#define N32_LCDC_WHPCTRL_Layer3_OFFSET          0x310   /* LCDC_WHPCTRL */
+#define N32_LCDC_WVPCTRL_Layer3_OFFSET          0x314   /* LCDC_WVPCTRL */
+#define N32_LCDC_CKCTRL_Layer3_OFFSET           0x318   /* LCDC_CKCTRL */
+#define N32_LCDC_PFCTRL_Layer3_OFFSET           0x31C   /* LCDC_PFCTRL */
+#define N32_LCDC_CACTRL_Layer3_OFFSET           0x320   /* LCDC_CACTRL */
+#define N32_LCDC_DCCTRL_Layer3_OFFSET           0x324   /* LCDC_DCCTRL */
+#define N32_LCDC_BFCTRL_Layer3_OFFSET           0x328   /* LCDC_BFCTRL */
+#define N32_LCDC_AFBCTRL_Layer3_OFFSET          0x330   /* LCDC_AFBCTRL */
+#define N32_LCDC_CFBADDR_Layer3_OFFSET          0x334   /* LCDC_CFBADDR */
+#define N32_LCDC_CFBLEN_Layer3_OFFSET           0x338   /* LCDC_CFBLEN */
+#define N32_LCDC_CFBLNUM_Layer3_OFFSET          0x33C   /* LCDC_CFBLNUM */
+#define N32_LCDC_AFBADDR0_Layer3_OFFSET         0x340   /* LCDC_AFBADDR0 */
+#define N32_LCDC_AFBADDR1_Layer3_OFFSET         0x344   /* LCDC_AFBADDR1 */
+#define N32_LCDC_AFBLEN_Layer3_OFFSET           0x348   /* LCDC_AFBLEN */
+#define N32_LCDC_AFBLNUM_Layer3_OFFSET          0x34C   /* LCDC_AFBLNUM */
+#define N32_LCDC_CLUTWR_Layer3_OFFSET           0x350   /* LCDC_CLUTWR */
+#define N32_LCDC_SINS_Layer3_OFFSET             0x354   /* LCDC_SINS */
+#define N32_LCDC_SOUTS_Layer3_OFFSET            0x358   /* LCDC_SOUTS */
+#define N32_LCDC_VSF_Layer3_OFFSET              0x35C   /* LCDC_VSF */
+#define N32_LCDC_VSP_Layer3_OFFSET              0x360   /* LCDC_VSP */
+#define N32_LCDC_HSF_Layer3_OFFSET              0x364   /* LCDC_HSF */
+#define N32_LCDC_HSP_Layer3_OFFSET              0x368   /* LCDC_HSP */
+#define N32_LCDC_YUVS1_Layer3_OFFSET            0x36C   /* LCDC_YUVS1 */
+#define N32_LCDC_YUVS2_Layer3_OFFSET            0x370   /* LCDC_YUVS2 */
+#define N32_LCDC_FCF1_Layer3_OFFSET             0x374   /* LCDC_FCF1 */
+#define N32_LCDC_FCF2_Layer3_OFFSET             0x378   /* LCDC_FCF2 */
+#define N32_LCDC_LSRCTRL_Layer4_OFFSET          0x408   /* LCDC_LSRCTRL */
+#define N32_LCDC_LCTRL_Layer4_OFFSET            0x40C   /* LCDC_LCTRL */
+#define N32_LCDC_WHPCTRL_Layer4_OFFSET          0x410   /* LCDC_WHPCTRL */
+#define N32_LCDC_WVPCTRL_Layer4_OFFSET          0x414   /* LCDC_WVPCTRL */
+#define N32_LCDC_CKCTRL_Layer4_OFFSET           0x418   /* LCDC_CKCTRL */
+#define N32_LCDC_PFCTRL_Layer4_OFFSET           0x41C   /* LCDC_PFCTRL */
+#define N32_LCDC_CACTRL_Layer4_OFFSET           0x420   /* LCDC_CACTRL */
+#define N32_LCDC_DCCTRL_Layer4_OFFSET           0x424   /* LCDC_DCCTRL */
+#define N32_LCDC_BFCTRL_Layer4_OFFSET           0x428   /* LCDC_BFCTRL */
+#define N32_LCDC_AFBCTRL_Layer4_OFFSET          0x430   /* LCDC_AFBCTRL */
+#define N32_LCDC_CFBADDR_Layer4_OFFSET          0x434   /* LCDC_CFBADDR */
+#define N32_LCDC_CFBLEN_Layer4_OFFSET           0x438   /* LCDC_CFBLEN */
+#define N32_LCDC_CFBLNUM_Layer4_OFFSET          0x43C   /* LCDC_CFBLNUM */
+#define N32_LCDC_AFBADDR0_Layer4_OFFSET         0x440   /* LCDC_AFBADDR0 */
+#define N32_LCDC_AFBADDR1_Layer4_OFFSET         0x444   /* LCDC_AFBADDR1 */
+#define N32_LCDC_AFBLEN_Layer4_OFFSET           0x448   /* LCDC_AFBLEN */
+#define N32_LCDC_AFBLNUM_Layer4_OFFSET          0x44C   /* LCDC_AFBLNUM */
+#define N32_LCDC_CLUTWR_Layer4_OFFSET           0x450   /* LCDC_CLUTWR */
+#define N32_LCDC_SINS_Layer4_OFFSET             0x454   /* LCDC_SINS */
+#define N32_LCDC_SOUTS_Layer4_OFFSET            0x458   /* LCDC_SOUTS */
+#define N32_LCDC_VSF_Layer4_OFFSET              0x45C   /* LCDC_VSF */
+#define N32_LCDC_VSP_Layer4_OFFSET              0x460   /* LCDC_VSP */
+#define N32_LCDC_HSF_Layer4_OFFSET              0x464   /* LCDC_HSF */
+#define N32_LCDC_HSP_Layer4_OFFSET              0x468   /* LCDC_HSP */
+#define N32_LCDC_YUVS1_Layer4_OFFSET            0x46C   /* LCDC_YUVS1 */
+#define N32_LCDC_YUVS2_Layer4_OFFSET            0x470   /* LCDC_YUVS2 */
+#define N32_LCDC_FCF1_Layer4_OFFSET             0x474   /* LCDC_FCF1 */
+#define N32_LCDC_FCF2_Layer4_OFFSET             0x478   /* LCDC_FCF2 */
 
-#define N32_LCDC_SYNCCTRL (N32_LCDC_BASE + N32_LCDC_SYNCCTRL_OFFSET)
-#define N32_LCDC_BPCTRL (N32_LCDC_BASE + N32_LCDC_BPCTRL_OFFSET)
-#define N32_LCDC_AWCTRL (N32_LCDC_BASE + N32_LCDC_AWCTRL_OFFSET)
-#define N32_LCDC_TWCTRL (N32_LCDC_BASE + N32_LCDC_TWCTRL_OFFSET)
-#define N32_LCDC_GCTRL (N32_LCDC_BASE + N32_LCDC_GCTRL_OFFSET)
-#define N32_LCDC_SRCTRL (N32_LCDC_BASE + N32_LCDC_SRCTRL_OFFSET)
-#define N32_LCDC_BCCTRL (N32_LCDC_BASE + N32_LCDC_BCCTRL_OFFSET)
-#define N32_LCDC_INTEN (N32_LCDC_BASE + N32_LCDC_INTEN_OFFSET)
-#define N32_LCDC_INTSTS (N32_LCDC_BASE + N32_LCDC_INTSTS_OFFSET)
-#define N32_LCDC_INTCLR (N32_LCDC_BASE + N32_LCDC_INTCLR_OFFSET)
-#define N32_LCDC_LINTPCTRL (N32_LCDC_BASE + N32_LCDC_LINTPCTRL_OFFSET)
-#define N32_LCDC_CPSTS (N32_LCDC_BASE + N32_LCDC_CPSTS_OFFSET)
-#define N32_LCDC_CDSTS (N32_LCDC_BASE + N32_LCDC_CDSTS_OFFSET)
-#define N32_LCDC_EXTDCTRL (N32_LCDC_BASE + N32_LCDC_EXTDCTRL_OFFSET)
-#define N32_LCDC_LSRCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_LSRCTRL_Layer1_OFFSET)
-#define N32_LCDC_LCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_LCTRL_Layer1_OFFSET)
-#define N32_LCDC_WHPCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_WHPCTRL_Layer1_OFFSET)
-#define N32_LCDC_WVPCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_WVPCTRL_Layer1_OFFSET)
-#define N32_LCDC_CKCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_CKCTRL_Layer1_OFFSET)
-#define N32_LCDC_PFCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_PFCTRL_Layer1_OFFSET)
-#define N32_LCDC_CACTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_CACTRL_Layer1_OFFSET)
-#define N32_LCDC_DCCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_DCCTRL_Layer1_OFFSET)
-#define N32_LCDC_BFCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_BFCTRL_Layer1_OFFSET)
-#define N32_LCDC_AFBCTRL_Layer1 (N32_LCDC_BASE + N32_LCDC_AFBCTRL_Layer1_OFFSET)
-#define N32_LCDC_CFBADDR_Layer1 (N32_LCDC_BASE + N32_LCDC_CFBADDR_Layer1_OFFSET)
-#define N32_LCDC_CFBLEN_Layer1 (N32_LCDC_BASE + N32_LCDC_CFBLEN_Layer1_OFFSET)
-#define N32_LCDC_CFBLNUM_Layer1 (N32_LCDC_BASE + N32_LCDC_CFBLNUM_Layer1_OFFSET)
-#define N32_LCDC_AFBADDR0_Layer1 (N32_LCDC_BASE + N32_LCDC_AFBADDR0_Layer1_OFFSET)
-#define N32_LCDC_AFBADDR1_Layer1 (N32_LCDC_BASE + N32_LCDC_AFBADDR1_Layer1_OFFSET)
-#define N32_LCDC_AFBLEN_Layer1 (N32_LCDC_BASE + N32_LCDC_AFBLEN_Layer1_OFFSET)
-#define N32_LCDC_AFBLNUM_Layer1 (N32_LCDC_BASE + N32_LCDC_AFBLNUM_Layer1_OFFSET)
-#define N32_LCDC_CLUTWR_Layer1 (N32_LCDC_BASE + N32_LCDC_CLUTWR_Layer1_OFFSET)
-#define N32_LCDC_SINS_Layer1 (N32_LCDC_BASE + N32_LCDC_SINS_Layer1_OFFSET)
-#define N32_LCDC_SOUTS_Layer1 (N32_LCDC_BASE + N32_LCDC_SOUTS_Layer1_OFFSET)
-#define N32_LCDC_VSF_Layer1 (N32_LCDC_BASE + N32_LCDC_VSF_Layer1_OFFSET)
-#define N32_LCDC_VSP_Layer1 (N32_LCDC_BASE + N32_LCDC_VSP_Layer1_OFFSET)
-#define N32_LCDC_HSF_Layer1 (N32_LCDC_BASE + N32_LCDC_HSF_Layer1_OFFSET)
-#define N32_LCDC_HSP_Layer1 (N32_LCDC_BASE + N32_LCDC_HSP_Layer1_OFFSET)
-#define N32_LCDC_YUVS1_Layer1 (N32_LCDC_BASE + N32_LCDC_YUVS1_Layer1_OFFSET)
-#define N32_LCDC_YUVS2_Layer1 (N32_LCDC_BASE + N32_LCDC_YUVS2_Layer1_OFFSET)
-#define N32_LCDC_FCF1_Layer1 (N32_LCDC_BASE + N32_LCDC_FCF1_Layer1_OFFSET)
-#define N32_LCDC_FCF2_Layer1 (N32_LCDC_BASE + N32_LCDC_FCF2_Layer1_OFFSET)
-#define N32_LCDC_LSRCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_LSRCTRL_Layer2_OFFSET)
-#define N32_LCDC_LCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_LCTRL_Layer2_OFFSET)
-#define N32_LCDC_WHPCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_WHPCTRL_Layer2_OFFSET)
-#define N32_LCDC_WVPCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_WVPCTRL_Layer2_OFFSET)
-#define N32_LCDC_CKCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_CKCTRL_Layer2_OFFSET)
-#define N32_LCDC_PFCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_PFCTRL_Layer2_OFFSET)
-#define N32_LCDC_CACTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_CACTRL_Layer2_OFFSET)
-#define N32_LCDC_DCCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_DCCTRL_Layer2_OFFSET)
-#define N32_LCDC_BFCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_BFCTRL_Layer2_OFFSET)
-#define N32_LCDC_AFBCTRL_Layer2 (N32_LCDC_BASE + N32_LCDC_AFBCTRL_Layer2_OFFSET)
-#define N32_LCDC_CFBADDR_Layer2 (N32_LCDC_BASE + N32_LCDC_CFBADDR_Layer2_OFFSET)
-#define N32_LCDC_CFBLEN_Layer2 (N32_LCDC_BASE + N32_LCDC_CFBLEN_Layer2_OFFSET)
-#define N32_LCDC_CFBLNUM_Layer2 (N32_LCDC_BASE + N32_LCDC_CFBLNUM_Layer2_OFFSET)
-#define N32_LCDC_AFBADDR0_Layer2 (N32_LCDC_BASE + N32_LCDC_AFBADDR0_Layer2_OFFSET)
-#define N32_LCDC_AFBADDR1_Layer2 (N32_LCDC_BASE + N32_LCDC_AFBADDR1_Layer2_OFFSET)
-#define N32_LCDC_AFBLEN_Layer2 (N32_LCDC_BASE + N32_LCDC_AFBLEN_Layer2_OFFSET)
-#define N32_LCDC_AFBLNUM_Layer2 (N32_LCDC_BASE + N32_LCDC_AFBLNUM_Layer2_OFFSET)
-#define N32_LCDC_CLUTWR_Layer2 (N32_LCDC_BASE + N32_LCDC_CLUTWR_Layer2_OFFSET)
-#define N32_LCDC_SINS_Layer2 (N32_LCDC_BASE + N32_LCDC_SINS_Layer2_OFFSET)
-#define N32_LCDC_SOUTS_Layer2 (N32_LCDC_BASE + N32_LCDC_SOUTS_Layer2_OFFSET)
-#define N32_LCDC_VSF_Layer2 (N32_LCDC_BASE + N32_LCDC_VSF_Layer2_OFFSET)
-#define N32_LCDC_VSP_Layer2 (N32_LCDC_BASE + N32_LCDC_VSP_Layer2_OFFSET)
-#define N32_LCDC_HSF_Layer2 (N32_LCDC_BASE + N32_LCDC_HSF_Layer2_OFFSET)
-#define N32_LCDC_HSP_Layer2 (N32_LCDC_BASE + N32_LCDC_HSP_Layer2_OFFSET)
-#define N32_LCDC_YUVS1_Layer2 (N32_LCDC_BASE + N32_LCDC_YUVS1_Layer2_OFFSET)
-#define N32_LCDC_YUVS2_Layer2 (N32_LCDC_BASE + N32_LCDC_YUVS2_Layer2_OFFSET)
-#define N32_LCDC_FCF1_Layer2 (N32_LCDC_BASE + N32_LCDC_FCF1_Layer2_OFFSET)
-#define N32_LCDC_FCF2_Layer2 (N32_LCDC_BASE + N32_LCDC_FCF2_Layer2_OFFSET)
-#define N32_LCDC_LSRCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_LSRCTRL_Layer3_OFFSET)
-#define N32_LCDC_LCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_LCTRL_Layer3_OFFSET)
-#define N32_LCDC_WHPCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_WHPCTRL_Layer3_OFFSET)
-#define N32_LCDC_WVPCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_WVPCTRL_Layer3_OFFSET)
-#define N32_LCDC_CKCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_CKCTRL_Layer3_OFFSET)
-#define N32_LCDC_PFCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_PFCTRL_Layer3_OFFSET)
-#define N32_LCDC_CACTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_CACTRL_Layer3_OFFSET)
-#define N32_LCDC_DCCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_DCCTRL_Layer3_OFFSET)
-#define N32_LCDC_BFCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_BFCTRL_Layer3_OFFSET)
-#define N32_LCDC_AFBCTRL_Layer3 (N32_LCDC_BASE + N32_LCDC_AFBCTRL_Layer3_OFFSET)
-#define N32_LCDC_CFBADDR_Layer3 (N32_LCDC_BASE + N32_LCDC_CFBADDR_Layer3_OFFSET)
-#define N32_LCDC_CFBLEN_Layer3 (N32_LCDC_BASE + N32_LCDC_CFBLEN_Layer3_OFFSET)
-#define N32_LCDC_CFBLNUM_Layer3 (N32_LCDC_BASE + N32_LCDC_CFBLNUM_Layer3_OFFSET)
-#define N32_LCDC_AFBADDR0_Layer3 (N32_LCDC_BASE + N32_LCDC_AFBADDR0_Layer3_OFFSET)
-#define N32_LCDC_AFBADDR1_Layer3 (N32_LCDC_BASE + N32_LCDC_AFBADDR1_Layer3_OFFSET)
-#define N32_LCDC_AFBLEN_Layer3 (N32_LCDC_BASE + N32_LCDC_AFBLEN_Layer3_OFFSET)
-#define N32_LCDC_AFBLNUM_Layer3 (N32_LCDC_BASE + N32_LCDC_AFBLNUM_Layer3_OFFSET)
-#define N32_LCDC_CLUTWR_Layer3 (N32_LCDC_BASE + N32_LCDC_CLUTWR_Layer3_OFFSET)
-#define N32_LCDC_SINS_Layer3 (N32_LCDC_BASE + N32_LCDC_SINS_Layer3_OFFSET)
-#define N32_LCDC_SOUTS_Layer3 (N32_LCDC_BASE + N32_LCDC_SOUTS_Layer3_OFFSET)
-#define N32_LCDC_VSF_Layer3 (N32_LCDC_BASE + N32_LCDC_VSF_Layer3_OFFSET)
-#define N32_LCDC_VSP_Layer3 (N32_LCDC_BASE + N32_LCDC_VSP_Layer3_OFFSET)
-#define N32_LCDC_HSF_Layer3 (N32_LCDC_BASE + N32_LCDC_HSF_Layer3_OFFSET)
-#define N32_LCDC_HSP_Layer3 (N32_LCDC_BASE + N32_LCDC_HSP_Layer3_OFFSET)
-#define N32_LCDC_YUVS1_Layer3 (N32_LCDC_BASE + N32_LCDC_YUVS1_Layer3_OFFSET)
-#define N32_LCDC_YUVS2_Layer3 (N32_LCDC_BASE + N32_LCDC_YUVS2_Layer3_OFFSET)
-#define N32_LCDC_FCF1_Layer3 (N32_LCDC_BASE + N32_LCDC_FCF1_Layer3_OFFSET)
-#define N32_LCDC_FCF2_Layer3 (N32_LCDC_BASE + N32_LCDC_FCF2_Layer3_OFFSET)
-#define N32_LCDC_LSRCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_LSRCTRL_Layer4_OFFSET)
-#define N32_LCDC_LCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_LCTRL_Layer4_OFFSET)
-#define N32_LCDC_WHPCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_WHPCTRL_Layer4_OFFSET)
-#define N32_LCDC_WVPCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_WVPCTRL_Layer4_OFFSET)
-#define N32_LCDC_CKCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_CKCTRL_Layer4_OFFSET)
-#define N32_LCDC_PFCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_PFCTRL_Layer4_OFFSET)
-#define N32_LCDC_CACTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_CACTRL_Layer4_OFFSET)
-#define N32_LCDC_DCCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_DCCTRL_Layer4_OFFSET)
-#define N32_LCDC_BFCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_BFCTRL_Layer4_OFFSET)
-#define N32_LCDC_AFBCTRL_Layer4 (N32_LCDC_BASE + N32_LCDC_AFBCTRL_Layer4_OFFSET)
-#define N32_LCDC_CFBADDR_Layer4 (N32_LCDC_BASE + N32_LCDC_CFBADDR_Layer4_OFFSET)
-#define N32_LCDC_CFBLEN_Layer4 (N32_LCDC_BASE + N32_LCDC_CFBLEN_Layer4_OFFSET)
-#define N32_LCDC_CFBLNUM_Layer4 (N32_LCDC_BASE + N32_LCDC_CFBLNUM_Layer4_OFFSET)
-#define N32_LCDC_AFBADDR0_Layer4 (N32_LCDC_BASE + N32_LCDC_AFBADDR0_Layer4_OFFSET)
-#define N32_LCDC_AFBADDR1_Layer4 (N32_LCDC_BASE + N32_LCDC_AFBADDR1_Layer4_OFFSET)
-#define N32_LCDC_AFBLEN_Layer4 (N32_LCDC_BASE + N32_LCDC_AFBLEN_Layer4_OFFSET)
-#define N32_LCDC_AFBLNUM_Layer4 (N32_LCDC_BASE + N32_LCDC_AFBLNUM_Layer4_OFFSET)
-#define N32_LCDC_CLUTWR_Layer4 (N32_LCDC_BASE + N32_LCDC_CLUTWR_Layer4_OFFSET)
-#define N32_LCDC_SINS_Layer4 (N32_LCDC_BASE + N32_LCDC_SINS_Layer4_OFFSET)
-#define N32_LCDC_SOUTS_Layer4 (N32_LCDC_BASE + N32_LCDC_SOUTS_Layer4_OFFSET)
-#define N32_LCDC_VSF_Layer4 (N32_LCDC_BASE + N32_LCDC_VSF_Layer4_OFFSET)
-#define N32_LCDC_VSP_Layer4 (N32_LCDC_BASE + N32_LCDC_VSP_Layer4_OFFSET)
-#define N32_LCDC_HSF_Layer4 (N32_LCDC_BASE + N32_LCDC_HSF_Layer4_OFFSET)
-#define N32_LCDC_HSP_Layer4 (N32_LCDC_BASE + N32_LCDC_HSP_Layer4_OFFSET)
-#define N32_LCDC_YUVS1_Layer4 (N32_LCDC_BASE + N32_LCDC_YUVS1_Layer4_OFFSET)
-#define N32_LCDC_YUVS2_Layer4 (N32_LCDC_BASE + N32_LCDC_YUVS2_Layer4_OFFSET)
-#define N32_LCDC_FCF1_Layer4 (N32_LCDC_BASE + N32_LCDC_FCF1_Layer4_OFFSET)
-#define N32_LCDC_FCF2_Layer4 (N32_LCDC_BASE + N32_LCDC_FCF2_Layer4_OFFSET)
+#define N32_LCDC_SYNCCTRL                       (N32_LCDC_BASE + \
+                                                 N32_LCDC_SYNCCTRL_OFFSET)
+#define N32_LCDC_BPCTRL                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_BPCTRL_OFFSET)
+#define N32_LCDC_AWCTRL                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_AWCTRL_OFFSET)
+#define N32_LCDC_TWCTRL                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_TWCTRL_OFFSET)
+#define N32_LCDC_GCTRL                          (N32_LCDC_BASE + \
+                                                 N32_LCDC_GCTRL_OFFSET)
+#define N32_LCDC_SRCTRL                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_SRCTRL_OFFSET)
+#define N32_LCDC_BCCTRL                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_BCCTRL_OFFSET)
+#define N32_LCDC_INTEN                          (N32_LCDC_BASE + \
+                                                 N32_LCDC_INTEN_OFFSET)
+#define N32_LCDC_INTSTS                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_INTSTS_OFFSET)
+#define N32_LCDC_INTCLR                         (N32_LCDC_BASE + \
+                                                 N32_LCDC_INTCLR_OFFSET)
+#define N32_LCDC_LINTPCTRL                      (N32_LCDC_BASE + \
+                                                 N32_LCDC_LINTPCTRL_OFFSET)
+#define N32_LCDC_CPSTS                          (N32_LCDC_BASE + \
+                                                 N32_LCDC_CPSTS_OFFSET)
+#define N32_LCDC_CDSTS                          (N32_LCDC_BASE + \
+                                                 N32_LCDC_CDSTS_OFFSET)
+#define N32_LCDC_EXTDCTRL                       (N32_LCDC_BASE + \
+                                                 N32_LCDC_EXTDCTRL_OFFSET)
+#define N32_LCDC_LSRCTRL_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_LSRCTRL_Layer1_OFFSET)
+#define N32_LCDC_LCTRL_Layer1                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_LCTRL_Layer1_OFFSET)
+#define N32_LCDC_WHPCTRL_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WHPCTRL_Layer1_OFFSET)
+#define N32_LCDC_WVPCTRL_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WVPCTRL_Layer1_OFFSET)
+#define N32_LCDC_CKCTRL_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CKCTRL_Layer1_OFFSET)
+#define N32_LCDC_PFCTRL_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_PFCTRL_Layer1_OFFSET)
+#define N32_LCDC_CACTRL_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CACTRL_Layer1_OFFSET)
+#define N32_LCDC_DCCTRL_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_DCCTRL_Layer1_OFFSET)
+#define N32_LCDC_BFCTRL_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_BFCTRL_Layer1_OFFSET)
+#define N32_LCDC_AFBCTRL_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBCTRL_Layer1_OFFSET)
+#define N32_LCDC_CFBADDR_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBADDR_Layer1_OFFSET)
+#define N32_LCDC_CFBLEN_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLEN_Layer1_OFFSET)
+#define N32_LCDC_CFBLNUM_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLNUM_Layer1_OFFSET)
+#define N32_LCDC_AFBADDR0_Layer1                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR0_Layer1_OFFSET)
+#define N32_LCDC_AFBADDR1_Layer1                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR1_Layer1_OFFSET)
+#define N32_LCDC_AFBLEN_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLEN_Layer1_OFFSET)
+#define N32_LCDC_AFBLNUM_Layer1                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLNUM_Layer1_OFFSET)
+#define N32_LCDC_CLUTWR_Layer1                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CLUTWR_Layer1_OFFSET)
+#define N32_LCDC_SINS_Layer1                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_SINS_Layer1_OFFSET)
+#define N32_LCDC_SOUTS_Layer1                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_SOUTS_Layer1_OFFSET)
+#define N32_LCDC_VSF_Layer1                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSF_Layer1_OFFSET)
+#define N32_LCDC_VSP_Layer1                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSP_Layer1_OFFSET)
+#define N32_LCDC_HSF_Layer1                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSF_Layer1_OFFSET)
+#define N32_LCDC_HSP_Layer1                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSP_Layer1_OFFSET)
+#define N32_LCDC_YUVS1_Layer1                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS1_Layer1_OFFSET)
+#define N32_LCDC_YUVS2_Layer1                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS2_Layer1_OFFSET)
+#define N32_LCDC_FCF1_Layer1                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF1_Layer1_OFFSET)
+#define N32_LCDC_FCF2_Layer1                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF2_Layer1_OFFSET)
+#define N32_LCDC_LSRCTRL_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_LSRCTRL_Layer2_OFFSET)
+#define N32_LCDC_LCTRL_Layer2                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_LCTRL_Layer2_OFFSET)
+#define N32_LCDC_WHPCTRL_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WHPCTRL_Layer2_OFFSET)
+#define N32_LCDC_WVPCTRL_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WVPCTRL_Layer2_OFFSET)
+#define N32_LCDC_CKCTRL_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CKCTRL_Layer2_OFFSET)
+#define N32_LCDC_PFCTRL_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_PFCTRL_Layer2_OFFSET)
+#define N32_LCDC_CACTRL_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CACTRL_Layer2_OFFSET)
+#define N32_LCDC_DCCTRL_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_DCCTRL_Layer2_OFFSET)
+#define N32_LCDC_BFCTRL_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_BFCTRL_Layer2_OFFSET)
+#define N32_LCDC_AFBCTRL_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBCTRL_Layer2_OFFSET)
+#define N32_LCDC_CFBADDR_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBADDR_Layer2_OFFSET)
+#define N32_LCDC_CFBLEN_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLEN_Layer2_OFFSET)
+#define N32_LCDC_CFBLNUM_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLNUM_Layer2_OFFSET)
+#define N32_LCDC_AFBADDR0_Layer2                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR0_Layer2_OFFSET)
+#define N32_LCDC_AFBADDR1_Layer2                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR1_Layer2_OFFSET)
+#define N32_LCDC_AFBLEN_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLEN_Layer2_OFFSET)
+#define N32_LCDC_AFBLNUM_Layer2                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLNUM_Layer2_OFFSET)
+#define N32_LCDC_CLUTWR_Layer2                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CLUTWR_Layer2_OFFSET)
+#define N32_LCDC_SINS_Layer2                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_SINS_Layer2_OFFSET)
+#define N32_LCDC_SOUTS_Layer2                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_SOUTS_Layer2_OFFSET)
+#define N32_LCDC_VSF_Layer2                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSF_Layer2_OFFSET)
+#define N32_LCDC_VSP_Layer2                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSP_Layer2_OFFSET)
+#define N32_LCDC_HSF_Layer2                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSF_Layer2_OFFSET)
+#define N32_LCDC_HSP_Layer2                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSP_Layer2_OFFSET)
+#define N32_LCDC_YUVS1_Layer2                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS1_Layer2_OFFSET)
+#define N32_LCDC_YUVS2_Layer2                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS2_Layer2_OFFSET)
+#define N32_LCDC_FCF1_Layer2                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF1_Layer2_OFFSET)
+#define N32_LCDC_FCF2_Layer2                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF2_Layer2_OFFSET)
+#define N32_LCDC_LSRCTRL_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_LSRCTRL_Layer3_OFFSET)
+#define N32_LCDC_LCTRL_Layer3                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_LCTRL_Layer3_OFFSET)
+#define N32_LCDC_WHPCTRL_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WHPCTRL_Layer3_OFFSET)
+#define N32_LCDC_WVPCTRL_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WVPCTRL_Layer3_OFFSET)
+#define N32_LCDC_CKCTRL_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CKCTRL_Layer3_OFFSET)
+#define N32_LCDC_PFCTRL_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_PFCTRL_Layer3_OFFSET)
+#define N32_LCDC_CACTRL_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CACTRL_Layer3_OFFSET)
+#define N32_LCDC_DCCTRL_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_DCCTRL_Layer3_OFFSET)
+#define N32_LCDC_BFCTRL_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_BFCTRL_Layer3_OFFSET)
+#define N32_LCDC_AFBCTRL_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBCTRL_Layer3_OFFSET)
+#define N32_LCDC_CFBADDR_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBADDR_Layer3_OFFSET)
+#define N32_LCDC_CFBLEN_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLEN_Layer3_OFFSET)
+#define N32_LCDC_CFBLNUM_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLNUM_Layer3_OFFSET)
+#define N32_LCDC_AFBADDR0_Layer3                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR0_Layer3_OFFSET)
+#define N32_LCDC_AFBADDR1_Layer3                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR1_Layer3_OFFSET)
+#define N32_LCDC_AFBLEN_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLEN_Layer3_OFFSET)
+#define N32_LCDC_AFBLNUM_Layer3                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLNUM_Layer3_OFFSET)
+#define N32_LCDC_CLUTWR_Layer3                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CLUTWR_Layer3_OFFSET)
+#define N32_LCDC_SINS_Layer3                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_SINS_Layer3_OFFSET)
+#define N32_LCDC_SOUTS_Layer3                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_SOUTS_Layer3_OFFSET)
+#define N32_LCDC_VSF_Layer3                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSF_Layer3_OFFSET)
+#define N32_LCDC_VSP_Layer3                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSP_Layer3_OFFSET)
+#define N32_LCDC_HSF_Layer3                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSF_Layer3_OFFSET)
+#define N32_LCDC_HSP_Layer3                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSP_Layer3_OFFSET)
+#define N32_LCDC_YUVS1_Layer3                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS1_Layer3_OFFSET)
+#define N32_LCDC_YUVS2_Layer3                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS2_Layer3_OFFSET)
+#define N32_LCDC_FCF1_Layer3                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF1_Layer3_OFFSET)
+#define N32_LCDC_FCF2_Layer3                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF2_Layer3_OFFSET)
+#define N32_LCDC_LSRCTRL_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_LSRCTRL_Layer4_OFFSET)
+#define N32_LCDC_LCTRL_Layer4                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_LCTRL_Layer4_OFFSET)
+#define N32_LCDC_WHPCTRL_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WHPCTRL_Layer4_OFFSET)
+#define N32_LCDC_WVPCTRL_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_WVPCTRL_Layer4_OFFSET)
+#define N32_LCDC_CKCTRL_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CKCTRL_Layer4_OFFSET)
+#define N32_LCDC_PFCTRL_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_PFCTRL_Layer4_OFFSET)
+#define N32_LCDC_CACTRL_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CACTRL_Layer4_OFFSET)
+#define N32_LCDC_DCCTRL_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_DCCTRL_Layer4_OFFSET)
+#define N32_LCDC_BFCTRL_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_BFCTRL_Layer4_OFFSET)
+#define N32_LCDC_AFBCTRL_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBCTRL_Layer4_OFFSET)
+#define N32_LCDC_CFBADDR_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBADDR_Layer4_OFFSET)
+#define N32_LCDC_CFBLEN_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLEN_Layer4_OFFSET)
+#define N32_LCDC_CFBLNUM_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_CFBLNUM_Layer4_OFFSET)
+#define N32_LCDC_AFBADDR0_Layer4                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR0_Layer4_OFFSET)
+#define N32_LCDC_AFBADDR1_Layer4                (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBADDR1_Layer4_OFFSET)
+#define N32_LCDC_AFBLEN_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLEN_Layer4_OFFSET)
+#define N32_LCDC_AFBLNUM_Layer4                 (N32_LCDC_BASE + \
+                                                 N32_LCDC_AFBLNUM_Layer4_OFFSET)
+#define N32_LCDC_CLUTWR_Layer4                  (N32_LCDC_BASE + \
+                                                 N32_LCDC_CLUTWR_Layer4_OFFSET)
+#define N32_LCDC_SINS_Layer4                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_SINS_Layer4_OFFSET)
+#define N32_LCDC_SOUTS_Layer4                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_SOUTS_Layer4_OFFSET)
+#define N32_LCDC_VSF_Layer4                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSF_Layer4_OFFSET)
+#define N32_LCDC_VSP_Layer4                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_VSP_Layer4_OFFSET)
+#define N32_LCDC_HSF_Layer4                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSF_Layer4_OFFSET)
+#define N32_LCDC_HSP_Layer4                     (N32_LCDC_BASE + \
+                                                 N32_LCDC_HSP_Layer4_OFFSET)
+#define N32_LCDC_YUVS1_Layer4                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS1_Layer4_OFFSET)
+#define N32_LCDC_YUVS2_Layer4                   (N32_LCDC_BASE + \
+                                                 N32_LCDC_YUVS2_Layer4_OFFSET)
+#define N32_LCDC_FCF1_Layer4                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF1_Layer4_OFFSET)
+#define N32_LCDC_FCF2_Layer4                    (N32_LCDC_BASE + \
+                                                 N32_LCDC_FCF2_Layer4_OFFSET)
 
 /******** Bit definition for LCDC_SYNCCTRL register  ********/
-#define LCDC_SYNCCTRL_HSW_SHIFT (16)
-#define LCDC_SYNCCTRL_HSW_MASK (0xFFFF << LCDC_SYNCCTRL_HSW_SHIFT) /* HSW */
-#define LCDC_SYNCCTRL_VSH_SHIFT (0)
-#define LCDC_SYNCCTRL_VSH_MASK (0xFFFF << LCDC_SYNCCTRL_VSH_SHIFT) /* VSH */
+#define LCDC_SYNCCTRL_HSW_SHIFT                 (16)
+#define LCDC_SYNCCTRL_HSW_MASK                  (0xFFFF << \
+                                                 LCDC_SYNCCTRL_HSW_SHIFT) /*
+                                                                           * HSW
+                                                                           */
+#define LCDC_SYNCCTRL_VSH_SHIFT                 (0)
+#define LCDC_SYNCCTRL_VSH_MASK                  (0xFFFF << \
+                                                 LCDC_SYNCCTRL_VSH_SHIFT) /*
+                                                                           * VSH
+                                                                           */
 
 /******** Bit definition for LCDC_BPCTRL register  ********/
-#define LCDC_BPCTRL_AHBP_SHIFT (16)
-#define LCDC_BPCTRL_AHBP_MASK (0xFFFF << LCDC_BPCTRL_AHBP_SHIFT) /* AHBP */
-#define LCDC_BPCTRL_AVBP_SHIFT (0)
-#define LCDC_BPCTRL_AVBP_MASK (0xFFFF << LCDC_BPCTRL_AVBP_SHIFT) /* AVBP */
+#define LCDC_BPCTRL_AHBP_SHIFT                  (16)
+#define LCDC_BPCTRL_AHBP_MASK                   (0xFFFF << \
+                                                 LCDC_BPCTRL_AHBP_SHIFT) /*
+                                                                          * AHBP
+                                                                          */
+#define LCDC_BPCTRL_AVBP_SHIFT                  (0)
+#define LCDC_BPCTRL_AVBP_MASK                   (0xFFFF << \
+                                                 LCDC_BPCTRL_AVBP_SHIFT) /*
+                                                                          * AVBP
+                                                                          */
 
 /******** Bit definition for LCDC_AWCTRL register  ********/
-#define LCDC_AWCTRL_AAW_SHIFT (16)
-#define LCDC_AWCTRL_AAW_MASK (0xFFFF << LCDC_AWCTRL_AAW_SHIFT) /* AAW */
-#define LCDC_AWCTRL_AAH_SHIFT (0)
-#define LCDC_AWCTRL_AAH_MASK (0xFFFF << LCDC_AWCTRL_AAH_SHIFT) /* AAH */
+#define LCDC_AWCTRL_AAW_SHIFT                   (16)
+#define LCDC_AWCTRL_AAW_MASK                    (0xFFFF << \
+                                                 LCDC_AWCTRL_AAW_SHIFT) /* AAW
+                                                                         */
+#define LCDC_AWCTRL_AAH_SHIFT                   (0)
+#define LCDC_AWCTRL_AAH_MASK                    (0xFFFF << \
+                                                 LCDC_AWCTRL_AAH_SHIFT) /* AAH
+                                                                         */
 
 /******** Bit definition for LCDC_TWCTRL register  ********/
-#define LCDC_TWCTRL_TOTALW_SHIFT (16)
-#define LCDC_TWCTRL_TOTALW_MASK (0xFFFF << LCDC_TWCTRL_TOTALW_SHIFT) /* TOTALW */
-#define LCDC_TWCTRL_TOTALH_SHIFT (0)
-#define LCDC_TWCTRL_TOTALH_MASK (0xFFFF << LCDC_TWCTRL_TOTALH_SHIFT) /* TOTALH */
+#define LCDC_TWCTRL_TOTALW_SHIFT                (16)
+#define LCDC_TWCTRL_TOTALW_MASK                 (0xFFFF << \
+                                                 LCDC_TWCTRL_TOTALW_SHIFT) /*
+                                                                            * TOTALW
+                                                                            */
+#define LCDC_TWCTRL_TOTALH_SHIFT                (0)
+#define LCDC_TWCTRL_TOTALH_MASK                 (0xFFFF << \
+                                                 LCDC_TWCTRL_TOTALH_SHIFT) /*
+                                                                            * TOTALH
+                                                                            */
 
 /******** Bit definition for LCDC_GCTRL register  ********/
-#define LCDC_GCTRL_HSPOL (1 << 31) /* HSPOL */
-#define LCDC_GCTRL_VSPOL (1 << 30) /* VSPOL */
-#define LCDC_GCTRL_DEPOL (1 << 29) /* DEPOL */
-#define LCDC_GCTRL_PCLKPOL (1 << 28) /* PCLKPOL */
-#define LCDC_GCTRL_DEN (1 << 16) /* DEN */
-#define LCDC_GCTRL_DRW_SHIFT (12)
-#define LCDC_GCTRL_DRW_MASK (0x7 << LCDC_GCTRL_DRW_SHIFT) /* DRW */
-#define LCDC_GCTRL_DGW_SHIFT (8)
-#define LCDC_GCTRL_DGW_MASK (0x7 << LCDC_GCTRL_DGW_SHIFT) /* DGW */
-#define LCDC_GCTRL_DBW_SHIFT (4)
-#define LCDC_GCTRL_DBW_MASK (0x7 << LCDC_GCTRL_DBW_SHIFT) /* DBW */
-#define LCDC_GCTRL_GCEN (1 << 1) /* GCEN */
-#define LCDC_GCTRL_EN (1 << 0) /* EN */
+#define LCDC_GCTRL_HSPOL                        (1 << 31)                       /*
+                                                                                 *
+                                                                                 * HSPOL
+                                                                                 */
+#define LCDC_GCTRL_VSPOL                        (1 << 30)                       /*
+                                                                                 *
+                                                                                 * VSPOL
+                                                                                 */
+#define LCDC_GCTRL_DEPOL                        (1 << 29)                       /*
+                                                                                 *
+                                                                                 * DEPOL
+                                                                                 */
+#define LCDC_GCTRL_PCLKPOL                      (1 << 28)                       /*
+                                                                                 *
+                                                                                 * PCLKPOL
+                                                                                 */
+#define LCDC_GCTRL_DEN                          (1 << 16)                       /*
+                                                                                 *
+                                                                                 * DEN
+                                                                                 */
+#define LCDC_GCTRL_DRW_SHIFT                    (12)
+#define LCDC_GCTRL_DRW_MASK                     (0x7 << LCDC_GCTRL_DRW_SHIFT)   /*
+                                                                                 *
+                                                                                 * DRW
+                                                                                 */
+#define LCDC_GCTRL_DGW_SHIFT                    (8)
+#define LCDC_GCTRL_DGW_MASK                     (0x7 << LCDC_GCTRL_DGW_SHIFT)   /*
+                                                                                 *
+                                                                                 * DGW
+                                                                                 */
+#define LCDC_GCTRL_DBW_SHIFT                    (4)
+#define LCDC_GCTRL_DBW_MASK                     (0x7 << LCDC_GCTRL_DBW_SHIFT)   /*
+                                                                                 *
+                                                                                 * DBW
+                                                                                 */
+#define LCDC_GCTRL_GCEN                         (1 << 1)                        /*
+                                                                                 *
+                                                                                 * GCEN
+                                                                                 */
+#define LCDC_GCTRL_EN                           (1 << 0)                        /*
+                                                                                 *
+                                                                                 * EN
+                                                                                 */
 
 /******** Bit definition for LCDC_SRCTRL register  ********/
-#define LCDC_SRCTRL_VBR (1 << 1) /* VBR */
-#define LCDC_SRCTRL_IMR (1 << 0) /* IMR */
+#define LCDC_SRCTRL_VBR                         (1 << 1)    /* VBR */
+#define LCDC_SRCTRL_IMR                         (1 << 0)    /* IMR */
 
 /******** Bit definition for LCDC_BCCTRL register  ********/
-#define LCDC_BCCTRL_BCR_SHIFT (16)
-#define LCDC_BCCTRL_BCR_MASK (0xFF << LCDC_BCCTRL_BCR_SHIFT) /* BCR */
-#define LCDC_BCCTRL_BCG_SHIFT (8)
-#define LCDC_BCCTRL_BCG_MASK (0xFF << LCDC_BCCTRL_BCG_SHIFT) /* BCG */
-#define LCDC_BCCTRL_BCB_SHIFT (0)
-#define LCDC_BCCTRL_BCB_MASK (0xFF << LCDC_BCCTRL_BCB_SHIFT) /* BCB */
+#define LCDC_BCCTRL_BCR_SHIFT                   (16)
+#define LCDC_BCCTRL_BCR_MASK                    (0xFF << \
+                                                 LCDC_BCCTRL_BCR_SHIFT) /* BCR
+                                                                         */
+#define LCDC_BCCTRL_BCG_SHIFT                   (8)
+#define LCDC_BCCTRL_BCG_MASK                    (0xFF << \
+                                                 LCDC_BCCTRL_BCG_SHIFT) /* BCG
+                                                                         */
+#define LCDC_BCCTRL_BCB_SHIFT                   (0)
+#define LCDC_BCCTRL_BCB_MASK                    (0xFF << \
+                                                 LCDC_BCCTRL_BCB_SHIFT) /* BCB
+                                                                         */
 
 /******** Bit definition for LCDC_INTEN register  ********/
-#define LCDC_INTEN_RRIEN (1 << 3) /* RRIEN */
-#define LCDC_INTEN_BEIEN (1 << 2) /* BEIEN */
-#define LCDC_INTEN_FUIEN (1 << 1) /* FUIEN */
-#define LCDC_INTEN_LIEN (1 << 0) /* LIEN */
+#define LCDC_INTEN_RRIEN                        (1 << 3)    /* RRIEN */
+#define LCDC_INTEN_BEIEN                        (1 << 2)    /* BEIEN */
+#define LCDC_INTEN_FUIEN                        (1 << 1)    /* FUIEN */
+#define LCDC_INTEN_LIEN                         (1 << 0)    /* LIEN */
 
 /******** Bit definition for LCDC_INTSTS register  ********/
-#define LCDC_INTSTS_RRIF (1 << 3) /* RRIF */
-#define LCDC_INTSTS_BEIF (1 << 2) /* BEIF */
-#define LCDC_INTSTS_FUIF (1 << 1) /* FUIF */
-#define LCDC_INTSTS_LIF (1 << 0) /* LIF */
+#define LCDC_INTSTS_RRIF                        (1 << 3)    /* RRIF */
+#define LCDC_INTSTS_BEIF                        (1 << 2)    /* BEIF */
+#define LCDC_INTSTS_FUIF                        (1 << 1)    /* FUIF */
+#define LCDC_INTSTS_LIF                         (1 << 0)    /* LIF */
 
 /******** Bit definition for LCDC_INTCLR register  ********/
-#define LCDC_INTCLR_RRICLR (1 << 3) /* RRICLR */
-#define LCDC_INTCLR_BEICLR (1 << 2) /* BEICLR */
-#define LCDC_INTCLR_FUICLR (1 << 1) /* FUICLR */
-#define LCDC_INTCLR_LICLR (1 << 0) /* LICLR */
+#define LCDC_INTCLR_RRICLR                      (1 << 3)    /* RRICLR */
+#define LCDC_INTCLR_BEICLR                      (1 << 2)    /* BEICLR */
+#define LCDC_INTCLR_FUICLR                      (1 << 1)    /* FUICLR */
+#define LCDC_INTCLR_LICLR                       (1 << 0)    /* LICLR */
 
 /******** Bit definition for LCDC_LINTPCTRL register  ********/
-#define LCDC_LINTPCTRL_LINTP_SHIFT (0)
-#define LCDC_LINTPCTRL_LINTP_MASK (0xFFFF << LCDC_LINTPCTRL_LINTP_SHIFT) /* LINTP */
+#define LCDC_LINTPCTRL_LINTP_SHIFT              (0)
+#define LCDC_LINTPCTRL_LINTP_MASK               (0xFFFF << \
+                                                 LCDC_LINTPCTRL_LINTP_SHIFT) /*
+                                                                              *
+                                                                              * LINTP
+                                                                              */
 
 /******** Bit definition for LCDC_CPSTS register  ********/
-#define LCDC_CPSTS_CXPOS_SHIFT (16)
-#define LCDC_CPSTS_CXPOS_MASK (0xFFFF << LCDC_CPSTS_CXPOS_SHIFT) /* CXPOS */
-#define LCDC_CPSTS_CYPOS_SHIFT (0)
-#define LCDC_CPSTS_CYPOS_MASK (0xFFFF << LCDC_CPSTS_CYPOS_SHIFT) /* CYPOS */
+#define LCDC_CPSTS_CXPOS_SHIFT                  (16)
+#define LCDC_CPSTS_CXPOS_MASK                   (0xFFFF << \
+                                                 LCDC_CPSTS_CXPOS_SHIFT) /*
+                                                                          * CXPOS
+                                                                          */
+#define LCDC_CPSTS_CYPOS_SHIFT                  (0)
+#define LCDC_CPSTS_CYPOS_MASK                   (0xFFFF << \
+                                                 LCDC_CPSTS_CYPOS_SHIFT) /*
+                                                                          * CYPOS
+                                                                          */
 
 /******** Bit definition for LCDC_CDSTS register  ********/
-#define LCDC_CDSTS_HSYNCS (1 << 3) /* HSYNCS */
-#define LCDC_CDSTS_VSYNCS (1 << 2) /* VSYNCS */
-#define LCDC_CDSTS_HBS (1 << 1) /* HBS */
-#define LCDC_CDSTS_VBS (1 << 0) /* VBS */
+#define LCDC_CDSTS_HSYNCS                       (1 << 3)    /* HSYNCS */
+#define LCDC_CDSTS_VSYNCS                       (1 << 2)    /* VSYNCS */
+#define LCDC_CDSTS_HBS                          (1 << 1)    /* HBS */
+#define LCDC_CDSTS_VBS                          (1 << 0)    /* VBS */
 
 /******** Bit definition for LCDC_EXTDCTRL register  ********/
-#define LCDC_EXTDCTRL_PCLKHES (1 << 24) /* PCLKHES */
-#define LCDC_EXTDCTRL_PCLKHOEN (1 << 23) /* PCLKHOEN */
-#define LCDC_EXTDCTRL_PCLKHEEN (1 << 22) /* PCLKHEEN */
-#define LCDC_EXTDCTRL_SPMEN (1 << 21) /* SPMEN */
-#define LCDC_EXTDCTRL_DVEN (1 << 20) /* DVEN */
+#define LCDC_EXTDCTRL_PCLKHES                   (1 << 24)   /* PCLKHES */
+#define LCDC_EXTDCTRL_PCLKHOEN                  (1 << 23)   /* PCLKHOEN */
+#define LCDC_EXTDCTRL_PCLKHEEN                  (1 << 22)   /* PCLKHEEN */
+#define LCDC_EXTDCTRL_SPMEN                     (1 << 21)   /* SPMEN */
+#define LCDC_EXTDCTRL_DVEN                      (1 << 20)   /* DVEN */
 
 /******** Bit definition for LCDC_LSRCTRL_Layer1 register  ********/
-#define LCDC_LSRCTRL_Layer1_MGR (1 << 2) /* MGR */
-#define LCDC_LSRCTRL_Layer1_VBR (1 << 1) /* VBR */
-#define LCDC_LSRCTRL_Layer1_IMR (1 << 0) /* IMR */
+#define LCDC_LSRCTRL_Layer1_MGR                 (1 << 2)    /* MGR */
+#define LCDC_LSRCTRL_Layer1_VBR                 (1 << 1)    /* VBR */
+#define LCDC_LSRCTRL_Layer1_IMR                 (1 << 0)    /* IMR */
 
 /******** Bit definition for LCDC_LCTRL_Layer1 register  ********/
-#define LCDC_LCTRL_Layer1_SEN (1 << 10) /* SEN */
-#define LCDC_LCTRL_Layer1_DCBEN (1 << 9) /* DCBEN */
-#define LCDC_LCTRL_Layer1_HMEN (1 << 8) /* HMEN */
-#define LCDC_LCTRL_Layer1_DVMD_SHIFT (6)
-#define LCDC_LCTRL_Layer1_DVMD_MASK (0x3 << LCDC_LCTRL_Layer1_DVMD_SHIFT) /* DVMD */
-#define LCDC_LCTRL_Layer1_CKREN (1 << 5) /* CKREN */
-#define LCDC_LCTRL_Layer1_CLUTEN (1 << 4) /* CLUTEN */
-#define LCDC_LCTRL_Layer1_HDEN (1 << 3) /* HDEN */
-#define LCDC_LCTRL_Layer1_VDEN (1 << 2) /* VDEN */
-#define LCDC_LCTRL_Layer1_CKEN (1 << 1) /* CKEN */
-#define LCDC_LCTRL_Layer1_LEN (1 << 0) /* LEN */
+#define LCDC_LCTRL_Layer1_SEN                   (1 << 10)   /* SEN */
+#define LCDC_LCTRL_Layer1_DCBEN                 (1 << 9)    /* DCBEN */
+#define LCDC_LCTRL_Layer1_HMEN                  (1 << 8)    /* HMEN */
+#define LCDC_LCTRL_Layer1_DVMD_SHIFT            (6)
+#define LCDC_LCTRL_Layer1_DVMD_MASK             (0x3 << \
+                                                 LCDC_LCTRL_Layer1_DVMD_SHIFT)  /*
+                                                                                 * DVMD
+                                                                                 */
+#define LCDC_LCTRL_Layer1_CKREN                 (1 << 5)                        /*
+                                                                                 * CKREN
+                                                                                 */
+#define LCDC_LCTRL_Layer1_CLUTEN                (1 << 4)                        /*
+                                                                                 * CLUTEN
+                                                                                 */
+#define LCDC_LCTRL_Layer1_HDEN                  (1 << 3)                        /*
+                                                                                 * HDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer1_VDEN                  (1 << 2)                        /*
+                                                                                 * VDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer1_CKEN                  (1 << 1)                        /*
+                                                                                 * CKEN
+                                                                                 */
+#define LCDC_LCTRL_Layer1_LEN                   (1 << 0)                        /*
+                                                                                 * LEN
+                                                                                 */
 
 /******** Bit definition for LCDC_WHPCTRL_Layer1 register  ********/
-#define LCDC_WHPCTRL_Layer1_WHSPPOS_SHIFT (16)
-#define LCDC_WHPCTRL_Layer1_WHSPPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer1_WHSPPOS_SHIFT) /* WHSPPOS */
-#define LCDC_WHPCTRL_Layer1_WHSTPOS_SHIFT (0)
-#define LCDC_WHPCTRL_Layer1_WHSTPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer1_WHSTPOS_SHIFT) /* WHSTPOS */
+#define LCDC_WHPCTRL_Layer1_WHSPPOS_SHIFT       (16)
+#define LCDC_WHPCTRL_Layer1_WHSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer1_WHSPPOS_SHIFT) \
+        /*
+         * WHSPPOS
+         */
+#define LCDC_WHPCTRL_Layer1_WHSTPOS_SHIFT       (0)
+#define LCDC_WHPCTRL_Layer1_WHSTPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer1_WHSTPOS_SHIFT) \
+        /*
+         * WHSTPOS
+         */
 
 /******** Bit definition for LCDC_WVPCTRL_Layer1 register  ********/
-#define LCDC_WVPCTRL_Layer1_WVSPPOS_SHIFT (16)
-#define LCDC_WVPCTRL_Layer1_WVSPPOS_MASK (0xFFFF << LCDC_WVPCTRL_Layer1_WVSPPOS_SHIFT) /* WVSPPOS */
-#define LCDC_WVPCTRL_Layer1_WVSTPOS__SHIFT (0)
-#define LCDC_WVPCTRL_Layer1_WVSTPOS__MASK (0xFFFF << LCDC_WVPCTRL_Layer1_WVSTPOS__SHIFT) /* WVSTPOS */
+#define LCDC_WVPCTRL_Layer1_WVSPPOS_SHIFT       (16)
+#define LCDC_WVPCTRL_Layer1_WVSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WVPCTRL_Layer1_WVSPPOS_SHIFT) \
+        /*
+         * WVSPPOS
+         */
+#define LCDC_WVPCTRL_Layer1_WVSTPOS__SHIFT      (0)
+#define LCDC_WVPCTRL_Layer1_WVSTPOS__MASK       (0xFFFF <<                           \
+                                                 LCDC_WVPCTRL_Layer1_WVSTPOS__SHIFT) \
+        /*
+         * WVSTPOS
+         */
 
 /******** Bit definition for LCDC_CKCTRL_Layer1 register  ********/
-#define LCDC_CKCTRL_Layer1_CKR_SHIFT (16)
-#define LCDC_CKCTRL_Layer1_CKR_MASK (0xFF << LCDC_CKCTRL_Layer1_CKR_SHIFT) /* CKR */
-#define LCDC_CKCTRL_Layer1_CKG_SHIFT (8)
-#define LCDC_CKCTRL_Layer1_CKG_MASK (0xFF << LCDC_CKCTRL_Layer1_CKG_SHIFT) /* CKG */
-#define LCDC_CKCTRL_Layer1_CKB_SHIFT (0)
-#define LCDC_CKCTRL_Layer1_CKB_MASK (0xFF << LCDC_CKCTRL_Layer1_CKB_SHIFT) /* CKB */
+#define LCDC_CKCTRL_Layer1_CKR_SHIFT            (16)
+#define LCDC_CKCTRL_Layer1_CKR_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer1_CKR_SHIFT) /*
+                                                                                *
+                                                                                * CKR
+                                                                                */
+#define LCDC_CKCTRL_Layer1_CKG_SHIFT            (8)
+#define LCDC_CKCTRL_Layer1_CKG_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer1_CKG_SHIFT) /*
+                                                                                *
+                                                                                * CKG
+                                                                                */
+#define LCDC_CKCTRL_Layer1_CKB_SHIFT            (0)
+#define LCDC_CKCTRL_Layer1_CKB_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer1_CKB_SHIFT) /*
+                                                                                *
+                                                                                * CKB
+                                                                                */
 
 /******** Bit definition for LCDC_PFCTRL_Layer1 register  ********/
-#define LCDC_PFCTRL_Layer1_PF_SHIFT (0)
-#define LCDC_PFCTRL_Layer1_PF_MASK (0x7 << LCDC_PFCTRL_Layer1_PF_SHIFT) /* PF */
+#define LCDC_PFCTRL_Layer1_PF_SHIFT             (0)
+#define LCDC_PFCTRL_Layer1_PF_MASK              (0x7 << \
+                                                 LCDC_PFCTRL_Layer1_PF_SHIFT) /*
+                                                                               * PF
+                                                                               */
 
 /******** Bit definition for LCDC_CACTRL_Layer1 register  ********/
-#define LCDC_CACTRL_Layer1_CA_SHIFT (0)
-#define LCDC_CACTRL_Layer1_CA_MASK (0xFF << LCDC_CACTRL_Layer1_CA_SHIFT) /* CA */
+#define LCDC_CACTRL_Layer1_CA_SHIFT             (0)
+#define LCDC_CACTRL_Layer1_CA_MASK              (0xFF << \
+                                                 LCDC_CACTRL_Layer1_CA_SHIFT) /*
+                                                                               * CA
+                                                                               */
 
 /******** Bit definition for LCDC_DCCTRL_Layer1 register  ********/
-#define LCDC_DCCTRL_Layer1_DCA_SHIFT (24)
-#define LCDC_DCCTRL_Layer1_DCA_MASK (0xFF << LCDC_DCCTRL_Layer1_DCA_SHIFT) /* DCA */
-#define LCDC_DCCTRL_Layer1_DCR_SHIFT (16)
-#define LCDC_DCCTRL_Layer1_DCR_MASK (0xFF << LCDC_DCCTRL_Layer1_DCR_SHIFT) /* DCR */
-#define LCDC_DCCTRL_Layer1_DCG_SHIFT (8)
-#define LCDC_DCCTRL_Layer1_DCG_MASK (0xFF << LCDC_DCCTRL_Layer1_DCG_SHIFT) /* DCG */
-#define LCDC_DCCTRL_Layer1_DCB_SHIFT (0)
-#define LCDC_DCCTRL_Layer1_DCB_MASK (0xFF << LCDC_DCCTRL_Layer1_DCB_SHIFT) /* DCB */
+#define LCDC_DCCTRL_Layer1_DCA_SHIFT            (24)
+#define LCDC_DCCTRL_Layer1_DCA_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer1_DCA_SHIFT) /*
+                                                                                *
+                                                                                * DCA
+                                                                                */
+#define LCDC_DCCTRL_Layer1_DCR_SHIFT            (16)
+#define LCDC_DCCTRL_Layer1_DCR_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer1_DCR_SHIFT) /*
+                                                                                *
+                                                                                * DCR
+                                                                                */
+#define LCDC_DCCTRL_Layer1_DCG_SHIFT            (8)
+#define LCDC_DCCTRL_Layer1_DCG_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer1_DCG_SHIFT) /*
+                                                                                *
+                                                                                * DCG
+                                                                                */
+#define LCDC_DCCTRL_Layer1_DCB_SHIFT            (0)
+#define LCDC_DCCTRL_Layer1_DCB_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer1_DCB_SHIFT) /*
+                                                                                *
+                                                                                * DCB
+                                                                                */
 
 /******** Bit definition for LCDC_BFCTRL_Layer1 register  ********/
-#define LCDC_BFCTRL_Layer1_LBOP_SHIFT (16)
-#define LCDC_BFCTRL_Layer1_LBOP_MASK (0xF << LCDC_BFCTRL_Layer1_LBOP_SHIFT) /* LBOP */
-#define LCDC_BFCTRL_Layer1_BF1_SHIFT (8)
-#define LCDC_BFCTRL_Layer1_BF1_MASK (0x7 << LCDC_BFCTRL_Layer1_BF1_SHIFT) /* BF1 */
-#define LCDC_BFCTRL_Layer1_BF2_SHIFT (0)
-#define LCDC_BFCTRL_Layer1_BF2_MASK (0x7 << LCDC_BFCTRL_Layer1_BF2_SHIFT) /* BF2 */
+#define LCDC_BFCTRL_Layer1_LBOP_SHIFT           (16)
+#define LCDC_BFCTRL_Layer1_LBOP_MASK            (0xF <<                         \
+                                                 LCDC_BFCTRL_Layer1_LBOP_SHIFT) \
+        /*
+         * LBOP
+         */
+#define LCDC_BFCTRL_Layer1_BF1_SHIFT            (8)
+#define LCDC_BFCTRL_Layer1_BF1_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer1_BF1_SHIFT) /*
+                                                                                *
+                                                                                * BF1
+                                                                                */
+#define LCDC_BFCTRL_Layer1_BF2_SHIFT            (0)
+#define LCDC_BFCTRL_Layer1_BF2_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer1_BF2_SHIFT) /*
+                                                                                *
+                                                                                * BF2
+                                                                                */
 
 /******** Bit definition for LCDC_AFBCTRL_Layer1 register  ********/
-#define LCDC_AFBCTRL_Layer1_YHEN (1 << 9) /* YHEN */
-#define LCDC_AFBCTRL_Layer1_YUVIMDO_SHIFT (6)
-#define LCDC_AFBCTRL_Layer1_YUVIMDO_MASK (0x7 << LCDC_AFBCTRL_Layer1_YUVIMDO_SHIFT) /* YUVIMDO */
-#define LCDC_AFBCTRL_Layer1_YUVMD_SHIFT (4)
-#define LCDC_AFBCTRL_Layer1_YUVMD_MASK (0x3 << LCDC_AFBCTRL_Layer1_YUVMD_SHIFT) /* YUVMD */
-#define LCDC_AFBCTRL_Layer1_YUVEN (1 << 3) /* YUVEN */
-#define LCDC_AFBCTRL_Layer1_HDEN (1 << 2) /* HDEN */
-#define LCDC_AFBCTRL_Layer1_VDEN (1 << 1) /* VDEN */
-#define LCDC_AFBCTRL_Layer1_APEN (1 << 0) /* APEN */
+#define LCDC_AFBCTRL_Layer1_YHEN                (1 << 9) /* YHEN */
+#define LCDC_AFBCTRL_Layer1_YUVIMDO_SHIFT       (6)
+#define LCDC_AFBCTRL_Layer1_YUVIMDO_MASK        (0x7 <<                             \
+                                                 LCDC_AFBCTRL_Layer1_YUVIMDO_SHIFT) \
+        /*
+         * YUVIMDO
+         */
+#define LCDC_AFBCTRL_Layer1_YUVMD_SHIFT         (4)
+#define LCDC_AFBCTRL_Layer1_YUVMD_MASK          (0x3 <<                           \
+                                                 LCDC_AFBCTRL_Layer1_YUVMD_SHIFT) \
+                                                            /* YUVMD */
+#define LCDC_AFBCTRL_Layer1_YUVEN               (1 << 3)    /* YUVEN */
+#define LCDC_AFBCTRL_Layer1_HDEN                (1 << 2)    /* HDEN */
+#define LCDC_AFBCTRL_Layer1_VDEN                (1 << 1)    /* VDEN */
+#define LCDC_AFBCTRL_Layer1_APEN                (1 << 0)    /* APEN */
 
 /******** Bit definition for LCDC_CFBADDR_Layer1 register  ********/
-#define LCDC_CFBADDR_Layer1_CFBADDR_SHIFT (0)
-#define LCDC_CFBADDR_Layer1_CFBADDR_MASK (0xFFFFFFFF << LCDC_CFBADDR_Layer1_CFBADDR_SHIFT) /* CFBADDR */
+#define LCDC_CFBADDR_Layer1_CFBADDR_SHIFT       (0)
+#define LCDC_CFBADDR_Layer1_CFBADDR_MASK        (0xFFFFFFFF <<                      \
+                                                 LCDC_CFBADDR_Layer1_CFBADDR_SHIFT) \
+        /*
+         * CFBADDR
+         */
 
 /******** Bit definition for LCDC_CFBLEN_Layer1 register  ********/
-#define LCDC_CFBLEN_Layer1_CFBP_SHIFT (16)
-#define LCDC_CFBLEN_Layer1_CFBP_MASK (0xFFFF << LCDC_CFBLEN_Layer1_CFBP_SHIFT) /* CFBP */
-#define LCDC_CFBLEN_Layer1_CFBLLEN_SHIFT (0)
-#define LCDC_CFBLEN_Layer1_CFBLLEN_MASK (0xFFFF << LCDC_CFBLEN_Layer1_CFBLLEN_SHIFT) /* CFBLLEN */
+#define LCDC_CFBLEN_Layer1_CFBP_SHIFT           (16)
+#define LCDC_CFBLEN_Layer1_CFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_CFBLEN_Layer1_CFBP_SHIFT) \
+        /*
+         * CFBP
+         */
+#define LCDC_CFBLEN_Layer1_CFBLLEN_SHIFT        (0)
+#define LCDC_CFBLEN_Layer1_CFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_CFBLEN_Layer1_CFBLLEN_SHIFT) \
+        /*
+         * CFBLLEN
+         */
 
 /******** Bit definition for LCDC_CFBLNUM_Layer1 register  ********/
-#define LCDC_CFBLNUM_Layer1_CFBLNUM_SHIFT (0)
-#define LCDC_CFBLNUM_Layer1_CFBLNUM_MASK (0xFFFF << LCDC_CFBLNUM_Layer1_CFBLNUM_SHIFT) /* CFBLNUM */
+#define LCDC_CFBLNUM_Layer1_CFBLNUM_SHIFT       (0)
+#define LCDC_CFBLNUM_Layer1_CFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_CFBLNUM_Layer1_CFBLNUM_SHIFT) \
+        /*
+         * CFBLNUM
+         */
 
 /******** Bit definition for LCDC_AFBADDR0_Layer1 register  ********/
-#define LCDC_AFBADDR0_Layer1_AFBADDR0_SHIFT (0)
-#define LCDC_AFBADDR0_Layer1_AFBADDR0_MASK (0xFFFFFFFF << LCDC_AFBADDR0_Layer1_AFBADDR0_SHIFT) /* AFBADDR0 */
+#define LCDC_AFBADDR0_Layer1_AFBADDR0_SHIFT     (0)
+#define LCDC_AFBADDR0_Layer1_AFBADDR0_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR0_Layer1_AFBADDR0_SHIFT) \
+        /*
+         * AFBADDR0
+         */
 
 /******** Bit definition for LCDC_AFBADDR1_Layer1 register  ********/
-#define LCDC_AFBADDR1_Layer1_AFBADDR1_SHIFT (0)
-#define LCDC_AFBADDR1_Layer1_AFBADDR1_MASK (0xFFFFFFFF << LCDC_AFBADDR1_Layer1_AFBADDR1_SHIFT) /* AFBADDR1 */
+#define LCDC_AFBADDR1_Layer1_AFBADDR1_SHIFT     (0)
+#define LCDC_AFBADDR1_Layer1_AFBADDR1_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR1_Layer1_AFBADDR1_SHIFT) \
+        /*
+         * AFBADDR1
+         */
 
 /******** Bit definition for LCDC_AFBLEN_Layer1 register  ********/
-#define LCDC_AFBLEN_Layer1_AFBP_SHIFT (16)
-#define LCDC_AFBLEN_Layer1_AFBP_MASK (0xFFFF << LCDC_AFBLEN_Layer1_AFBP_SHIFT) /* AFBP */
-#define LCDC_AFBLEN_Layer1_AFBLLEN_SHIFT (0)
-#define LCDC_AFBLEN_Layer1_AFBLLEN_MASK (0xFFFF << LCDC_AFBLEN_Layer1_AFBLLEN_SHIFT) /* AFBLLEN */
+#define LCDC_AFBLEN_Layer1_AFBP_SHIFT           (16)
+#define LCDC_AFBLEN_Layer1_AFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_AFBLEN_Layer1_AFBP_SHIFT) \
+        /*
+         * AFBP
+         */
+#define LCDC_AFBLEN_Layer1_AFBLLEN_SHIFT        (0)
+#define LCDC_AFBLEN_Layer1_AFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_AFBLEN_Layer1_AFBLLEN_SHIFT) \
+        /*
+         * AFBLLEN
+         */
 
 /******** Bit definition for LCDC_AFBLNUM_Layer1 register  ********/
-#define LCDC_AFBLNUM_Layer1_AFBLNUM_SHIFT (0)
-#define LCDC_AFBLNUM_Layer1_AFBLNUM_MASK (0xFFFF << LCDC_AFBLNUM_Layer1_AFBLNUM_SHIFT) /* AFBLNUM */
+#define LCDC_AFBLNUM_Layer1_AFBLNUM_SHIFT       (0)
+#define LCDC_AFBLNUM_Layer1_AFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_AFBLNUM_Layer1_AFBLNUM_SHIFT) \
+        /*
+         * AFBLNUM
+         */
 
 /******** Bit definition for LCDC_CLUTWR_Layer1 register  ********/
-#define LCDC_CLUTWR_Layer1_CLUTADDR_SHIFT (24)
-#define LCDC_CLUTWR_Layer1_CLUTADDR_MASK (0xFF << LCDC_CLUTWR_Layer1_CLUTADDR_SHIFT) /* CLUTADDR */
-#define LCDC_CLUTWR_Layer1_CLUTR_SHIFT (16)
-#define LCDC_CLUTWR_Layer1_CLUTR_MASK (0xFF << LCDC_CLUTWR_Layer1_CLUTR_SHIFT) /* CLUTR */
-#define LCDC_CLUTWR_Layer1_CLUTG_SHIFT (8)
-#define LCDC_CLUTWR_Layer1_CLUTG_MASK (0xFF << LCDC_CLUTWR_Layer1_CLUTG_SHIFT) /* CLUTG */
-#define LCDC_CLUTWR_Layer1_CLUTB_SHIFT (0)
-#define LCDC_CLUTWR_Layer1_CLUTB_MASK (0xFF << LCDC_CLUTWR_Layer1_CLUTB_SHIFT) /* CLUTB */
+#define LCDC_CLUTWR_Layer1_CLUTADDR_SHIFT       (24)
+#define LCDC_CLUTWR_Layer1_CLUTADDR_MASK        (0xFF <<                            \
+                                                 LCDC_CLUTWR_Layer1_CLUTADDR_SHIFT) \
+        /*
+         * CLUTADDR
+         */
+#define LCDC_CLUTWR_Layer1_CLUTR_SHIFT          (16)
+#define LCDC_CLUTWR_Layer1_CLUTR_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer1_CLUTR_SHIFT) \
+        /*
+         * CLUTR
+         */
+#define LCDC_CLUTWR_Layer1_CLUTG_SHIFT          (8)
+#define LCDC_CLUTWR_Layer1_CLUTG_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer1_CLUTG_SHIFT) \
+        /*
+         * CLUTG
+         */
+#define LCDC_CLUTWR_Layer1_CLUTB_SHIFT          (0)
+#define LCDC_CLUTWR_Layer1_CLUTB_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer1_CLUTB_SHIFT) \
+        /*
+         * CLUTB
+         */
 
 /******** Bit definition for LCDC_SINS_Layer1 register  ********/
-#define LCDC_SINS_Layer1_SINH_SHIFT (16)
-#define LCDC_SINS_Layer1_SINH_MASK (0xFFF << LCDC_SINS_Layer1_SINH_SHIFT) /* SINH */
-#define LCDC_SINS_Layer1_SINW_SHIFT (0)
-#define LCDC_SINS_Layer1_SINW_MASK (0xFFFF << LCDC_SINS_Layer1_SINW_SHIFT) /* SINW */
+#define LCDC_SINS_Layer1_SINH_SHIFT             (16)
+#define LCDC_SINS_Layer1_SINH_MASK              (0xFFF << \
+                                                 LCDC_SINS_Layer1_SINH_SHIFT) /*
+                                                                               *
+                                                                               * SINH
+                                                                               */
+#define LCDC_SINS_Layer1_SINW_SHIFT             (0)
+#define LCDC_SINS_Layer1_SINW_MASK              (0xFFFF << \
+                                                 LCDC_SINS_Layer1_SINW_SHIFT) /*
+                                                                               *
+                                                                               * SINW
+                                                                               */
 
 /******** Bit definition for LCDC_SOUTS_Layer1 register  ********/
-#define LCDC_SOUTS_Layer1_SOUTH_SHIFT (16)
-#define LCDC_SOUTS_Layer1_SOUTH_MASK (0xFFF << LCDC_SOUTS_Layer1_SOUTH_SHIFT) /* SOUTH */
-#define LCDC_SOUTS_Layer1_SOUTW_SHIFT (0)
-#define LCDC_SOUTS_Layer1_SOUTW_MASK (0xFFFF << LCDC_SOUTS_Layer1_SOUTW_SHIFT) /* SOUTW */
+#define LCDC_SOUTS_Layer1_SOUTH_SHIFT           (16)
+#define LCDC_SOUTS_Layer1_SOUTH_MASK            (0xFFF <<                       \
+                                                 LCDC_SOUTS_Layer1_SOUTH_SHIFT) \
+        /*
+         * SOUTH
+         */
+#define LCDC_SOUTS_Layer1_SOUTW_SHIFT           (0)
+#define LCDC_SOUTS_Layer1_SOUTW_MASK            (0xFFFF <<                      \
+                                                 LCDC_SOUTS_Layer1_SOUTW_SHIFT) \
+        /*
+         * SOUTW
+         */
 
 /******** Bit definition for LCDC_VSF_Layer1 register  ********/
-#define LCDC_VSF_Layer1_VSF_SHIFT (0)
-#define LCDC_VSF_Layer1_VSF_MASK (0xFFFF << LCDC_VSF_Layer1_VSF_SHIFT) /* VSF */
+#define LCDC_VSF_Layer1_VSF_SHIFT               (0)
+#define LCDC_VSF_Layer1_VSF_MASK                (0xFFFF << \
+                                                 LCDC_VSF_Layer1_VSF_SHIFT) /*
+                                                                             * VSF
+                                                                             */
 
 /******** Bit definition for LCDC_VSP_Layer1 register  ********/
-#define LCDC_VSP_Layer1_VSP_SHIFT (0)
-#define LCDC_VSP_Layer1_VSP_MASK (0xFFFF << LCDC_VSP_Layer1_VSP_SHIFT) /* VSP */
+#define LCDC_VSP_Layer1_VSP_SHIFT               (0)
+#define LCDC_VSP_Layer1_VSP_MASK                (0xFFFF << \
+                                                 LCDC_VSP_Layer1_VSP_SHIFT) /*
+                                                                             * VSP
+                                                                             */
 
 /******** Bit definition for LCDC_HSF_Layer1 register  ********/
-#define LCDC_HSF_Layer1_HSF_SHIFT (0)
-#define LCDC_HSF_Layer1_HSF_MASK (0xFFFF << LCDC_HSF_Layer1_HSF_SHIFT) /* HSF */
+#define LCDC_HSF_Layer1_HSF_SHIFT               (0)
+#define LCDC_HSF_Layer1_HSF_MASK                (0xFFFF << \
+                                                 LCDC_HSF_Layer1_HSF_SHIFT) /*
+                                                                             * HSF
+                                                                             */
 
 /******** Bit definition for LCDC_HSP_Layer1 register  ********/
-#define LCDC_HSP_Layer1_HSP_SHIFT (0)
-#define LCDC_HSP_Layer1_HSP_MASK (0xFFFF << LCDC_HSP_Layer1_HSP_SHIFT) /* HSP */
+#define LCDC_HSP_Layer1_HSP_SHIFT               (0)
+#define LCDC_HSP_Layer1_HSP_MASK                (0xFFFF << \
+                                                 LCDC_HSP_Layer1_HSP_SHIFT) /*
+                                                                             * HSP
+                                                                             */
 
 /******** Bit definition for LCDC_YUVS1_Layer1 register  ********/
-#define LCDC_YUVS1_Layer1_BUCS_SHIFT (16)
-#define LCDC_YUVS1_Layer1_BUCS_MASK (0x3FF << LCDC_YUVS1_Layer1_BUCS_SHIFT) /* BUCS */
-#define LCDC_YUVS1_Layer1_RVCS_SHIFT (0)
-#define LCDC_YUVS1_Layer1_RVCS_MASK (0x3FF << LCDC_YUVS1_Layer1_RVCS_SHIFT) /* RVCS */
+#define LCDC_YUVS1_Layer1_BUCS_SHIFT            (16)
+#define LCDC_YUVS1_Layer1_BUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer1_BUCS_SHIFT) /*
+                                                                                *
+                                                                                * BUCS
+                                                                                */
+#define LCDC_YUVS1_Layer1_RVCS_SHIFT            (0)
+#define LCDC_YUVS1_Layer1_RVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer1_RVCS_SHIFT) /*
+                                                                                *
+                                                                                * RVCS
+                                                                                */
 
 /******** Bit definition for LCDC_YUVS2_Layer1 register  ********/
-#define LCDC_YUVS2_Layer1_GUCS_SHIFT (16)
-#define LCDC_YUVS2_Layer1_GUCS_MASK (0x3FF << LCDC_YUVS2_Layer1_GUCS_SHIFT) /* GUCS */
-#define LCDC_YUVS2_Layer1_GVCS_SHIFT (0)
-#define LCDC_YUVS2_Layer1_GVCS_MASK (0x3FF << LCDC_YUVS2_Layer1_GVCS_SHIFT) /* GVCS */
+#define LCDC_YUVS2_Layer1_GUCS_SHIFT            (16)
+#define LCDC_YUVS2_Layer1_GUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer1_GUCS_SHIFT) /*
+                                                                                *
+                                                                                * GUCS
+                                                                                */
+#define LCDC_YUVS2_Layer1_GVCS_SHIFT            (0)
+#define LCDC_YUVS2_Layer1_GVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer1_GVCS_SHIFT) /*
+                                                                                *
+                                                                                * GVCS
+                                                                                */
 
 /******** Bit definition for LCDC_FCF1_Layer1 register  ********/
-#define LCDC_FCF1_Layer1_RLENB_SHIFT (14)
-#define LCDC_FCF1_Layer1_RLENB_MASK (0xF << LCDC_FCF1_Layer1_RLENB_SHIFT) /* RLENB */
-#define LCDC_FCF1_Layer1_RSB_SHIFT (9)
-#define LCDC_FCF1_Layer1_RSB_MASK (0x1F << LCDC_FCF1_Layer1_RSB_SHIFT) /* RSB */
-#define LCDC_FCF1_Layer1_ALENB_SHIFT (5)
-#define LCDC_FCF1_Layer1_ALENB_MASK (0xF << LCDC_FCF1_Layer1_ALENB_SHIFT) /* ALENB */
-#define LCDC_FCF1_Layer1_ASB_SHIFT (0)
-#define LCDC_FCF1_Layer1_ASB_MASK (0x1F << LCDC_FCF1_Layer1_ASB_SHIFT) /* ASB */
+#define LCDC_FCF1_Layer1_RLENB_SHIFT            (14)
+#define LCDC_FCF1_Layer1_RLENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer1_RLENB_SHIFT) /*
+                                                                                *
+                                                                                * RLENB
+                                                                                */
+#define LCDC_FCF1_Layer1_RSB_SHIFT              (9)
+#define LCDC_FCF1_Layer1_RSB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer1_RSB_SHIFT) /*
+                                                                              * RSB
+                                                                              */
+#define LCDC_FCF1_Layer1_ALENB_SHIFT            (5)
+#define LCDC_FCF1_Layer1_ALENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer1_ALENB_SHIFT) /*
+                                                                                *
+                                                                                * ALENB
+                                                                                */
+#define LCDC_FCF1_Layer1_ASB_SHIFT              (0)
+#define LCDC_FCF1_Layer1_ASB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer1_ASB_SHIFT) /*
+                                                                              * ASB
+                                                                              */
 
 /******** Bit definition for LCDC_FCF2_Layer1 register  ********/
-#define LCDC_FCF2_Layer1_BPP_SHIFT (18)
-#define LCDC_FCF2_Layer1_BPP_MASK (0x7 << LCDC_FCF2_Layer1_BPP_SHIFT) /* BPP */
-#define LCDC_FCF2_Layer1_BLENB_SHIFT (14)
-#define LCDC_FCF2_Layer1_BLENB_MASK (0xF << LCDC_FCF2_Layer1_BLENB_SHIFT) /* BLENB */
-#define LCDC_FCF2_Layer1_BSB_SHIFT (9)
-#define LCDC_FCF2_Layer1_BSB_MASK (0x1F << LCDC_FCF2_Layer1_BSB_SHIFT) /* BSB */
-#define LCDC_FCF2_Layer1_GLENB_SHIFT (5)
-#define LCDC_FCF2_Layer1_GLENB_MASK (0xF << LCDC_FCF2_Layer1_GLENB_SHIFT) /* GLENB */
-#define LCDC_FCF2_Layer1_GSB_SHIFT (0)
-#define LCDC_FCF2_Layer1_GSB_MASK (0x1F << LCDC_FCF2_Layer1_GSB_SHIFT) /* GSB */
+#define LCDC_FCF2_Layer1_BPP_SHIFT              (18)
+#define LCDC_FCF2_Layer1_BPP_MASK               (0x7 << \
+                                                 LCDC_FCF2_Layer1_BPP_SHIFT) /*
+                                                                              * BPP
+                                                                              */
+#define LCDC_FCF2_Layer1_BLENB_SHIFT            (14)
+#define LCDC_FCF2_Layer1_BLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer1_BLENB_SHIFT) /*
+                                                                                *
+                                                                                * BLENB
+                                                                                */
+#define LCDC_FCF2_Layer1_BSB_SHIFT              (9)
+#define LCDC_FCF2_Layer1_BSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer1_BSB_SHIFT) /*
+                                                                              * BSB
+                                                                              */
+#define LCDC_FCF2_Layer1_GLENB_SHIFT            (5)
+#define LCDC_FCF2_Layer1_GLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer1_GLENB_SHIFT) /*
+                                                                                *
+                                                                                * GLENB
+                                                                                */
+#define LCDC_FCF2_Layer1_GSB_SHIFT              (0)
+#define LCDC_FCF2_Layer1_GSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer1_GSB_SHIFT) /*
+                                                                              * GSB
+                                                                              */
 
 /******** Bit definition for LCDC_LSRCTRL_Layer2 register  ********/
-#define LCDC_LSRCTRL_Layer2_MGR (1 << 2) /* MGR */
-#define LCDC_LSRCTRL_Layer2_VBR (1 << 1) /* VBR */
-#define LCDC_LSRCTRL_Layer2_IMR (1 << 0) /* IMR */
+#define LCDC_LSRCTRL_Layer2_MGR                 (1 << 2)    /* MGR */
+#define LCDC_LSRCTRL_Layer2_VBR                 (1 << 1)    /* VBR */
+#define LCDC_LSRCTRL_Layer2_IMR                 (1 << 0)    /* IMR */
 
 /******** Bit definition for LCDC_LCTRL_Layer2 register  ********/
-#define LCDC_LCTRL_Layer2_SEN (1 << 10) /* SEN */
-#define LCDC_LCTRL_Layer2_DCBEN (1 << 9) /* DCBEN */
-#define LCDC_LCTRL_Layer2_HMEN (1 << 8) /* HMEN */
-#define LCDC_LCTRL_Layer2_DVMD_SHIFT (6)
-#define LCDC_LCTRL_Layer2_DVMD_MASK (0x3 << LCDC_LCTRL_Layer2_DVMD_SHIFT) /* DVMD */
-#define LCDC_LCTRL_Layer2_CKREN (1 << 5) /* CKREN */
-#define LCDC_LCTRL_Layer2_CLUTEN (1 << 4) /* CLUTEN */
-#define LCDC_LCTRL_Layer2_HDEN (1 << 3) /* HDEN */
-#define LCDC_LCTRL_Layer2_VDEN (1 << 2) /* VDEN */
-#define LCDC_LCTRL_Layer2_CKEN (1 << 1) /* CKEN */
-#define LCDC_LCTRL_Layer2_LEN (1 << 0) /* LEN */
+#define LCDC_LCTRL_Layer2_SEN                   (1 << 10)   /* SEN */
+#define LCDC_LCTRL_Layer2_DCBEN                 (1 << 9)    /* DCBEN */
+#define LCDC_LCTRL_Layer2_HMEN                  (1 << 8)    /* HMEN */
+#define LCDC_LCTRL_Layer2_DVMD_SHIFT            (6)
+#define LCDC_LCTRL_Layer2_DVMD_MASK             (0x3 << \
+                                                 LCDC_LCTRL_Layer2_DVMD_SHIFT)  /*
+                                                                                 * DVMD
+                                                                                 */
+#define LCDC_LCTRL_Layer2_CKREN                 (1 << 5)                        /*
+                                                                                 * CKREN
+                                                                                 */
+#define LCDC_LCTRL_Layer2_CLUTEN                (1 << 4)                        /*
+                                                                                 * CLUTEN
+                                                                                 */
+#define LCDC_LCTRL_Layer2_HDEN                  (1 << 3)                        /*
+                                                                                 * HDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer2_VDEN                  (1 << 2)                        /*
+                                                                                 * VDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer2_CKEN                  (1 << 1)                        /*
+                                                                                 * CKEN
+                                                                                 */
+#define LCDC_LCTRL_Layer2_LEN                   (1 << 0)                        /*
+                                                                                 * LEN
+                                                                                 */
 
 /******** Bit definition for LCDC_WHPCTRL_Layer2 register  ********/
-#define LCDC_WHPCTRL_Layer2_WHSPPOS_SHIFT (16)
-#define LCDC_WHPCTRL_Layer2_WHSPPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer2_WHSPPOS_SHIFT) /* WHSPPOS */
-#define LCDC_WHPCTRL_Layer2_WHSTPOS_SHIFT (0)
-#define LCDC_WHPCTRL_Layer2_WHSTPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer2_WHSTPOS_SHIFT) /* WHSTPOS */
+#define LCDC_WHPCTRL_Layer2_WHSPPOS_SHIFT       (16)
+#define LCDC_WHPCTRL_Layer2_WHSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer2_WHSPPOS_SHIFT) \
+        /*
+         * WHSPPOS
+         */
+#define LCDC_WHPCTRL_Layer2_WHSTPOS_SHIFT       (0)
+#define LCDC_WHPCTRL_Layer2_WHSTPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer2_WHSTPOS_SHIFT) \
+        /*
+         * WHSTPOS
+         */
 
 /******** Bit definition for LCDC_WVPCTRL_Layer2 register  ********/
-#define LCDC_WVPCTRL_Layer2_WVSPPOS_SHIFT (16)
-#define LCDC_WVPCTRL_Layer2_WVSPPOS_MASK (0xFFFF << LCDC_WVPCTRL_Layer2_WVSPPOS_SHIFT) /* WVSPPOS */
-#define LCDC_WVPCTRL_Layer2_WVSTPOS__SHIFT (0)
-#define LCDC_WVPCTRL_Layer2_WVSTPOS__MASK (0xFFFF << LCDC_WVPCTRL_Layer2_WVSTPOS__SHIFT) /* WVSTPOS */
+#define LCDC_WVPCTRL_Layer2_WVSPPOS_SHIFT       (16)
+#define LCDC_WVPCTRL_Layer2_WVSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WVPCTRL_Layer2_WVSPPOS_SHIFT) \
+        /*
+         * WVSPPOS
+         */
+#define LCDC_WVPCTRL_Layer2_WVSTPOS__SHIFT      (0)
+#define LCDC_WVPCTRL_Layer2_WVSTPOS__MASK       (0xFFFF <<                           \
+                                                 LCDC_WVPCTRL_Layer2_WVSTPOS__SHIFT) \
+        /*
+         * WVSTPOS
+         */
 
 /******** Bit definition for LCDC_CKCTRL_Layer2 register  ********/
-#define LCDC_CKCTRL_Layer2_CKR_SHIFT (16)
-#define LCDC_CKCTRL_Layer2_CKR_MASK (0xFF << LCDC_CKCTRL_Layer2_CKR_SHIFT) /* CKR */
-#define LCDC_CKCTRL_Layer2_CKG_SHIFT (8)
-#define LCDC_CKCTRL_Layer2_CKG_MASK (0xFF << LCDC_CKCTRL_Layer2_CKG_SHIFT) /* CKG */
-#define LCDC_CKCTRL_Layer2_CKB_SHIFT (0)
-#define LCDC_CKCTRL_Layer2_CKB_MASK (0xFF << LCDC_CKCTRL_Layer2_CKB_SHIFT) /* CKB */
+#define LCDC_CKCTRL_Layer2_CKR_SHIFT            (16)
+#define LCDC_CKCTRL_Layer2_CKR_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer2_CKR_SHIFT) /*
+                                                                                *
+                                                                                * CKR
+                                                                                */
+#define LCDC_CKCTRL_Layer2_CKG_SHIFT            (8)
+#define LCDC_CKCTRL_Layer2_CKG_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer2_CKG_SHIFT) /*
+                                                                                *
+                                                                                * CKG
+                                                                                */
+#define LCDC_CKCTRL_Layer2_CKB_SHIFT            (0)
+#define LCDC_CKCTRL_Layer2_CKB_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer2_CKB_SHIFT) /*
+                                                                                *
+                                                                                * CKB
+                                                                                */
 
 /******** Bit definition for LCDC_PFCTRL_Layer2 register  ********/
-#define LCDC_PFCTRL_Layer2_PF_SHIFT (0)
-#define LCDC_PFCTRL_Layer2_PF_MASK (0x7 << LCDC_PFCTRL_Layer2_PF_SHIFT) /* PF */
+#define LCDC_PFCTRL_Layer2_PF_SHIFT             (0)
+#define LCDC_PFCTRL_Layer2_PF_MASK              (0x7 << \
+                                                 LCDC_PFCTRL_Layer2_PF_SHIFT) /*
+                                                                               * PF
+                                                                               */
 
 /******** Bit definition for LCDC_CACTRL_Layer2 register  ********/
-#define LCDC_CACTRL_Layer2_CA_SHIFT (0)
-#define LCDC_CACTRL_Layer2_CA_MASK (0xFF << LCDC_CACTRL_Layer2_CA_SHIFT) /* CA */
+#define LCDC_CACTRL_Layer2_CA_SHIFT             (0)
+#define LCDC_CACTRL_Layer2_CA_MASK              (0xFF << \
+                                                 LCDC_CACTRL_Layer2_CA_SHIFT) /*
+                                                                               * CA
+                                                                               */
 
 /******** Bit definition for LCDC_DCCTRL_Layer2 register  ********/
-#define LCDC_DCCTRL_Layer2_DCA_SHIFT (24)
-#define LCDC_DCCTRL_Layer2_DCA_MASK (0xFF << LCDC_DCCTRL_Layer2_DCA_SHIFT) /* DCA */
-#define LCDC_DCCTRL_Layer2_DCR_SHIFT (16)
-#define LCDC_DCCTRL_Layer2_DCR_MASK (0xFF << LCDC_DCCTRL_Layer2_DCR_SHIFT) /* DCR */
-#define LCDC_DCCTRL_Layer2_DCG_SHIFT (8)
-#define LCDC_DCCTRL_Layer2_DCG_MASK (0xFF << LCDC_DCCTRL_Layer2_DCG_SHIFT) /* DCG */
-#define LCDC_DCCTRL_Layer2_DCB_SHIFT (0)
-#define LCDC_DCCTRL_Layer2_DCB_MASK (0xFF << LCDC_DCCTRL_Layer2_DCB_SHIFT) /* DCB */
+#define LCDC_DCCTRL_Layer2_DCA_SHIFT            (24)
+#define LCDC_DCCTRL_Layer2_DCA_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer2_DCA_SHIFT) /*
+                                                                                *
+                                                                                * DCA
+                                                                                */
+#define LCDC_DCCTRL_Layer2_DCR_SHIFT            (16)
+#define LCDC_DCCTRL_Layer2_DCR_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer2_DCR_SHIFT) /*
+                                                                                *
+                                                                                * DCR
+                                                                                */
+#define LCDC_DCCTRL_Layer2_DCG_SHIFT            (8)
+#define LCDC_DCCTRL_Layer2_DCG_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer2_DCG_SHIFT) /*
+                                                                                *
+                                                                                * DCG
+                                                                                */
+#define LCDC_DCCTRL_Layer2_DCB_SHIFT            (0)
+#define LCDC_DCCTRL_Layer2_DCB_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer2_DCB_SHIFT) /*
+                                                                                *
+                                                                                * DCB
+                                                                                */
 
 /******** Bit definition for LCDC_BFCTRL_Layer2 register  ********/
-#define LCDC_BFCTRL_Layer2_LBOP_SHIFT (16)
-#define LCDC_BFCTRL_Layer2_LBOP_MASK (0xF << LCDC_BFCTRL_Layer2_LBOP_SHIFT) /* LBOP */
-#define LCDC_BFCTRL_Layer2_BF1_SHIFT (8)
-#define LCDC_BFCTRL_Layer2_BF1_MASK (0x7 << LCDC_BFCTRL_Layer2_BF1_SHIFT) /* BF1 */
-#define LCDC_BFCTRL_Layer2_BF2_SHIFT (0)
-#define LCDC_BFCTRL_Layer2_BF2_MASK (0x7 << LCDC_BFCTRL_Layer2_BF2_SHIFT) /* BF2 */
+#define LCDC_BFCTRL_Layer2_LBOP_SHIFT           (16)
+#define LCDC_BFCTRL_Layer2_LBOP_MASK            (0xF <<                         \
+                                                 LCDC_BFCTRL_Layer2_LBOP_SHIFT) \
+        /*
+         * LBOP
+         */
+#define LCDC_BFCTRL_Layer2_BF1_SHIFT            (8)
+#define LCDC_BFCTRL_Layer2_BF1_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer2_BF1_SHIFT) /*
+                                                                                *
+                                                                                * BF1
+                                                                                */
+#define LCDC_BFCTRL_Layer2_BF2_SHIFT            (0)
+#define LCDC_BFCTRL_Layer2_BF2_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer2_BF2_SHIFT) /*
+                                                                                *
+                                                                                * BF2
+                                                                                */
 
 /******** Bit definition for LCDC_AFBCTRL_Layer2 register  ********/
-#define LCDC_AFBCTRL_Layer2_YHEN (1 << 9) /* YHEN */
-#define LCDC_AFBCTRL_Layer2_YUVIMDO_SHIFT (6)
-#define LCDC_AFBCTRL_Layer2_YUVIMDO_MASK (0x7 << LCDC_AFBCTRL_Layer2_YUVIMDO_SHIFT) /* YUVIMDO */
-#define LCDC_AFBCTRL_Layer2_YUVMD_SHIFT (4)
-#define LCDC_AFBCTRL_Layer2_YUVMD_MASK (0x3 << LCDC_AFBCTRL_Layer2_YUVMD_SHIFT) /* YUVMD */
-#define LCDC_AFBCTRL_Layer2_YUVEN (1 << 3) /* YUVEN */
-#define LCDC_AFBCTRL_Layer2_HDEN (1 << 2) /* HDEN */
-#define LCDC_AFBCTRL_Layer2_VDEN (1 << 1) /* VDEN */
-#define LCDC_AFBCTRL_Layer2_APEN (1 << 0) /* APEN */
+#define LCDC_AFBCTRL_Layer2_YHEN                (1 << 9) /* YHEN */
+#define LCDC_AFBCTRL_Layer2_YUVIMDO_SHIFT       (6)
+#define LCDC_AFBCTRL_Layer2_YUVIMDO_MASK        (0x7 <<                             \
+                                                 LCDC_AFBCTRL_Layer2_YUVIMDO_SHIFT) \
+        /*
+         * YUVIMDO
+         */
+#define LCDC_AFBCTRL_Layer2_YUVMD_SHIFT         (4)
+#define LCDC_AFBCTRL_Layer2_YUVMD_MASK          (0x3 <<                           \
+                                                 LCDC_AFBCTRL_Layer2_YUVMD_SHIFT) \
+                                                            /* YUVMD */
+#define LCDC_AFBCTRL_Layer2_YUVEN               (1 << 3)    /* YUVEN */
+#define LCDC_AFBCTRL_Layer2_HDEN                (1 << 2)    /* HDEN */
+#define LCDC_AFBCTRL_Layer2_VDEN                (1 << 1)    /* VDEN */
+#define LCDC_AFBCTRL_Layer2_APEN                (1 << 0)    /* APEN */
 
 /******** Bit definition for LCDC_CFBADDR_Layer2 register  ********/
-#define LCDC_CFBADDR_Layer2_CFBADDR_SHIFT (0)
-#define LCDC_CFBADDR_Layer2_CFBADDR_MASK (0xFFFFFFFF << LCDC_CFBADDR_Layer2_CFBADDR_SHIFT) /* CFBADDR */
+#define LCDC_CFBADDR_Layer2_CFBADDR_SHIFT       (0)
+#define LCDC_CFBADDR_Layer2_CFBADDR_MASK        (0xFFFFFFFF <<                      \
+                                                 LCDC_CFBADDR_Layer2_CFBADDR_SHIFT) \
+        /*
+         * CFBADDR
+         */
 
 /******** Bit definition for LCDC_CFBLEN_Layer2 register  ********/
-#define LCDC_CFBLEN_Layer2_CFBP_SHIFT (16)
-#define LCDC_CFBLEN_Layer2_CFBP_MASK (0xFFFF << LCDC_CFBLEN_Layer2_CFBP_SHIFT) /* CFBP */
-#define LCDC_CFBLEN_Layer2_CFBLLEN_SHIFT (0)
-#define LCDC_CFBLEN_Layer2_CFBLLEN_MASK (0xFFFF << LCDC_CFBLEN_Layer2_CFBLLEN_SHIFT) /* CFBLLEN */
+#define LCDC_CFBLEN_Layer2_CFBP_SHIFT           (16)
+#define LCDC_CFBLEN_Layer2_CFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_CFBLEN_Layer2_CFBP_SHIFT) \
+        /*
+         * CFBP
+         */
+#define LCDC_CFBLEN_Layer2_CFBLLEN_SHIFT        (0)
+#define LCDC_CFBLEN_Layer2_CFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_CFBLEN_Layer2_CFBLLEN_SHIFT) \
+        /*
+         * CFBLLEN
+         */
 
 /******** Bit definition for LCDC_CFBLNUM_Layer2 register  ********/
-#define LCDC_CFBLNUM_Layer2_CFBLNUM_SHIFT (0)
-#define LCDC_CFBLNUM_Layer2_CFBLNUM_MASK (0xFFFF << LCDC_CFBLNUM_Layer2_CFBLNUM_SHIFT) /* CFBLNUM */
+#define LCDC_CFBLNUM_Layer2_CFBLNUM_SHIFT       (0)
+#define LCDC_CFBLNUM_Layer2_CFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_CFBLNUM_Layer2_CFBLNUM_SHIFT) \
+        /*
+         * CFBLNUM
+         */
 
 /******** Bit definition for LCDC_AFBADDR0_Layer2 register  ********/
-#define LCDC_AFBADDR0_Layer2_AFBADDR0_SHIFT (0)
-#define LCDC_AFBADDR0_Layer2_AFBADDR0_MASK (0xFFFFFFFF << LCDC_AFBADDR0_Layer2_AFBADDR0_SHIFT) /* AFBADDR0 */
+#define LCDC_AFBADDR0_Layer2_AFBADDR0_SHIFT     (0)
+#define LCDC_AFBADDR0_Layer2_AFBADDR0_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR0_Layer2_AFBADDR0_SHIFT) \
+        /*
+         * AFBADDR0
+         */
 
 /******** Bit definition for LCDC_AFBADDR1_Layer2 register  ********/
-#define LCDC_AFBADDR1_Layer2_AFBADDR1_SHIFT (0)
-#define LCDC_AFBADDR1_Layer2_AFBADDR1_MASK (0xFFFFFFFF << LCDC_AFBADDR1_Layer2_AFBADDR1_SHIFT) /* AFBADDR1 */
+#define LCDC_AFBADDR1_Layer2_AFBADDR1_SHIFT     (0)
+#define LCDC_AFBADDR1_Layer2_AFBADDR1_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR1_Layer2_AFBADDR1_SHIFT) \
+        /*
+         * AFBADDR1
+         */
 
 /******** Bit definition for LCDC_AFBLEN_Layer2 register  ********/
-#define LCDC_AFBLEN_Layer2_AFBP_SHIFT (16)
-#define LCDC_AFBLEN_Layer2_AFBP_MASK (0xFFFF << LCDC_AFBLEN_Layer2_AFBP_SHIFT) /* AFBP */
-#define LCDC_AFBLEN_Layer2_AFBLLEN_SHIFT (0)
-#define LCDC_AFBLEN_Layer2_AFBLLEN_MASK (0xFFFF << LCDC_AFBLEN_Layer2_AFBLLEN_SHIFT) /* AFBLLEN */
+#define LCDC_AFBLEN_Layer2_AFBP_SHIFT           (16)
+#define LCDC_AFBLEN_Layer2_AFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_AFBLEN_Layer2_AFBP_SHIFT) \
+        /*
+         * AFBP
+         */
+#define LCDC_AFBLEN_Layer2_AFBLLEN_SHIFT        (0)
+#define LCDC_AFBLEN_Layer2_AFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_AFBLEN_Layer2_AFBLLEN_SHIFT) \
+        /*
+         * AFBLLEN
+         */
 
 /******** Bit definition for LCDC_AFBLNUM_Layer2 register  ********/
-#define LCDC_AFBLNUM_Layer2_AFBLNUM_SHIFT (0)
-#define LCDC_AFBLNUM_Layer2_AFBLNUM_MASK (0xFFFF << LCDC_AFBLNUM_Layer2_AFBLNUM_SHIFT) /* AFBLNUM */
+#define LCDC_AFBLNUM_Layer2_AFBLNUM_SHIFT       (0)
+#define LCDC_AFBLNUM_Layer2_AFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_AFBLNUM_Layer2_AFBLNUM_SHIFT) \
+        /*
+         * AFBLNUM
+         */
 
 /******** Bit definition for LCDC_CLUTWR_Layer2 register  ********/
-#define LCDC_CLUTWR_Layer2_CLUTADDR_SHIFT (24)
-#define LCDC_CLUTWR_Layer2_CLUTADDR_MASK (0xFF << LCDC_CLUTWR_Layer2_CLUTADDR_SHIFT) /* CLUTADDR */
-#define LCDC_CLUTWR_Layer2_CLUTR_SHIFT (16)
-#define LCDC_CLUTWR_Layer2_CLUTR_MASK (0xFF << LCDC_CLUTWR_Layer2_CLUTR_SHIFT) /* CLUTR */
-#define LCDC_CLUTWR_Layer2_CLUTG_SHIFT (8)
-#define LCDC_CLUTWR_Layer2_CLUTG_MASK (0xFF << LCDC_CLUTWR_Layer2_CLUTG_SHIFT) /* CLUTG */
-#define LCDC_CLUTWR_Layer2_CLUTB_SHIFT (0)
-#define LCDC_CLUTWR_Layer2_CLUTB_MASK (0xFF << LCDC_CLUTWR_Layer2_CLUTB_SHIFT) /* CLUTB */
+#define LCDC_CLUTWR_Layer2_CLUTADDR_SHIFT       (24)
+#define LCDC_CLUTWR_Layer2_CLUTADDR_MASK        (0xFF <<                            \
+                                                 LCDC_CLUTWR_Layer2_CLUTADDR_SHIFT) \
+        /*
+         * CLUTADDR
+         */
+#define LCDC_CLUTWR_Layer2_CLUTR_SHIFT          (16)
+#define LCDC_CLUTWR_Layer2_CLUTR_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer2_CLUTR_SHIFT) \
+        /*
+         * CLUTR
+         */
+#define LCDC_CLUTWR_Layer2_CLUTG_SHIFT          (8)
+#define LCDC_CLUTWR_Layer2_CLUTG_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer2_CLUTG_SHIFT) \
+        /*
+         * CLUTG
+         */
+#define LCDC_CLUTWR_Layer2_CLUTB_SHIFT          (0)
+#define LCDC_CLUTWR_Layer2_CLUTB_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer2_CLUTB_SHIFT) \
+        /*
+         * CLUTB
+         */
 
 /******** Bit definition for LCDC_SINS_Layer2 register  ********/
-#define LCDC_SINS_Layer2_SINH_SHIFT (16)
-#define LCDC_SINS_Layer2_SINH_MASK (0xFFF << LCDC_SINS_Layer2_SINH_SHIFT) /* SINH */
-#define LCDC_SINS_Layer2_SINW_SHIFT (0)
-#define LCDC_SINS_Layer2_SINW_MASK (0xFFFF << LCDC_SINS_Layer2_SINW_SHIFT) /* SINW */
+#define LCDC_SINS_Layer2_SINH_SHIFT             (16)
+#define LCDC_SINS_Layer2_SINH_MASK              (0xFFF << \
+                                                 LCDC_SINS_Layer2_SINH_SHIFT) /*
+                                                                               *
+                                                                               * SINH
+                                                                               */
+#define LCDC_SINS_Layer2_SINW_SHIFT             (0)
+#define LCDC_SINS_Layer2_SINW_MASK              (0xFFFF << \
+                                                 LCDC_SINS_Layer2_SINW_SHIFT) /*
+                                                                               *
+                                                                               * SINW
+                                                                               */
 
 /******** Bit definition for LCDC_SOUTS_Layer2 register  ********/
-#define LCDC_SOUTS_Layer2_SOUTH_SHIFT (16)
-#define LCDC_SOUTS_Layer2_SOUTH_MASK (0xFFF << LCDC_SOUTS_Layer2_SOUTH_SHIFT) /* SOUTH */
-#define LCDC_SOUTS_Layer2_SOUTW_SHIFT (0)
-#define LCDC_SOUTS_Layer2_SOUTW_MASK (0xFFFF << LCDC_SOUTS_Layer2_SOUTW_SHIFT) /* SOUTW */
+#define LCDC_SOUTS_Layer2_SOUTH_SHIFT           (16)
+#define LCDC_SOUTS_Layer2_SOUTH_MASK            (0xFFF <<                       \
+                                                 LCDC_SOUTS_Layer2_SOUTH_SHIFT) \
+        /*
+         * SOUTH
+         */
+#define LCDC_SOUTS_Layer2_SOUTW_SHIFT           (0)
+#define LCDC_SOUTS_Layer2_SOUTW_MASK            (0xFFFF <<                      \
+                                                 LCDC_SOUTS_Layer2_SOUTW_SHIFT) \
+        /*
+         * SOUTW
+         */
 
 /******** Bit definition for LCDC_VSF_Layer2 register  ********/
-#define LCDC_VSF_Layer2_VSF_SHIFT (0)
-#define LCDC_VSF_Layer2_VSF_MASK (0xFFFF << LCDC_VSF_Layer2_VSF_SHIFT) /* VSF */
+#define LCDC_VSF_Layer2_VSF_SHIFT               (0)
+#define LCDC_VSF_Layer2_VSF_MASK                (0xFFFF << \
+                                                 LCDC_VSF_Layer2_VSF_SHIFT) /*
+                                                                             * VSF
+                                                                             */
 
 /******** Bit definition for LCDC_VSP_Layer2 register  ********/
-#define LCDC_VSP_Layer2_VSP_SHIFT (0)
-#define LCDC_VSP_Layer2_VSP_MASK (0xFFFF << LCDC_VSP_Layer2_VSP_SHIFT) /* VSP */
+#define LCDC_VSP_Layer2_VSP_SHIFT               (0)
+#define LCDC_VSP_Layer2_VSP_MASK                (0xFFFF << \
+                                                 LCDC_VSP_Layer2_VSP_SHIFT) /*
+                                                                             * VSP
+                                                                             */
 
 /******** Bit definition for LCDC_HSF_Layer2 register  ********/
-#define LCDC_HSF_Layer2_HSF_SHIFT (0)
-#define LCDC_HSF_Layer2_HSF_MASK (0xFFFF << LCDC_HSF_Layer2_HSF_SHIFT) /* HSF */
+#define LCDC_HSF_Layer2_HSF_SHIFT               (0)
+#define LCDC_HSF_Layer2_HSF_MASK                (0xFFFF << \
+                                                 LCDC_HSF_Layer2_HSF_SHIFT) /*
+                                                                             * HSF
+                                                                             */
 
 /******** Bit definition for LCDC_HSP_Layer2 register  ********/
-#define LCDC_HSP_Layer2_HSP_SHIFT (0)
-#define LCDC_HSP_Layer2_HSP_MASK (0xFFFF << LCDC_HSP_Layer2_HSP_SHIFT) /* HSP */
+#define LCDC_HSP_Layer2_HSP_SHIFT               (0)
+#define LCDC_HSP_Layer2_HSP_MASK                (0xFFFF << \
+                                                 LCDC_HSP_Layer2_HSP_SHIFT) /*
+                                                                             * HSP
+                                                                             */
 
 /******** Bit definition for LCDC_YUVS1_Layer2 register  ********/
-#define LCDC_YUVS1_Layer2_BUCS_SHIFT (16)
-#define LCDC_YUVS1_Layer2_BUCS_MASK (0x3FF << LCDC_YUVS1_Layer2_BUCS_SHIFT) /* BUCS */
-#define LCDC_YUVS1_Layer2_RVCS_SHIFT (0)
-#define LCDC_YUVS1_Layer2_RVCS_MASK (0x3FF << LCDC_YUVS1_Layer2_RVCS_SHIFT) /* RVCS */
+#define LCDC_YUVS1_Layer2_BUCS_SHIFT            (16)
+#define LCDC_YUVS1_Layer2_BUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer2_BUCS_SHIFT) /*
+                                                                                *
+                                                                                * BUCS
+                                                                                */
+#define LCDC_YUVS1_Layer2_RVCS_SHIFT            (0)
+#define LCDC_YUVS1_Layer2_RVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer2_RVCS_SHIFT) /*
+                                                                                *
+                                                                                * RVCS
+                                                                                */
 
 /******** Bit definition for LCDC_YUVS2_Layer2 register  ********/
-#define LCDC_YUVS2_Layer2_GUCS_SHIFT (16)
-#define LCDC_YUVS2_Layer2_GUCS_MASK (0x3FF << LCDC_YUVS2_Layer2_GUCS_SHIFT) /* GUCS */
-#define LCDC_YUVS2_Layer2_GVCS_SHIFT (0)
-#define LCDC_YUVS2_Layer2_GVCS_MASK (0x3FF << LCDC_YUVS2_Layer2_GVCS_SHIFT) /* GVCS */
+#define LCDC_YUVS2_Layer2_GUCS_SHIFT            (16)
+#define LCDC_YUVS2_Layer2_GUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer2_GUCS_SHIFT) /*
+                                                                                *
+                                                                                * GUCS
+                                                                                */
+#define LCDC_YUVS2_Layer2_GVCS_SHIFT            (0)
+#define LCDC_YUVS2_Layer2_GVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer2_GVCS_SHIFT) /*
+                                                                                *
+                                                                                * GVCS
+                                                                                */
 
 /******** Bit definition for LCDC_FCF1_Layer2 register  ********/
-#define LCDC_FCF1_Layer2_RLENB_SHIFT (14)
-#define LCDC_FCF1_Layer2_RLENB_MASK (0xF << LCDC_FCF1_Layer2_RLENB_SHIFT) /* RLENB */
-#define LCDC_FCF1_Layer2_RSB_SHIFT (9)
-#define LCDC_FCF1_Layer2_RSB_MASK (0x1F << LCDC_FCF1_Layer2_RSB_SHIFT) /* RSB */
-#define LCDC_FCF1_Layer2_ALENB_SHIFT (5)
-#define LCDC_FCF1_Layer2_ALENB_MASK (0xF << LCDC_FCF1_Layer2_ALENB_SHIFT) /* ALENB */
-#define LCDC_FCF1_Layer2_ASB_SHIFT (0)
-#define LCDC_FCF1_Layer2_ASB_MASK (0x1F << LCDC_FCF1_Layer2_ASB_SHIFT) /* ASB */
+#define LCDC_FCF1_Layer2_RLENB_SHIFT            (14)
+#define LCDC_FCF1_Layer2_RLENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer2_RLENB_SHIFT) /*
+                                                                                *
+                                                                                * RLENB
+                                                                                */
+#define LCDC_FCF1_Layer2_RSB_SHIFT              (9)
+#define LCDC_FCF1_Layer2_RSB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer2_RSB_SHIFT) /*
+                                                                              * RSB
+                                                                              */
+#define LCDC_FCF1_Layer2_ALENB_SHIFT            (5)
+#define LCDC_FCF1_Layer2_ALENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer2_ALENB_SHIFT) /*
+                                                                                *
+                                                                                * ALENB
+                                                                                */
+#define LCDC_FCF1_Layer2_ASB_SHIFT              (0)
+#define LCDC_FCF1_Layer2_ASB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer2_ASB_SHIFT) /*
+                                                                              * ASB
+                                                                              */
 
 /******** Bit definition for LCDC_FCF2_Layer2 register  ********/
-#define LCDC_FCF2_Layer2_BPP_SHIFT (18)
-#define LCDC_FCF2_Layer2_BPP_MASK (0x7 << LCDC_FCF2_Layer2_BPP_SHIFT) /* BPP */
-#define LCDC_FCF2_Layer2_BLENB_SHIFT (14)
-#define LCDC_FCF2_Layer2_BLENB_MASK (0xF << LCDC_FCF2_Layer2_BLENB_SHIFT) /* BLENB */
-#define LCDC_FCF2_Layer2_BSB_SHIFT (9)
-#define LCDC_FCF2_Layer2_BSB_MASK (0x1F << LCDC_FCF2_Layer2_BSB_SHIFT) /* BSB */
-#define LCDC_FCF2_Layer2_GLENB_SHIFT (5)
-#define LCDC_FCF2_Layer2_GLENB_MASK (0xF << LCDC_FCF2_Layer2_GLENB_SHIFT) /* GLENB */
-#define LCDC_FCF2_Layer2_GSB_SHIFT (0)
-#define LCDC_FCF2_Layer2_GSB_MASK (0x1F << LCDC_FCF2_Layer2_GSB_SHIFT) /* GSB */
+#define LCDC_FCF2_Layer2_BPP_SHIFT              (18)
+#define LCDC_FCF2_Layer2_BPP_MASK               (0x7 << \
+                                                 LCDC_FCF2_Layer2_BPP_SHIFT) /*
+                                                                              * BPP
+                                                                              */
+#define LCDC_FCF2_Layer2_BLENB_SHIFT            (14)
+#define LCDC_FCF2_Layer2_BLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer2_BLENB_SHIFT) /*
+                                                                                *
+                                                                                * BLENB
+                                                                                */
+#define LCDC_FCF2_Layer2_BSB_SHIFT              (9)
+#define LCDC_FCF2_Layer2_BSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer2_BSB_SHIFT) /*
+                                                                              * BSB
+                                                                              */
+#define LCDC_FCF2_Layer2_GLENB_SHIFT            (5)
+#define LCDC_FCF2_Layer2_GLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer2_GLENB_SHIFT) /*
+                                                                                *
+                                                                                * GLENB
+                                                                                */
+#define LCDC_FCF2_Layer2_GSB_SHIFT              (0)
+#define LCDC_FCF2_Layer2_GSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer2_GSB_SHIFT) /*
+                                                                              * GSB
+                                                                              */
 
 /******** Bit definition for LCDC_LSRCTRL_Layer3 register  ********/
-#define LCDC_LSRCTRL_Layer3_MGR (1 << 2) /* MGR */
-#define LCDC_LSRCTRL_Layer3_VBR (1 << 1) /* VBR */
-#define LCDC_LSRCTRL_Layer3_IMR (1 << 0) /* IMR */
+#define LCDC_LSRCTRL_Layer3_MGR                 (1 << 2)    /* MGR */
+#define LCDC_LSRCTRL_Layer3_VBR                 (1 << 1)    /* VBR */
+#define LCDC_LSRCTRL_Layer3_IMR                 (1 << 0)    /* IMR */
 
 /******** Bit definition for LCDC_LCTRL_Layer3 register  ********/
-#define LCDC_LCTRL_Layer3_SEN (1 << 10) /* SEN */
-#define LCDC_LCTRL_Layer3_DCBEN (1 << 9) /* DCBEN */
-#define LCDC_LCTRL_Layer3_HMEN (1 << 8) /* HMEN */
-#define LCDC_LCTRL_Layer3_DVMD_SHIFT (6)
-#define LCDC_LCTRL_Layer3_DVMD_MASK (0x3 << LCDC_LCTRL_Layer3_DVMD_SHIFT) /* DVMD */
-#define LCDC_LCTRL_Layer3_CKREN (1 << 5) /* CKREN */
-#define LCDC_LCTRL_Layer3_CLUTEN (1 << 4) /* CLUTEN */
-#define LCDC_LCTRL_Layer3_HDEN (1 << 3) /* HDEN */
-#define LCDC_LCTRL_Layer3_VDEN (1 << 2) /* VDEN */
-#define LCDC_LCTRL_Layer3_CKEN (1 << 1) /* CKEN */
-#define LCDC_LCTRL_Layer3_LEN (1 << 0) /* LEN */
+#define LCDC_LCTRL_Layer3_SEN                   (1 << 10)   /* SEN */
+#define LCDC_LCTRL_Layer3_DCBEN                 (1 << 9)    /* DCBEN */
+#define LCDC_LCTRL_Layer3_HMEN                  (1 << 8)    /* HMEN */
+#define LCDC_LCTRL_Layer3_DVMD_SHIFT            (6)
+#define LCDC_LCTRL_Layer3_DVMD_MASK             (0x3 << \
+                                                 LCDC_LCTRL_Layer3_DVMD_SHIFT)  /*
+                                                                                 * DVMD
+                                                                                 */
+#define LCDC_LCTRL_Layer3_CKREN                 (1 << 5)                        /*
+                                                                                 * CKREN
+                                                                                 */
+#define LCDC_LCTRL_Layer3_CLUTEN                (1 << 4)                        /*
+                                                                                 * CLUTEN
+                                                                                 */
+#define LCDC_LCTRL_Layer3_HDEN                  (1 << 3)                        /*
+                                                                                 * HDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer3_VDEN                  (1 << 2)                        /*
+                                                                                 * VDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer3_CKEN                  (1 << 1)                        /*
+                                                                                 * CKEN
+                                                                                 */
+#define LCDC_LCTRL_Layer3_LEN                   (1 << 0)                        /*
+                                                                                 * LEN
+                                                                                 */
 
 /******** Bit definition for LCDC_WHPCTRL_Layer3 register  ********/
-#define LCDC_WHPCTRL_Layer3_WHSPPOS_SHIFT (16)
-#define LCDC_WHPCTRL_Layer3_WHSPPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer3_WHSPPOS_SHIFT) /* WHSPPOS */
-#define LCDC_WHPCTRL_Layer3_WHSTPOS_SHIFT (0)
-#define LCDC_WHPCTRL_Layer3_WHSTPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer3_WHSTPOS_SHIFT) /* WHSTPOS */
+#define LCDC_WHPCTRL_Layer3_WHSPPOS_SHIFT       (16)
+#define LCDC_WHPCTRL_Layer3_WHSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer3_WHSPPOS_SHIFT) \
+        /*
+         * WHSPPOS
+         */
+#define LCDC_WHPCTRL_Layer3_WHSTPOS_SHIFT       (0)
+#define LCDC_WHPCTRL_Layer3_WHSTPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer3_WHSTPOS_SHIFT) \
+        /*
+         * WHSTPOS
+         */
 
 /******** Bit definition for LCDC_WVPCTRL_Layer3 register  ********/
-#define LCDC_WVPCTRL_Layer3_WVSPPOS_SHIFT (16)
-#define LCDC_WVPCTRL_Layer3_WVSPPOS_MASK (0xFFFF << LCDC_WVPCTRL_Layer3_WVSPPOS_SHIFT) /* WVSPPOS */
-#define LCDC_WVPCTRL_Layer3_WVSTPOS__SHIFT (0)
-#define LCDC_WVPCTRL_Layer3_WVSTPOS__MASK (0xFFFF << LCDC_WVPCTRL_Layer3_WVSTPOS__SHIFT) /* WVSTPOS */
+#define LCDC_WVPCTRL_Layer3_WVSPPOS_SHIFT       (16)
+#define LCDC_WVPCTRL_Layer3_WVSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WVPCTRL_Layer3_WVSPPOS_SHIFT) \
+        /*
+         * WVSPPOS
+         */
+#define LCDC_WVPCTRL_Layer3_WVSTPOS__SHIFT      (0)
+#define LCDC_WVPCTRL_Layer3_WVSTPOS__MASK       (0xFFFF <<                           \
+                                                 LCDC_WVPCTRL_Layer3_WVSTPOS__SHIFT) \
+        /*
+         * WVSTPOS
+         */
 
 /******** Bit definition for LCDC_CKCTRL_Layer3 register  ********/
-#define LCDC_CKCTRL_Layer3_CKR_SHIFT (16)
-#define LCDC_CKCTRL_Layer3_CKR_MASK (0xFF << LCDC_CKCTRL_Layer3_CKR_SHIFT) /* CKR */
-#define LCDC_CKCTRL_Layer3_CKG_SHIFT (8)
-#define LCDC_CKCTRL_Layer3_CKG_MASK (0xFF << LCDC_CKCTRL_Layer3_CKG_SHIFT) /* CKG */
-#define LCDC_CKCTRL_Layer3_CKB_SHIFT (0)
-#define LCDC_CKCTRL_Layer3_CKB_MASK (0xFF << LCDC_CKCTRL_Layer3_CKB_SHIFT) /* CKB */
+#define LCDC_CKCTRL_Layer3_CKR_SHIFT            (16)
+#define LCDC_CKCTRL_Layer3_CKR_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer3_CKR_SHIFT) /*
+                                                                                *
+                                                                                * CKR
+                                                                                */
+#define LCDC_CKCTRL_Layer3_CKG_SHIFT            (8)
+#define LCDC_CKCTRL_Layer3_CKG_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer3_CKG_SHIFT) /*
+                                                                                *
+                                                                                * CKG
+                                                                                */
+#define LCDC_CKCTRL_Layer3_CKB_SHIFT            (0)
+#define LCDC_CKCTRL_Layer3_CKB_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer3_CKB_SHIFT) /*
+                                                                                *
+                                                                                * CKB
+                                                                                */
 
 /******** Bit definition for LCDC_PFCTRL_Layer3 register  ********/
-#define LCDC_PFCTRL_Layer3_PF_SHIFT (0)
-#define LCDC_PFCTRL_Layer3_PF_MASK (0x7 << LCDC_PFCTRL_Layer3_PF_SHIFT) /* PF */
+#define LCDC_PFCTRL_Layer3_PF_SHIFT             (0)
+#define LCDC_PFCTRL_Layer3_PF_MASK              (0x7 << \
+                                                 LCDC_PFCTRL_Layer3_PF_SHIFT) /*
+                                                                               * PF
+                                                                               */
 
 /******** Bit definition for LCDC_CACTRL_Layer3 register  ********/
-#define LCDC_CACTRL_Layer3_CA_SHIFT (0)
-#define LCDC_CACTRL_Layer3_CA_MASK (0xFF << LCDC_CACTRL_Layer3_CA_SHIFT) /* CA */
+#define LCDC_CACTRL_Layer3_CA_SHIFT             (0)
+#define LCDC_CACTRL_Layer3_CA_MASK              (0xFF << \
+                                                 LCDC_CACTRL_Layer3_CA_SHIFT) /*
+                                                                               * CA
+                                                                               */
 
 /******** Bit definition for LCDC_DCCTRL_Layer3 register  ********/
-#define LCDC_DCCTRL_Layer3_DCA_SHIFT (24)
-#define LCDC_DCCTRL_Layer3_DCA_MASK (0xFF << LCDC_DCCTRL_Layer3_DCA_SHIFT) /* DCA */
-#define LCDC_DCCTRL_Layer3_DCR_SHIFT (16)
-#define LCDC_DCCTRL_Layer3_DCR_MASK (0xFF << LCDC_DCCTRL_Layer3_DCR_SHIFT) /* DCR */
-#define LCDC_DCCTRL_Layer3_DCG_SHIFT (8)
-#define LCDC_DCCTRL_Layer3_DCG_MASK (0xFF << LCDC_DCCTRL_Layer3_DCG_SHIFT) /* DCG */
-#define LCDC_DCCTRL_Layer3_DCB_SHIFT (0)
-#define LCDC_DCCTRL_Layer3_DCB_MASK (0xFF << LCDC_DCCTRL_Layer3_DCB_SHIFT) /* DCB */
+#define LCDC_DCCTRL_Layer3_DCA_SHIFT            (24)
+#define LCDC_DCCTRL_Layer3_DCA_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer3_DCA_SHIFT) /*
+                                                                                *
+                                                                                * DCA
+                                                                                */
+#define LCDC_DCCTRL_Layer3_DCR_SHIFT            (16)
+#define LCDC_DCCTRL_Layer3_DCR_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer3_DCR_SHIFT) /*
+                                                                                *
+                                                                                * DCR
+                                                                                */
+#define LCDC_DCCTRL_Layer3_DCG_SHIFT            (8)
+#define LCDC_DCCTRL_Layer3_DCG_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer3_DCG_SHIFT) /*
+                                                                                *
+                                                                                * DCG
+                                                                                */
+#define LCDC_DCCTRL_Layer3_DCB_SHIFT            (0)
+#define LCDC_DCCTRL_Layer3_DCB_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer3_DCB_SHIFT) /*
+                                                                                *
+                                                                                * DCB
+                                                                                */
 
 /******** Bit definition for LCDC_BFCTRL_Layer3 register  ********/
-#define LCDC_BFCTRL_Layer3_LBOP_SHIFT (16)
-#define LCDC_BFCTRL_Layer3_LBOP_MASK (0xF << LCDC_BFCTRL_Layer3_LBOP_SHIFT) /* LBOP */
-#define LCDC_BFCTRL_Layer3_BF1_SHIFT (8)
-#define LCDC_BFCTRL_Layer3_BF1_MASK (0x7 << LCDC_BFCTRL_Layer3_BF1_SHIFT) /* BF1 */
-#define LCDC_BFCTRL_Layer3_BF2_SHIFT (0)
-#define LCDC_BFCTRL_Layer3_BF2_MASK (0x7 << LCDC_BFCTRL_Layer3_BF2_SHIFT) /* BF2 */
+#define LCDC_BFCTRL_Layer3_LBOP_SHIFT           (16)
+#define LCDC_BFCTRL_Layer3_LBOP_MASK            (0xF <<                         \
+                                                 LCDC_BFCTRL_Layer3_LBOP_SHIFT) \
+        /*
+         * LBOP
+         */
+#define LCDC_BFCTRL_Layer3_BF1_SHIFT            (8)
+#define LCDC_BFCTRL_Layer3_BF1_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer3_BF1_SHIFT) /*
+                                                                                *
+                                                                                * BF1
+                                                                                */
+#define LCDC_BFCTRL_Layer3_BF2_SHIFT            (0)
+#define LCDC_BFCTRL_Layer3_BF2_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer3_BF2_SHIFT) /*
+                                                                                *
+                                                                                * BF2
+                                                                                */
 
 /******** Bit definition for LCDC_AFBCTRL_Layer3 register  ********/
-#define LCDC_AFBCTRL_Layer3_YHEN (1 << 9) /* YHEN */
-#define LCDC_AFBCTRL_Layer3_YUVIMDO_SHIFT (6)
-#define LCDC_AFBCTRL_Layer3_YUVIMDO_MASK (0x7 << LCDC_AFBCTRL_Layer3_YUVIMDO_SHIFT) /* YUVIMDO */
-#define LCDC_AFBCTRL_Layer3_YUVMD_SHIFT (4)
-#define LCDC_AFBCTRL_Layer3_YUVMD_MASK (0x3 << LCDC_AFBCTRL_Layer3_YUVMD_SHIFT) /* YUVMD */
-#define LCDC_AFBCTRL_Layer3_YUVEN (1 << 3) /* YUVEN */
-#define LCDC_AFBCTRL_Layer3_HDEN (1 << 2) /* HDEN */
-#define LCDC_AFBCTRL_Layer3_VDEN (1 << 1) /* VDEN */
-#define LCDC_AFBCTRL_Layer3_APEN (1 << 0) /* APEN */
+#define LCDC_AFBCTRL_Layer3_YHEN                (1 << 9) /* YHEN */
+#define LCDC_AFBCTRL_Layer3_YUVIMDO_SHIFT       (6)
+#define LCDC_AFBCTRL_Layer3_YUVIMDO_MASK        (0x7 <<                             \
+                                                 LCDC_AFBCTRL_Layer3_YUVIMDO_SHIFT) \
+        /*
+         * YUVIMDO
+         */
+#define LCDC_AFBCTRL_Layer3_YUVMD_SHIFT         (4)
+#define LCDC_AFBCTRL_Layer3_YUVMD_MASK          (0x3 <<                           \
+                                                 LCDC_AFBCTRL_Layer3_YUVMD_SHIFT) \
+                                                            /* YUVMD */
+#define LCDC_AFBCTRL_Layer3_YUVEN               (1 << 3)    /* YUVEN */
+#define LCDC_AFBCTRL_Layer3_HDEN                (1 << 2)    /* HDEN */
+#define LCDC_AFBCTRL_Layer3_VDEN                (1 << 1)    /* VDEN */
+#define LCDC_AFBCTRL_Layer3_APEN                (1 << 0)    /* APEN */
 
 /******** Bit definition for LCDC_CFBADDR_Layer3 register  ********/
-#define LCDC_CFBADDR_Layer3_CFBADDR_SHIFT (0)
-#define LCDC_CFBADDR_Layer3_CFBADDR_MASK (0xFFFFFFFF << LCDC_CFBADDR_Layer3_CFBADDR_SHIFT) /* CFBADDR */
+#define LCDC_CFBADDR_Layer3_CFBADDR_SHIFT       (0)
+#define LCDC_CFBADDR_Layer3_CFBADDR_MASK        (0xFFFFFFFF <<                      \
+                                                 LCDC_CFBADDR_Layer3_CFBADDR_SHIFT) \
+        /*
+         * CFBADDR
+         */
 
 /******** Bit definition for LCDC_CFBLEN_Layer3 register  ********/
-#define LCDC_CFBLEN_Layer3_CFBP_SHIFT (16)
-#define LCDC_CFBLEN_Layer3_CFBP_MASK (0xFFFF << LCDC_CFBLEN_Layer3_CFBP_SHIFT) /* CFBP */
-#define LCDC_CFBLEN_Layer3_CFBLLEN_SHIFT (0)
-#define LCDC_CFBLEN_Layer3_CFBLLEN_MASK (0xFFFF << LCDC_CFBLEN_Layer3_CFBLLEN_SHIFT) /* CFBLLEN */
+#define LCDC_CFBLEN_Layer3_CFBP_SHIFT           (16)
+#define LCDC_CFBLEN_Layer3_CFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_CFBLEN_Layer3_CFBP_SHIFT) \
+        /*
+         * CFBP
+         */
+#define LCDC_CFBLEN_Layer3_CFBLLEN_SHIFT        (0)
+#define LCDC_CFBLEN_Layer3_CFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_CFBLEN_Layer3_CFBLLEN_SHIFT) \
+        /*
+         * CFBLLEN
+         */
 
 /******** Bit definition for LCDC_CFBLNUM_Layer3 register  ********/
-#define LCDC_CFBLNUM_Layer3_CFBLNUM_SHIFT (0)
-#define LCDC_CFBLNUM_Layer3_CFBLNUM_MASK (0xFFFF << LCDC_CFBLNUM_Layer3_CFBLNUM_SHIFT) /* CFBLNUM */
+#define LCDC_CFBLNUM_Layer3_CFBLNUM_SHIFT       (0)
+#define LCDC_CFBLNUM_Layer3_CFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_CFBLNUM_Layer3_CFBLNUM_SHIFT) \
+        /*
+         * CFBLNUM
+         */
 
 /******** Bit definition for LCDC_AFBADDR0_Layer3 register  ********/
-#define LCDC_AFBADDR0_Layer3_AFBADDR0_SHIFT (0)
-#define LCDC_AFBADDR0_Layer3_AFBADDR0_MASK (0xFFFFFFFF << LCDC_AFBADDR0_Layer3_AFBADDR0_SHIFT) /* AFBADDR0 */
+#define LCDC_AFBADDR0_Layer3_AFBADDR0_SHIFT     (0)
+#define LCDC_AFBADDR0_Layer3_AFBADDR0_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR0_Layer3_AFBADDR0_SHIFT) \
+        /*
+         * AFBADDR0
+         */
 
 /******** Bit definition for LCDC_AFBADDR1_Layer3 register  ********/
-#define LCDC_AFBADDR1_Layer3_AFBADDR1_SHIFT (0)
-#define LCDC_AFBADDR1_Layer3_AFBADDR1_MASK (0xFFFFFFFF << LCDC_AFBADDR1_Layer3_AFBADDR1_SHIFT) /* AFBADDR1 */
+#define LCDC_AFBADDR1_Layer3_AFBADDR1_SHIFT     (0)
+#define LCDC_AFBADDR1_Layer3_AFBADDR1_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR1_Layer3_AFBADDR1_SHIFT) \
+        /*
+         * AFBADDR1
+         */
 
 /******** Bit definition for LCDC_AFBLEN_Layer3 register  ********/
-#define LCDC_AFBLEN_Layer3_AFBP_SHIFT (16)
-#define LCDC_AFBLEN_Layer3_AFBP_MASK (0xFFFF << LCDC_AFBLEN_Layer3_AFBP_SHIFT) /* AFBP */
-#define LCDC_AFBLEN_Layer3_AFBLLEN_SHIFT (0)
-#define LCDC_AFBLEN_Layer3_AFBLLEN_MASK (0xFFFF << LCDC_AFBLEN_Layer3_AFBLLEN_SHIFT) /* AFBLLEN */
+#define LCDC_AFBLEN_Layer3_AFBP_SHIFT           (16)
+#define LCDC_AFBLEN_Layer3_AFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_AFBLEN_Layer3_AFBP_SHIFT) \
+        /*
+         * AFBP
+         */
+#define LCDC_AFBLEN_Layer3_AFBLLEN_SHIFT        (0)
+#define LCDC_AFBLEN_Layer3_AFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_AFBLEN_Layer3_AFBLLEN_SHIFT) \
+        /*
+         * AFBLLEN
+         */
 
 /******** Bit definition for LCDC_AFBLNUM_Layer3 register  ********/
-#define LCDC_AFBLNUM_Layer3_AFBLNUM_SHIFT (0)
-#define LCDC_AFBLNUM_Layer3_AFBLNUM_MASK (0xFFFF << LCDC_AFBLNUM_Layer3_AFBLNUM_SHIFT) /* AFBLNUM */
+#define LCDC_AFBLNUM_Layer3_AFBLNUM_SHIFT       (0)
+#define LCDC_AFBLNUM_Layer3_AFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_AFBLNUM_Layer3_AFBLNUM_SHIFT) \
+        /*
+         * AFBLNUM
+         */
 
 /******** Bit definition for LCDC_CLUTWR_Layer3 register  ********/
-#define LCDC_CLUTWR_Layer3_CLUTADDR_SHIFT (24)
-#define LCDC_CLUTWR_Layer3_CLUTADDR_MASK (0xFF << LCDC_CLUTWR_Layer3_CLUTADDR_SHIFT) /* CLUTADDR */
-#define LCDC_CLUTWR_Layer3_CLUTR_SHIFT (16)
-#define LCDC_CLUTWR_Layer3_CLUTR_MASK (0xFF << LCDC_CLUTWR_Layer3_CLUTR_SHIFT) /* CLUTR */
-#define LCDC_CLUTWR_Layer3_CLUTG_SHIFT (8)
-#define LCDC_CLUTWR_Layer3_CLUTG_MASK (0xFF << LCDC_CLUTWR_Layer3_CLUTG_SHIFT) /* CLUTG */
-#define LCDC_CLUTWR_Layer3_CLUTB_SHIFT (0)
-#define LCDC_CLUTWR_Layer3_CLUTB_MASK (0xFF << LCDC_CLUTWR_Layer3_CLUTB_SHIFT) /* CLUTB */
+#define LCDC_CLUTWR_Layer3_CLUTADDR_SHIFT       (24)
+#define LCDC_CLUTWR_Layer3_CLUTADDR_MASK        (0xFF <<                            \
+                                                 LCDC_CLUTWR_Layer3_CLUTADDR_SHIFT) \
+        /*
+         * CLUTADDR
+         */
+#define LCDC_CLUTWR_Layer3_CLUTR_SHIFT          (16)
+#define LCDC_CLUTWR_Layer3_CLUTR_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer3_CLUTR_SHIFT) \
+        /*
+         * CLUTR
+         */
+#define LCDC_CLUTWR_Layer3_CLUTG_SHIFT          (8)
+#define LCDC_CLUTWR_Layer3_CLUTG_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer3_CLUTG_SHIFT) \
+        /*
+         * CLUTG
+         */
+#define LCDC_CLUTWR_Layer3_CLUTB_SHIFT          (0)
+#define LCDC_CLUTWR_Layer3_CLUTB_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer3_CLUTB_SHIFT) \
+        /*
+         * CLUTB
+         */
 
 /******** Bit definition for LCDC_SINS_Layer3 register  ********/
-#define LCDC_SINS_Layer3_SINH_SHIFT (16)
-#define LCDC_SINS_Layer3_SINH_MASK (0xFFF << LCDC_SINS_Layer3_SINH_SHIFT) /* SINH */
-#define LCDC_SINS_Layer3_SINW_SHIFT (0)
-#define LCDC_SINS_Layer3_SINW_MASK (0xFFFF << LCDC_SINS_Layer3_SINW_SHIFT) /* SINW */
+#define LCDC_SINS_Layer3_SINH_SHIFT             (16)
+#define LCDC_SINS_Layer3_SINH_MASK              (0xFFF << \
+                                                 LCDC_SINS_Layer3_SINH_SHIFT) /*
+                                                                               *
+                                                                               * SINH
+                                                                               */
+#define LCDC_SINS_Layer3_SINW_SHIFT             (0)
+#define LCDC_SINS_Layer3_SINW_MASK              (0xFFFF << \
+                                                 LCDC_SINS_Layer3_SINW_SHIFT) /*
+                                                                               *
+                                                                               * SINW
+                                                                               */
 
 /******** Bit definition for LCDC_SOUTS_Layer3 register  ********/
-#define LCDC_SOUTS_Layer3_SOUTH_SHIFT (16)
-#define LCDC_SOUTS_Layer3_SOUTH_MASK (0xFFF << LCDC_SOUTS_Layer3_SOUTH_SHIFT) /* SOUTH */
-#define LCDC_SOUTS_Layer3_SOUTW_SHIFT (0)
-#define LCDC_SOUTS_Layer3_SOUTW_MASK (0xFFFF << LCDC_SOUTS_Layer3_SOUTW_SHIFT) /* SOUTW */
+#define LCDC_SOUTS_Layer3_SOUTH_SHIFT           (16)
+#define LCDC_SOUTS_Layer3_SOUTH_MASK            (0xFFF <<                       \
+                                                 LCDC_SOUTS_Layer3_SOUTH_SHIFT) \
+        /*
+         * SOUTH
+         */
+#define LCDC_SOUTS_Layer3_SOUTW_SHIFT           (0)
+#define LCDC_SOUTS_Layer3_SOUTW_MASK            (0xFFFF <<                      \
+                                                 LCDC_SOUTS_Layer3_SOUTW_SHIFT) \
+        /*
+         * SOUTW
+         */
 
 /******** Bit definition for LCDC_VSF_Layer3 register  ********/
-#define LCDC_VSF_Layer3_VSF_SHIFT (0)
-#define LCDC_VSF_Layer3_VSF_MASK (0xFFFF << LCDC_VSF_Layer3_VSF_SHIFT) /* VSF */
+#define LCDC_VSF_Layer3_VSF_SHIFT               (0)
+#define LCDC_VSF_Layer3_VSF_MASK                (0xFFFF << \
+                                                 LCDC_VSF_Layer3_VSF_SHIFT) /*
+                                                                             * VSF
+                                                                             */
 
 /******** Bit definition for LCDC_VSP_Layer3 register  ********/
-#define LCDC_VSP_Layer3_VSP_SHIFT (0)
-#define LCDC_VSP_Layer3_VSP_MASK (0xFFFF << LCDC_VSP_Layer3_VSP_SHIFT) /* VSP */
+#define LCDC_VSP_Layer3_VSP_SHIFT               (0)
+#define LCDC_VSP_Layer3_VSP_MASK                (0xFFFF << \
+                                                 LCDC_VSP_Layer3_VSP_SHIFT) /*
+                                                                             * VSP
+                                                                             */
 
 /******** Bit definition for LCDC_HSF_Layer3 register  ********/
-#define LCDC_HSF_Layer3_HSF_SHIFT (0)
-#define LCDC_HSF_Layer3_HSF_MASK (0xFFFF << LCDC_HSF_Layer3_HSF_SHIFT) /* HSF */
+#define LCDC_HSF_Layer3_HSF_SHIFT               (0)
+#define LCDC_HSF_Layer3_HSF_MASK                (0xFFFF << \
+                                                 LCDC_HSF_Layer3_HSF_SHIFT) /*
+                                                                             * HSF
+                                                                             */
 
 /******** Bit definition for LCDC_HSP_Layer3 register  ********/
-#define LCDC_HSP_Layer3_HSP_SHIFT (0)
-#define LCDC_HSP_Layer3_HSP_MASK (0xFFFF << LCDC_HSP_Layer3_HSP_SHIFT) /* HSP */
+#define LCDC_HSP_Layer3_HSP_SHIFT               (0)
+#define LCDC_HSP_Layer3_HSP_MASK                (0xFFFF << \
+                                                 LCDC_HSP_Layer3_HSP_SHIFT) /*
+                                                                             * HSP
+                                                                             */
 
 /******** Bit definition for LCDC_YUVS1_Layer3 register  ********/
-#define LCDC_YUVS1_Layer3_BUCS_SHIFT (16)
-#define LCDC_YUVS1_Layer3_BUCS_MASK (0x3FF << LCDC_YUVS1_Layer3_BUCS_SHIFT) /* BUCS */
-#define LCDC_YUVS1_Layer3_RVCS_SHIFT (0)
-#define LCDC_YUVS1_Layer3_RVCS_MASK (0x3FF << LCDC_YUVS1_Layer3_RVCS_SHIFT) /* RVCS */
+#define LCDC_YUVS1_Layer3_BUCS_SHIFT            (16)
+#define LCDC_YUVS1_Layer3_BUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer3_BUCS_SHIFT) /*
+                                                                                *
+                                                                                * BUCS
+                                                                                */
+#define LCDC_YUVS1_Layer3_RVCS_SHIFT            (0)
+#define LCDC_YUVS1_Layer3_RVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer3_RVCS_SHIFT) /*
+                                                                                *
+                                                                                * RVCS
+                                                                                */
 
 /******** Bit definition for LCDC_YUVS2_Layer3 register  ********/
-#define LCDC_YUVS2_Layer3_GUCS_SHIFT (16)
-#define LCDC_YUVS2_Layer3_GUCS_MASK (0x3FF << LCDC_YUVS2_Layer3_GUCS_SHIFT) /* GUCS */
-#define LCDC_YUVS2_Layer3_GVCS_SHIFT (0)
-#define LCDC_YUVS2_Layer3_GVCS_MASK (0x3FF << LCDC_YUVS2_Layer3_GVCS_SHIFT) /* GVCS */
+#define LCDC_YUVS2_Layer3_GUCS_SHIFT            (16)
+#define LCDC_YUVS2_Layer3_GUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer3_GUCS_SHIFT) /*
+                                                                                *
+                                                                                * GUCS
+                                                                                */
+#define LCDC_YUVS2_Layer3_GVCS_SHIFT            (0)
+#define LCDC_YUVS2_Layer3_GVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer3_GVCS_SHIFT) /*
+                                                                                *
+                                                                                * GVCS
+                                                                                */
 
 /******** Bit definition for LCDC_FCF1_Layer3 register  ********/
-#define LCDC_FCF1_Layer3_RLENB_SHIFT (14)
-#define LCDC_FCF1_Layer3_RLENB_MASK (0xF << LCDC_FCF1_Layer3_RLENB_SHIFT) /* RLENB */
-#define LCDC_FCF1_Layer3_RSB_SHIFT (9)
-#define LCDC_FCF1_Layer3_RSB_MASK (0x1F << LCDC_FCF1_Layer3_RSB_SHIFT) /* RSB */
-#define LCDC_FCF1_Layer3_ALENB_SHIFT (5)
-#define LCDC_FCF1_Layer3_ALENB_MASK (0xF << LCDC_FCF1_Layer3_ALENB_SHIFT) /* ALENB */
-#define LCDC_FCF1_Layer3_ASB_SHIFT (0)
-#define LCDC_FCF1_Layer3_ASB_MASK (0x1F << LCDC_FCF1_Layer3_ASB_SHIFT) /* ASB */
+#define LCDC_FCF1_Layer3_RLENB_SHIFT            (14)
+#define LCDC_FCF1_Layer3_RLENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer3_RLENB_SHIFT) /*
+                                                                                *
+                                                                                * RLENB
+                                                                                */
+#define LCDC_FCF1_Layer3_RSB_SHIFT              (9)
+#define LCDC_FCF1_Layer3_RSB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer3_RSB_SHIFT) /*
+                                                                              * RSB
+                                                                              */
+#define LCDC_FCF1_Layer3_ALENB_SHIFT            (5)
+#define LCDC_FCF1_Layer3_ALENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer3_ALENB_SHIFT) /*
+                                                                                *
+                                                                                * ALENB
+                                                                                */
+#define LCDC_FCF1_Layer3_ASB_SHIFT              (0)
+#define LCDC_FCF1_Layer3_ASB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer3_ASB_SHIFT) /*
+                                                                              * ASB
+                                                                              */
 
 /******** Bit definition for LCDC_FCF2_Layer3 register  ********/
-#define LCDC_FCF2_Layer3_BPP_SHIFT (18)
-#define LCDC_FCF2_Layer3_BPP_MASK (0x7 << LCDC_FCF2_Layer3_BPP_SHIFT) /* BPP */
-#define LCDC_FCF2_Layer3_BLENB_SHIFT (14)
-#define LCDC_FCF2_Layer3_BLENB_MASK (0xF << LCDC_FCF2_Layer3_BLENB_SHIFT) /* BLENB */
-#define LCDC_FCF2_Layer3_BSB_SHIFT (9)
-#define LCDC_FCF2_Layer3_BSB_MASK (0x1F << LCDC_FCF2_Layer3_BSB_SHIFT) /* BSB */
-#define LCDC_FCF2_Layer3_GLENB_SHIFT (5)
-#define LCDC_FCF2_Layer3_GLENB_MASK (0xF << LCDC_FCF2_Layer3_GLENB_SHIFT) /* GLENB */
-#define LCDC_FCF2_Layer3_GSB_SHIFT (0)
-#define LCDC_FCF2_Layer3_GSB_MASK (0x1F << LCDC_FCF2_Layer3_GSB_SHIFT) /* GSB */
+#define LCDC_FCF2_Layer3_BPP_SHIFT              (18)
+#define LCDC_FCF2_Layer3_BPP_MASK               (0x7 << \
+                                                 LCDC_FCF2_Layer3_BPP_SHIFT) /*
+                                                                              * BPP
+                                                                              */
+#define LCDC_FCF2_Layer3_BLENB_SHIFT            (14)
+#define LCDC_FCF2_Layer3_BLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer3_BLENB_SHIFT) /*
+                                                                                *
+                                                                                * BLENB
+                                                                                */
+#define LCDC_FCF2_Layer3_BSB_SHIFT              (9)
+#define LCDC_FCF2_Layer3_BSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer3_BSB_SHIFT) /*
+                                                                              * BSB
+                                                                              */
+#define LCDC_FCF2_Layer3_GLENB_SHIFT            (5)
+#define LCDC_FCF2_Layer3_GLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer3_GLENB_SHIFT) /*
+                                                                                *
+                                                                                * GLENB
+                                                                                */
+#define LCDC_FCF2_Layer3_GSB_SHIFT              (0)
+#define LCDC_FCF2_Layer3_GSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer3_GSB_SHIFT) /*
+                                                                              * GSB
+                                                                              */
 
 /******** Bit definition for LCDC_LSRCTRL_Layer4 register  ********/
-#define LCDC_LSRCTRL_Layer4_MGR (1 << 2) /* MGR */
-#define LCDC_LSRCTRL_Layer4_VBR (1 << 1) /* VBR */
-#define LCDC_LSRCTRL_Layer4_IMR (1 << 0) /* IMR */
+#define LCDC_LSRCTRL_Layer4_MGR                 (1 << 2)    /* MGR */
+#define LCDC_LSRCTRL_Layer4_VBR                 (1 << 1)    /* VBR */
+#define LCDC_LSRCTRL_Layer4_IMR                 (1 << 0)    /* IMR */
 
 /******** Bit definition for LCDC_LCTRL_Layer4 register  ********/
-#define LCDC_LCTRL_Layer4_SEN (1 << 10) /* SEN */
-#define LCDC_LCTRL_Layer4_DCBEN (1 << 9) /* DCBEN */
-#define LCDC_LCTRL_Layer4_HMEN (1 << 8) /* HMEN */
-#define LCDC_LCTRL_Layer4_DVMD_SHIFT (6)
-#define LCDC_LCTRL_Layer4_DVMD_MASK (0x3 << LCDC_LCTRL_Layer4_DVMD_SHIFT) /* DVMD */
-#define LCDC_LCTRL_Layer4_CKREN (1 << 5) /* CKREN */
-#define LCDC_LCTRL_Layer4_CLUTEN (1 << 4) /* CLUTEN */
-#define LCDC_LCTRL_Layer4_HDEN (1 << 3) /* HDEN */
-#define LCDC_LCTRL_Layer4_VDEN (1 << 2) /* VDEN */
-#define LCDC_LCTRL_Layer4_CKEN (1 << 1) /* CKEN */
-#define LCDC_LCTRL_Layer4_LEN (1 << 0) /* LEN */
+#define LCDC_LCTRL_Layer4_SEN                   (1 << 10)   /* SEN */
+#define LCDC_LCTRL_Layer4_DCBEN                 (1 << 9)    /* DCBEN */
+#define LCDC_LCTRL_Layer4_HMEN                  (1 << 8)    /* HMEN */
+#define LCDC_LCTRL_Layer4_DVMD_SHIFT            (6)
+#define LCDC_LCTRL_Layer4_DVMD_MASK             (0x3 << \
+                                                 LCDC_LCTRL_Layer4_DVMD_SHIFT)  /*
+                                                                                 * DVMD
+                                                                                 */
+#define LCDC_LCTRL_Layer4_CKREN                 (1 << 5)                        /*
+                                                                                 * CKREN
+                                                                                 */
+#define LCDC_LCTRL_Layer4_CLUTEN                (1 << 4)                        /*
+                                                                                 * CLUTEN
+                                                                                 */
+#define LCDC_LCTRL_Layer4_HDEN                  (1 << 3)                        /*
+                                                                                 * HDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer4_VDEN                  (1 << 2)                        /*
+                                                                                 * VDEN
+                                                                                 */
+#define LCDC_LCTRL_Layer4_CKEN                  (1 << 1)                        /*
+                                                                                 * CKEN
+                                                                                 */
+#define LCDC_LCTRL_Layer4_LEN                   (1 << 0)                        /*
+                                                                                 * LEN
+                                                                                 */
 
 /******** Bit definition for LCDC_WHPCTRL_Layer4 register  ********/
-#define LCDC_WHPCTRL_Layer4_WHSPPOS_SHIFT (16)
-#define LCDC_WHPCTRL_Layer4_WHSPPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer4_WHSPPOS_SHIFT) /* WHSPPOS */
-#define LCDC_WHPCTRL_Layer4_WHSTPOS_SHIFT (0)
-#define LCDC_WHPCTRL_Layer4_WHSTPOS_MASK (0xFFFF << LCDC_WHPCTRL_Layer4_WHSTPOS_SHIFT) /* WHSTPOS */
+#define LCDC_WHPCTRL_Layer4_WHSPPOS_SHIFT       (16)
+#define LCDC_WHPCTRL_Layer4_WHSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer4_WHSPPOS_SHIFT) \
+        /*
+         * WHSPPOS
+         */
+#define LCDC_WHPCTRL_Layer4_WHSTPOS_SHIFT       (0)
+#define LCDC_WHPCTRL_Layer4_WHSTPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WHPCTRL_Layer4_WHSTPOS_SHIFT) \
+        /*
+         * WHSTPOS
+         */
 
 /******** Bit definition for LCDC_WVPCTRL_Layer4 register  ********/
-#define LCDC_WVPCTRL_Layer4_WVSPPOS_SHIFT (16)
-#define LCDC_WVPCTRL_Layer4_WVSPPOS_MASK (0xFFFF << LCDC_WVPCTRL_Layer4_WVSPPOS_SHIFT) /* WVSPPOS */
-#define LCDC_WVPCTRL_Layer4_WVSTPOS__SHIFT (0)
-#define LCDC_WVPCTRL_Layer4_WVSTPOS__MASK (0xFFFF << LCDC_WVPCTRL_Layer4_WVSTPOS__SHIFT) /* WVSTPOS */
+#define LCDC_WVPCTRL_Layer4_WVSPPOS_SHIFT       (16)
+#define LCDC_WVPCTRL_Layer4_WVSPPOS_MASK        (0xFFFF <<                          \
+                                                 LCDC_WVPCTRL_Layer4_WVSPPOS_SHIFT) \
+        /*
+         * WVSPPOS
+         */
+#define LCDC_WVPCTRL_Layer4_WVSTPOS__SHIFT      (0)
+#define LCDC_WVPCTRL_Layer4_WVSTPOS__MASK       (0xFFFF <<                           \
+                                                 LCDC_WVPCTRL_Layer4_WVSTPOS__SHIFT) \
+        /*
+         * WVSTPOS
+         */
 
 /******** Bit definition for LCDC_CKCTRL_Layer4 register  ********/
-#define LCDC_CKCTRL_Layer4_CKR_SHIFT (16)
-#define LCDC_CKCTRL_Layer4_CKR_MASK (0xFF << LCDC_CKCTRL_Layer4_CKR_SHIFT) /* CKR */
-#define LCDC_CKCTRL_Layer4_CKG_SHIFT (8)
-#define LCDC_CKCTRL_Layer4_CKG_MASK (0xFF << LCDC_CKCTRL_Layer4_CKG_SHIFT) /* CKG */
-#define LCDC_CKCTRL_Layer4_CKB_SHIFT (0)
-#define LCDC_CKCTRL_Layer4_CKB_MASK (0xFF << LCDC_CKCTRL_Layer4_CKB_SHIFT) /* CKB */
+#define LCDC_CKCTRL_Layer4_CKR_SHIFT            (16)
+#define LCDC_CKCTRL_Layer4_CKR_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer4_CKR_SHIFT) /*
+                                                                                *
+                                                                                * CKR
+                                                                                */
+#define LCDC_CKCTRL_Layer4_CKG_SHIFT            (8)
+#define LCDC_CKCTRL_Layer4_CKG_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer4_CKG_SHIFT) /*
+                                                                                *
+                                                                                * CKG
+                                                                                */
+#define LCDC_CKCTRL_Layer4_CKB_SHIFT            (0)
+#define LCDC_CKCTRL_Layer4_CKB_MASK             (0xFF << \
+                                                 LCDC_CKCTRL_Layer4_CKB_SHIFT) /*
+                                                                                *
+                                                                                * CKB
+                                                                                */
 
 /******** Bit definition for LCDC_PFCTRL_Layer4 register  ********/
-#define LCDC_PFCTRL_Layer4_PF_SHIFT (0)
-#define LCDC_PFCTRL_Layer4_PF_MASK (0x7 << LCDC_PFCTRL_Layer4_PF_SHIFT) /* PF */
+#define LCDC_PFCTRL_Layer4_PF_SHIFT             (0)
+#define LCDC_PFCTRL_Layer4_PF_MASK              (0x7 << \
+                                                 LCDC_PFCTRL_Layer4_PF_SHIFT) /*
+                                                                               * PF
+                                                                               */
 
 /******** Bit definition for LCDC_CACTRL_Layer4 register  ********/
-#define LCDC_CACTRL_Layer4_CA_SHIFT (0)
-#define LCDC_CACTRL_Layer4_CA_MASK (0xFF << LCDC_CACTRL_Layer4_CA_SHIFT) /* CA */
+#define LCDC_CACTRL_Layer4_CA_SHIFT             (0)
+#define LCDC_CACTRL_Layer4_CA_MASK              (0xFF << \
+                                                 LCDC_CACTRL_Layer4_CA_SHIFT) /*
+                                                                               * CA
+                                                                               */
 
 /******** Bit definition for LCDC_DCCTRL_Layer4 register  ********/
-#define LCDC_DCCTRL_Layer4_DCA_SHIFT (24)
-#define LCDC_DCCTRL_Layer4_DCA_MASK (0xFF << LCDC_DCCTRL_Layer4_DCA_SHIFT) /* DCA */
-#define LCDC_DCCTRL_Layer4_DCR_SHIFT (16)
-#define LCDC_DCCTRL_Layer4_DCR_MASK (0xFF << LCDC_DCCTRL_Layer4_DCR_SHIFT) /* DCR */
-#define LCDC_DCCTRL_Layer4_DCG_SHIFT (8)
-#define LCDC_DCCTRL_Layer4_DCG_MASK (0xFF << LCDC_DCCTRL_Layer4_DCG_SHIFT) /* DCG */
-#define LCDC_DCCTRL_Layer4_DCB_SHIFT (0)
-#define LCDC_DCCTRL_Layer4_DCB_MASK (0xFF << LCDC_DCCTRL_Layer4_DCB_SHIFT) /* DCB */
+#define LCDC_DCCTRL_Layer4_DCA_SHIFT            (24)
+#define LCDC_DCCTRL_Layer4_DCA_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer4_DCA_SHIFT) /*
+                                                                                *
+                                                                                * DCA
+                                                                                */
+#define LCDC_DCCTRL_Layer4_DCR_SHIFT            (16)
+#define LCDC_DCCTRL_Layer4_DCR_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer4_DCR_SHIFT) /*
+                                                                                *
+                                                                                * DCR
+                                                                                */
+#define LCDC_DCCTRL_Layer4_DCG_SHIFT            (8)
+#define LCDC_DCCTRL_Layer4_DCG_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer4_DCG_SHIFT) /*
+                                                                                *
+                                                                                * DCG
+                                                                                */
+#define LCDC_DCCTRL_Layer4_DCB_SHIFT            (0)
+#define LCDC_DCCTRL_Layer4_DCB_MASK             (0xFF << \
+                                                 LCDC_DCCTRL_Layer4_DCB_SHIFT) /*
+                                                                                *
+                                                                                * DCB
+                                                                                */
 
 /******** Bit definition for LCDC_BFCTRL_Layer4 register  ********/
-#define LCDC_BFCTRL_Layer4_LBOP_SHIFT (16)
-#define LCDC_BFCTRL_Layer4_LBOP_MASK (0xF << LCDC_BFCTRL_Layer4_LBOP_SHIFT) /* LBOP */
-#define LCDC_BFCTRL_Layer4_BF1_SHIFT (8)
-#define LCDC_BFCTRL_Layer4_BF1_MASK (0x7 << LCDC_BFCTRL_Layer4_BF1_SHIFT) /* BF1 */
-#define LCDC_BFCTRL_Layer4_BF2_SHIFT (0)
-#define LCDC_BFCTRL_Layer4_BF2_MASK (0x7 << LCDC_BFCTRL_Layer4_BF2_SHIFT) /* BF2 */
+#define LCDC_BFCTRL_Layer4_LBOP_SHIFT           (16)
+#define LCDC_BFCTRL_Layer4_LBOP_MASK            (0xF <<                         \
+                                                 LCDC_BFCTRL_Layer4_LBOP_SHIFT) \
+        /*
+         * LBOP
+         */
+#define LCDC_BFCTRL_Layer4_BF1_SHIFT            (8)
+#define LCDC_BFCTRL_Layer4_BF1_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer4_BF1_SHIFT) /*
+                                                                                *
+                                                                                * BF1
+                                                                                */
+#define LCDC_BFCTRL_Layer4_BF2_SHIFT            (0)
+#define LCDC_BFCTRL_Layer4_BF2_MASK             (0x7 << \
+                                                 LCDC_BFCTRL_Layer4_BF2_SHIFT) /*
+                                                                                *
+                                                                                * BF2
+                                                                                */
 
 /******** Bit definition for LCDC_AFBCTRL_Layer4 register  ********/
-#define LCDC_AFBCTRL_Layer4_YHEN (1 << 9) /* YHEN */
-#define LCDC_AFBCTRL_Layer4_YUVIMDO_SHIFT (6)
-#define LCDC_AFBCTRL_Layer4_YUVIMDO_MASK (0x7 << LCDC_AFBCTRL_Layer4_YUVIMDO_SHIFT) /* YUVIMDO */
-#define LCDC_AFBCTRL_Layer4_YUVMD_SHIFT (4)
-#define LCDC_AFBCTRL_Layer4_YUVMD_MASK (0x3 << LCDC_AFBCTRL_Layer4_YUVMD_SHIFT) /* YUVMD */
-#define LCDC_AFBCTRL_Layer4_YUVEN (1 << 3) /* YUVEN */
-#define LCDC_AFBCTRL_Layer4_HDEN (1 << 2) /* HDEN */
-#define LCDC_AFBCTRL_Layer4_VDEN (1 << 1) /* VDEN */
-#define LCDC_AFBCTRL_Layer4_APEN (1 << 0) /* APEN */
+#define LCDC_AFBCTRL_Layer4_YHEN                (1 << 9) /* YHEN */
+#define LCDC_AFBCTRL_Layer4_YUVIMDO_SHIFT       (6)
+#define LCDC_AFBCTRL_Layer4_YUVIMDO_MASK        (0x7 <<                             \
+                                                 LCDC_AFBCTRL_Layer4_YUVIMDO_SHIFT) \
+        /*
+         * YUVIMDO
+         */
+#define LCDC_AFBCTRL_Layer4_YUVMD_SHIFT         (4)
+#define LCDC_AFBCTRL_Layer4_YUVMD_MASK          (0x3 <<                           \
+                                                 LCDC_AFBCTRL_Layer4_YUVMD_SHIFT) \
+                                                            /* YUVMD */
+#define LCDC_AFBCTRL_Layer4_YUVEN               (1 << 3)    /* YUVEN */
+#define LCDC_AFBCTRL_Layer4_HDEN                (1 << 2)    /* HDEN */
+#define LCDC_AFBCTRL_Layer4_VDEN                (1 << 1)    /* VDEN */
+#define LCDC_AFBCTRL_Layer4_APEN                (1 << 0)    /* APEN */
 
 /******** Bit definition for LCDC_CFBADDR_Layer4 register  ********/
-#define LCDC_CFBADDR_Layer4_CFBADDR_SHIFT (0)
-#define LCDC_CFBADDR_Layer4_CFBADDR_MASK (0xFFFFFFFF << LCDC_CFBADDR_Layer4_CFBADDR_SHIFT) /* CFBADDR */
+#define LCDC_CFBADDR_Layer4_CFBADDR_SHIFT       (0)
+#define LCDC_CFBADDR_Layer4_CFBADDR_MASK        (0xFFFFFFFF <<                      \
+                                                 LCDC_CFBADDR_Layer4_CFBADDR_SHIFT) \
+        /*
+         * CFBADDR
+         */
 
 /******** Bit definition for LCDC_CFBLEN_Layer4 register  ********/
-#define LCDC_CFBLEN_Layer4_CFBP_SHIFT (16)
-#define LCDC_CFBLEN_Layer4_CFBP_MASK (0xFFFF << LCDC_CFBLEN_Layer4_CFBP_SHIFT) /* CFBP */
-#define LCDC_CFBLEN_Layer4_CFBLLEN_SHIFT (0)
-#define LCDC_CFBLEN_Layer4_CFBLLEN_MASK (0xFFFF << LCDC_CFBLEN_Layer4_CFBLLEN_SHIFT) /* CFBLLEN */
+#define LCDC_CFBLEN_Layer4_CFBP_SHIFT           (16)
+#define LCDC_CFBLEN_Layer4_CFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_CFBLEN_Layer4_CFBP_SHIFT) \
+        /*
+         * CFBP
+         */
+#define LCDC_CFBLEN_Layer4_CFBLLEN_SHIFT        (0)
+#define LCDC_CFBLEN_Layer4_CFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_CFBLEN_Layer4_CFBLLEN_SHIFT) \
+        /*
+         * CFBLLEN
+         */
 
 /******** Bit definition for LCDC_CFBLNUM_Layer4 register  ********/
-#define LCDC_CFBLNUM_Layer4_CFBLNUM_SHIFT (0)
-#define LCDC_CFBLNUM_Layer4_CFBLNUM_MASK (0xFFFF << LCDC_CFBLNUM_Layer4_CFBLNUM_SHIFT) /* CFBLNUM */
+#define LCDC_CFBLNUM_Layer4_CFBLNUM_SHIFT       (0)
+#define LCDC_CFBLNUM_Layer4_CFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_CFBLNUM_Layer4_CFBLNUM_SHIFT) \
+        /*
+         * CFBLNUM
+         */
 
 /******** Bit definition for LCDC_AFBADDR0_Layer4 register  ********/
-#define LCDC_AFBADDR0_Layer4_AFBADDR0_SHIFT (0)
-#define LCDC_AFBADDR0_Layer4_AFBADDR0_MASK (0xFFFFFFFF << LCDC_AFBADDR0_Layer4_AFBADDR0_SHIFT) /* AFBADDR0 */
+#define LCDC_AFBADDR0_Layer4_AFBADDR0_SHIFT     (0)
+#define LCDC_AFBADDR0_Layer4_AFBADDR0_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR0_Layer4_AFBADDR0_SHIFT) \
+        /*
+         * AFBADDR0
+         */
 
 /******** Bit definition for LCDC_AFBADDR1_Layer4 register  ********/
-#define LCDC_AFBADDR1_Layer4_AFBADDR1_SHIFT (0)
-#define LCDC_AFBADDR1_Layer4_AFBADDR1_MASK (0xFFFFFFFF << LCDC_AFBADDR1_Layer4_AFBADDR1_SHIFT) /* AFBADDR1 */
+#define LCDC_AFBADDR1_Layer4_AFBADDR1_SHIFT     (0)
+#define LCDC_AFBADDR1_Layer4_AFBADDR1_MASK      (0xFFFFFFFF <<                        \
+                                                 LCDC_AFBADDR1_Layer4_AFBADDR1_SHIFT) \
+        /*
+         * AFBADDR1
+         */
 
 /******** Bit definition for LCDC_AFBLEN_Layer4 register  ********/
-#define LCDC_AFBLEN_Layer4_AFBP_SHIFT (16)
-#define LCDC_AFBLEN_Layer4_AFBP_MASK (0xFFFF << LCDC_AFBLEN_Layer4_AFBP_SHIFT) /* AFBP */
-#define LCDC_AFBLEN_Layer4_AFBLLEN_SHIFT (0)
-#define LCDC_AFBLEN_Layer4_AFBLLEN_MASK (0xFFFF << LCDC_AFBLEN_Layer4_AFBLLEN_SHIFT) /* AFBLLEN */
+#define LCDC_AFBLEN_Layer4_AFBP_SHIFT           (16)
+#define LCDC_AFBLEN_Layer4_AFBP_MASK            (0xFFFF <<                      \
+                                                 LCDC_AFBLEN_Layer4_AFBP_SHIFT) \
+        /*
+         * AFBP
+         */
+#define LCDC_AFBLEN_Layer4_AFBLLEN_SHIFT        (0)
+#define LCDC_AFBLEN_Layer4_AFBLLEN_MASK         (0xFFFF <<                         \
+                                                 LCDC_AFBLEN_Layer4_AFBLLEN_SHIFT) \
+        /*
+         * AFBLLEN
+         */
 
 /******** Bit definition for LCDC_AFBLNUM_Layer4 register  ********/
-#define LCDC_AFBLNUM_Layer4_AFBLNUM_SHIFT (0)
-#define LCDC_AFBLNUM_Layer4_AFBLNUM_MASK (0xFFFF << LCDC_AFBLNUM_Layer4_AFBLNUM_SHIFT) /* AFBLNUM */
+#define LCDC_AFBLNUM_Layer4_AFBLNUM_SHIFT       (0)
+#define LCDC_AFBLNUM_Layer4_AFBLNUM_MASK        (0xFFFF <<                          \
+                                                 LCDC_AFBLNUM_Layer4_AFBLNUM_SHIFT) \
+        /*
+         * AFBLNUM
+         */
 
 /******** Bit definition for LCDC_CLUTWR_Layer4 register  ********/
-#define LCDC_CLUTWR_Layer4_CLUTADDR_SHIFT (24)
-#define LCDC_CLUTWR_Layer4_CLUTADDR_MASK (0xFF << LCDC_CLUTWR_Layer4_CLUTADDR_SHIFT) /* CLUTADDR */
-#define LCDC_CLUTWR_Layer4_CLUTR_SHIFT (16)
-#define LCDC_CLUTWR_Layer4_CLUTR_MASK (0xFF << LCDC_CLUTWR_Layer4_CLUTR_SHIFT) /* CLUTR */
-#define LCDC_CLUTWR_Layer4_CLUTG_SHIFT (8)
-#define LCDC_CLUTWR_Layer4_CLUTG_MASK (0xFF << LCDC_CLUTWR_Layer4_CLUTG_SHIFT) /* CLUTG */
-#define LCDC_CLUTWR_Layer4_CLUTB_SHIFT (0)
-#define LCDC_CLUTWR_Layer4_CLUTB_MASK (0xFF << LCDC_CLUTWR_Layer4_CLUTB_SHIFT) /* CLUTB */
+#define LCDC_CLUTWR_Layer4_CLUTADDR_SHIFT       (24)
+#define LCDC_CLUTWR_Layer4_CLUTADDR_MASK        (0xFF <<                            \
+                                                 LCDC_CLUTWR_Layer4_CLUTADDR_SHIFT) \
+        /*
+         * CLUTADDR
+         */
+#define LCDC_CLUTWR_Layer4_CLUTR_SHIFT          (16)
+#define LCDC_CLUTWR_Layer4_CLUTR_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer4_CLUTR_SHIFT) \
+        /*
+         * CLUTR
+         */
+#define LCDC_CLUTWR_Layer4_CLUTG_SHIFT          (8)
+#define LCDC_CLUTWR_Layer4_CLUTG_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer4_CLUTG_SHIFT) \
+        /*
+         * CLUTG
+         */
+#define LCDC_CLUTWR_Layer4_CLUTB_SHIFT          (0)
+#define LCDC_CLUTWR_Layer4_CLUTB_MASK           (0xFF <<                         \
+                                                 LCDC_CLUTWR_Layer4_CLUTB_SHIFT) \
+        /*
+         * CLUTB
+         */
 
 /******** Bit definition for LCDC_SINS_Layer4 register  ********/
-#define LCDC_SINS_Layer4_SINH_SHIFT (16)
-#define LCDC_SINS_Layer4_SINH_MASK (0xFFF << LCDC_SINS_Layer4_SINH_SHIFT) /* SINH */
-#define LCDC_SINS_Layer4_SINW_SHIFT (0)
-#define LCDC_SINS_Layer4_SINW_MASK (0xFFFF << LCDC_SINS_Layer4_SINW_SHIFT) /* SINW */
+#define LCDC_SINS_Layer4_SINH_SHIFT             (16)
+#define LCDC_SINS_Layer4_SINH_MASK              (0xFFF << \
+                                                 LCDC_SINS_Layer4_SINH_SHIFT) /*
+                                                                               *
+                                                                               * SINH
+                                                                               */
+#define LCDC_SINS_Layer4_SINW_SHIFT             (0)
+#define LCDC_SINS_Layer4_SINW_MASK              (0xFFFF << \
+                                                 LCDC_SINS_Layer4_SINW_SHIFT) /*
+                                                                               *
+                                                                               * SINW
+                                                                               */
 
 /******** Bit definition for LCDC_SOUTS_Layer4 register  ********/
-#define LCDC_SOUTS_Layer4_SOUTH_SHIFT (16)
-#define LCDC_SOUTS_Layer4_SOUTH_MASK (0xFFF << LCDC_SOUTS_Layer4_SOUTH_SHIFT) /* SOUTH */
-#define LCDC_SOUTS_Layer4_SOUTW_SHIFT (0)
-#define LCDC_SOUTS_Layer4_SOUTW_MASK (0xFFFF << LCDC_SOUTS_Layer4_SOUTW_SHIFT) /* SOUTW */
+#define LCDC_SOUTS_Layer4_SOUTH_SHIFT           (16)
+#define LCDC_SOUTS_Layer4_SOUTH_MASK            (0xFFF <<                       \
+                                                 LCDC_SOUTS_Layer4_SOUTH_SHIFT) \
+        /*
+         * SOUTH
+         */
+#define LCDC_SOUTS_Layer4_SOUTW_SHIFT           (0)
+#define LCDC_SOUTS_Layer4_SOUTW_MASK            (0xFFFF <<                      \
+                                                 LCDC_SOUTS_Layer4_SOUTW_SHIFT) \
+        /*
+         * SOUTW
+         */
 
 /******** Bit definition for LCDC_VSF_Layer4 register  ********/
-#define LCDC_VSF_Layer4_VSF_SHIFT (0)
-#define LCDC_VSF_Layer4_VSF_MASK (0xFFFF << LCDC_VSF_Layer4_VSF_SHIFT) /* VSF */
+#define LCDC_VSF_Layer4_VSF_SHIFT               (0)
+#define LCDC_VSF_Layer4_VSF_MASK                (0xFFFF << \
+                                                 LCDC_VSF_Layer4_VSF_SHIFT) /*
+                                                                             * VSF
+                                                                             */
 
 /******** Bit definition for LCDC_VSP_Layer4 register  ********/
-#define LCDC_VSP_Layer4_VSP_SHIFT (0)
-#define LCDC_VSP_Layer4_VSP_MASK (0xFFFF << LCDC_VSP_Layer4_VSP_SHIFT) /* VSP */
+#define LCDC_VSP_Layer4_VSP_SHIFT               (0)
+#define LCDC_VSP_Layer4_VSP_MASK                (0xFFFF << \
+                                                 LCDC_VSP_Layer4_VSP_SHIFT) /*
+                                                                             * VSP
+                                                                             */
 
 /******** Bit definition for LCDC_HSF_Layer4 register  ********/
-#define LCDC_HSF_Layer4_HSF_SHIFT (0)
-#define LCDC_HSF_Layer4_HSF_MASK (0xFFFF << LCDC_HSF_Layer4_HSF_SHIFT) /* HSF */
+#define LCDC_HSF_Layer4_HSF_SHIFT               (0)
+#define LCDC_HSF_Layer4_HSF_MASK                (0xFFFF << \
+                                                 LCDC_HSF_Layer4_HSF_SHIFT) /*
+                                                                             * HSF
+                                                                             */
 
 /******** Bit definition for LCDC_HSP_Layer4 register  ********/
-#define LCDC_HSP_Layer4_HSP_SHIFT (0)
-#define LCDC_HSP_Layer4_HSP_MASK (0xFFFF << LCDC_HSP_Layer4_HSP_SHIFT) /* HSP */
+#define LCDC_HSP_Layer4_HSP_SHIFT               (0)
+#define LCDC_HSP_Layer4_HSP_MASK                (0xFFFF << \
+                                                 LCDC_HSP_Layer4_HSP_SHIFT) /*
+                                                                             * HSP
+                                                                             */
 
 /******** Bit definition for LCDC_YUVS1_Layer4 register  ********/
-#define LCDC_YUVS1_Layer4_BUCS_SHIFT (16)
-#define LCDC_YUVS1_Layer4_BUCS_MASK (0x3FF << LCDC_YUVS1_Layer4_BUCS_SHIFT) /* BUCS */
-#define LCDC_YUVS1_Layer4_RVCS_SHIFT (0)
-#define LCDC_YUVS1_Layer4_RVCS_MASK (0x3FF << LCDC_YUVS1_Layer4_RVCS_SHIFT) /* RVCS */
+#define LCDC_YUVS1_Layer4_BUCS_SHIFT            (16)
+#define LCDC_YUVS1_Layer4_BUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer4_BUCS_SHIFT) /*
+                                                                                *
+                                                                                * BUCS
+                                                                                */
+#define LCDC_YUVS1_Layer4_RVCS_SHIFT            (0)
+#define LCDC_YUVS1_Layer4_RVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS1_Layer4_RVCS_SHIFT) /*
+                                                                                *
+                                                                                * RVCS
+                                                                                */
 
 /******** Bit definition for LCDC_YUVS2_Layer4 register  ********/
-#define LCDC_YUVS2_Layer4_GUCS_SHIFT (16)
-#define LCDC_YUVS2_Layer4_GUCS_MASK (0x3FF << LCDC_YUVS2_Layer4_GUCS_SHIFT) /* GUCS */
-#define LCDC_YUVS2_Layer4_GVCS_SHIFT (0)
-#define LCDC_YUVS2_Layer4_GVCS_MASK (0x3FF << LCDC_YUVS2_Layer4_GVCS_SHIFT) /* GVCS */
+#define LCDC_YUVS2_Layer4_GUCS_SHIFT            (16)
+#define LCDC_YUVS2_Layer4_GUCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer4_GUCS_SHIFT) /*
+                                                                                *
+                                                                                * GUCS
+                                                                                */
+#define LCDC_YUVS2_Layer4_GVCS_SHIFT            (0)
+#define LCDC_YUVS2_Layer4_GVCS_MASK             (0x3FF << \
+                                                 LCDC_YUVS2_Layer4_GVCS_SHIFT) /*
+                                                                                *
+                                                                                * GVCS
+                                                                                */
 
 /******** Bit definition for LCDC_FCF1_Layer4 register  ********/
-#define LCDC_FCF1_Layer4_RLENB_SHIFT (14)
-#define LCDC_FCF1_Layer4_RLENB_MASK (0xF << LCDC_FCF1_Layer4_RLENB_SHIFT) /* RLENB */
-#define LCDC_FCF1_Layer4_RSB_SHIFT (9)
-#define LCDC_FCF1_Layer4_RSB_MASK (0x1F << LCDC_FCF1_Layer4_RSB_SHIFT) /* RSB */
-#define LCDC_FCF1_Layer4_ALENB_SHIFT (5)
-#define LCDC_FCF1_Layer4_ALENB_MASK (0xF << LCDC_FCF1_Layer4_ALENB_SHIFT) /* ALENB */
-#define LCDC_FCF1_Layer4_ASB_SHIFT (0)
-#define LCDC_FCF1_Layer4_ASB_MASK (0x1F << LCDC_FCF1_Layer4_ASB_SHIFT) /* ASB */
+#define LCDC_FCF1_Layer4_RLENB_SHIFT            (14)
+#define LCDC_FCF1_Layer4_RLENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer4_RLENB_SHIFT) /*
+                                                                                *
+                                                                                * RLENB
+                                                                                */
+#define LCDC_FCF1_Layer4_RSB_SHIFT              (9)
+#define LCDC_FCF1_Layer4_RSB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer4_RSB_SHIFT) /*
+                                                                              * RSB
+                                                                              */
+#define LCDC_FCF1_Layer4_ALENB_SHIFT            (5)
+#define LCDC_FCF1_Layer4_ALENB_MASK             (0xF << \
+                                                 LCDC_FCF1_Layer4_ALENB_SHIFT) /*
+                                                                                *
+                                                                                * ALENB
+                                                                                */
+#define LCDC_FCF1_Layer4_ASB_SHIFT              (0)
+#define LCDC_FCF1_Layer4_ASB_MASK               (0x1F << \
+                                                 LCDC_FCF1_Layer4_ASB_SHIFT) /*
+                                                                              * ASB
+                                                                              */
 
 /******** Bit definition for LCDC_FCF2_Layer4 register  ********/
-#define LCDC_FCF2_Layer4_BPP_SHIFT (18)
-#define LCDC_FCF2_Layer4_BPP_MASK (0x7 << LCDC_FCF2_Layer4_BPP_SHIFT) /* BPP */
-#define LCDC_FCF2_Layer4_BLENB_SHIFT (14)
-#define LCDC_FCF2_Layer4_BLENB_MASK (0xF << LCDC_FCF2_Layer4_BLENB_SHIFT) /* BLENB */
-#define LCDC_FCF2_Layer4_BSB_SHIFT (9)
-#define LCDC_FCF2_Layer4_BSB_MASK (0x1F << LCDC_FCF2_Layer4_BSB_SHIFT) /* BSB */
-#define LCDC_FCF2_Layer4_GLENB_SHIFT (5)
-#define LCDC_FCF2_Layer4_GLENB_MASK (0xF << LCDC_FCF2_Layer4_GLENB_SHIFT) /* GLENB */
-#define LCDC_FCF2_Layer4_GSB_SHIFT (0)
-#define LCDC_FCF2_Layer4_GSB_MASK (0x1F << LCDC_FCF2_Layer4_GSB_SHIFT) /* GSB */
+#define LCDC_FCF2_Layer4_BPP_SHIFT              (18)
+#define LCDC_FCF2_Layer4_BPP_MASK               (0x7 << \
+                                                 LCDC_FCF2_Layer4_BPP_SHIFT) /*
+                                                                              * BPP
+                                                                              */
+#define LCDC_FCF2_Layer4_BLENB_SHIFT            (14)
+#define LCDC_FCF2_Layer4_BLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer4_BLENB_SHIFT) /*
+                                                                                *
+                                                                                * BLENB
+                                                                                */
+#define LCDC_FCF2_Layer4_BSB_SHIFT              (9)
+#define LCDC_FCF2_Layer4_BSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer4_BSB_SHIFT) /*
+                                                                              * BSB
+                                                                              */
+#define LCDC_FCF2_Layer4_GLENB_SHIFT            (5)
+#define LCDC_FCF2_Layer4_GLENB_MASK             (0xF << \
+                                                 LCDC_FCF2_Layer4_GLENB_SHIFT) /*
+                                                                                *
+                                                                                * GLENB
+                                                                                */
+#define LCDC_FCF2_Layer4_GSB_SHIFT              (0)
+#define LCDC_FCF2_Layer4_GSB_MASK               (0x1F << \
+                                                 LCDC_FCF2_Layer4_GSB_SHIFT) /*
+                                                                              * GSB
+                                                                              */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_LCDC_H */

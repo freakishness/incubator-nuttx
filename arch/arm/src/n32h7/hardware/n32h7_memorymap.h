@@ -35,43 +35,68 @@
 
 /* N32H7X3XX Address Blocks ***********************************************/
 
-#define N32_CODE_BASE      0x00000000     /* 0x00000000-0x1fffffff: 512Mb CODE block */
-#define N32_SRAM_BASE      0x20000000     /* 0x20000000-0x3fffffff: 512Mb SRAM block */
-#define N32_PERIPH_BASE    0x40000000     /* 0x40000000-0x5fffffff: 512Mb AHB1-2 peripheral blocks */
-#define N32_FMC_BANK1      0x60000000     /* 0x60000000-0x6fffffff: 256Mb NOR/PSRMA/SRAM */
-#define N32_FMC_BANK2      0x70000000     /* 0x70000000-0x7fffffff: 256Mb SDRAM */
-#define N32_FMC_BANK3      0x80000000     /* 0x80000000-0x8fffffff: 256Mb NAND FLASH */
-#define N32_FMC_BANK4      0x90000000     /* 0x90000000-0x9fffffff: 256Mb QUADSPI */
-#define N32_FMC_BANK5      0xc0000000     /* 0xc0000000-0xcfffffff: 256Mb FMC SDRAM Bank 1 */
-#define N32_FMC_BANK6      0xd0000000     /* 0xd0000000-0xdfffffff: 256Mb FMC SDRAM Bank 2 */
-#define N32_CORTEX_BASE    0xe0000000     /* 0xe0000000-0xffffffff: 512Mb Cortex-M7 block */
+#define N32_CODE_BASE               0x00000000  /* 0x00000000-0x1fffffff:
+                                                 * 512Mb CODE block */
+#define N32_SRAM_BASE               0x20000000  /* 0x20000000-0x3fffffff:
+                                                 * 512Mb SRAM block */
+#define N32_PERIPH_BASE             0x40000000  /* 0x40000000-0x5fffffff:
+                                                 * 512Mb AHB1-2 peripheral
+                                                 * blocks */
+#define N32_FMC_BANK1               0x60000000  /* 0x60000000-0x6fffffff:
+                                                 * 256Mb NOR/PSRMA/SRAM */
+#define N32_FMC_BANK2               0x70000000  /* 0x70000000-0x7fffffff:
+                                                 * 256Mb SDRAM */
+#define N32_FMC_BANK3               0x80000000  /* 0x80000000-0x8fffffff:
+                                                 * 256Mb NAND FLASH */
+#define N32_FMC_BANK4               0x90000000  /* 0x90000000-0x9fffffff:
+                                                 * 256Mb QUADSPI */
+#define N32_FMC_BANK5               0xc0000000  /* 0xc0000000-0xcfffffff:
+                                                 * 256Mb FMC SDRAM Bank 1 */
+#define N32_FMC_BANK6               0xd0000000  /* 0xd0000000-0xdfffffff:
+                                                 * 256Mb FMC SDRAM Bank 2 */
+#define N32_CORTEX_BASE             0xe0000000  /* 0xe0000000-0xffffffff:
+                                                 * 512Mb Cortex-M7 block */
 
-#define N32_REGION_MASK    0xff000000
-#define N32_IS_SRAM(a)     ((((uint32_t)(a)) & N32_REGION_MASK) == N32_SRAM_BASE)
-#define N32_IS_EXTSRAM(a)  ((((uint32_t)(a)) & N32_REGION_MASK) == N32_FMC_BANK1)
+#define N32_REGION_MASK             0xff000000
+#define N32_IS_SRAM(a)      ((((uint32_t)(a)) & N32_REGION_MASK) == \
+                             N32_SRAM_BASE)
+#define N32_IS_EXTSRAM(a)   ((((uint32_t)(a)) & N32_REGION_MASK) == \
+                             N32_FMC_BANK1)
 
 /* Code Base Addresses ******************************************************/
 
-#define N32_ITCM_BASE      0x00000000     /* 0x00000000-0x0000ffff: ITCM */
-#define N32_FLASH_BANK1    0x08000000     /* 0x08000000-0x080fffff: FLASH memory 1 */
-#define N32_FLASH_BANK2    0x08100000     /* 0x08100000-0x081fffff: FLASH memory 2 */
-#define N32_FLASH_BASE     N32_FLASH_BANK1
-#define N32_SYSMEM_MEM     0x1ff00000     /* 0x1ff00000-0x1ff1ffff: System memory */
+#define N32_ITCM_BASE               0x00000000  /* 0x00000000-0x0000ffff: ITCM
+                                                 */
+#define N32_FLASH_BANK1             0x08000000  /* 0x08000000-0x080fffff:
+                                                 * FLASH memory 1 */
+#define N32_FLASH_BANK2             0x08100000  /* 0x08100000-0x081fffff:
+                                                 * FLASH memory 2 */
+#define N32_FLASH_BASE              N32_FLASH_BANK1
+#define N32_SYSMEM_MEM              0x1ff00000  /* 0x1ff00000-0x1ff1ffff:
+                                                 * System memory */
 
 /* SRAM Base Addresses ******************************************************/
 
-#define N32_DTCRAM_BASE    0x20000000     /* 0x20000000-0x2001ffff: DTCM-RAM on TCM interface */
-#define N32_AXISRAM_BASE   0x24000000     /* 0x24000000-0x247fffff: System AXI SRAM */
+#define N32_DTCRAM_BASE             0x20000000  /* 0x20000000-0x2001ffff:
+                                                 * DTCM-RAM on TCM interface
+                                                 */
+#define N32_AXISRAM_BASE            0x24000000  /* 0x24000000-0x247fffff:
+                                                 * System AXI SRAM */
 
 #ifdef CONFIG_ARCH_CHIP_N32H7_CORTEXM7
-#  define N32_SRAM1_BASE   0x30000000     /* 0x30000000-0x30003fff: System SRAM1 */
+#  define N32_SRAM1_BASE            0x30000000  /* 0x30000000-0x30003fff:
+                                                 * System SRAM1 */
 #  ifdef CONFIG_N32H7_N32H72XXX_OR_N32H73XXX
-#  define N32_SRAM2_BASE   0x30004000     /* 0x30004000-0x30007fff: System SRAM2 */
+#  define N32_SRAM2_BASE            0x30004000  /* 0x30004000-0x30007fff:
+                                                 * System SRAM2 */
 #  else /* N32H74XXX or N32H75XXX with full SRAM configuration  */
-#  define N32_SRAM2_BASE   0x30020000     /* 0x30020000-0x3003ffff: System SRAM2 */
-#  define N32_SRAM3_BASE   0x30040000     /* 0x30040000-0x30047fff: System SRAM3 */
+#  define N32_SRAM2_BASE            0x30020000  /* 0x30020000-0x3003ffff:
+                                                 * System SRAM2 */
+#  define N32_SRAM3_BASE            0x30040000  /* 0x30040000-0x30047fff:
+                                                 * System SRAM3 */
 #  endif /* N32H72XXX or N32H73XXX / N32H74XXX or N32H75XXX */
-#  define N32_SRAM123_BASE 0x30000000     /* 0x30000000-0x30047fff: System SRAM123 */
+#  define N32_SRAM123_BASE          0x30000000  /* 0x30000000-0x30047fff:
+                                                 * System SRAM123 */
 #else
 
 /* The AHB SRAMs of the D2 domain are also aliased to an address range below
@@ -79,64 +104,114 @@
  * For details, see RM0399 section "2.4 Embedded SRAM".
  */
 
-#  define N32_SRAM1_BASE   0x10000000     /* 0x10000000-0x1001ffff: System SRAM1 */
-#  define N32_SRAM2_BASE   0x10020000     /* 0x10020000-0x1003ffff: System SRAM2 */
-#  define N32_SRAM3_BASE   0x10040000     /* 0x10040000-0x10047fff: System SRAM3 */
-#  define N32_SRAM123_BASE 0x10000000     /* 0x10000000-0x10047fff: System SRAM123 */
+#  define N32_SRAM1_BASE            0x10000000  /* 0x10000000-0x1001ffff:
+                                                 * System SRAM1 */
+#  define N32_SRAM2_BASE            0x10020000  /* 0x10020000-0x1003ffff:
+                                                 * System SRAM2 */
+#  define N32_SRAM3_BASE            0x10040000  /* 0x10040000-0x10047fff:
+                                                 * System SRAM3 */
+#  define N32_SRAM123_BASE          0x10000000  /* 0x10000000-0x10047fff:
+                                                 * System SRAM123 */
 #endif
-#define N32_SRAM4_BASE     0x38000000     /* 0x38000000-0x3800ffff: System SRAM4 */
-#define N32_BBSRAM_BASE    0x38800000     /* 0x38800000-0x38800fff: System Backup SRAM */
+#define N32_SRAM4_BASE              0x38000000  /* 0x38000000-0x3800ffff:
+                                                 * System SRAM4 */
+#define N32_BBSRAM_BASE             0x38800000  /* 0x38800000-0x38800fff:
+                                                 * System Backup SRAM */
 
 /* Peripheral Base Addresses ************************************************/
 
-#define N32_PREGION_MASK   0xff000000
-#define N32_D2_BASE        0x40000000     /* 0x40000000-0x48022800: D2 domain */
-#  define N32_APB1_BASE    0x40000000     /* 0x40000000-0x40007fff: APB1 */
-#  define N32_APB2_BASE    0x40010000     /* 0x40010000-0x40016bff: APB2 */
-#  define N32_AHB1_BASE    0x40020000     /* 0x40020000-0x4007ffff: APB1 */
-#  define N32_AHB2_BASE    0x48020000     /* 0x50000000-0x48022bff: AHB2 */
-#define N32_D1_BASE        0x50000000     /* 0x50000000-0x50003fff: D1 domain */
-#  define N32_APB3_BASE    0x50000000     /* 0x60000000-0x50003fff: APB3 */
-#  define N32_AHB3_BASE    0x51000000     /* 0x51000000-0x52008fff: AHB3 */
-#define N32_D3_BASE        0x58000000     /* 0x58000000-0x580267ff: D3 domain */
-#  define N32_APB4_BASE    0x58000000     /* 0x60000000-0x58006bff: APB4 */
-#  define N32_AHB4_BASE    0x58020000     /* 0x58020000-0x580267ff: AHB4 */
+#define N32_PREGION_MASK            0xff000000
+#define N32_D2_BASE                 0x40000000  /* 0x40000000-0x48022800: D2
+                                                 * domain */
+#  define N32_APB1_BASE             0x40000000  /* 0x40000000-0x40007fff: APB1
+                                                 */
+#  define N32_APB2_BASE             0x40010000  /* 0x40010000-0x40016bff: APB2
+                                                 */
+#  define N32_AHB1_BASE             0x40020000  /* 0x40020000-0x4007ffff: APB1
+                                                 */
+#  define N32_AHB2_BASE             0x48020000  /* 0x50000000-0x48022bff: AHB2
+                                                 */
+#define N32_D1_BASE                 0x50000000  /* 0x50000000-0x50003fff: D1
+                                                 * domain */
+#  define N32_APB3_BASE             0x50000000  /* 0x60000000-0x50003fff: APB3
+                                                 */
+#  define N32_AHB3_BASE             0x51000000  /* 0x51000000-0x52008fff: AHB3
+                                                 */
+#define N32_D3_BASE                 0x58000000  /* 0x58000000-0x580267ff: D3
+                                                 * domain */
+#  define N32_APB4_BASE             0x58000000  /* 0x60000000-0x58006bff: APB4
+                                                 */
+#  define N32_AHB4_BASE             0x58020000  /* 0x58020000-0x580267ff: AHB4
+                                                 */
 
 /* APB1 Base Addresses ******************************************************/
 
-#define N32_FDCAN1_BASE        0x40000000     /* 0x40000000-0x400003ff: FDCAN1 */
-#define N32_FDCAN2_BASE        0x40000400     /* 0x40000400-0x400007ff: TIM3 */
-#define N32_FDCAN5_BASE        0x40000800     /* 0x40000800-0x40000bff: TIM4 */
-#define N32_FDCAN6_BASE        0x40000c00     /* 0x40000c00-0x40000fff: TIM5 */
-#define N32_AHB_ICACHE_BASE    0x40008000     /* 0x40001000-0x400013ff: TIM6 */
-#define N32_AHC_DCACHE_BASE    0x40009000     /* 0x40001400-0x400017ff: TIM7 */
-#define N32_BTIMER1_BASE       0x4000A000     /* 0x40001800-0x40001bff: TIM12 */
-#define N32_BTIMER2_BASE       0x4000A400     /* 0x40001c00-0x40001fff: TIM13 */
-#define N32_GTIMERB1_BASE      0x4000A800     /* 0x40002000-0x400023ff: TIM14 */
-#define N32_GTIMERB2_BASE      0x4000AC00     /* 0x40002400-0x400027ff: LPTIM1 */
-#define N32_GTIMERB3_BASE      0x4000B000     /* 0x40003800-0x40003bff: SPI2 / I2S2 */
-#define N32_GTIMERA4_BASE      0x4000B400     /* 0x40003800-0x40003bff: SPI2 / I2S2 */
-#define N32_GTIMERA5_BASE      0x4000B800     /* 0x40003c00-0x40003fff: SPI3 / I2S3 */
-#define N32_GTIMERA6_BASE      0x4000BC00     /* 0x40003c00-0x40003fff: SPI3 / I2S3 */
-#define N32_GTIMERA7_BASE      0x4000C000     /* 0x40004000-0x400043ff: SPDIFRX */
-#define N32_USART1_BASE        0x4000C400     /* 0x40004400-0x400047ff: USART2 */
-#define N32_USART2_BASE        0x4000C800     /* 0x40004800-0x40004bff: USART3 */
-#define N32_USART3_BASE        0x4000CC00     /* 0x40004c00-0x40004fff: UART4 */
-#define N32_USART4_BASE        0x4000D000     /* 0x40005000-0x400053ff: UART5 */
-#define N32_UART9_BASE         0x4000D400     /* 0x40005400-0x400057ff: I2C1 */
-#define N32_USART10_BASE       0x4000D800     /* 0x40005800-0x40005bff: I2C2 */
-#define N32_USART11_BASE       0x4000DC00     /* 0x40005c00-0x40005fff: I2C3 */
-#define N32_USART12_BASE       0x4000E000     /* 0x40006c00-0x40006fff: HDMI-CEC */
-#define N32_SPI3_BASE          0x4000E400     /* 0x40007400-0x400077ff: DAC */
-#define N32_I2C1_BASE          0x4000E800     /* 0x40007800-0x40007bff: UART7 */
-#define N32_I2C2_BASE          0x4000EC00     /* 0x40007c00-0x40007fff: UART8 */
-#define N32_I2C3_BASE          0x4000F000     /* 0x40008400-0x400087ff: CRS */
-#define N32_I2S3_BASE          0x4000F400     /* 0x40008800 - 0x40008bff SWPMI Section */
-#define N32_I2S4_BASE          0x4000F800     /* 0x40009000 - 0x400093ff OPAMP Section */
-#define N32_DAC12_BASE         0x4000FC00     /* 0x40009400 - 0x400097ff MDIOS Section */
-#define N32_WWDG2_BASE         0x40010000     /* 0x4000a000 - 0x4000a3ff FDCAN1 Section */
-#define N32_BTIMER3_BASE       0x40010800     /* 0x4000a400 - 0x4000A7ff FDCAN2 Section */
-#define N32_BTIMER4_BASE       0x40010C00     /* 0x4000D400 - 0x4000D7FF FDCAN3 Section */
+#define N32_FDCAN1_BASE             0x40000000  /* 0x40000000-0x400003ff:
+                                                 * FDCAN1 */
+#define N32_FDCAN2_BASE             0x40000400  /* 0x40000400-0x400007ff: TIM3
+                                                 */
+#define N32_FDCAN5_BASE             0x40000800  /* 0x40000800-0x40000bff: TIM4
+                                                 */
+#define N32_FDCAN6_BASE             0x40000c00  /* 0x40000c00-0x40000fff: TIM5
+                                                 */
+#define N32_AHB_ICACHE_BASE         0x40008000  /* 0x40001000-0x400013ff: TIM6
+                                                 */
+#define N32_AHC_DCACHE_BASE         0x40009000  /* 0x40001400-0x400017ff: TIM7
+                                                 */
+#define N32_BTIMER1_BASE            0x4000A000  /* 0x40001800-0x40001bff:
+                                                 * TIM12 */
+#define N32_BTIMER2_BASE            0x4000A400  /* 0x40001c00-0x40001fff:
+                                                 * TIM13 */
+#define N32_GTIMERB1_BASE           0x4000A800  /* 0x40002000-0x400023ff:
+                                                 * TIM14 */
+#define N32_GTIMERB2_BASE           0x4000AC00  /* 0x40002400-0x400027ff:
+                                                 * LPTIM1 */
+#define N32_GTIMERB3_BASE           0x4000B000  /* 0x40003800-0x40003bff: SPI2
+                                                 * / I2S2 */
+#define N32_GTIMERA4_BASE           0x4000B400  /* 0x40003800-0x40003bff: SPI2
+                                                 * / I2S2 */
+#define N32_GTIMERA5_BASE           0x4000B800  /* 0x40003c00-0x40003fff: SPI3
+                                                 * / I2S3 */
+#define N32_GTIMERA6_BASE           0x4000BC00  /* 0x40003c00-0x40003fff: SPI3
+                                                 * / I2S3 */
+#define N32_GTIMERA7_BASE           0x4000C000  /* 0x40004000-0x400043ff:
+                                                 * SPDIFRX */
+#define N32_USART1_BASE             0x4000C400  /* 0x40004400-0x400047ff:
+                                                 * USART2 */
+#define N32_USART2_BASE             0x4000C800  /* 0x40004800-0x40004bff:
+                                                 * USART3 */
+#define N32_USART3_BASE             0x4000CC00  /* 0x40004c00-0x40004fff:
+                                                 * UART4 */
+#define N32_USART4_BASE             0x4000D000  /* 0x40005000-0x400053ff:
+                                                 * UART5 */
+#define N32_UART9_BASE              0x4000D400  /* 0x40005400-0x400057ff: I2C1
+                                                 */
+#define N32_USART10_BASE            0x4000D800  /* 0x40005800-0x40005bff: I2C2
+                                                 */
+#define N32_USART11_BASE            0x4000DC00  /* 0x40005c00-0x40005fff: I2C3
+                                                 */
+#define N32_USART12_BASE            0x4000E000  /* 0x40006c00-0x40006fff:
+                                                 * HDMI-CEC */
+#define N32_SPI3_BASE               0x4000E400  /* 0x40007400-0x400077ff: DAC
+                                                 */
+#define N32_I2C1_BASE               0x4000E800  /* 0x40007800-0x40007bff:
+                                                 * UART7 */
+#define N32_I2C2_BASE               0x4000EC00  /* 0x40007c00-0x40007fff:
+                                                 * UART8 */
+#define N32_I2C3_BASE               0x4000F000  /* 0x40008400-0x400087ff: CRS
+                                                 */
+#define N32_I2S3_BASE               0x4000F400  /* 0x40008800 - 0x40008bff
+                                                 * SWPMI Section */
+#define N32_I2S4_BASE               0x4000F800  /* 0x40009000 - 0x400093ff
+                                                 * OPAMP Section */
+#define N32_DAC12_BASE              0x4000FC00  /* 0x40009400 - 0x400097ff
+                                                 * MDIOS Section */
+#define N32_WWDG2_BASE              0x40010000  /* 0x4000a000 - 0x4000a3ff
+                                                 * FDCAN1 Section */
+#define N32_BTIMER3_BASE            0x40010800  /* 0x4000a400 - 0x4000A7ff
+                                                 * FDCAN2 Section */
+#define N32_BTIMER4_BASE            0x40010C00  /* 0x4000D400 - 0x4000D7FF
+                                                 * FDCAN3 Section */
 
 /* AHB1 Base Addresses ******************************************************/
 
@@ -283,6 +358,6 @@
 #define N32_DBGMCU_BASE             0x58035400
 #define N32_ECCMON3_BASE            0x58036000
 
-#define N32_SYSMEM_UID       0x1ff1e800
+#define N32_SYSMEM_UID              0x1ff1e800
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_MEMORYMAP_H */

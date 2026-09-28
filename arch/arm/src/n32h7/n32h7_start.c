@@ -19,7 +19,6 @@
  * under the License.
  *
  ****************************************************************************/
-
 /****************************************************************************
  * Included Files
  ****************************************************************************/
@@ -102,7 +101,7 @@ const uintptr_t g_idle_topstack = HEAP_BASE;
  ****************************************************************************/
 
 #ifdef CONFIG_DEBUG_FEATURES
-#  define showprogress(c) arm_lowputc(c)
+#  define showprogress(c)  arm_lowputc(c)
 #else
 #  define showprogress(c)
 #endif
@@ -115,9 +114,11 @@ const uintptr_t g_idle_topstack = HEAP_BASE;
 /* we need to get r10 set before we can allow instrumentation calls */
 
 void __start(void) noinstrument_function;
+
 #endif
 
 #ifdef CONFIG_ARCH_CHIP_STM32H7_CORTEXM7
+
 /****************************************************************************
  * Name: stm32_tcmenable
  *
@@ -136,9 +137,9 @@ static inline void stm32_tcmenable(void)
   /* Enabled/disabled ITCM */
 
 #ifdef CONFIG_ARMV7M_ITCM
-  regval  = NVIC_TCMCR_EN | NVIC_TCMCR_RMW | NVIC_TCMCR_RETEN;
+  regval = NVIC_TCMCR_EN | NVIC_TCMCR_RMW | NVIC_TCMCR_RETEN;
 #else
-  regval  = getreg32(NVIC_ITCMCR);
+  regval = getreg32(NVIC_ITCMCR);
   regval &= ~NVIC_TCMCR_EN;
 #endif
   putreg32(regval, NVIC_ITCMCR);
@@ -146,13 +147,14 @@ static inline void stm32_tcmenable(void)
   /* Enabled/disabled DTCM */
 
 #ifdef CONFIG_ARMV7M_DTCM
+
   /* As DTCM RAM on STM32H7 does not have ECC, so do not enable
    * read-modify-write.
    */
 
-  regval  = NVIC_TCMCR_EN | NVIC_TCMCR_RETEN;
+  regval = NVIC_TCMCR_EN | NVIC_TCMCR_RETEN;
 #else
-  regval  = getreg32(NVIC_DTCMCR);
+  regval = getreg32(NVIC_DTCMCR);
   regval &= ~NVIC_TCMCR_EN;
 #endif
   putreg32(regval, NVIC_DTCMCR);
@@ -179,8 +181,7 @@ static inline void stm32_tcmenable(void)
  *
  ****************************************************************************/
 
-osentry_function
-void __start(void)
+osentry_function void __start(void)
 {
   const uint32_t *src;
   uint32_t *dest;
@@ -188,8 +189,8 @@ void __start(void)
 #ifdef CONFIG_ARMV7M_STACKCHECK
   /* Set the stack limit before we attempt to call any functions */
 
-  __asm__ volatile("sub r10, sp, %0" : :
-                   "r"(CONFIG_IDLETHREAD_STACKSIZE - 64) :);
+  __asm__ volatile ("sub r10, sp, %0" : : "r" (CONFIG_IDLETHREAD_STACKSIZE -
+                                               64) :);
 #endif
 
 #ifdef CONFIG_ARCH_CHIP_STM32H7_CORTEXM4
@@ -217,9 +218,9 @@ void __start(void)
    * end of all of the other read-only data (.text, .rodata) at _eronly.
    */
 
-  for (src = (const uint32_t *)_eronly,
-       dest = (uint32_t *)_sdata; dest < (uint32_t *)_edata;
-      )
+  for (src = (const uint32_t *)_eronly, dest = (uint32_t *)_sdata;
+       dest < (uint32_t *)_edata;
+       )
     {
       *dest++ = *src++;
     }
@@ -232,9 +233,9 @@ void __start(void)
    */
 
 #ifdef CONFIG_ARCH_RAMFUNCS
-  for (src = (const uint32_t *)_framfuncs,
-       dest = (uint32_t *)_sramfuncs; dest < (uint32_t *)_eramfuncs;
-      )
+  for (src = (const uint32_t *)_framfuncs, dest = (uint32_t *)_sramfuncs;
+       dest < (uint32_t *)_eramfuncs;
+       )
     {
       *dest++ = *src++;
     }
@@ -303,9 +304,9 @@ void __start(void)
   showprogress('\r');
   showprogress('\n');
 
-#if defined(CONFIG_ARCH_STM32H7_DUALCORE) && \
-    defined(CONFIG_ARCH_CHIP_STM32H7_CORTEXM7) && \
-    defined(CONFIG_STM32H7_CORTEXM4_ENABLED)
+#if defined(CONFIG_ARCH_STM32H7_DUALCORE) &&    \
+  defined(CONFIG_ARCH_CHIP_STM32H7_CORTEXM7) && \
+  defined(CONFIG_STM32H7_CORTEXM4_ENABLED)
 
   /* Start CM4 core after clock configuration is done */
 
@@ -316,5 +317,7 @@ void __start(void)
 
   /* Shouldn't get here */
 
-  for (; ; );
+  for (; ; )
+    {
+    }
 }

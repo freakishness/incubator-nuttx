@@ -33,501 +33,1218 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_ATIM_TIMx_CTRL1_OFFSET 0x0 /* TIMx_CTRL1 */
-#define N32_ATIM_TIMx_CTRL2_OFFSET 0x4 /* TIMx_CTRL2 */
-#define N32_ATIM_TIMx_STS_OFFSET 0x8 /* TIMx_STS */
-#define N32_ATIM_TIMx_EVTGEN_OFFSET 0xC /* TIMx_EVTGEN */
-#define N32_ATIM_TIMx_SMCTRL_OFFSET 0x10 /* TIMx_SMCTRL */
-#define N32_ATIM_TIMx_DINTEN_OFFSET 0x14 /* TIMx_DINTEN */
-#define N32_ATIM_TIMx_CCMOD1_OFFSET 0x18 /* TIMx_CCMOD1 */
-#define N32_ATIM_TIMx_CCMOD2_OFFSET 0x1C /* TIMx_CCMOD2 */
-#define N32_ATIM_TIMx_CCMOD3_OFFSET 0x20 /* TIMx_CCMOD3 */
-#define N32_ATIM_TIMx_CCEN_OFFSET 0x24 /* TIMx_CCEN */
-#define N32_ATIM_TIMx_CCDAT1_OFFSET 0x28 /* TIMx_CCDAT1 */
-#define N32_ATIM_TIMx_CCDAT2_OFFSET 0x2C /* TIMx_CCDAT2 */
-#define N32_ATIM_TIMx_CCDAT3_OFFSET 0x30 /* TIMx_CCDAT3 */
-#define N32_ATIM_TIMx_CCDAT4_OFFSET 0x34 /* TIMx_CCDAT4 */
-#define N32_ATIM_TIMx_CCDAT5_OFFSET 0x38 /* TIMx_CCDAT5 */
-#define N32_ATIM_TIMx_CCDAT6_OFFSET 0x3C /* TIMx_CCDAT6 */
-#define N32_ATIM_TIMx_PSC_OFFSET 0x40 /* TIMx_PSC */
-#define N32_ATIM_TIMx_AR_OFFSET 0x44 /* TIMx_AR */
-#define N32_ATIM_TIMx_CNT_OFFSET 0x48 /* TIMx_CNT */
-#define N32_ATIM_TIMx_REPCNT_OFFSET 0x4C /* TIMx_REPCNT */
-#define N32_ATIM_TIMx_BKDT_OFFSET 0x50 /* TIMx_BKDT */
-#define N32_ATIM_TIMx_CCDAT7_OFFSET 0x54 /* TIMx_CCDAT7 */
-#define N32_ATIM_TIMx_CCDAT8_OFFSET 0x58 /* TIMx_CCDAT8 */
-#define N32_ATIM_TIMx_CCDAT9_OFFSET 0x5C /* TIMx_CCDAT9 */
-#define N32_ATIM_TIMx_BKFR_OFFSET 0x60 /* TIMx_BKFR */
-#define N32_ATIM_TIMx_INSEL_OFFSET 0x78 /* TIMx_INSEL */
-#define N32_ATIM_TIMx_AF1_OFFSET 0x7C /* TIMx_AF1 */
-#define N32_ATIM_TIMx_AF2_OFFSET 0x80 /* TIMx_AF2 */
-#define N32_ATIM_TIMx_BKFR2_OFFSET 0x84 /* TIMx_BKFR2 */
-#define N32_ATIM_TIMx_DCTRL_OFFSET 0x94 /* TIMx_DCTRL */
-#define N32_ATIM_TIMx_DADDR_OFFSET 0x98 /* TIMx_DADDR */
+#define N32_ATIM_TIMx_CTRL1_OFFSET          0x0     /* TIMx_CTRL1 */
+#define N32_ATIM_TIMx_CTRL2_OFFSET          0x4     /* TIMx_CTRL2 */
+#define N32_ATIM_TIMx_STS_OFFSET            0x8     /* TIMx_STS */
+#define N32_ATIM_TIMx_EVTGEN_OFFSET         0xC     /* TIMx_EVTGEN */
+#define N32_ATIM_TIMx_SMCTRL_OFFSET         0x10    /* TIMx_SMCTRL */
+#define N32_ATIM_TIMx_DINTEN_OFFSET         0x14    /* TIMx_DINTEN */
+#define N32_ATIM_TIMx_CCMOD1_OFFSET         0x18    /* TIMx_CCMOD1 */
+#define N32_ATIM_TIMx_CCMOD2_OFFSET         0x1C    /* TIMx_CCMOD2 */
+#define N32_ATIM_TIMx_CCMOD3_OFFSET         0x20    /* TIMx_CCMOD3 */
+#define N32_ATIM_TIMx_CCEN_OFFSET           0x24    /* TIMx_CCEN */
+#define N32_ATIM_TIMx_CCDAT1_OFFSET         0x28    /* TIMx_CCDAT1 */
+#define N32_ATIM_TIMx_CCDAT2_OFFSET         0x2C    /* TIMx_CCDAT2 */
+#define N32_ATIM_TIMx_CCDAT3_OFFSET         0x30    /* TIMx_CCDAT3 */
+#define N32_ATIM_TIMx_CCDAT4_OFFSET         0x34    /* TIMx_CCDAT4 */
+#define N32_ATIM_TIMx_CCDAT5_OFFSET         0x38    /* TIMx_CCDAT5 */
+#define N32_ATIM_TIMx_CCDAT6_OFFSET         0x3C    /* TIMx_CCDAT6 */
+#define N32_ATIM_TIMx_PSC_OFFSET            0x40    /* TIMx_PSC */
+#define N32_ATIM_TIMx_AR_OFFSET             0x44    /* TIMx_AR */
+#define N32_ATIM_TIMx_CNT_OFFSET            0x48    /* TIMx_CNT */
+#define N32_ATIM_TIMx_REPCNT_OFFSET         0x4C    /* TIMx_REPCNT */
+#define N32_ATIM_TIMx_BKDT_OFFSET           0x50    /* TIMx_BKDT */
+#define N32_ATIM_TIMx_CCDAT7_OFFSET         0x54    /* TIMx_CCDAT7 */
+#define N32_ATIM_TIMx_CCDAT8_OFFSET         0x58    /* TIMx_CCDAT8 */
+#define N32_ATIM_TIMx_CCDAT9_OFFSET         0x5C    /* TIMx_CCDAT9 */
+#define N32_ATIM_TIMx_BKFR_OFFSET           0x60    /* TIMx_BKFR */
+#define N32_ATIM_TIMx_INSEL_OFFSET          0x78    /* TIMx_INSEL */
+#define N32_ATIM_TIMx_AF1_OFFSET            0x7C    /* TIMx_AF1 */
+#define N32_ATIM_TIMx_AF2_OFFSET            0x80    /* TIMx_AF2 */
+#define N32_ATIM_TIMx_BKFR2_OFFSET          0x84    /* TIMx_BKFR2 */
+#define N32_ATIM_TIMx_DCTRL_OFFSET          0x94    /* TIMx_DCTRL */
+#define N32_ATIM_TIMx_DADDR_OFFSET          0x98    /* TIMx_DADDR */
 
-#define N32_ATIM1_TIMx_CTRL1 (N32_ATIM1_BASE + N32_ATIM_TIMx_CTRL1_OFFSET)
-#define N32_ATIM1_TIMx_CTRL2 (N32_ATIM1_BASE + N32_ATIM_TIMx_CTRL2_OFFSET)
-#define N32_ATIM1_TIMx_STS (N32_ATIM1_BASE + N32_ATIM_TIMx_STS_OFFSET)
-#define N32_ATIM1_TIMx_EVTGEN (N32_ATIM1_BASE + N32_ATIM_TIMx_EVTGEN_OFFSET)
-#define N32_ATIM1_TIMx_SMCTRL (N32_ATIM1_BASE + N32_ATIM_TIMx_SMCTRL_OFFSET)
-#define N32_ATIM1_TIMx_DINTEN (N32_ATIM1_BASE + N32_ATIM_TIMx_DINTEN_OFFSET)
-#define N32_ATIM1_TIMx_CCMOD1 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCMOD1_OFFSET)
-#define N32_ATIM1_TIMx_CCMOD2 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCMOD2_OFFSET)
-#define N32_ATIM1_TIMx_CCMOD3 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCMOD3_OFFSET)
-#define N32_ATIM1_TIMx_CCEN (N32_ATIM1_BASE + N32_ATIM_TIMx_CCEN_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT1 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT1_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT2 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT2_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT3 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT3_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT4 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT4_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT5 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT5_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT6 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT6_OFFSET)
-#define N32_ATIM1_TIMx_PSC (N32_ATIM1_BASE + N32_ATIM_TIMx_PSC_OFFSET)
-#define N32_ATIM1_TIMx_AR (N32_ATIM1_BASE + N32_ATIM_TIMx_AR_OFFSET)
-#define N32_ATIM1_TIMx_CNT (N32_ATIM1_BASE + N32_ATIM_TIMx_CNT_OFFSET)
-#define N32_ATIM1_TIMx_REPCNT (N32_ATIM1_BASE + N32_ATIM_TIMx_REPCNT_OFFSET)
-#define N32_ATIM1_TIMx_BKDT (N32_ATIM1_BASE + N32_ATIM_TIMx_BKDT_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT7 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT7_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT8 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT8_OFFSET)
-#define N32_ATIM1_TIMx_CCDAT9 (N32_ATIM1_BASE + N32_ATIM_TIMx_CCDAT9_OFFSET)
-#define N32_ATIM1_TIMx_BKFR (N32_ATIM1_BASE + N32_ATIM_TIMx_BKFR_OFFSET)
-#define N32_ATIM1_TIMx_INSEL (N32_ATIM1_BASE + N32_ATIM_TIMx_INSEL_OFFSET)
-#define N32_ATIM1_TIMx_AF1 (N32_ATIM1_BASE + N32_ATIM_TIMx_AF1_OFFSET)
-#define N32_ATIM1_TIMx_AF2 (N32_ATIM1_BASE + N32_ATIM_TIMx_AF2_OFFSET)
-#define N32_ATIM1_TIMx_BKFR2 (N32_ATIM1_BASE + N32_ATIM_TIMx_BKFR2_OFFSET)
-#define N32_ATIM1_TIMx_DCTRL (N32_ATIM1_BASE + N32_ATIM_TIMx_DCTRL_OFFSET)
-#define N32_ATIM1_TIMx_DADDR (N32_ATIM1_BASE + N32_ATIM_TIMx_DADDR_OFFSET)
+#define N32_ATIM1_TIMx_CTRL1                (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CTRL1_OFFSET)
+#define N32_ATIM1_TIMx_CTRL2                (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CTRL2_OFFSET)
+#define N32_ATIM1_TIMx_STS                  (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_STS_OFFSET)
+#define N32_ATIM1_TIMx_EVTGEN               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_EVTGEN_OFFSET)
+#define N32_ATIM1_TIMx_SMCTRL               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_SMCTRL_OFFSET)
+#define N32_ATIM1_TIMx_DINTEN               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_DINTEN_OFFSET)
+#define N32_ATIM1_TIMx_CCMOD1               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCMOD1_OFFSET)
+#define N32_ATIM1_TIMx_CCMOD2               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCMOD2_OFFSET)
+#define N32_ATIM1_TIMx_CCMOD3               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCMOD3_OFFSET)
+#define N32_ATIM1_TIMx_CCEN                 (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCEN_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT1               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT1_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT2               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT2_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT3               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT3_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT4               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT4_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT5               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT5_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT6               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT6_OFFSET)
+#define N32_ATIM1_TIMx_PSC                  (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_PSC_OFFSET)
+#define N32_ATIM1_TIMx_AR                   (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_AR_OFFSET)
+#define N32_ATIM1_TIMx_CNT                  (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CNT_OFFSET)
+#define N32_ATIM1_TIMx_REPCNT               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_REPCNT_OFFSET)
+#define N32_ATIM1_TIMx_BKDT                 (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_BKDT_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT7               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT7_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT8               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT8_OFFSET)
+#define N32_ATIM1_TIMx_CCDAT9               (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_CCDAT9_OFFSET)
+#define N32_ATIM1_TIMx_BKFR                 (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_BKFR_OFFSET)
+#define N32_ATIM1_TIMx_INSEL                (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_INSEL_OFFSET)
+#define N32_ATIM1_TIMx_AF1                  (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_AF1_OFFSET)
+#define N32_ATIM1_TIMx_AF2                  (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_AF2_OFFSET)
+#define N32_ATIM1_TIMx_BKFR2                (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_BKFR2_OFFSET)
+#define N32_ATIM1_TIMx_DCTRL                (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_DCTRL_OFFSET)
+#define N32_ATIM1_TIMx_DADDR                (N32_ATIM1_BASE + \
+                                             N32_ATIM_TIMx_DADDR_OFFSET)
 
-#define N32_ATIM2_TIMx_CTRL1 (N32_ATIM2_BASE + N32_ATIM_TIMx_CTRL1_OFFSET)
-#define N32_ATIM2_TIMx_CTRL2 (N32_ATIM2_BASE + N32_ATIM_TIMx_CTRL2_OFFSET)
-#define N32_ATIM2_TIMx_STS (N32_ATIM2_BASE + N32_ATIM_TIMx_STS_OFFSET)
-#define N32_ATIM2_TIMx_EVTGEN (N32_ATIM2_BASE + N32_ATIM_TIMx_EVTGEN_OFFSET)
-#define N32_ATIM2_TIMx_SMCTRL (N32_ATIM2_BASE + N32_ATIM_TIMx_SMCTRL_OFFSET)
-#define N32_ATIM2_TIMx_DINTEN (N32_ATIM2_BASE + N32_ATIM_TIMx_DINTEN_OFFSET)
-#define N32_ATIM2_TIMx_CCMOD1 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCMOD1_OFFSET)
-#define N32_ATIM2_TIMx_CCMOD2 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCMOD2_OFFSET)
-#define N32_ATIM2_TIMx_CCMOD3 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCMOD3_OFFSET)
-#define N32_ATIM2_TIMx_CCEN (N32_ATIM2_BASE + N32_ATIM_TIMx_CCEN_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT1 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT1_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT2 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT2_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT3 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT3_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT4 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT4_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT5 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT5_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT6 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT6_OFFSET)
-#define N32_ATIM2_TIMx_PSC (N32_ATIM2_BASE + N32_ATIM_TIMx_PSC_OFFSET)
-#define N32_ATIM2_TIMx_AR (N32_ATIM2_BASE + N32_ATIM_TIMx_AR_OFFSET)
-#define N32_ATIM2_TIMx_CNT (N32_ATIM2_BASE + N32_ATIM_TIMx_CNT_OFFSET)
-#define N32_ATIM2_TIMx_REPCNT (N32_ATIM2_BASE + N32_ATIM_TIMx_REPCNT_OFFSET)
-#define N32_ATIM2_TIMx_BKDT (N32_ATIM2_BASE + N32_ATIM_TIMx_BKDT_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT7 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT7_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT8 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT8_OFFSET)
-#define N32_ATIM2_TIMx_CCDAT9 (N32_ATIM2_BASE + N32_ATIM_TIMx_CCDAT9_OFFSET)
-#define N32_ATIM2_TIMx_BKFR (N32_ATIM2_BASE + N32_ATIM_TIMx_BKFR_OFFSET)
-#define N32_ATIM2_TIMx_INSEL (N32_ATIM2_BASE + N32_ATIM_TIMx_INSEL_OFFSET)
-#define N32_ATIM2_TIMx_AF1 (N32_ATIM2_BASE + N32_ATIM_TIMx_AF1_OFFSET)
-#define N32_ATIM2_TIMx_AF2 (N32_ATIM2_BASE + N32_ATIM_TIMx_AF2_OFFSET)
-#define N32_ATIM2_TIMx_BKFR2 (N32_ATIM2_BASE + N32_ATIM_TIMx_BKFR2_OFFSET)
-#define N32_ATIM2_TIMx_DCTRL (N32_ATIM2_BASE + N32_ATIM_TIMx_DCTRL_OFFSET)
-#define N32_ATIM2_TIMx_DADDR (N32_ATIM2_BASE + N32_ATIM_TIMx_DADDR_OFFSET)
+#define N32_ATIM2_TIMx_CTRL1                (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CTRL1_OFFSET)
+#define N32_ATIM2_TIMx_CTRL2                (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CTRL2_OFFSET)
+#define N32_ATIM2_TIMx_STS                  (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_STS_OFFSET)
+#define N32_ATIM2_TIMx_EVTGEN               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_EVTGEN_OFFSET)
+#define N32_ATIM2_TIMx_SMCTRL               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_SMCTRL_OFFSET)
+#define N32_ATIM2_TIMx_DINTEN               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_DINTEN_OFFSET)
+#define N32_ATIM2_TIMx_CCMOD1               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCMOD1_OFFSET)
+#define N32_ATIM2_TIMx_CCMOD2               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCMOD2_OFFSET)
+#define N32_ATIM2_TIMx_CCMOD3               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCMOD3_OFFSET)
+#define N32_ATIM2_TIMx_CCEN                 (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCEN_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT1               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT1_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT2               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT2_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT3               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT3_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT4               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT4_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT5               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT5_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT6               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT6_OFFSET)
+#define N32_ATIM2_TIMx_PSC                  (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_PSC_OFFSET)
+#define N32_ATIM2_TIMx_AR                   (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_AR_OFFSET)
+#define N32_ATIM2_TIMx_CNT                  (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CNT_OFFSET)
+#define N32_ATIM2_TIMx_REPCNT               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_REPCNT_OFFSET)
+#define N32_ATIM2_TIMx_BKDT                 (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_BKDT_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT7               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT7_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT8               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT8_OFFSET)
+#define N32_ATIM2_TIMx_CCDAT9               (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_CCDAT9_OFFSET)
+#define N32_ATIM2_TIMx_BKFR                 (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_BKFR_OFFSET)
+#define N32_ATIM2_TIMx_INSEL                (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_INSEL_OFFSET)
+#define N32_ATIM2_TIMx_AF1                  (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_AF1_OFFSET)
+#define N32_ATIM2_TIMx_AF2                  (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_AF2_OFFSET)
+#define N32_ATIM2_TIMx_BKFR2                (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_BKFR2_OFFSET)
+#define N32_ATIM2_TIMx_DCTRL                (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_DCTRL_OFFSET)
+#define N32_ATIM2_TIMx_DADDR                (N32_ATIM2_BASE + \
+                                             N32_ATIM_TIMx_DADDR_OFFSET)
 
-#define N32_ATIM3_TIMx_CTRL1 (N32_ATIM3_BASE + N32_ATIM_TIMx_CTRL1_OFFSET)
-#define N32_ATIM3_TIMx_CTRL2 (N32_ATIM3_BASE + N32_ATIM_TIMx_CTRL2_OFFSET)
-#define N32_ATIM3_TIMx_STS (N32_ATIM3_BASE + N32_ATIM_TIMx_STS_OFFSET)
-#define N32_ATIM3_TIMx_EVTGEN (N32_ATIM3_BASE + N32_ATIM_TIMx_EVTGEN_OFFSET)
-#define N32_ATIM3_TIMx_SMCTRL (N32_ATIM3_BASE + N32_ATIM_TIMx_SMCTRL_OFFSET)
-#define N32_ATIM3_TIMx_DINTEN (N32_ATIM3_BASE + N32_ATIM_TIMx_DINTEN_OFFSET)
-#define N32_ATIM3_TIMx_CCMOD1 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCMOD1_OFFSET)
-#define N32_ATIM3_TIMx_CCMOD2 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCMOD2_OFFSET)
-#define N32_ATIM3_TIMx_CCMOD3 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCMOD3_OFFSET)
-#define N32_ATIM3_TIMx_CCEN (N32_ATIM3_BASE + N32_ATIM_TIMx_CCEN_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT1 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT1_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT2 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT2_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT3 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT3_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT4 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT4_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT5 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT5_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT6 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT6_OFFSET)
-#define N32_ATIM3_TIMx_PSC (N32_ATIM3_BASE + N32_ATIM_TIMx_PSC_OFFSET)
-#define N32_ATIM3_TIMx_AR (N32_ATIM3_BASE + N32_ATIM_TIMx_AR_OFFSET)
-#define N32_ATIM3_TIMx_CNT (N32_ATIM3_BASE + N32_ATIM_TIMx_CNT_OFFSET)
-#define N32_ATIM3_TIMx_REPCNT (N32_ATIM3_BASE + N32_ATIM_TIMx_REPCNT_OFFSET)
-#define N32_ATIM3_TIMx_BKDT (N32_ATIM3_BASE + N32_ATIM_TIMx_BKDT_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT7 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT7_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT8 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT8_OFFSET)
-#define N32_ATIM3_TIMx_CCDAT9 (N32_ATIM3_BASE + N32_ATIM_TIMx_CCDAT9_OFFSET)
-#define N32_ATIM3_TIMx_BKFR (N32_ATIM3_BASE + N32_ATIM_TIMx_BKFR_OFFSET)
-#define N32_ATIM3_TIMx_INSEL (N32_ATIM3_BASE + N32_ATIM_TIMx_INSEL_OFFSET)
-#define N32_ATIM3_TIMx_AF1 (N32_ATIM3_BASE + N32_ATIM_TIMx_AF1_OFFSET)
-#define N32_ATIM3_TIMx_AF2 (N32_ATIM3_BASE + N32_ATIM_TIMx_AF2_OFFSET)
-#define N32_ATIM3_TIMx_BKFR2 (N32_ATIM3_BASE + N32_ATIM_TIMx_BKFR2_OFFSET)
-#define N32_ATIM3_TIMx_DCTRL (N32_ATIM3_BASE + N32_ATIM_TIMx_DCTRL_OFFSET)
-#define N32_ATIM3_TIMx_DADDR (N32_ATIM3_BASE + N32_ATIM_TIMx_DADDR_OFFSET)
+#define N32_ATIM3_TIMx_CTRL1                (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CTRL1_OFFSET)
+#define N32_ATIM3_TIMx_CTRL2                (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CTRL2_OFFSET)
+#define N32_ATIM3_TIMx_STS                  (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_STS_OFFSET)
+#define N32_ATIM3_TIMx_EVTGEN               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_EVTGEN_OFFSET)
+#define N32_ATIM3_TIMx_SMCTRL               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_SMCTRL_OFFSET)
+#define N32_ATIM3_TIMx_DINTEN               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_DINTEN_OFFSET)
+#define N32_ATIM3_TIMx_CCMOD1               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCMOD1_OFFSET)
+#define N32_ATIM3_TIMx_CCMOD2               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCMOD2_OFFSET)
+#define N32_ATIM3_TIMx_CCMOD3               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCMOD3_OFFSET)
+#define N32_ATIM3_TIMx_CCEN                 (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCEN_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT1               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT1_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT2               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT2_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT3               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT3_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT4               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT4_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT5               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT5_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT6               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT6_OFFSET)
+#define N32_ATIM3_TIMx_PSC                  (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_PSC_OFFSET)
+#define N32_ATIM3_TIMx_AR                   (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_AR_OFFSET)
+#define N32_ATIM3_TIMx_CNT                  (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CNT_OFFSET)
+#define N32_ATIM3_TIMx_REPCNT               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_REPCNT_OFFSET)
+#define N32_ATIM3_TIMx_BKDT                 (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_BKDT_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT7               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT7_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT8               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT8_OFFSET)
+#define N32_ATIM3_TIMx_CCDAT9               (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_CCDAT9_OFFSET)
+#define N32_ATIM3_TIMx_BKFR                 (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_BKFR_OFFSET)
+#define N32_ATIM3_TIMx_INSEL                (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_INSEL_OFFSET)
+#define N32_ATIM3_TIMx_AF1                  (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_AF1_OFFSET)
+#define N32_ATIM3_TIMx_AF2                  (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_AF2_OFFSET)
+#define N32_ATIM3_TIMx_BKFR2                (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_BKFR2_OFFSET)
+#define N32_ATIM3_TIMx_DCTRL                (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_DCTRL_OFFSET)
+#define N32_ATIM3_TIMx_DADDR                (N32_ATIM3_BASE + \
+                                             N32_ATIM_TIMx_DADDR_OFFSET)
 
-#define N32_ATIM4_TIMx_CTRL1 (N32_ATIM4_BASE + N32_ATIM_TIMx_CTRL1_OFFSET)
-#define N32_ATIM4_TIMx_CTRL2 (N32_ATIM4_BASE + N32_ATIM_TIMx_CTRL2_OFFSET)
-#define N32_ATIM4_TIMx_STS (N32_ATIM4_BASE + N32_ATIM_TIMx_STS_OFFSET)
-#define N32_ATIM4_TIMx_EVTGEN (N32_ATIM4_BASE + N32_ATIM_TIMx_EVTGEN_OFFSET)
-#define N32_ATIM4_TIMx_SMCTRL (N32_ATIM4_BASE + N32_ATIM_TIMx_SMCTRL_OFFSET)
-#define N32_ATIM4_TIMx_DINTEN (N32_ATIM4_BASE + N32_ATIM_TIMx_DINTEN_OFFSET)
-#define N32_ATIM4_TIMx_CCMOD1 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCMOD1_OFFSET)
-#define N32_ATIM4_TIMx_CCMOD2 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCMOD2_OFFSET)
-#define N32_ATIM4_TIMx_CCMOD3 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCMOD3_OFFSET)
-#define N32_ATIM4_TIMx_CCEN (N32_ATIM4_BASE + N32_ATIM_TIMx_CCEN_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT1 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT1_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT2 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT2_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT3 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT3_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT4 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT4_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT5 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT5_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT6 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT6_OFFSET)
-#define N32_ATIM4_TIMx_PSC (N32_ATIM4_BASE + N32_ATIM_TIMx_PSC_OFFSET)
-#define N32_ATIM4_TIMx_AR (N32_ATIM4_BASE + N32_ATIM_TIMx_AR_OFFSET)
-#define N32_ATIM4_TIMx_CNT (N32_ATIM4_BASE + N32_ATIM_TIMx_CNT_OFFSET)
-#define N32_ATIM4_TIMx_REPCNT (N32_ATIM4_BASE + N32_ATIM_TIMx_REPCNT_OFFSET)
-#define N32_ATIM4_TIMx_BKDT (N32_ATIM4_BASE + N32_ATIM_TIMx_BKDT_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT7 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT7_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT8 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT8_OFFSET)
-#define N32_ATIM4_TIMx_CCDAT9 (N32_ATIM4_BASE + N32_ATIM_TIMx_CCDAT9_OFFSET)
-#define N32_ATIM4_TIMx_BKFR (N32_ATIM4_BASE + N32_ATIM_TIMx_BKFR_OFFSET)
-#define N32_ATIM4_TIMx_INSEL (N32_ATIM4_BASE + N32_ATIM_TIMx_INSEL_OFFSET)
-#define N32_ATIM4_TIMx_AF1 (N32_ATIM4_BASE + N32_ATIM_TIMx_AF1_OFFSET)
-#define N32_ATIM4_TIMx_AF2 (N32_ATIM4_BASE + N32_ATIM_TIMx_AF2_OFFSET)
-#define N32_ATIM4_TIMx_BKFR2 (N32_ATIM4_BASE + N32_ATIM_TIMx_BKFR2_OFFSET)
-#define N32_ATIM4_TIMx_DCTRL (N32_ATIM4_BASE + N32_ATIM_TIMx_DCTRL_OFFSET)
-#define N32_ATIM4_TIMx_DADDR (N32_ATIM4_BASE + N32_ATIM_TIMx_DADDR_OFFSET)
+#define N32_ATIM4_TIMx_CTRL1                (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CTRL1_OFFSET)
+#define N32_ATIM4_TIMx_CTRL2                (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CTRL2_OFFSET)
+#define N32_ATIM4_TIMx_STS                  (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_STS_OFFSET)
+#define N32_ATIM4_TIMx_EVTGEN               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_EVTGEN_OFFSET)
+#define N32_ATIM4_TIMx_SMCTRL               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_SMCTRL_OFFSET)
+#define N32_ATIM4_TIMx_DINTEN               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_DINTEN_OFFSET)
+#define N32_ATIM4_TIMx_CCMOD1               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCMOD1_OFFSET)
+#define N32_ATIM4_TIMx_CCMOD2               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCMOD2_OFFSET)
+#define N32_ATIM4_TIMx_CCMOD3               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCMOD3_OFFSET)
+#define N32_ATIM4_TIMx_CCEN                 (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCEN_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT1               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT1_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT2               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT2_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT3               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT3_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT4               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT4_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT5               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT5_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT6               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT6_OFFSET)
+#define N32_ATIM4_TIMx_PSC                  (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_PSC_OFFSET)
+#define N32_ATIM4_TIMx_AR                   (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_AR_OFFSET)
+#define N32_ATIM4_TIMx_CNT                  (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CNT_OFFSET)
+#define N32_ATIM4_TIMx_REPCNT               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_REPCNT_OFFSET)
+#define N32_ATIM4_TIMx_BKDT                 (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_BKDT_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT7               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT7_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT8               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT8_OFFSET)
+#define N32_ATIM4_TIMx_CCDAT9               (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_CCDAT9_OFFSET)
+#define N32_ATIM4_TIMx_BKFR                 (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_BKFR_OFFSET)
+#define N32_ATIM4_TIMx_INSEL                (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_INSEL_OFFSET)
+#define N32_ATIM4_TIMx_AF1                  (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_AF1_OFFSET)
+#define N32_ATIM4_TIMx_AF2                  (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_AF2_OFFSET)
+#define N32_ATIM4_TIMx_BKFR2                (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_BKFR2_OFFSET)
+#define N32_ATIM4_TIMx_DCTRL                (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_DCTRL_OFFSET)
+#define N32_ATIM4_TIMx_DADDR                (N32_ATIM4_BASE + \
+                                             N32_ATIM_TIMx_DADDR_OFFSET)
 
 /******** Bit definition for TIMx_CTRL1 register  ********/
-#define ATIM_TIMx_CTRL1_ASYMMETRIC (1 << 23) /* ASYMMETRIC */
-#define ATIM_TIMx_CTRL1_CMODE_SHIFT (20)
-#define ATIM_TIMx_CTRL1_CMODE_MASK (0x3 << ATIM_TIMx_CTRL1_CMODE_SHIFT) /* CMODE */
-#define ATIM_TIMx_CTRL1_SMECCERREN (1 << 15) /* SMECCERREN */
-#define ATIM_TIMx_CTRL1_CLRSEL (1 << 13) /* CLRSEL */
-#define ATIM_TIMx_CTRL1_SMPARERREN (1 << 12) /* SMPARERREN */
-#define ATIM_TIMx_CTRL1_PBKPEN (1 << 11) /* PBKPEN */
-#define ATIM_TIMx_CTRL1_LBKPEN (1 << 10) /* LBKPEN */
-#define ATIM_TIMx_CTRL1_ARPEN (1 << 9) /* ARPEN */
-#define ATIM_TIMx_CTRL1_ONEPM (1 << 8) /* ONEPM */
-#define ATIM_TIMx_CTRL1_CLKD_SHIFT (6)
-#define ATIM_TIMx_CTRL1_CLKD_MASK (0x3 << ATIM_TIMx_CTRL1_CLKD_SHIFT) /* CLKD */
-#define ATIM_TIMx_CTRL1_UPDIS (1 << 5) /* UPDIS */
-#define ATIM_TIMx_CTRL1_UPRS (1 << 4) /* UPRS */
-#define ATIM_TIMx_CTRL1_CAMSEL_SHIFT (2)
-#define ATIM_TIMx_CTRL1_CAMSEL_MASK (0x3 << ATIM_TIMx_CTRL1_CAMSEL_SHIFT) /* CAMSEL */
-#define ATIM_TIMx_CTRL1_DIR (1 << 1) /* DIR */
-#define ATIM_TIMx_CTRL1_CNTEN (1 << 0) /* CNTEN */
+#define ATIM_TIMx_CTRL1_ASYMMETRIC          (1 << 23) /* ASYMMETRIC */
+#define ATIM_TIMx_CTRL1_CMODE_SHIFT         (20)
+#define ATIM_TIMx_CTRL1_CMODE_MASK          (0x3 << \
+                                             ATIM_TIMx_CTRL1_CMODE_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CMODE
+                                                                             */
+#define ATIM_TIMx_CTRL1_SMECCERREN          (1 << 15)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * SMECCERREN
+                                                                             */
+#define ATIM_TIMx_CTRL1_CLRSEL              (1 << 13)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CLRSEL
+                                                                             */
+#define ATIM_TIMx_CTRL1_SMPARERREN          (1 << 12)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * SMPARERREN
+                                                                             */
+#define ATIM_TIMx_CTRL1_PBKPEN              (1 << 11)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PBKPEN
+                                                                             */
+#define ATIM_TIMx_CTRL1_LBKPEN              (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * LBKPEN
+                                                                             */
+#define ATIM_TIMx_CTRL1_ARPEN               (1 << 9)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ARPEN
+                                                                             */
+#define ATIM_TIMx_CTRL1_ONEPM               (1 << 8)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ONEPM
+                                                                             */
+#define ATIM_TIMx_CTRL1_CLKD_SHIFT          (6)
+#define ATIM_TIMx_CTRL1_CLKD_MASK           (0x3 << \
+                                             ATIM_TIMx_CTRL1_CLKD_SHIFT)    /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CLKD
+                                                                             */
+#define ATIM_TIMx_CTRL1_UPDIS               (1 << 5)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * UPDIS
+                                                                             */
+#define ATIM_TIMx_CTRL1_UPRS                (1 << 4)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * UPRS
+                                                                             */
+#define ATIM_TIMx_CTRL1_CAMSEL_SHIFT        (2)
+#define ATIM_TIMx_CTRL1_CAMSEL_MASK         (0x3 << \
+                                             ATIM_TIMx_CTRL1_CAMSEL_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CAMSEL
+                                                                             */
+#define ATIM_TIMx_CTRL1_DIR                 (1 << 1)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * DIR
+                                                                             */
+#define ATIM_TIMx_CTRL1_CNTEN               (1 << 0)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CNTEN
+                                                                             */
 
 /******** Bit definition for TIMx_CTRL2 register  ********/
-#define ATIM_TIMx_CTRL2_MMSEL2_SHIFT (24)
-#define ATIM_TIMx_CTRL2_MMSEL2_MASK (0xF << ATIM_TIMx_CTRL2_MMSEL2_SHIFT) /* MMSEL2 */
-#define ATIM_TIMx_CTRL2_TRIG9 (1 << 23) /* TRIG9 */
-#define ATIM_TIMx_CTRL2_TRIG8 (1 << 22) /* TRIG8 */
-#define ATIM_TIMx_CTRL2_TRIG7 (1 << 21) /* TRIG7 */
-#define ATIM_TIMx_CTRL2_TRIG4 (1 << 20) /* TRIG4 */
-#define ATIM_TIMx_CTRL2_TI1SEL (1 << 19) /* TI1SEL */
-#define ATIM_TIMx_CTRL2_CCPCTL (1 << 18) /* CCPCTL */
-#define ATIM_TIMx_CTRL2_CCDSEL (1 << 17) /* CCDSEL */
-#define ATIM_TIMx_CTRL2_CCUSEL (1 << 16) /* CCUSEL */
-#define ATIM_TIMx_CTRL2_MMSEL_SHIFT (12)
-#define ATIM_TIMx_CTRL2_MMSEL_MASK (0xF << ATIM_TIMx_CTRL2_MMSEL_SHIFT) /* MMSEL */
-#define ATIM_TIMx_CTRL2_OI6 (1 << 10) /* OI6 */
-#define ATIM_TIMx_CTRL2_OI5 (1 << 8) /* OI5 */
-#define ATIM_TIMx_CTRL2_OI4N (1 << 7) /* OI4N */
-#define ATIM_TIMx_CTRL2_OI4 (1 << 6) /* OI4 */
-#define ATIM_TIMx_CTRL2_OI3N (1 << 5) /* OI3N */
-#define ATIM_TIMx_CTRL2_OI3 (1 << 4) /* OI3 */
-#define ATIM_TIMx_CTRL2_OI2N (1 << 3) /* OI2N */
-#define ATIM_TIMx_CTRL2_OI2 (1 << 2) /* OI2 */
-#define ATIM_TIMx_CTRL2_OI1N (1 << 1) /* OI1N */
-#define ATIM_TIMx_CTRL2_OI1 (1 << 0) /* OI1 */
+#define ATIM_TIMx_CTRL2_MMSEL2_SHIFT        (24)
+#define ATIM_TIMx_CTRL2_MMSEL2_MASK         (0xF << \
+                                             ATIM_TIMx_CTRL2_MMSEL2_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * MMSEL2
+                                                                             */
+#define ATIM_TIMx_CTRL2_TRIG9               (1 << 23)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * TRIG9
+                                                                             */
+#define ATIM_TIMx_CTRL2_TRIG8               (1 << 22)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * TRIG8
+                                                                             */
+#define ATIM_TIMx_CTRL2_TRIG7               (1 << 21)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * TRIG7
+                                                                             */
+#define ATIM_TIMx_CTRL2_TRIG4               (1 << 20)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * TRIG4
+                                                                             */
+#define ATIM_TIMx_CTRL2_TI1SEL              (1 << 19)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * TI1SEL
+                                                                             */
+#define ATIM_TIMx_CTRL2_CCPCTL              (1 << 18)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CCPCTL
+                                                                             */
+#define ATIM_TIMx_CTRL2_CCDSEL              (1 << 17)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CCDSEL
+                                                                             */
+#define ATIM_TIMx_CTRL2_CCUSEL              (1 << 16)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CCUSEL
+                                                                             */
+#define ATIM_TIMx_CTRL2_MMSEL_SHIFT         (12)
+#define ATIM_TIMx_CTRL2_MMSEL_MASK          (0xF << \
+                                             ATIM_TIMx_CTRL2_MMSEL_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * MMSEL
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI6                 (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI6
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI5                 (1 << 8)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI5
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI4N                (1 << 7)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI4N
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI4                 (1 << 6)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI4
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI3N                (1 << 5)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI3N
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI3                 (1 << 4)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI3
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI2N                (1 << 3)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI2N
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI2                 (1 << 2)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI2
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI1N                (1 << 1)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI1N
+                                                                             */
+#define ATIM_TIMx_CTRL2_OI1                 (1 << 0)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OI1
+                                                                             */
 
 /******** Bit definition for TIMx_STS register  ********/
-#define ATIM_TIMx_STS_CC9ITF (1 << 26) /* CC9ITF */
-#define ATIM_TIMx_STS_CC8ITF (1 << 25) /* CC8ITF */
-#define ATIM_TIMx_STS_CC7ITF (1 << 24) /* CC7ITF */
-#define ATIM_TIMx_STS_SBITF (1 << 21) /* SBITF */
-#define ATIM_TIMx_STS_BITF2 (1 << 20) /* BITF2 */
-#define ATIM_TIMx_STS_BITF (1 << 19) /* BITF */
-#define ATIM_TIMx_STS_TITF (1 << 18) /* TITF */
-#define ATIM_TIMx_STS_COMITF (1 << 17) /* COMITF */
-#define ATIM_TIMx_STS_UDITF (1 << 16) /* UDITF */
-#define ATIM_TIMx_STS_CC4OCF (1 << 11) /* CC4OCF */
-#define ATIM_TIMx_STS_CC3OCF (1 << 10) /* CC3OCF */
-#define ATIM_TIMx_STS_CC2OCF (1 << 9) /* CC2OCF */
-#define ATIM_TIMx_STS_CC1OCF (1 << 8) /* CC1OCF */
-#define ATIM_TIMx_STS_CC6ITF (1 << 5) /* CC6ITF */
-#define ATIM_TIMx_STS_CC5ITF (1 << 4) /* CC5ITF */
-#define ATIM_TIMx_STS_CC4ITF (1 << 3) /* CC4ITF */
-#define ATIM_TIMx_STS_CC3ITF (1 << 2) /* CC3ITF */
-#define ATIM_TIMx_STS_CC2ITF (1 << 1) /* CC2ITF */
-#define ATIM_TIMx_STS_CC1ITF (1 << 0) /* CC1ITF */
+#define ATIM_TIMx_STS_CC9ITF                (1 << 26)   /* CC9ITF */
+#define ATIM_TIMx_STS_CC8ITF                (1 << 25)   /* CC8ITF */
+#define ATIM_TIMx_STS_CC7ITF                (1 << 24)   /* CC7ITF */
+#define ATIM_TIMx_STS_SBITF                 (1 << 21)   /* SBITF */
+#define ATIM_TIMx_STS_BITF2                 (1 << 20)   /* BITF2 */
+#define ATIM_TIMx_STS_BITF                  (1 << 19)   /* BITF */
+#define ATIM_TIMx_STS_TITF                  (1 << 18)   /* TITF */
+#define ATIM_TIMx_STS_COMITF                (1 << 17)   /* COMITF */
+#define ATIM_TIMx_STS_UDITF                 (1 << 16)   /* UDITF */
+#define ATIM_TIMx_STS_CC4OCF                (1 << 11)   /* CC4OCF */
+#define ATIM_TIMx_STS_CC3OCF                (1 << 10)   /* CC3OCF */
+#define ATIM_TIMx_STS_CC2OCF                (1 << 9)    /* CC2OCF */
+#define ATIM_TIMx_STS_CC1OCF                (1 << 8)    /* CC1OCF */
+#define ATIM_TIMx_STS_CC6ITF                (1 << 5)    /* CC6ITF */
+#define ATIM_TIMx_STS_CC5ITF                (1 << 4)    /* CC5ITF */
+#define ATIM_TIMx_STS_CC4ITF                (1 << 3)    /* CC4ITF */
+#define ATIM_TIMx_STS_CC3ITF                (1 << 2)    /* CC3ITF */
+#define ATIM_TIMx_STS_CC2ITF                (1 << 1)    /* CC2ITF */
+#define ATIM_TIMx_STS_CC1ITF                (1 << 0)    /* CC1ITF */
 
 /******** Bit definition for TIMx_EVTGEN register  ********/
-#define ATIM_TIMx_EVTGEN_BGN2 (1 << 12) /* BGN2 */
-#define ATIM_TIMx_EVTGEN_BGN (1 << 11) /* BGN */
-#define ATIM_TIMx_EVTGEN_TGN (1 << 10) /* TGN */
-#define ATIM_TIMx_EVTGEN_CCUDGN (1 << 9) /* CCUDGN */
-#define ATIM_TIMx_EVTGEN_UDGN (1 << 8) /* UDGN */
-#define ATIM_TIMx_EVTGEN_CC4GN (1 << 3) /* CC4GN */
-#define ATIM_TIMx_EVTGEN_CC3GN (1 << 2) /* CC3GN */
-#define ATIM_TIMx_EVTGEN_CC2GN (1 << 1) /* CC2GN */
-#define ATIM_TIMx_EVTGEN_CC1GN (1 << 0) /* CC1GN */
+#define ATIM_TIMx_EVTGEN_BGN2               (1 << 12)   /* BGN2 */
+#define ATIM_TIMx_EVTGEN_BGN                (1 << 11)   /* BGN */
+#define ATIM_TIMx_EVTGEN_TGN                (1 << 10)   /* TGN */
+#define ATIM_TIMx_EVTGEN_CCUDGN             (1 << 9)    /* CCUDGN */
+#define ATIM_TIMx_EVTGEN_UDGN               (1 << 8)    /* UDGN */
+#define ATIM_TIMx_EVTGEN_CC4GN              (1 << 3)    /* CC4GN */
+#define ATIM_TIMx_EVTGEN_CC3GN              (1 << 2)    /* CC3GN */
+#define ATIM_TIMx_EVTGEN_CC2GN              (1 << 1)    /* CC2GN */
+#define ATIM_TIMx_EVTGEN_CC1GN              (1 << 0)    /* CC1GN */
 
 /******** Bit definition for TIMx_SMCTRL register  ********/
-#define ATIM_TIMx_SMCTRL_OCREFCLRF_SHIFT (20)
-#define ATIM_TIMx_SMCTRL_OCREFCLRF_MASK (0xF << ATIM_TIMx_SMCTRL_OCREFCLRF_SHIFT) /* OCREFCLRF */
-#define ATIM_TIMx_SMCTRL_OCREFCLRP (1 << 19) /* OCREFCLRP */
-#define ATIM_TIMx_SMCTRL_MSMD (1 << 16) /* MSMD */
-#define ATIM_TIMx_SMCTRL_EXTF_SHIFT (12)
-#define ATIM_TIMx_SMCTRL_EXTF_MASK (0xF << ATIM_TIMx_SMCTRL_EXTF_SHIFT) /* EXTF */
-#define ATIM_TIMx_SMCTRL_EXTP (1 << 11) /* EXTP */
-#define ATIM_TIMx_SMCTRL_EXCEN (1 << 10) /* EXCEN */
-#define ATIM_TIMx_SMCTRL_EXTPS_SHIFT (8)
-#define ATIM_TIMx_SMCTRL_EXTPS_MASK (0x3 << ATIM_TIMx_SMCTRL_EXTPS_SHIFT) /* EXTPS */
-#define ATIM_TIMx_SMCTRL_SMSEL_SHIFT (4)
-#define ATIM_TIMx_SMCTRL_SMSEL_MASK (0xF << ATIM_TIMx_SMCTRL_SMSEL_SHIFT) /* SMSEL */
-#define ATIM_TIMx_SMCTRL_TSEL_SHIFT (0)
-#define ATIM_TIMx_SMCTRL_TSEL_MASK (0x7 << ATIM_TIMx_SMCTRL_TSEL_SHIFT) /* TSEL */
+#define ATIM_TIMx_SMCTRL_OCREFCLRF_SHIFT    (20)
+#define ATIM_TIMx_SMCTRL_OCREFCLRF_MASK     (0xF << \
+                                             ATIM_TIMx_SMCTRL_OCREFCLRF_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * OCREFCLRF
+                                                                                 */
+#define ATIM_TIMx_SMCTRL_OCREFCLRP          (1 << 19)                           /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * OCREFCLRP
+                                                                                 */
+#define ATIM_TIMx_SMCTRL_MSMD               (1 << 16)                           /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * MSMD
+                                                                                 */
+#define ATIM_TIMx_SMCTRL_EXTF_SHIFT         (12)
+#define ATIM_TIMx_SMCTRL_EXTF_MASK          (0xF << \
+                                             ATIM_TIMx_SMCTRL_EXTF_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * EXTF
+                                                                             */
+#define ATIM_TIMx_SMCTRL_EXTP               (1 << 11)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * EXTP
+                                                                             */
+#define ATIM_TIMx_SMCTRL_EXCEN              (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * EXCEN
+                                                                             */
+#define ATIM_TIMx_SMCTRL_EXTPS_SHIFT        (8)
+#define ATIM_TIMx_SMCTRL_EXTPS_MASK         (0x3 << \
+                                             ATIM_TIMx_SMCTRL_EXTPS_SHIFT) /*
+                                                                            * EXTPS
+                                                                            */
+#define ATIM_TIMx_SMCTRL_SMSEL_SHIFT        (4)
+#define ATIM_TIMx_SMCTRL_SMSEL_MASK         (0xF << \
+                                             ATIM_TIMx_SMCTRL_SMSEL_SHIFT) /*
+                                                                            * SMSEL
+                                                                            */
+#define ATIM_TIMx_SMCTRL_TSEL_SHIFT         (0)
+#define ATIM_TIMx_SMCTRL_TSEL_MASK          (0x7 << \
+                                             ATIM_TIMx_SMCTRL_TSEL_SHIFT) /*
+                                                                           * TSEL
+                                                                           */
 
 /******** Bit definition for TIMx_DINTEN register  ********/
-#define ATIM_TIMx_DINTEN_CC9IEN (1 << 23) /* CC9IEN */
-#define ATIM_TIMx_DINTEN_COMIEN (1 << 22) /* COMIEN */
-#define ATIM_TIMx_DINTEN_TDEN (1 << 21) /* TDEN */
-#define ATIM_TIMx_DINTEN_COMDEN (1 << 20) /* COMDEN */
-#define ATIM_TIMx_DINTEN_UDEN (1 << 19) /* UDEN */
-#define ATIM_TIMx_DINTEN_BIEN (1 << 18) /* BIEN */
-#define ATIM_TIMx_DINTEN_TIEN (1 << 17) /* TIEN */
-#define ATIM_TIMx_DINTEN_UIEN (1 << 16) /* UIEN */
-#define ATIM_TIMx_DINTEN_CC4DEN (1 << 11) /* CC4DEN */
-#define ATIM_TIMx_DINTEN_CC3DEN (1 << 10) /* CC3DEN */
-#define ATIM_TIMx_DINTEN_CC2DEN (1 << 9) /* CC2DEN */
-#define ATIM_TIMx_DINTEN_CC1DEN (1 << 8) /* CC1DEN */
-#define ATIM_TIMx_DINTEN_CC8IEN (1 << 7) /* CC8IEN */
-#define ATIM_TIMx_DINTEN_CC7IEN (1 << 6) /* CC7IEN */
-#define ATIM_TIMx_DINTEN_CC6IEN (1 << 5) /* CC6IEN */
-#define ATIM_TIMx_DINTEN_CC5IEN (1 << 4) /* CC5IEN */
-#define ATIM_TIMx_DINTEN_CC4IEN (1 << 3) /* CC4IEN */
-#define ATIM_TIMx_DINTEN_CC3IEN (1 << 2) /* CC3IEN */
-#define ATIM_TIMx_DINTEN_CC2IEN (1 << 1) /* CC2IEN */
-#define ATIM_TIMx_DINTEN_CC1IEN (1 << 0) /* CC1IEN */
+#define ATIM_TIMx_DINTEN_CC9IEN             (1 << 23)   /* CC9IEN */
+#define ATIM_TIMx_DINTEN_COMIEN             (1 << 22)   /* COMIEN */
+#define ATIM_TIMx_DINTEN_TDEN               (1 << 21)   /* TDEN */
+#define ATIM_TIMx_DINTEN_COMDEN             (1 << 20)   /* COMDEN */
+#define ATIM_TIMx_DINTEN_UDEN               (1 << 19)   /* UDEN */
+#define ATIM_TIMx_DINTEN_BIEN               (1 << 18)   /* BIEN */
+#define ATIM_TIMx_DINTEN_TIEN               (1 << 17)   /* TIEN */
+#define ATIM_TIMx_DINTEN_UIEN               (1 << 16)   /* UIEN */
+#define ATIM_TIMx_DINTEN_CC4DEN             (1 << 11)   /* CC4DEN */
+#define ATIM_TIMx_DINTEN_CC3DEN             (1 << 10)   /* CC3DEN */
+#define ATIM_TIMx_DINTEN_CC2DEN             (1 << 9)    /* CC2DEN */
+#define ATIM_TIMx_DINTEN_CC1DEN             (1 << 8)    /* CC1DEN */
+#define ATIM_TIMx_DINTEN_CC8IEN             (1 << 7)    /* CC8IEN */
+#define ATIM_TIMx_DINTEN_CC7IEN             (1 << 6)    /* CC7IEN */
+#define ATIM_TIMx_DINTEN_CC6IEN             (1 << 5)    /* CC6IEN */
+#define ATIM_TIMx_DINTEN_CC5IEN             (1 << 4)    /* CC5IEN */
+#define ATIM_TIMx_DINTEN_CC4IEN             (1 << 3)    /* CC4IEN */
+#define ATIM_TIMx_DINTEN_CC3IEN             (1 << 2)    /* CC3IEN */
+#define ATIM_TIMx_DINTEN_CC2IEN             (1 << 1)    /* CC2IEN */
+#define ATIM_TIMx_DINTEN_CC1IEN             (1 << 0)    /* CC1IEN */
 
 /******** Bit definition for TIMx_CCMOD1 register  ********/
-#define ATIM_TIMx_CCMOD1_OC2MD_SHIFT (13)
-#define ATIM_TIMx_CCMOD1_OC2MD_MASK (0x7 << ATIM_TIMx_CCMOD1_OC2MD_SHIFT) /* OC2MD */
-#define ATIM_TIMx_CCMOD1_OC2CEN (1 << 12) /* OC2CEN */
-#define ATIM_TIMx_CCMOD1_OC2FEN (1 << 11) /* OC2FEN */
-#define ATIM_TIMx_CCMOD1_OC2PEN (1 << 10) /* OC2PEN */
-#define ATIM_TIMx_CCMOD1_CC2SEL_SHIFT (8)
-#define ATIM_TIMx_CCMOD1_CC2SEL_MASK (0x3 << ATIM_TIMx_CCMOD1_CC2SEL_SHIFT) /* CC2SEL */
-#define ATIM_TIMx_CCMOD1_OC1MD_SHIFT (5)
-#define ATIM_TIMx_CCMOD1_OC1MD_MASK (0x7 << ATIM_TIMx_CCMOD1_OC1MD_SHIFT) /* OC1MD */
-#define ATIM_TIMx_CCMOD1_OC1CEN (1 << 4) /* OC1CEN */
-#define ATIM_TIMx_CCMOD1_OC1FEN (1 << 3) /* OC1FEN */
-#define ATIM_TIMx_CCMOD1_OC1PEN (1 << 2) /* OC1PEN */
-#define ATIM_TIMx_CCMOD1_CC1SEL_SHIFT (0)
-#define ATIM_TIMx_CCMOD1_CC1SEL_MASK (0x3 << ATIM_TIMx_CCMOD1_CC1SEL_SHIFT) /* CC1SEL */
+#define ATIM_TIMx_CCMOD1_OC2MD_SHIFT        (13)
+#define ATIM_TIMx_CCMOD1_OC2MD_MASK         (0x7 << \
+                                             ATIM_TIMx_CCMOD1_OC2MD_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC2MD
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC2CEN             (1 << 12)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC2CEN
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC2FEN             (1 << 11)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC2FEN
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC2PEN             (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC2PEN
+                                                                             */
+#define ATIM_TIMx_CCMOD1_CC2SEL_SHIFT       (8)
+#define ATIM_TIMx_CCMOD1_CC2SEL_MASK        (0x3 << \
+                                             ATIM_TIMx_CCMOD1_CC2SEL_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CC2SEL
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC1MD_SHIFT        (5)
+#define ATIM_TIMx_CCMOD1_OC1MD_MASK         (0x7 << \
+                                             ATIM_TIMx_CCMOD1_OC1MD_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC1MD
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC1CEN             (1 << 4)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC1CEN
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC1FEN             (1 << 3)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC1FEN
+                                                                             */
+#define ATIM_TIMx_CCMOD1_OC1PEN             (1 << 2)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC1PEN
+                                                                             */
+#define ATIM_TIMx_CCMOD1_CC1SEL_SHIFT       (0)
+#define ATIM_TIMx_CCMOD1_CC1SEL_MASK        (0x3 << \
+                                             ATIM_TIMx_CCMOD1_CC1SEL_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CC1SEL
+                                                                             */
 
 /******** Bit definition for TIMx_CCMOD2 register  ********/
-#define ATIM_TIMx_CCMOD2_OC4MD_SHIFT (13)
-#define ATIM_TIMx_CCMOD2_OC4MD_MASK (0x7 << ATIM_TIMx_CCMOD2_OC4MD_SHIFT) /* OC4MD */
-#define ATIM_TIMx_CCMOD2_OC4CEN (1 << 12) /* OC4CEN */
-#define ATIM_TIMx_CCMOD2_OC4FEN (1 << 11) /* OC4FEN */
-#define ATIM_TIMx_CCMOD2_OC4PEN (1 << 10) /* OC4PEN */
-#define ATIM_TIMx_CCMOD2_CC4SEL_SHIFT (8)
-#define ATIM_TIMx_CCMOD2_CC4SEL_MASK (0x3 << ATIM_TIMx_CCMOD2_CC4SEL_SHIFT) /* CC4SEL */
-#define ATIM_TIMx_CCMOD2_OC3MD_SHIFT (5)
-#define ATIM_TIMx_CCMOD2_OC3MD_MASK (0x7 << ATIM_TIMx_CCMOD2_OC3MD_SHIFT) /* OC3MD */
-#define ATIM_TIMx_CCMOD2_OC3CEN (1 << 4) /* OC3CEN */
-#define ATIM_TIMx_CCMOD2_OC3FEN (1 << 3) /* OC3FEN */
-#define ATIM_TIMx_CCMOD2_OC3PEN (1 << 2) /* OC3PEN */
-#define ATIM_TIMx_CCMOD2_CC3SEL_SHIFT (0)
-#define ATIM_TIMx_CCMOD2_CC3SEL_MASK (0x3 << ATIM_TIMx_CCMOD2_CC3SEL_SHIFT) /* CC3SEL */
+#define ATIM_TIMx_CCMOD2_OC4MD_SHIFT        (13)
+#define ATIM_TIMx_CCMOD2_OC4MD_MASK         (0x7 << \
+                                             ATIM_TIMx_CCMOD2_OC4MD_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC4MD
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC4CEN             (1 << 12)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC4CEN
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC4FEN             (1 << 11)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC4FEN
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC4PEN             (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC4PEN
+                                                                             */
+#define ATIM_TIMx_CCMOD2_CC4SEL_SHIFT       (8)
+#define ATIM_TIMx_CCMOD2_CC4SEL_MASK        (0x3 << \
+                                             ATIM_TIMx_CCMOD2_CC4SEL_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CC4SEL
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC3MD_SHIFT        (5)
+#define ATIM_TIMx_CCMOD2_OC3MD_MASK         (0x7 << \
+                                             ATIM_TIMx_CCMOD2_OC3MD_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC3MD
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC3CEN             (1 << 4)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC3CEN
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC3FEN             (1 << 3)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC3FEN
+                                                                             */
+#define ATIM_TIMx_CCMOD2_OC3PEN             (1 << 2)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC3PEN
+                                                                             */
+#define ATIM_TIMx_CCMOD2_CC3SEL_SHIFT       (0)
+#define ATIM_TIMx_CCMOD2_CC3SEL_MASK        (0x3 << \
+                                             ATIM_TIMx_CCMOD2_CC3SEL_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * CC3SEL
+                                                                             */
 
 /******** Bit definition for TIMx_CCMOD3 register  ********/
-#define ATIM_TIMx_CCMOD3_OC9PEN (1 << 24) /* OC9PEN */
-#define ATIM_TIMx_CCMOD3_OC8PEN (1 << 20) /* OC8PEN */
-#define ATIM_TIMx_CCMOD3_OC7PEN (1 << 16) /* OC7PEN */
-#define ATIM_TIMx_CCMOD3_OC6MD_SHIFT (13)
-#define ATIM_TIMx_CCMOD3_OC6MD_MASK (0x7 << ATIM_TIMx_CCMOD3_OC6MD_SHIFT) /* OC6MD */
-#define ATIM_TIMx_CCMOD3_OC6CEN (1 << 12) /* OC6CEN */
-#define ATIM_TIMx_CCMOD3_OC6FEN (1 << 11) /* OC6FEN */
-#define ATIM_TIMx_CCMOD3_OC6PEN (1 << 10) /* OC6PEN */
-#define ATIM_TIMx_CCMOD3_OC5MD_SHIFT (5)
-#define ATIM_TIMx_CCMOD3_OC5MD_MASK (0x7 << ATIM_TIMx_CCMOD3_OC5MD_SHIFT) /* OC5MD */
-#define ATIM_TIMx_CCMOD3_OC5CEN (1 << 4) /* OC5CEN */
-#define ATIM_TIMx_CCMOD3_OC5FEN (1 << 3) /* OC5FEN */
-#define ATIM_TIMx_CCMOD3_OC5PEN (1 << 2) /* OC5PEN */
+#define ATIM_TIMx_CCMOD3_OC9PEN             (1 << 24)   /* OC9PEN */
+#define ATIM_TIMx_CCMOD3_OC8PEN             (1 << 20)   /* OC8PEN */
+#define ATIM_TIMx_CCMOD3_OC7PEN             (1 << 16)   /* OC7PEN */
+#define ATIM_TIMx_CCMOD3_OC6MD_SHIFT        (13)
+#define ATIM_TIMx_CCMOD3_OC6MD_MASK         (0x7 << \
+                                             ATIM_TIMx_CCMOD3_OC6MD_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC6MD
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC6CEN             (1 << 12)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC6CEN
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC6FEN             (1 << 11)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC6FEN
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC6PEN             (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC6PEN
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC5MD_SHIFT        (5)
+#define ATIM_TIMx_CCMOD3_OC5MD_MASK         (0x7 << \
+                                             ATIM_TIMx_CCMOD3_OC5MD_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC5MD
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC5CEN             (1 << 4)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC5CEN
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC5FEN             (1 << 3)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC5FEN
+                                                                             */
+#define ATIM_TIMx_CCMOD3_OC5PEN             (1 << 2)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OC5PEN
+                                                                             */
 
 /******** Bit definition for TIMx_CCEN register  ********/
-#define ATIM_TIMx_CCEN_CC6P (1 << 23) /* CC6P */
-#define ATIM_TIMx_CCEN_CC6EN (1 << 22) /* CC6EN */
-#define ATIM_TIMx_CCEN_CC5P (1 << 19) /* CC5P */
-#define ATIM_TIMx_CCEN_CC5EN (1 << 18) /* CC5EN */
-#define ATIM_TIMx_CCEN_CC4P (1 << 15) /* CC4P */
-#define ATIM_TIMx_CCEN_CC4EN (1 << 14) /* CC4EN */
-#define ATIM_TIMx_CCEN_CC4NP (1 << 13) /* CC4NP */
-#define ATIM_TIMx_CCEN_CC4NEN (1 << 12) /* CC4NEN */
-#define ATIM_TIMx_CCEN_CC3P (1 << 11) /* CC3P */
-#define ATIM_TIMx_CCEN_CC3EN (1 << 10) /* CC3EN */
-#define ATIM_TIMx_CCEN_CC3NP (1 << 9) /* CC3NP */
-#define ATIM_TIMx_CCEN_CC3NEN (1 << 8) /* CC3NEN */
-#define ATIM_TIMx_CCEN_CC2P (1 << 7) /* CC2P */
-#define ATIM_TIMx_CCEN_CC2EN (1 << 6) /* CC2EN */
-#define ATIM_TIMx_CCEN_CC2NP (1 << 5) /* CC2NP */
-#define ATIM_TIMx_CCEN_CC2NEN (1 << 4) /* CC2NEN */
-#define ATIM_TIMx_CCEN_CC1P (1 << 3) /* CC1P */
-#define ATIM_TIMx_CCEN_CC1EN (1 << 2) /* CC1EN */
-#define ATIM_TIMx_CCEN_CC1NP (1 << 1) /* CC1NP */
-#define ATIM_TIMx_CCEN_CC1NEN (1 << 0) /* CC1NEN */
+#define ATIM_TIMx_CCEN_CC6P                 (1 << 23)   /* CC6P */
+#define ATIM_TIMx_CCEN_CC6EN                (1 << 22)   /* CC6EN */
+#define ATIM_TIMx_CCEN_CC5P                 (1 << 19)   /* CC5P */
+#define ATIM_TIMx_CCEN_CC5EN                (1 << 18)   /* CC5EN */
+#define ATIM_TIMx_CCEN_CC4P                 (1 << 15)   /* CC4P */
+#define ATIM_TIMx_CCEN_CC4EN                (1 << 14)   /* CC4EN */
+#define ATIM_TIMx_CCEN_CC4NP                (1 << 13)   /* CC4NP */
+#define ATIM_TIMx_CCEN_CC4NEN               (1 << 12)   /* CC4NEN */
+#define ATIM_TIMx_CCEN_CC3P                 (1 << 11)   /* CC3P */
+#define ATIM_TIMx_CCEN_CC3EN                (1 << 10)   /* CC3EN */
+#define ATIM_TIMx_CCEN_CC3NP                (1 << 9)    /* CC3NP */
+#define ATIM_TIMx_CCEN_CC3NEN               (1 << 8)    /* CC3NEN */
+#define ATIM_TIMx_CCEN_CC2P                 (1 << 7)    /* CC2P */
+#define ATIM_TIMx_CCEN_CC2EN                (1 << 6)    /* CC2EN */
+#define ATIM_TIMx_CCEN_CC2NP                (1 << 5)    /* CC2NP */
+#define ATIM_TIMx_CCEN_CC2NEN               (1 << 4)    /* CC2NEN */
+#define ATIM_TIMx_CCEN_CC1P                 (1 << 3)    /* CC1P */
+#define ATIM_TIMx_CCEN_CC1EN                (1 << 2)    /* CC1EN */
+#define ATIM_TIMx_CCEN_CC1NP                (1 << 1)    /* CC1NP */
+#define ATIM_TIMx_CCEN_CC1NEN               (1 << 0)    /* CC1NEN */
 
 /******** Bit definition for TIMx_CCDAT1 register  ********/
-#define ATIM_TIMx_CCDAT1_CCDDAT1_SHIFT (16)
-#define ATIM_TIMx_CCDAT1_CCDDAT1_MASK (0xFFFF << ATIM_TIMx_CCDAT1_CCDDAT1_SHIFT) /* CCDDAT1 */
-#define ATIM_TIMx_CCDAT1_CCDAT1_SHIFT (0)
-#define ATIM_TIMx_CCDAT1_CCDAT1_MASK (0xFFFF << ATIM_TIMx_CCDAT1_CCDAT1_SHIFT) /* CCDAT1 */
+#define ATIM_TIMx_CCDAT1_CCDDAT1_SHIFT      (16)
+#define ATIM_TIMx_CCDAT1_CCDDAT1_MASK       (0xFFFF << \
+                                             ATIM_TIMx_CCDAT1_CCDDAT1_SHIFT)     /*
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  * CCDDAT1
+                                                                                  */
+#define ATIM_TIMx_CCDAT1_CCDAT1_SHIFT       (0)
+#define ATIM_TIMx_CCDAT1_CCDAT1_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT1_CCDAT1_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT1
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT2 register  ********/
-#define ATIM_TIMx_CCDAT2_CCDDAT2_SHIFT (16)
-#define ATIM_TIMx_CCDAT2_CCDDAT2_MASK (0xFFFF << ATIM_TIMx_CCDAT2_CCDDAT2_SHIFT) /* CCDDAT2 */
-#define ATIM_TIMx_CCDAT2_CCDAT2_SHIFT (0)
-#define ATIM_TIMx_CCDAT2_CCDAT2_MASK (0xFFFF << ATIM_TIMx_CCDAT2_CCDAT2_SHIFT) /* CCDAT2 */
+#define ATIM_TIMx_CCDAT2_CCDDAT2_SHIFT      (16)
+#define ATIM_TIMx_CCDAT2_CCDDAT2_MASK       (0xFFFF << \
+                                             ATIM_TIMx_CCDAT2_CCDDAT2_SHIFT)     /*
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  * CCDDAT2
+                                                                                  */
+#define ATIM_TIMx_CCDAT2_CCDAT2_SHIFT       (0)
+#define ATIM_TIMx_CCDAT2_CCDAT2_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT2_CCDAT2_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT2
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT3 register  ********/
-#define ATIM_TIMx_CCDAT3_CCDDAT3_SHIFT (16)
-#define ATIM_TIMx_CCDAT3_CCDDAT3_MASK (0xFFFF << ATIM_TIMx_CCDAT3_CCDDAT3_SHIFT) /* CCDDAT3 */
-#define ATIM_TIMx_CCDAT3_CCDAT3_SHIFT (0)
-#define ATIM_TIMx_CCDAT3_CCDAT3_MASK (0xFFFF << ATIM_TIMx_CCDAT3_CCDAT3_SHIFT) /* CCDAT3 */
+#define ATIM_TIMx_CCDAT3_CCDDAT3_SHIFT      (16)
+#define ATIM_TIMx_CCDAT3_CCDDAT3_MASK       (0xFFFF << \
+                                             ATIM_TIMx_CCDAT3_CCDDAT3_SHIFT)     /*
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  * CCDDAT3
+                                                                                  */
+#define ATIM_TIMx_CCDAT3_CCDAT3_SHIFT       (0)
+#define ATIM_TIMx_CCDAT3_CCDAT3_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT3_CCDAT3_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT3
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT4 register  ********/
-#define ATIM_TIMx_CCDAT4_CCDDAT4_SHIFT (16)
-#define ATIM_TIMx_CCDAT4_CCDDAT4_MASK (0xFFFF << ATIM_TIMx_CCDAT4_CCDDAT4_SHIFT) /* CCDDAT4 */
-#define ATIM_TIMx_CCDAT4_CCDAT4_SHIFT (0)
-#define ATIM_TIMx_CCDAT4_CCDAT4_MASK (0xFFFF << ATIM_TIMx_CCDAT4_CCDAT4_SHIFT) /* CCDAT4 */
+#define ATIM_TIMx_CCDAT4_CCDDAT4_SHIFT      (16)
+#define ATIM_TIMx_CCDAT4_CCDDAT4_MASK       (0xFFFF << \
+                                             ATIM_TIMx_CCDAT4_CCDDAT4_SHIFT)     /*
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  * CCDDAT4
+                                                                                  */
+#define ATIM_TIMx_CCDAT4_CCDAT4_SHIFT       (0)
+#define ATIM_TIMx_CCDAT4_CCDAT4_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT4_CCDAT4_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT4
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT5 register  ********/
-#define ATIM_TIMx_CCDAT5_CCDAT5_SHIFT (0)
-#define ATIM_TIMx_CCDAT5_CCDAT5_MASK (0xFFFF << ATIM_TIMx_CCDAT5_CCDAT5_SHIFT) /* CCDAT5 */
+#define ATIM_TIMx_CCDAT5_CCDAT5_SHIFT       (0)
+#define ATIM_TIMx_CCDAT5_CCDAT5_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT5_CCDAT5_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT5
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT6 register  ********/
-#define ATIM_TIMx_CCDAT6_CCDAT6_SHIFT (0)
-#define ATIM_TIMx_CCDAT6_CCDAT6_MASK (0xFFFF << ATIM_TIMx_CCDAT6_CCDAT6_SHIFT) /* CCDAT6 */
+#define ATIM_TIMx_CCDAT6_CCDAT6_SHIFT       (0)
+#define ATIM_TIMx_CCDAT6_CCDAT6_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT6_CCDAT6_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT6
+                                                                                */
 
 /******** Bit definition for TIMx_PSC register  ********/
-#define ATIM_TIMx_PSC_PSC_SHIFT (0)
-#define ATIM_TIMx_PSC_PSC_MASK (0xFFFF << ATIM_TIMx_PSC_PSC_SHIFT) /* PSC */
+#define ATIM_TIMx_PSC_PSC_SHIFT             (0)
+#define ATIM_TIMx_PSC_PSC_MASK              (0xFFFF << \
+                                             ATIM_TIMx_PSC_PSC_SHIFT) /* PSC
+                                                                       */
 
 /******** Bit definition for TIMx_AR register  ********/
-#define ATIM_TIMx_AR_AR_SHIFT (0)
-#define ATIM_TIMx_AR_AR_MASK (0xFFFF << ATIM_TIMx_AR_AR_SHIFT) /* AR */
+#define ATIM_TIMx_AR_AR_SHIFT               (0)
+#define ATIM_TIMx_AR_AR_MASK                (0xFFFF << ATIM_TIMx_AR_AR_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * AR
+                                                                               */
 
 /******** Bit definition for TIMx_CNT register  ********/
-#define ATIM_TIMx_CNT_CNT_SHIFT (0)
-#define ATIM_TIMx_CNT_CNT_MASK (0xFFFF << ATIM_TIMx_CNT_CNT_SHIFT) /* CNT */
+#define ATIM_TIMx_CNT_CNT_SHIFT             (0)
+#define ATIM_TIMx_CNT_CNT_MASK              (0xFFFF << \
+                                             ATIM_TIMx_CNT_CNT_SHIFT) /* CNT
+                                                                       */
 
 /******** Bit definition for TIMx_REPCNT register  ********/
-#define ATIM_TIMx_REPCNT_REPCNT_SHIFT (0)
-#define ATIM_TIMx_REPCNT_REPCNT_MASK (0xFF << ATIM_TIMx_REPCNT_REPCNT_SHIFT) /* REPCNT */
+#define ATIM_TIMx_REPCNT_REPCNT_SHIFT       (0)
+#define ATIM_TIMx_REPCNT_REPCNT_MASK        (0xFF << \
+                                             ATIM_TIMx_REPCNT_REPCNT_SHIFT)  /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * REPCNT
+                                                                              */
 
 /******** Bit definition for TIMx_BKDT register  ********/
-#define ATIM_TIMx_BKDT_BRK2BID (1 << 21) /* BRK2BID */
-#define ATIM_TIMx_BKDT_BRKBID (1 << 20) /* BRKBID */
-#define ATIM_TIMx_BKDT_BRK2DSRM (1 << 19) /* BRK2DSRM */
-#define ATIM_TIMx_BKDT_BRKDSRM (1 << 18) /* BRKDSRM */
-#define ATIM_TIMx_BKDT_BK2EN (1 << 17) /* BK2EN */
-#define ATIM_TIMx_BKDT_BK2P (1 << 16) /* BK2P */
-#define ATIM_TIMx_BKDT_LCKCFG_SHIFT (14)
-#define ATIM_TIMx_BKDT_LCKCFG_MASK (0x3 << ATIM_TIMx_BKDT_LCKCFG_SHIFT) /* LCKCFG */
-#define ATIM_TIMx_BKDT_OSSR (1 << 13) /* OSSR */
-#define ATIM_TIMx_BKDT_OSSI (1 << 12) /* OSSI */
-#define ATIM_TIMx_BKDT_BKEN (1 << 11) /* BKEN */
-#define ATIM_TIMx_BKDT_BKP (1 << 10) /* BKP */
-#define ATIM_TIMx_BKDT_AOEN (1 << 9) /* AOEN */
-#define ATIM_TIMx_BKDT_MOEN (1 << 8) /* MOEN */
-#define ATIM_TIMx_BKDT_DTGN_SHIFT (0)
-#define ATIM_TIMx_BKDT_DTGN_MASK (0xFF << ATIM_TIMx_BKDT_DTGN_SHIFT) /* DTGN */
+#define ATIM_TIMx_BKDT_BRK2BID              (1 << 21)   /* BRK2BID */
+#define ATIM_TIMx_BKDT_BRKBID               (1 << 20)   /* BRKBID */
+#define ATIM_TIMx_BKDT_BRK2DSRM             (1 << 19)   /* BRK2DSRM */
+#define ATIM_TIMx_BKDT_BRKDSRM              (1 << 18)   /* BRKDSRM */
+#define ATIM_TIMx_BKDT_BK2EN                (1 << 17)   /* BK2EN */
+#define ATIM_TIMx_BKDT_BK2P                 (1 << 16)   /* BK2P */
+#define ATIM_TIMx_BKDT_LCKCFG_SHIFT         (14)
+#define ATIM_TIMx_BKDT_LCKCFG_MASK          (0x3 << \
+                                             ATIM_TIMx_BKDT_LCKCFG_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * LCKCFG
+                                                                             */
+#define ATIM_TIMx_BKDT_OSSR                 (1 << 13)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OSSR
+                                                                             */
+#define ATIM_TIMx_BKDT_OSSI                 (1 << 12)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * OSSI
+                                                                             */
+#define ATIM_TIMx_BKDT_BKEN                 (1 << 11)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * BKEN
+                                                                             */
+#define ATIM_TIMx_BKDT_BKP                  (1 << 10)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * BKP
+                                                                             */
+#define ATIM_TIMx_BKDT_AOEN                 (1 << 9)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * AOEN
+                                                                             */
+#define ATIM_TIMx_BKDT_MOEN                 (1 << 8)                        /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * MOEN
+                                                                             */
+#define ATIM_TIMx_BKDT_DTGN_SHIFT           (0)
+#define ATIM_TIMx_BKDT_DTGN_MASK            (0xFF << \
+                                             ATIM_TIMx_BKDT_DTGN_SHIFT) /*
+                                                                         * DTGN
+                                                                         */
 
 /******** Bit definition for TIMx_CCDAT7 register  ********/
-#define ATIM_TIMx_CCDAT7_CCDAT7_SHIFT (0)
-#define ATIM_TIMx_CCDAT7_CCDAT7_MASK (0xFFFF << ATIM_TIMx_CCDAT7_CCDAT7_SHIFT) /* CCDAT7 */
+#define ATIM_TIMx_CCDAT7_CCDAT7_SHIFT       (0)
+#define ATIM_TIMx_CCDAT7_CCDAT7_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT7_CCDAT7_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT7
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT8 register  ********/
-#define ATIM_TIMx_CCDAT8_CCDAT8_SHIFT (0)
-#define ATIM_TIMx_CCDAT8_CCDAT8_MASK (0xFFFF << ATIM_TIMx_CCDAT8_CCDAT8_SHIFT) /* CCDAT8 */
+#define ATIM_TIMx_CCDAT8_CCDAT8_SHIFT       (0)
+#define ATIM_TIMx_CCDAT8_CCDAT8_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT8_CCDAT8_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT8
+                                                                                */
 
 /******** Bit definition for TIMx_CCDAT9 register  ********/
-#define ATIM_TIMx_CCDAT9_CCDAT9_SHIFT (0)
-#define ATIM_TIMx_CCDAT9_CCDAT9_MASK (0xFFFF << ATIM_TIMx_CCDAT9_CCDAT9_SHIFT) /* CCDAT9 */
+#define ATIM_TIMx_CCDAT9_CCDAT9_SHIFT       (0)
+#define ATIM_TIMx_CCDAT9_CCDAT9_MASK        (0xFFFF << \
+                                             ATIM_TIMx_CCDAT9_CCDAT9_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * CCDAT9
+                                                                                */
 
 /******** Bit definition for TIMx_BKFR register  ********/
-#define ATIM_TIMx_BKFR_THRESH_SHIFT (24)
-#define ATIM_TIMx_BKFR_THRESH_MASK (0x3F << ATIM_TIMx_BKFR_THRESH_SHIFT) /* THRESH */
-#define ATIM_TIMx_BKFR_WSIZE_SHIFT (17)
-#define ATIM_TIMx_BKFR_WSIZE_MASK (0x3F << ATIM_TIMx_BKFR_WSIZE_SHIFT) /* WSIZE */
-#define ATIM_TIMx_BKFR_FILTEN (1 << 16) /* FILTEN */
-#define ATIM_TIMx_BKFR_SLIDFPSC_SHIFT (0)
-#define ATIM_TIMx_BKFR_SLIDFPSC_MASK (0xFFFF << ATIM_TIMx_BKFR_SLIDFPSC_SHIFT) /* SLIDFPSC */
+#define ATIM_TIMx_BKFR_THRESH_SHIFT         (24)
+#define ATIM_TIMx_BKFR_THRESH_MASK          (0x3F << \
+                                             ATIM_TIMx_BKFR_THRESH_SHIFT) /*
+                                                                           * THRESH
+                                                                           */
+#define ATIM_TIMx_BKFR_WSIZE_SHIFT          (17)
+#define ATIM_TIMx_BKFR_WSIZE_MASK           (0x3F << \
+                                             ATIM_TIMx_BKFR_WSIZE_SHIFT)    /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * WSIZE
+                                                                             */
+#define ATIM_TIMx_BKFR_FILTEN               (1 << 16)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * FILTEN
+                                                                             */
+#define ATIM_TIMx_BKFR_SLIDFPSC_SHIFT       (0)
+#define ATIM_TIMx_BKFR_SLIDFPSC_MASK        (0xFFFF << \
+                                             ATIM_TIMx_BKFR_SLIDFPSC_SHIFT)    /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * SLIDFPSC
+                                                                                */
 
 /******** Bit definition for TIMx_INSEL register  ********/
-#define ATIM_TIMx_INSEL_CLRS_SHIFT (24)
-#define ATIM_TIMx_INSEL_CLRS_MASK (0xF << ATIM_TIMx_INSEL_CLRS_SHIFT) /* CLRS */
-#define ATIM_TIMx_INSEL_ITRS_SHIFT (20)
-#define ATIM_TIMx_INSEL_ITRS_MASK (0xF << ATIM_TIMx_INSEL_ITRS_SHIFT) /* ITRS */
-#define ATIM_TIMx_INSEL_ETRS_SHIFT (16)
-#define ATIM_TIMx_INSEL_ETRS_MASK (0xF << ATIM_TIMx_INSEL_ETRS_SHIFT) /* ETRS */
-#define ATIM_TIMx_INSEL_TI4S_SHIFT (12)
-#define ATIM_TIMx_INSEL_TI4S_MASK (0xF << ATIM_TIMx_INSEL_TI4S_SHIFT) /* TI4S */
-#define ATIM_TIMx_INSEL_TI3S_SHIFT (8)
-#define ATIM_TIMx_INSEL_TI3S_MASK (0xF << ATIM_TIMx_INSEL_TI3S_SHIFT) /* TI3S */
-#define ATIM_TIMx_INSEL_TI2S_SHIFT (4)
-#define ATIM_TIMx_INSEL_TI2S_MASK (0xF << ATIM_TIMx_INSEL_TI2S_SHIFT) /* TI2S */
-#define ATIM_TIMx_INSEL_TI1S_SHIFT (0)
-#define ATIM_TIMx_INSEL_TI1S_MASK (0xF << ATIM_TIMx_INSEL_TI1S_SHIFT) /* TI1S */
+#define ATIM_TIMx_INSEL_CLRS_SHIFT          (24)
+#define ATIM_TIMx_INSEL_CLRS_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_CLRS_SHIFT) /*
+                                                                          * CLRS
+                                                                          */
+#define ATIM_TIMx_INSEL_ITRS_SHIFT          (20)
+#define ATIM_TIMx_INSEL_ITRS_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_ITRS_SHIFT) /*
+                                                                          * ITRS
+                                                                          */
+#define ATIM_TIMx_INSEL_ETRS_SHIFT          (16)
+#define ATIM_TIMx_INSEL_ETRS_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_ETRS_SHIFT) /*
+                                                                          * ETRS
+                                                                          */
+#define ATIM_TIMx_INSEL_TI4S_SHIFT          (12)
+#define ATIM_TIMx_INSEL_TI4S_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_TI4S_SHIFT) /*
+                                                                          * TI4S
+                                                                          */
+#define ATIM_TIMx_INSEL_TI3S_SHIFT          (8)
+#define ATIM_TIMx_INSEL_TI3S_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_TI3S_SHIFT) /*
+                                                                          * TI3S
+                                                                          */
+#define ATIM_TIMx_INSEL_TI2S_SHIFT          (4)
+#define ATIM_TIMx_INSEL_TI2S_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_TI2S_SHIFT) /*
+                                                                          * TI2S
+                                                                          */
+#define ATIM_TIMx_INSEL_TI1S_SHIFT          (0)
+#define ATIM_TIMx_INSEL_TI1S_MASK           (0xF << \
+                                             ATIM_TIMx_INSEL_TI1S_SHIFT) /*
+                                                                          * TI1S
+                                                                          */
 
 /******** Bit definition for TIMx_AF1 register  ********/
-#define ATIM_TIMx_AF1_DSMU3BRKEN (1 << 27) /* DSMU3BRKEN */
-#define ATIM_TIMx_AF1_DSMU2BRKEN (1 << 26) /* DSMU2BRKEN */
-#define ATIM_TIMx_AF1_DSMU1BRKEN (1 << 25) /* DSMU1BRKEN */
-#define ATIM_TIMx_AF1_DSMU0BRKEN (1 << 24) /* DSMU0BRKEN */
-#define ATIM_TIMx_AF1_COMP4BRKP (1 << 13) /* COMP4BRKP */
-#define ATIM_TIMx_AF1_COMP3BRKP (1 << 12) /* COMP3BRKP */
-#define ATIM_TIMx_AF1_COMP2BRKP (1 << 11) /* COMP2BRKP */
-#define ATIM_TIMx_AF1_COMP1BRKP (1 << 10) /* COMP1BRKP */
-#define ATIM_TIMx_AF1_IOMBRKP (1 << 9) /* IOMBRKP */
-#define ATIM_TIMx_AF1_COMP4BRKEN (1 << 4) /* COMP4BRKEN */
-#define ATIM_TIMx_AF1_COMP3BRKEN (1 << 3) /* COMP3BRKEN */
-#define ATIM_TIMx_AF1_COMP2BRKEN (1 << 2) /* COMP2BRKEN */
-#define ATIM_TIMx_AF1_COMP1BRKEN (1 << 1) /* COMP1BRKEN */
-#define ATIM_TIMx_AF1_IOMBRKEN (1 << 0) /* IOMBRKEN */
+#define ATIM_TIMx_AF1_DSMU3BRKEN            (1 << 27)   /* DSMU3BRKEN */
+#define ATIM_TIMx_AF1_DSMU2BRKEN            (1 << 26)   /* DSMU2BRKEN */
+#define ATIM_TIMx_AF1_DSMU1BRKEN            (1 << 25)   /* DSMU1BRKEN */
+#define ATIM_TIMx_AF1_DSMU0BRKEN            (1 << 24)   /* DSMU0BRKEN */
+#define ATIM_TIMx_AF1_COMP4BRKP             (1 << 13)   /* COMP4BRKP */
+#define ATIM_TIMx_AF1_COMP3BRKP             (1 << 12)   /* COMP3BRKP */
+#define ATIM_TIMx_AF1_COMP2BRKP             (1 << 11)   /* COMP2BRKP */
+#define ATIM_TIMx_AF1_COMP1BRKP             (1 << 10)   /* COMP1BRKP */
+#define ATIM_TIMx_AF1_IOMBRKP               (1 << 9)    /* IOMBRKP */
+#define ATIM_TIMx_AF1_COMP4BRKEN            (1 << 4)    /* COMP4BRKEN */
+#define ATIM_TIMx_AF1_COMP3BRKEN            (1 << 3)    /* COMP3BRKEN */
+#define ATIM_TIMx_AF1_COMP2BRKEN            (1 << 2)    /* COMP2BRKEN */
+#define ATIM_TIMx_AF1_COMP1BRKEN            (1 << 1)    /* COMP1BRKEN */
+#define ATIM_TIMx_AF1_IOMBRKEN              (1 << 0)    /* IOMBRKEN */
 
 /******** Bit definition for TIMx_AF2 register  ********/
-#define ATIM_TIMx_AF2_DSMU3BRK2EN (1 << 27) /* DSMU3BRK2EN */
-#define ATIM_TIMx_AF2_DSMU2BRK2EN (1 << 26) /* DSMU2BRK2EN */
-#define ATIM_TIMx_AF2_DSMU1BRK2EN (1 << 25) /* DSMU1BRK2EN */
-#define ATIM_TIMx_AF2_DSMU0BRK2EN (1 << 24) /* DSMU0BRK2EN */
-#define ATIM_TIMx_AF2_COMP4BRK2P (1 << 13) /* COMP4BRK2P */
-#define ATIM_TIMx_AF2_COMP3BRK2P (1 << 12) /* COMP3BRK2P */
-#define ATIM_TIMx_AF2_COMP2BRK2P (1 << 11) /* COMP2BRK2P */
-#define ATIM_TIMx_AF2_COMP1BRK2P (1 << 10) /* COMP1BRK2P */
-#define ATIM_TIMx_AF2_IOMBRK2P (1 << 9) /* IOMBRK2P */
-#define ATIM_TIMx_AF2_COMP4BRK2EN (1 << 4) /* COMP4BRK2EN */
-#define ATIM_TIMx_AF2_COMP3BRK2EN (1 << 3) /* COMP3BRK2EN */
-#define ATIM_TIMx_AF2_COMP2BRK2EN (1 << 2) /* COMP2BRK2EN */
-#define ATIM_TIMx_AF2_COMP1BRK2EN (1 << 1) /* COMP1BRK2EN */
-#define ATIM_TIMx_AF2_IOMBRK2EN (1 << 0) /* IOMBRK2EN */
+#define ATIM_TIMx_AF2_DSMU3BRK2EN           (1 << 27)   /* DSMU3BRK2EN */
+#define ATIM_TIMx_AF2_DSMU2BRK2EN           (1 << 26)   /* DSMU2BRK2EN */
+#define ATIM_TIMx_AF2_DSMU1BRK2EN           (1 << 25)   /* DSMU1BRK2EN */
+#define ATIM_TIMx_AF2_DSMU0BRK2EN           (1 << 24)   /* DSMU0BRK2EN */
+#define ATIM_TIMx_AF2_COMP4BRK2P            (1 << 13)   /* COMP4BRK2P */
+#define ATIM_TIMx_AF2_COMP3BRK2P            (1 << 12)   /* COMP3BRK2P */
+#define ATIM_TIMx_AF2_COMP2BRK2P            (1 << 11)   /* COMP2BRK2P */
+#define ATIM_TIMx_AF2_COMP1BRK2P            (1 << 10)   /* COMP1BRK2P */
+#define ATIM_TIMx_AF2_IOMBRK2P              (1 << 9)    /* IOMBRK2P */
+#define ATIM_TIMx_AF2_COMP4BRK2EN           (1 << 4)    /* COMP4BRK2EN */
+#define ATIM_TIMx_AF2_COMP3BRK2EN           (1 << 3)    /* COMP3BRK2EN */
+#define ATIM_TIMx_AF2_COMP2BRK2EN           (1 << 2)    /* COMP2BRK2EN */
+#define ATIM_TIMx_AF2_COMP1BRK2EN           (1 << 1)    /* COMP1BRK2EN */
+#define ATIM_TIMx_AF2_IOMBRK2EN             (1 << 0)    /* IOMBRK2EN */
 
 /******** Bit definition for TIMx_BKFR2 register  ********/
-#define ATIM_TIMx_BKFR2_THRESH_SHIFT (24)
-#define ATIM_TIMx_BKFR2_THRESH_MASK (0x3F << ATIM_TIMx_BKFR2_THRESH_SHIFT) /* THRESH */
-#define ATIM_TIMx_BKFR2_WSIZE_SHIFT (17)
-#define ATIM_TIMx_BKFR2_WSIZE_MASK (0x3F << ATIM_TIMx_BKFR2_WSIZE_SHIFT) /* WSIZE */
-#define ATIM_TIMx_BKFR2_FILTEN (1 << 16) /* FILTEN */
-#define ATIM_TIMx_BKFR2_SLIDFPSC_SHIFT (0)
-#define ATIM_TIMx_BKFR2_SLIDFPSC_MASK (0xFFFF << ATIM_TIMx_BKFR2_SLIDFPSC_SHIFT) /* SLIDFPSC */
+#define ATIM_TIMx_BKFR2_THRESH_SHIFT        (24)
+#define ATIM_TIMx_BKFR2_THRESH_MASK         (0x3F << \
+                                             ATIM_TIMx_BKFR2_THRESH_SHIFT) /*
+                                                                            * THRESH
+                                                                            */
+#define ATIM_TIMx_BKFR2_WSIZE_SHIFT         (17)
+#define ATIM_TIMx_BKFR2_WSIZE_MASK          (0x3F << \
+                                             ATIM_TIMx_BKFR2_WSIZE_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * WSIZE
+                                                                             */
+#define ATIM_TIMx_BKFR2_FILTEN              (1 << 16)                       /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * FILTEN
+                                                                             */
+#define ATIM_TIMx_BKFR2_SLIDFPSC_SHIFT      (0)
+#define ATIM_TIMx_BKFR2_SLIDFPSC_MASK       (0xFFFF << \
+                                             ATIM_TIMx_BKFR2_SLIDFPSC_SHIFT)     /*
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  *
+                                                                                  * SLIDFPSC
+                                                                                  */
 
 /******** Bit definition for TIMx_DCTRL register  ********/
-#define ATIM_TIMx_DCTRL_DBADDR_SHIFT (8)
-#define ATIM_TIMx_DCTRL_DBADDR_MASK (0x3F << ATIM_TIMx_DCTRL_DBADDR_SHIFT) /* DBADDR */
-#define ATIM_TIMx_DCTRL_DBLEN_SHIFT (0)
-#define ATIM_TIMx_DCTRL_DBLEN_MASK (0x3F << ATIM_TIMx_DCTRL_DBLEN_SHIFT) /* DBLEN */
+#define ATIM_TIMx_DCTRL_DBADDR_SHIFT        (8)
+#define ATIM_TIMx_DCTRL_DBADDR_MASK         (0x3F << \
+                                             ATIM_TIMx_DCTRL_DBADDR_SHIFT) /*
+                                                                            * DBADDR
+                                                                            */
+#define ATIM_TIMx_DCTRL_DBLEN_SHIFT         (0)
+#define ATIM_TIMx_DCTRL_DBLEN_MASK          (0x3F << \
+                                             ATIM_TIMx_DCTRL_DBLEN_SHIFT) /*
+                                                                           * DBLEN
+                                                                           */
 
 /******** Bit definition for TIMx_DADDR register  ********/
-#define ATIM_TIMx_DADDR_BURST_SHIFT (0)
-#define ATIM_TIMx_DADDR_BURST_MASK (0xFFFFFFFF << ATIM_TIMx_DADDR_BURST_SHIFT) /* BURST */
+#define ATIM_TIMx_DADDR_BURST_SHIFT         (0)
+#define ATIM_TIMx_DADDR_BURST_MASK          (0xFFFFFFFF << \
+                                             ATIM_TIMx_DADDR_BURST_SHIFT)      /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * BURST
+                                                                                */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_ATIM_H */

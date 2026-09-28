@@ -33,491 +33,906 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_ECCMON_CTRL1_OFFSET 0x0 /* Control Register 1 */
-#define N32_ECCMON_CTRL2_OFFSET 0x4 /* Control Register 2 */
-#define N32_ECCMON_EINJ_OFFSET 0x8 /* Error Injection Register */
-#define N32_ECCMON_INTFS_OFFSET 0xC /* Interrupt Flag Shadow Register */
-#define N32_ECCMON_INTF1_OFFSET 0x10 /* Mermory 1 Interrupt Flag Register */
-#define N32_ECCMON_FEADR1_OFFSET 0x14 /* Mermory 1 ECC Fail Event Address Register */
-#define N32_ECCMON_FEDATL1_OFFSET 0x18 /* Mermory 1 ECC Fail Event Data Register 0 */
-#define N32_ECCMON_FEDATH1_OFFSET 0x1C /* Mermory 1 ECC Fail Event Data Register 1 */
-#define N32_ECCMON_FECOD1_OFFSET 0x20 /* Mermory 1 ECC Fail Event ECC Code Register */
-#define N32_ECCMON_INTF2_OFFSET 0x24 /* Mermory 2 Interrupt Flag Register */
-#define N32_ECCMON_FEADR2_OFFSET 0x28 /* Mermory 2 ECC Fail Event Address Register */
-#define N32_ECCMON_FEDATL2_OFFSET 0x2C /* SRAM1 ECC Fail Event Data Register 0 */
-#define N32_ECCMON_FEDATH2_OFFSET 0x30 /* Mermory 2 ECC Fail Event Data Register 1 */
-#define N32_ECCMON_FECOD2_OFFSET 0x34 /* Mermory 2 ECC Fail Event ECC Code Register */
-#define N32_ECCMON_INTF3_OFFSET 0x38 /* Mermory 3 Interrupt Flag Register */
-#define N32_ECCMON_FEADR3_OFFSET 0x3C /* Mermory 3 ECC Fail Event Address Register */
-#define N32_ECCMON_FEDATL3_OFFSET 0x40 /* Mermory 3 ECC Fail Event Data Register 0 */
-#define N32_ECCMON_FEDATH3_OFFSET 0x44 /* Mermory 3 ECC Fail Event Data Register 1 */
-#define N32_ECCMON_FECOD3_OFFSET 0x48 /* Mermory 3 ECC Fail Event ECC Code Register */
-#define N32_ECCMON_INTF4_OFFSET 0x4C /* Mermory 4 Interrupt Flag Register */
-#define N32_ECCMON_FEADR4_OFFSET 0x50 /* Mermory 4 ECC Fail Event Address Register */
-#define N32_ECCMON_FEDATL4_OFFSET 0x54 /* Mermory 4 ECC Fail Event Data Register 0 */
-#define N32_ECCMON_FEDATH4_OFFSET 0x58 /* Mermory 4 ECC Fail Event Data Register 1 */
-#define N32_ECCMON_FECOD4_OFFSET 0x5C /* Mermory 4 ECC Fail Event ECC Code Register */
-#define N32_ECCMON_INTF5_OFFSET 0x60 /* Mermory 5 Interrupt Flag Register */
-#define N32_ECCMON_FEADR5_OFFSET 0x64 /* Mermory 5 ECC Fail Event Address Register */
-#define N32_ECCMON_FEDATL5_OFFSET 0x68 /* Mermory 5 ECC Fail Event Data Register 0 */
-#define N32_ECCMON_FEDATH5_OFFSET 0x6C /* Mermory 5 ECC Fail Event Data Register 1 */
-#define N32_ECCMON_FECOD5_OFFSET 0x70 /* Mermory 5 ECC Fail Event ECC Code Register */
-#define N32_ECCMON_INTF6_OFFSET 0x74 /* Mermory 6 Interrupt Flag Register */
-#define N32_ECCMON_FEADR6_OFFSET 0x78 /* Mermory 6 ECC Fail Event Address Register */
-#define N32_ECCMON_FEDATL6_OFFSET 0x7C /* Mermory 6 ECC Fail Event Data Register 0 */
-#define N32_ECCMON_FEDATH6_OFFSET 0x80 /* Mermory 6 ECC Fail Event Data Register 1 */
-#define N32_ECCMON_FECOD6_OFFSET 0x84 /* Mermory 6 ECC Fail Event ECC Code Register */
+#define N32_ECCMON_CTRL1_OFFSET         0x0     /* Control Register 1 */
+#define N32_ECCMON_CTRL2_OFFSET         0x4     /* Control Register 2 */
+#define N32_ECCMON_EINJ_OFFSET          0x8     /* Error Injection Register */
+#define N32_ECCMON_INTFS_OFFSET         0xC     /* Interrupt Flag Shadow
+                                                 * Register */
+#define N32_ECCMON_INTF1_OFFSET         0x10    /* Mermory 1 Interrupt Flag
+                                                 * Register */
+#define N32_ECCMON_FEADR1_OFFSET        0x14    /* Mermory 1 ECC Fail Event
+                                                 * Address Register */
+#define N32_ECCMON_FEDATL1_OFFSET       0x18    /* Mermory 1 ECC Fail Event
+                                                 * Data Register 0 */
+#define N32_ECCMON_FEDATH1_OFFSET       0x1C    /* Mermory 1 ECC Fail Event
+                                                 * Data Register 1 */
+#define N32_ECCMON_FECOD1_OFFSET        0x20    /* Mermory 1 ECC Fail Event
+                                                 * ECC Code Register */
+#define N32_ECCMON_INTF2_OFFSET         0x24    /* Mermory 2 Interrupt Flag
+                                                 * Register */
+#define N32_ECCMON_FEADR2_OFFSET        0x28    /* Mermory 2 ECC Fail Event
+                                                 * Address Register */
+#define N32_ECCMON_FEDATL2_OFFSET       0x2C    /* SRAM1 ECC Fail Event Data
+                                                 * Register 0 */
+#define N32_ECCMON_FEDATH2_OFFSET       0x30    /* Mermory 2 ECC Fail Event
+                                                 * Data Register 1 */
+#define N32_ECCMON_FECOD2_OFFSET        0x34    /* Mermory 2 ECC Fail Event
+                                                 * ECC Code Register */
+#define N32_ECCMON_INTF3_OFFSET         0x38    /* Mermory 3 Interrupt Flag
+                                                 * Register */
+#define N32_ECCMON_FEADR3_OFFSET        0x3C    /* Mermory 3 ECC Fail Event
+                                                 * Address Register */
+#define N32_ECCMON_FEDATL3_OFFSET       0x40    /* Mermory 3 ECC Fail Event
+                                                 * Data Register 0 */
+#define N32_ECCMON_FEDATH3_OFFSET       0x44    /* Mermory 3 ECC Fail Event
+                                                 * Data Register 1 */
+#define N32_ECCMON_FECOD3_OFFSET        0x48    /* Mermory 3 ECC Fail Event
+                                                 * ECC Code Register */
+#define N32_ECCMON_INTF4_OFFSET         0x4C    /* Mermory 4 Interrupt Flag
+                                                 * Register */
+#define N32_ECCMON_FEADR4_OFFSET        0x50    /* Mermory 4 ECC Fail Event
+                                                 * Address Register */
+#define N32_ECCMON_FEDATL4_OFFSET       0x54    /* Mermory 4 ECC Fail Event
+                                                 * Data Register 0 */
+#define N32_ECCMON_FEDATH4_OFFSET       0x58    /* Mermory 4 ECC Fail Event
+                                                 * Data Register 1 */
+#define N32_ECCMON_FECOD4_OFFSET        0x5C    /* Mermory 4 ECC Fail Event
+                                                 * ECC Code Register */
+#define N32_ECCMON_INTF5_OFFSET         0x60    /* Mermory 5 Interrupt Flag
+                                                 * Register */
+#define N32_ECCMON_FEADR5_OFFSET        0x64    /* Mermory 5 ECC Fail Event
+                                                 * Address Register */
+#define N32_ECCMON_FEDATL5_OFFSET       0x68    /* Mermory 5 ECC Fail Event
+                                                 * Data Register 0 */
+#define N32_ECCMON_FEDATH5_OFFSET       0x6C    /* Mermory 5 ECC Fail Event
+                                                 * Data Register 1 */
+#define N32_ECCMON_FECOD5_OFFSET        0x70    /* Mermory 5 ECC Fail Event
+                                                 * ECC Code Register */
+#define N32_ECCMON_INTF6_OFFSET         0x74    /* Mermory 6 Interrupt Flag
+                                                 * Register */
+#define N32_ECCMON_FEADR6_OFFSET        0x78    /* Mermory 6 ECC Fail Event
+                                                 * Address Register */
+#define N32_ECCMON_FEDATL6_OFFSET       0x7C    /* Mermory 6 ECC Fail Event
+                                                 * Data Register 0 */
+#define N32_ECCMON_FEDATH6_OFFSET       0x80    /* Mermory 6 ECC Fail Event
+                                                 * Data Register 1 */
+#define N32_ECCMON_FECOD6_OFFSET        0x84    /* Mermory 6 ECC Fail Event
+                                                 * ECC Code Register */
 
-#define N32_ECCMON1P1_CTRL1 (N32_ECCMON1P1_BASE + N32_ECCMON_CTRL1_OFFSET)
-#define N32_ECCMON1P1_CTRL2 (N32_ECCMON1P1_BASE + N32_ECCMON_CTRL2_OFFSET)
-#define N32_ECCMON1P1_EINJ (N32_ECCMON1P1_BASE + N32_ECCMON_EINJ_OFFSET)
-#define N32_ECCMON1P1_INTFS (N32_ECCMON1P1_BASE + N32_ECCMON_INTFS_OFFSET)
-#define N32_ECCMON1P1_INTF1 (N32_ECCMON1P1_BASE + N32_ECCMON_INTF1_OFFSET)
-#define N32_ECCMON1P1_FEADR1 (N32_ECCMON1P1_BASE + N32_ECCMON_FEADR1_OFFSET)
-#define N32_ECCMON1P1_FEDATL1 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATL1_OFFSET)
-#define N32_ECCMON1P1_FEDATH1 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATH1_OFFSET)
-#define N32_ECCMON1P1_FECOD1 (N32_ECCMON1P1_BASE + N32_ECCMON_FECOD1_OFFSET)
-#define N32_ECCMON1P1_INTF2 (N32_ECCMON1P1_BASE + N32_ECCMON_INTF2_OFFSET)
-#define N32_ECCMON1P1_FEADR2 (N32_ECCMON1P1_BASE + N32_ECCMON_FEADR2_OFFSET)
-#define N32_ECCMON1P1_FEDATL2 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATL2_OFFSET)
-#define N32_ECCMON1P1_FEDATH2 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATH2_OFFSET)
-#define N32_ECCMON1P1_FECOD2 (N32_ECCMON1P1_BASE + N32_ECCMON_FECOD2_OFFSET)
-#define N32_ECCMON1P1_INTF3 (N32_ECCMON1P1_BASE + N32_ECCMON_INTF3_OFFSET)
-#define N32_ECCMON1P1_FEADR3 (N32_ECCMON1P1_BASE + N32_ECCMON_FEADR3_OFFSET)
-#define N32_ECCMON1P1_FEDATL3 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATL3_OFFSET)
-#define N32_ECCMON1P1_FEDATH3 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATH3_OFFSET)
-#define N32_ECCMON1P1_FECOD3 (N32_ECCMON1P1_BASE + N32_ECCMON_FECOD3_OFFSET)
-#define N32_ECCMON1P1_INTF4 (N32_ECCMON1P1_BASE + N32_ECCMON_INTF4_OFFSET)
-#define N32_ECCMON1P1_FEADR4 (N32_ECCMON1P1_BASE + N32_ECCMON_FEADR4_OFFSET)
-#define N32_ECCMON1P1_FEDATL4 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATL4_OFFSET)
-#define N32_ECCMON1P1_FEDATH4 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATH4_OFFSET)
-#define N32_ECCMON1P1_FECOD4 (N32_ECCMON1P1_BASE + N32_ECCMON_FECOD4_OFFSET)
-#define N32_ECCMON1P1_INTF5 (N32_ECCMON1P1_BASE + N32_ECCMON_INTF5_OFFSET)
-#define N32_ECCMON1P1_FEADR5 (N32_ECCMON1P1_BASE + N32_ECCMON_FEADR5_OFFSET)
-#define N32_ECCMON1P1_FEDATL5 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATL5_OFFSET)
-#define N32_ECCMON1P1_FEDATH5 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATH5_OFFSET)
-#define N32_ECCMON1P1_FECOD5 (N32_ECCMON1P1_BASE + N32_ECCMON_FECOD5_OFFSET)
-#define N32_ECCMON1P1_INTF6 (N32_ECCMON1P1_BASE + N32_ECCMON_INTF6_OFFSET)
-#define N32_ECCMON1P1_FEADR6 (N32_ECCMON1P1_BASE + N32_ECCMON_FEADR6_OFFSET)
-#define N32_ECCMON1P1_FEDATL6 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATL6_OFFSET)
-#define N32_ECCMON1P1_FEDATH6 (N32_ECCMON1P1_BASE + N32_ECCMON_FEDATH6_OFFSET)
-#define N32_ECCMON1P1_FECOD6 (N32_ECCMON1P1_BASE + N32_ECCMON_FECOD6_OFFSET)
+#define N32_ECCMON1P1_CTRL1             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_CTRL1_OFFSET)
+#define N32_ECCMON1P1_CTRL2             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_CTRL2_OFFSET)
+#define N32_ECCMON1P1_EINJ              (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_EINJ_OFFSET)
+#define N32_ECCMON1P1_INTFS             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTFS_OFFSET)
+#define N32_ECCMON1P1_INTF1             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTF1_OFFSET)
+#define N32_ECCMON1P1_FEADR1            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEADR1_OFFSET)
+#define N32_ECCMON1P1_FEDATL1           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATL1_OFFSET)
+#define N32_ECCMON1P1_FEDATH1           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATH1_OFFSET)
+#define N32_ECCMON1P1_FECOD1            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FECOD1_OFFSET)
+#define N32_ECCMON1P1_INTF2             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTF2_OFFSET)
+#define N32_ECCMON1P1_FEADR2            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEADR2_OFFSET)
+#define N32_ECCMON1P1_FEDATL2           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATL2_OFFSET)
+#define N32_ECCMON1P1_FEDATH2           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATH2_OFFSET)
+#define N32_ECCMON1P1_FECOD2            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FECOD2_OFFSET)
+#define N32_ECCMON1P1_INTF3             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTF3_OFFSET)
+#define N32_ECCMON1P1_FEADR3            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEADR3_OFFSET)
+#define N32_ECCMON1P1_FEDATL3           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATL3_OFFSET)
+#define N32_ECCMON1P1_FEDATH3           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATH3_OFFSET)
+#define N32_ECCMON1P1_FECOD3            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FECOD3_OFFSET)
+#define N32_ECCMON1P1_INTF4             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTF4_OFFSET)
+#define N32_ECCMON1P1_FEADR4            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEADR4_OFFSET)
+#define N32_ECCMON1P1_FEDATL4           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATL4_OFFSET)
+#define N32_ECCMON1P1_FEDATH4           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATH4_OFFSET)
+#define N32_ECCMON1P1_FECOD4            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FECOD4_OFFSET)
+#define N32_ECCMON1P1_INTF5             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTF5_OFFSET)
+#define N32_ECCMON1P1_FEADR5            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEADR5_OFFSET)
+#define N32_ECCMON1P1_FEDATL5           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATL5_OFFSET)
+#define N32_ECCMON1P1_FEDATH5           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATH5_OFFSET)
+#define N32_ECCMON1P1_FECOD5            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FECOD5_OFFSET)
+#define N32_ECCMON1P1_INTF6             (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_INTF6_OFFSET)
+#define N32_ECCMON1P1_FEADR6            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEADR6_OFFSET)
+#define N32_ECCMON1P1_FEDATL6           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATL6_OFFSET)
+#define N32_ECCMON1P1_FEDATH6           (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FEDATH6_OFFSET)
+#define N32_ECCMON1P1_FECOD6            (N32_ECCMON1P1_BASE + \
+                                         N32_ECCMON_FECOD6_OFFSET)
 
-#define N32_ECCMON1P2_CTRL1 (N32_ECCMON1P2_BASE + N32_ECCMON_CTRL1_OFFSET)
-#define N32_ECCMON1P2_CTRL2 (N32_ECCMON1P2_BASE + N32_ECCMON_CTRL2_OFFSET)
-#define N32_ECCMON1P2_EINJ (N32_ECCMON1P2_BASE + N32_ECCMON_EINJ_OFFSET)
-#define N32_ECCMON1P2_INTFS (N32_ECCMON1P2_BASE + N32_ECCMON_INTFS_OFFSET)
-#define N32_ECCMON1P2_INTF1 (N32_ECCMON1P2_BASE + N32_ECCMON_INTF1_OFFSET)
-#define N32_ECCMON1P2_FEADR1 (N32_ECCMON1P2_BASE + N32_ECCMON_FEADR1_OFFSET)
-#define N32_ECCMON1P2_FEDATL1 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATL1_OFFSET)
-#define N32_ECCMON1P2_FEDATH1 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATH1_OFFSET)
-#define N32_ECCMON1P2_FECOD1 (N32_ECCMON1P2_BASE + N32_ECCMON_FECOD1_OFFSET)
-#define N32_ECCMON1P2_INTF2 (N32_ECCMON1P2_BASE + N32_ECCMON_INTF2_OFFSET)
-#define N32_ECCMON1P2_FEADR2 (N32_ECCMON1P2_BASE + N32_ECCMON_FEADR2_OFFSET)
-#define N32_ECCMON1P2_FEDATL2 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATL2_OFFSET)
-#define N32_ECCMON1P2_FEDATH2 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATH2_OFFSET)
-#define N32_ECCMON1P2_FECOD2 (N32_ECCMON1P2_BASE + N32_ECCMON_FECOD2_OFFSET)
-#define N32_ECCMON1P2_INTF3 (N32_ECCMON1P2_BASE + N32_ECCMON_INTF3_OFFSET)
-#define N32_ECCMON1P2_FEADR3 (N32_ECCMON1P2_BASE + N32_ECCMON_FEADR3_OFFSET)
-#define N32_ECCMON1P2_FEDATL3 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATL3_OFFSET)
-#define N32_ECCMON1P2_FEDATH3 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATH3_OFFSET)
-#define N32_ECCMON1P2_FECOD3 (N32_ECCMON1P2_BASE + N32_ECCMON_FECOD3_OFFSET)
-#define N32_ECCMON1P2_INTF4 (N32_ECCMON1P2_BASE + N32_ECCMON_INTF4_OFFSET)
-#define N32_ECCMON1P2_FEADR4 (N32_ECCMON1P2_BASE + N32_ECCMON_FEADR4_OFFSET)
-#define N32_ECCMON1P2_FEDATL4 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATL4_OFFSET)
-#define N32_ECCMON1P2_FEDATH4 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATH4_OFFSET)
-#define N32_ECCMON1P2_FECOD4 (N32_ECCMON1P2_BASE + N32_ECCMON_FECOD4_OFFSET)
-#define N32_ECCMON1P2_INTF5 (N32_ECCMON1P2_BASE + N32_ECCMON_INTF5_OFFSET)
-#define N32_ECCMON1P2_FEADR5 (N32_ECCMON1P2_BASE + N32_ECCMON_FEADR5_OFFSET)
-#define N32_ECCMON1P2_FEDATL5 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATL5_OFFSET)
-#define N32_ECCMON1P2_FEDATH5 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATH5_OFFSET)
-#define N32_ECCMON1P2_FECOD5 (N32_ECCMON1P2_BASE + N32_ECCMON_FECOD5_OFFSET)
-#define N32_ECCMON1P2_INTF6 (N32_ECCMON1P2_BASE + N32_ECCMON_INTF6_OFFSET)
-#define N32_ECCMON1P2_FEADR6 (N32_ECCMON1P2_BASE + N32_ECCMON_FEADR6_OFFSET)
-#define N32_ECCMON1P2_FEDATL6 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATL6_OFFSET)
-#define N32_ECCMON1P2_FEDATH6 (N32_ECCMON1P2_BASE + N32_ECCMON_FEDATH6_OFFSET)
-#define N32_ECCMON1P2_FECOD6 (N32_ECCMON1P2_BASE + N32_ECCMON_FECOD6_OFFSET)
+#define N32_ECCMON1P2_CTRL1             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_CTRL1_OFFSET)
+#define N32_ECCMON1P2_CTRL2             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_CTRL2_OFFSET)
+#define N32_ECCMON1P2_EINJ              (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_EINJ_OFFSET)
+#define N32_ECCMON1P2_INTFS             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTFS_OFFSET)
+#define N32_ECCMON1P2_INTF1             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTF1_OFFSET)
+#define N32_ECCMON1P2_FEADR1            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEADR1_OFFSET)
+#define N32_ECCMON1P2_FEDATL1           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATL1_OFFSET)
+#define N32_ECCMON1P2_FEDATH1           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATH1_OFFSET)
+#define N32_ECCMON1P2_FECOD1            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FECOD1_OFFSET)
+#define N32_ECCMON1P2_INTF2             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTF2_OFFSET)
+#define N32_ECCMON1P2_FEADR2            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEADR2_OFFSET)
+#define N32_ECCMON1P2_FEDATL2           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATL2_OFFSET)
+#define N32_ECCMON1P2_FEDATH2           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATH2_OFFSET)
+#define N32_ECCMON1P2_FECOD2            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FECOD2_OFFSET)
+#define N32_ECCMON1P2_INTF3             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTF3_OFFSET)
+#define N32_ECCMON1P2_FEADR3            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEADR3_OFFSET)
+#define N32_ECCMON1P2_FEDATL3           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATL3_OFFSET)
+#define N32_ECCMON1P2_FEDATH3           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATH3_OFFSET)
+#define N32_ECCMON1P2_FECOD3            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FECOD3_OFFSET)
+#define N32_ECCMON1P2_INTF4             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTF4_OFFSET)
+#define N32_ECCMON1P2_FEADR4            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEADR4_OFFSET)
+#define N32_ECCMON1P2_FEDATL4           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATL4_OFFSET)
+#define N32_ECCMON1P2_FEDATH4           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATH4_OFFSET)
+#define N32_ECCMON1P2_FECOD4            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FECOD4_OFFSET)
+#define N32_ECCMON1P2_INTF5             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTF5_OFFSET)
+#define N32_ECCMON1P2_FEADR5            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEADR5_OFFSET)
+#define N32_ECCMON1P2_FEDATL5           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATL5_OFFSET)
+#define N32_ECCMON1P2_FEDATH5           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATH5_OFFSET)
+#define N32_ECCMON1P2_FECOD5            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FECOD5_OFFSET)
+#define N32_ECCMON1P2_INTF6             (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_INTF6_OFFSET)
+#define N32_ECCMON1P2_FEADR6            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEADR6_OFFSET)
+#define N32_ECCMON1P2_FEDATL6           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATL6_OFFSET)
+#define N32_ECCMON1P2_FEDATH6           (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FEDATH6_OFFSET)
+#define N32_ECCMON1P2_FECOD6            (N32_ECCMON1P2_BASE + \
+                                         N32_ECCMON_FECOD6_OFFSET)
 
-#define N32_ECCMON1P3_CTRL1 (N32_ECCMON1P3_BASE + N32_ECCMON_CTRL1_OFFSET)
-#define N32_ECCMON1P3_CTRL2 (N32_ECCMON1P3_BASE + N32_ECCMON_CTRL2_OFFSET)
-#define N32_ECCMON1P3_EINJ (N32_ECCMON1P3_BASE + N32_ECCMON_EINJ_OFFSET)
-#define N32_ECCMON1P3_INTFS (N32_ECCMON1P3_BASE + N32_ECCMON_INTFS_OFFSET)
-#define N32_ECCMON1P3_INTF1 (N32_ECCMON1P3_BASE + N32_ECCMON_INTF1_OFFSET)
-#define N32_ECCMON1P3_FEADR1 (N32_ECCMON1P3_BASE + N32_ECCMON_FEADR1_OFFSET)
-#define N32_ECCMON1P3_FEDATL1 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATL1_OFFSET)
-#define N32_ECCMON1P3_FEDATH1 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATH1_OFFSET)
-#define N32_ECCMON1P3_FECOD1 (N32_ECCMON1P3_BASE + N32_ECCMON_FECOD1_OFFSET)
-#define N32_ECCMON1P3_INTF2 (N32_ECCMON1P3_BASE + N32_ECCMON_INTF2_OFFSET)
-#define N32_ECCMON1P3_FEADR2 (N32_ECCMON1P3_BASE + N32_ECCMON_FEADR2_OFFSET)
-#define N32_ECCMON1P3_FEDATL2 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATL2_OFFSET)
-#define N32_ECCMON1P3_FEDATH2 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATH2_OFFSET)
-#define N32_ECCMON1P3_FECOD2 (N32_ECCMON1P3_BASE + N32_ECCMON_FECOD2_OFFSET)
-#define N32_ECCMON1P3_INTF3 (N32_ECCMON1P3_BASE + N32_ECCMON_INTF3_OFFSET)
-#define N32_ECCMON1P3_FEADR3 (N32_ECCMON1P3_BASE + N32_ECCMON_FEADR3_OFFSET)
-#define N32_ECCMON1P3_FEDATL3 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATL3_OFFSET)
-#define N32_ECCMON1P3_FEDATH3 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATH3_OFFSET)
-#define N32_ECCMON1P3_FECOD3 (N32_ECCMON1P3_BASE + N32_ECCMON_FECOD3_OFFSET)
-#define N32_ECCMON1P3_INTF4 (N32_ECCMON1P3_BASE + N32_ECCMON_INTF4_OFFSET)
-#define N32_ECCMON1P3_FEADR4 (N32_ECCMON1P3_BASE + N32_ECCMON_FEADR4_OFFSET)
-#define N32_ECCMON1P3_FEDATL4 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATL4_OFFSET)
-#define N32_ECCMON1P3_FEDATH4 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATH4_OFFSET)
-#define N32_ECCMON1P3_FECOD4 (N32_ECCMON1P3_BASE + N32_ECCMON_FECOD4_OFFSET)
-#define N32_ECCMON1P3_INTF5 (N32_ECCMON1P3_BASE + N32_ECCMON_INTF5_OFFSET)
-#define N32_ECCMON1P3_FEADR5 (N32_ECCMON1P3_BASE + N32_ECCMON_FEADR5_OFFSET)
-#define N32_ECCMON1P3_FEDATL5 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATL5_OFFSET)
-#define N32_ECCMON1P3_FEDATH5 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATH5_OFFSET)
-#define N32_ECCMON1P3_FECOD5 (N32_ECCMON1P3_BASE + N32_ECCMON_FECOD5_OFFSET)
-#define N32_ECCMON1P3_INTF6 (N32_ECCMON1P3_BASE + N32_ECCMON_INTF6_OFFSET)
-#define N32_ECCMON1P3_FEADR6 (N32_ECCMON1P3_BASE + N32_ECCMON_FEADR6_OFFSET)
-#define N32_ECCMON1P3_FEDATL6 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATL6_OFFSET)
-#define N32_ECCMON1P3_FEDATH6 (N32_ECCMON1P3_BASE + N32_ECCMON_FEDATH6_OFFSET)
-#define N32_ECCMON1P3_FECOD6 (N32_ECCMON1P3_BASE + N32_ECCMON_FECOD6_OFFSET)
+#define N32_ECCMON1P3_CTRL1             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_CTRL1_OFFSET)
+#define N32_ECCMON1P3_CTRL2             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_CTRL2_OFFSET)
+#define N32_ECCMON1P3_EINJ              (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_EINJ_OFFSET)
+#define N32_ECCMON1P3_INTFS             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTFS_OFFSET)
+#define N32_ECCMON1P3_INTF1             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTF1_OFFSET)
+#define N32_ECCMON1P3_FEADR1            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEADR1_OFFSET)
+#define N32_ECCMON1P3_FEDATL1           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATL1_OFFSET)
+#define N32_ECCMON1P3_FEDATH1           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATH1_OFFSET)
+#define N32_ECCMON1P3_FECOD1            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FECOD1_OFFSET)
+#define N32_ECCMON1P3_INTF2             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTF2_OFFSET)
+#define N32_ECCMON1P3_FEADR2            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEADR2_OFFSET)
+#define N32_ECCMON1P3_FEDATL2           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATL2_OFFSET)
+#define N32_ECCMON1P3_FEDATH2           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATH2_OFFSET)
+#define N32_ECCMON1P3_FECOD2            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FECOD2_OFFSET)
+#define N32_ECCMON1P3_INTF3             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTF3_OFFSET)
+#define N32_ECCMON1P3_FEADR3            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEADR3_OFFSET)
+#define N32_ECCMON1P3_FEDATL3           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATL3_OFFSET)
+#define N32_ECCMON1P3_FEDATH3           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATH3_OFFSET)
+#define N32_ECCMON1P3_FECOD3            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FECOD3_OFFSET)
+#define N32_ECCMON1P3_INTF4             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTF4_OFFSET)
+#define N32_ECCMON1P3_FEADR4            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEADR4_OFFSET)
+#define N32_ECCMON1P3_FEDATL4           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATL4_OFFSET)
+#define N32_ECCMON1P3_FEDATH4           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATH4_OFFSET)
+#define N32_ECCMON1P3_FECOD4            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FECOD4_OFFSET)
+#define N32_ECCMON1P3_INTF5             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTF5_OFFSET)
+#define N32_ECCMON1P3_FEADR5            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEADR5_OFFSET)
+#define N32_ECCMON1P3_FEDATL5           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATL5_OFFSET)
+#define N32_ECCMON1P3_FEDATH5           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATH5_OFFSET)
+#define N32_ECCMON1P3_FECOD5            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FECOD5_OFFSET)
+#define N32_ECCMON1P3_INTF6             (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_INTF6_OFFSET)
+#define N32_ECCMON1P3_FEADR6            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEADR6_OFFSET)
+#define N32_ECCMON1P3_FEDATL6           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATL6_OFFSET)
+#define N32_ECCMON1P3_FEDATH6           (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FEDATH6_OFFSET)
+#define N32_ECCMON1P3_FECOD6            (N32_ECCMON1P3_BASE + \
+                                         N32_ECCMON_FECOD6_OFFSET)
 
-#define N32_ECCMON1P4_CTRL1 (N32_ECCMON1P4_BASE + N32_ECCMON_CTRL1_OFFSET)
-#define N32_ECCMON1P4_CTRL2 (N32_ECCMON1P4_BASE + N32_ECCMON_CTRL2_OFFSET)
-#define N32_ECCMON1P4_EINJ (N32_ECCMON1P4_BASE + N32_ECCMON_EINJ_OFFSET)
-#define N32_ECCMON1P4_INTFS (N32_ECCMON1P4_BASE + N32_ECCMON_INTFS_OFFSET)
-#define N32_ECCMON1P4_INTF1 (N32_ECCMON1P4_BASE + N32_ECCMON_INTF1_OFFSET)
-#define N32_ECCMON1P4_FEADR1 (N32_ECCMON1P4_BASE + N32_ECCMON_FEADR1_OFFSET)
-#define N32_ECCMON1P4_FEDATL1 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATL1_OFFSET)
-#define N32_ECCMON1P4_FEDATH1 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATH1_OFFSET)
-#define N32_ECCMON1P4_FECOD1 (N32_ECCMON1P4_BASE + N32_ECCMON_FECOD1_OFFSET)
-#define N32_ECCMON1P4_INTF2 (N32_ECCMON1P4_BASE + N32_ECCMON_INTF2_OFFSET)
-#define N32_ECCMON1P4_FEADR2 (N32_ECCMON1P4_BASE + N32_ECCMON_FEADR2_OFFSET)
-#define N32_ECCMON1P4_FEDATL2 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATL2_OFFSET)
-#define N32_ECCMON1P4_FEDATH2 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATH2_OFFSET)
-#define N32_ECCMON1P4_FECOD2 (N32_ECCMON1P4_BASE + N32_ECCMON_FECOD2_OFFSET)
-#define N32_ECCMON1P4_INTF3 (N32_ECCMON1P4_BASE + N32_ECCMON_INTF3_OFFSET)
-#define N32_ECCMON1P4_FEADR3 (N32_ECCMON1P4_BASE + N32_ECCMON_FEADR3_OFFSET)
-#define N32_ECCMON1P4_FEDATL3 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATL3_OFFSET)
-#define N32_ECCMON1P4_FEDATH3 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATH3_OFFSET)
-#define N32_ECCMON1P4_FECOD3 (N32_ECCMON1P4_BASE + N32_ECCMON_FECOD3_OFFSET)
-#define N32_ECCMON1P4_INTF4 (N32_ECCMON1P4_BASE + N32_ECCMON_INTF4_OFFSET)
-#define N32_ECCMON1P4_FEADR4 (N32_ECCMON1P4_BASE + N32_ECCMON_FEADR4_OFFSET)
-#define N32_ECCMON1P4_FEDATL4 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATL4_OFFSET)
-#define N32_ECCMON1P4_FEDATH4 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATH4_OFFSET)
-#define N32_ECCMON1P4_FECOD4 (N32_ECCMON1P4_BASE + N32_ECCMON_FECOD4_OFFSET)
-#define N32_ECCMON1P4_INTF5 (N32_ECCMON1P4_BASE + N32_ECCMON_INTF5_OFFSET)
-#define N32_ECCMON1P4_FEADR5 (N32_ECCMON1P4_BASE + N32_ECCMON_FEADR5_OFFSET)
-#define N32_ECCMON1P4_FEDATL5 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATL5_OFFSET)
-#define N32_ECCMON1P4_FEDATH5 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATH5_OFFSET)
-#define N32_ECCMON1P4_FECOD5 (N32_ECCMON1P4_BASE + N32_ECCMON_FECOD5_OFFSET)
-#define N32_ECCMON1P4_INTF6 (N32_ECCMON1P4_BASE + N32_ECCMON_INTF6_OFFSET)
-#define N32_ECCMON1P4_FEADR6 (N32_ECCMON1P4_BASE + N32_ECCMON_FEADR6_OFFSET)
-#define N32_ECCMON1P4_FEDATL6 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATL6_OFFSET)
-#define N32_ECCMON1P4_FEDATH6 (N32_ECCMON1P4_BASE + N32_ECCMON_FEDATH6_OFFSET)
-#define N32_ECCMON1P4_FECOD6 (N32_ECCMON1P4_BASE + N32_ECCMON_FECOD6_OFFSET)
+#define N32_ECCMON1P4_CTRL1             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_CTRL1_OFFSET)
+#define N32_ECCMON1P4_CTRL2             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_CTRL2_OFFSET)
+#define N32_ECCMON1P4_EINJ              (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_EINJ_OFFSET)
+#define N32_ECCMON1P4_INTFS             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTFS_OFFSET)
+#define N32_ECCMON1P4_INTF1             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTF1_OFFSET)
+#define N32_ECCMON1P4_FEADR1            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEADR1_OFFSET)
+#define N32_ECCMON1P4_FEDATL1           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATL1_OFFSET)
+#define N32_ECCMON1P4_FEDATH1           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATH1_OFFSET)
+#define N32_ECCMON1P4_FECOD1            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FECOD1_OFFSET)
+#define N32_ECCMON1P4_INTF2             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTF2_OFFSET)
+#define N32_ECCMON1P4_FEADR2            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEADR2_OFFSET)
+#define N32_ECCMON1P4_FEDATL2           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATL2_OFFSET)
+#define N32_ECCMON1P4_FEDATH2           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATH2_OFFSET)
+#define N32_ECCMON1P4_FECOD2            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FECOD2_OFFSET)
+#define N32_ECCMON1P4_INTF3             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTF3_OFFSET)
+#define N32_ECCMON1P4_FEADR3            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEADR3_OFFSET)
+#define N32_ECCMON1P4_FEDATL3           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATL3_OFFSET)
+#define N32_ECCMON1P4_FEDATH3           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATH3_OFFSET)
+#define N32_ECCMON1P4_FECOD3            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FECOD3_OFFSET)
+#define N32_ECCMON1P4_INTF4             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTF4_OFFSET)
+#define N32_ECCMON1P4_FEADR4            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEADR4_OFFSET)
+#define N32_ECCMON1P4_FEDATL4           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATL4_OFFSET)
+#define N32_ECCMON1P4_FEDATH4           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATH4_OFFSET)
+#define N32_ECCMON1P4_FECOD4            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FECOD4_OFFSET)
+#define N32_ECCMON1P4_INTF5             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTF5_OFFSET)
+#define N32_ECCMON1P4_FEADR5            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEADR5_OFFSET)
+#define N32_ECCMON1P4_FEDATL5           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATL5_OFFSET)
+#define N32_ECCMON1P4_FEDATH5           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATH5_OFFSET)
+#define N32_ECCMON1P4_FECOD5            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FECOD5_OFFSET)
+#define N32_ECCMON1P4_INTF6             (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_INTF6_OFFSET)
+#define N32_ECCMON1P4_FEADR6            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEADR6_OFFSET)
+#define N32_ECCMON1P4_FEDATL6           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATL6_OFFSET)
+#define N32_ECCMON1P4_FEDATH6           (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FEDATH6_OFFSET)
+#define N32_ECCMON1P4_FECOD6            (N32_ECCMON1P4_BASE + \
+                                         N32_ECCMON_FECOD6_OFFSET)
 
-#define N32_ECCMON2_CTRL1 (N32_ECCMON2_BASE + N32_ECCMON_CTRL1_OFFSET)
-#define N32_ECCMON2_CTRL2 (N32_ECCMON2_BASE + N32_ECCMON_CTRL2_OFFSET)
-#define N32_ECCMON2_EINJ (N32_ECCMON2_BASE + N32_ECCMON_EINJ_OFFSET)
-#define N32_ECCMON2_INTFS (N32_ECCMON2_BASE + N32_ECCMON_INTFS_OFFSET)
-#define N32_ECCMON2_INTF1 (N32_ECCMON2_BASE + N32_ECCMON_INTF1_OFFSET)
-#define N32_ECCMON2_FEADR1 (N32_ECCMON2_BASE + N32_ECCMON_FEADR1_OFFSET)
-#define N32_ECCMON2_FEDATL1 (N32_ECCMON2_BASE + N32_ECCMON_FEDATL1_OFFSET)
-#define N32_ECCMON2_FEDATH1 (N32_ECCMON2_BASE + N32_ECCMON_FEDATH1_OFFSET)
-#define N32_ECCMON2_FECOD1 (N32_ECCMON2_BASE + N32_ECCMON_FECOD1_OFFSET)
-#define N32_ECCMON2_INTF2 (N32_ECCMON2_BASE + N32_ECCMON_INTF2_OFFSET)
-#define N32_ECCMON2_FEADR2 (N32_ECCMON2_BASE + N32_ECCMON_FEADR2_OFFSET)
-#define N32_ECCMON2_FEDATL2 (N32_ECCMON2_BASE + N32_ECCMON_FEDATL2_OFFSET)
-#define N32_ECCMON2_FEDATH2 (N32_ECCMON2_BASE + N32_ECCMON_FEDATH2_OFFSET)
-#define N32_ECCMON2_FECOD2 (N32_ECCMON2_BASE + N32_ECCMON_FECOD2_OFFSET)
-#define N32_ECCMON2_INTF3 (N32_ECCMON2_BASE + N32_ECCMON_INTF3_OFFSET)
-#define N32_ECCMON2_FEADR3 (N32_ECCMON2_BASE + N32_ECCMON_FEADR3_OFFSET)
-#define N32_ECCMON2_FEDATL3 (N32_ECCMON2_BASE + N32_ECCMON_FEDATL3_OFFSET)
-#define N32_ECCMON2_FEDATH3 (N32_ECCMON2_BASE + N32_ECCMON_FEDATH3_OFFSET)
-#define N32_ECCMON2_FECOD3 (N32_ECCMON2_BASE + N32_ECCMON_FECOD3_OFFSET)
-#define N32_ECCMON2_INTF4 (N32_ECCMON2_BASE + N32_ECCMON_INTF4_OFFSET)
-#define N32_ECCMON2_FEADR4 (N32_ECCMON2_BASE + N32_ECCMON_FEADR4_OFFSET)
-#define N32_ECCMON2_FEDATL4 (N32_ECCMON2_BASE + N32_ECCMON_FEDATL4_OFFSET)
-#define N32_ECCMON2_FEDATH4 (N32_ECCMON2_BASE + N32_ECCMON_FEDATH4_OFFSET)
-#define N32_ECCMON2_FECOD4 (N32_ECCMON2_BASE + N32_ECCMON_FECOD4_OFFSET)
-#define N32_ECCMON2_INTF5 (N32_ECCMON2_BASE + N32_ECCMON_INTF5_OFFSET)
-#define N32_ECCMON2_FEADR5 (N32_ECCMON2_BASE + N32_ECCMON_FEADR5_OFFSET)
-#define N32_ECCMON2_FEDATL5 (N32_ECCMON2_BASE + N32_ECCMON_FEDATL5_OFFSET)
-#define N32_ECCMON2_FEDATH5 (N32_ECCMON2_BASE + N32_ECCMON_FEDATH5_OFFSET)
-#define N32_ECCMON2_FECOD5 (N32_ECCMON2_BASE + N32_ECCMON_FECOD5_OFFSET)
-#define N32_ECCMON2_INTF6 (N32_ECCMON2_BASE + N32_ECCMON_INTF6_OFFSET)
-#define N32_ECCMON2_FEADR6 (N32_ECCMON2_BASE + N32_ECCMON_FEADR6_OFFSET)
-#define N32_ECCMON2_FEDATL6 (N32_ECCMON2_BASE + N32_ECCMON_FEDATL6_OFFSET)
-#define N32_ECCMON2_FEDATH6 (N32_ECCMON2_BASE + N32_ECCMON_FEDATH6_OFFSET)
-#define N32_ECCMON2_FECOD6 (N32_ECCMON2_BASE + N32_ECCMON_FECOD6_OFFSET)
+#define N32_ECCMON2_CTRL1               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_CTRL1_OFFSET)
+#define N32_ECCMON2_CTRL2               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_CTRL2_OFFSET)
+#define N32_ECCMON2_EINJ                (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_EINJ_OFFSET)
+#define N32_ECCMON2_INTFS               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTFS_OFFSET)
+#define N32_ECCMON2_INTF1               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTF1_OFFSET)
+#define N32_ECCMON2_FEADR1              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEADR1_OFFSET)
+#define N32_ECCMON2_FEDATL1             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATL1_OFFSET)
+#define N32_ECCMON2_FEDATH1             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATH1_OFFSET)
+#define N32_ECCMON2_FECOD1              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FECOD1_OFFSET)
+#define N32_ECCMON2_INTF2               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTF2_OFFSET)
+#define N32_ECCMON2_FEADR2              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEADR2_OFFSET)
+#define N32_ECCMON2_FEDATL2             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATL2_OFFSET)
+#define N32_ECCMON2_FEDATH2             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATH2_OFFSET)
+#define N32_ECCMON2_FECOD2              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FECOD2_OFFSET)
+#define N32_ECCMON2_INTF3               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTF3_OFFSET)
+#define N32_ECCMON2_FEADR3              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEADR3_OFFSET)
+#define N32_ECCMON2_FEDATL3             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATL3_OFFSET)
+#define N32_ECCMON2_FEDATH3             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATH3_OFFSET)
+#define N32_ECCMON2_FECOD3              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FECOD3_OFFSET)
+#define N32_ECCMON2_INTF4               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTF4_OFFSET)
+#define N32_ECCMON2_FEADR4              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEADR4_OFFSET)
+#define N32_ECCMON2_FEDATL4             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATL4_OFFSET)
+#define N32_ECCMON2_FEDATH4             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATH4_OFFSET)
+#define N32_ECCMON2_FECOD4              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FECOD4_OFFSET)
+#define N32_ECCMON2_INTF5               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTF5_OFFSET)
+#define N32_ECCMON2_FEADR5              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEADR5_OFFSET)
+#define N32_ECCMON2_FEDATL5             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATL5_OFFSET)
+#define N32_ECCMON2_FEDATH5             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATH5_OFFSET)
+#define N32_ECCMON2_FECOD5              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FECOD5_OFFSET)
+#define N32_ECCMON2_INTF6               (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_INTF6_OFFSET)
+#define N32_ECCMON2_FEADR6              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEADR6_OFFSET)
+#define N32_ECCMON2_FEDATL6             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATL6_OFFSET)
+#define N32_ECCMON2_FEDATH6             (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FEDATH6_OFFSET)
+#define N32_ECCMON2_FECOD6              (N32_ECCMON2_BASE + \
+                                         N32_ECCMON_FECOD6_OFFSET)
 
-#define N32_ECCMON3_CTRL1 (N32_ECCMON3_BASE + N32_ECCMON_CTRL1_OFFSET)
-#define N32_ECCMON3_CTRL2 (N32_ECCMON3_BASE + N32_ECCMON_CTRL2_OFFSET)
-#define N32_ECCMON3_EINJ (N32_ECCMON3_BASE + N32_ECCMON_EINJ_OFFSET)
-#define N32_ECCMON3_INTFS (N32_ECCMON3_BASE + N32_ECCMON_INTFS_OFFSET)
-#define N32_ECCMON3_INTF1 (N32_ECCMON3_BASE + N32_ECCMON_INTF1_OFFSET)
-#define N32_ECCMON3_FEADR1 (N32_ECCMON3_BASE + N32_ECCMON_FEADR1_OFFSET)
-#define N32_ECCMON3_FEDATL1 (N32_ECCMON3_BASE + N32_ECCMON_FEDATL1_OFFSET)
-#define N32_ECCMON3_FEDATH1 (N32_ECCMON3_BASE + N32_ECCMON_FEDATH1_OFFSET)
-#define N32_ECCMON3_FECOD1 (N32_ECCMON3_BASE + N32_ECCMON_FECOD1_OFFSET)
-#define N32_ECCMON3_INTF2 (N32_ECCMON3_BASE + N32_ECCMON_INTF2_OFFSET)
-#define N32_ECCMON3_FEADR2 (N32_ECCMON3_BASE + N32_ECCMON_FEADR2_OFFSET)
-#define N32_ECCMON3_FEDATL2 (N32_ECCMON3_BASE + N32_ECCMON_FEDATL2_OFFSET)
-#define N32_ECCMON3_FEDATH2 (N32_ECCMON3_BASE + N32_ECCMON_FEDATH2_OFFSET)
-#define N32_ECCMON3_FECOD2 (N32_ECCMON3_BASE + N32_ECCMON_FECOD2_OFFSET)
-#define N32_ECCMON3_INTF3 (N32_ECCMON3_BASE + N32_ECCMON_INTF3_OFFSET)
-#define N32_ECCMON3_FEADR3 (N32_ECCMON3_BASE + N32_ECCMON_FEADR3_OFFSET)
-#define N32_ECCMON3_FEDATL3 (N32_ECCMON3_BASE + N32_ECCMON_FEDATL3_OFFSET)
-#define N32_ECCMON3_FEDATH3 (N32_ECCMON3_BASE + N32_ECCMON_FEDATH3_OFFSET)
-#define N32_ECCMON3_FECOD3 (N32_ECCMON3_BASE + N32_ECCMON_FECOD3_OFFSET)
-#define N32_ECCMON3_INTF4 (N32_ECCMON3_BASE + N32_ECCMON_INTF4_OFFSET)
-#define N32_ECCMON3_FEADR4 (N32_ECCMON3_BASE + N32_ECCMON_FEADR4_OFFSET)
-#define N32_ECCMON3_FEDATL4 (N32_ECCMON3_BASE + N32_ECCMON_FEDATL4_OFFSET)
-#define N32_ECCMON3_FEDATH4 (N32_ECCMON3_BASE + N32_ECCMON_FEDATH4_OFFSET)
-#define N32_ECCMON3_FECOD4 (N32_ECCMON3_BASE + N32_ECCMON_FECOD4_OFFSET)
-#define N32_ECCMON3_INTF5 (N32_ECCMON3_BASE + N32_ECCMON_INTF5_OFFSET)
-#define N32_ECCMON3_FEADR5 (N32_ECCMON3_BASE + N32_ECCMON_FEADR5_OFFSET)
-#define N32_ECCMON3_FEDATL5 (N32_ECCMON3_BASE + N32_ECCMON_FEDATL5_OFFSET)
-#define N32_ECCMON3_FEDATH5 (N32_ECCMON3_BASE + N32_ECCMON_FEDATH5_OFFSET)
-#define N32_ECCMON3_FECOD5 (N32_ECCMON3_BASE + N32_ECCMON_FECOD5_OFFSET)
-#define N32_ECCMON3_INTF6 (N32_ECCMON3_BASE + N32_ECCMON_INTF6_OFFSET)
-#define N32_ECCMON3_FEADR6 (N32_ECCMON3_BASE + N32_ECCMON_FEADR6_OFFSET)
-#define N32_ECCMON3_FEDATL6 (N32_ECCMON3_BASE + N32_ECCMON_FEDATL6_OFFSET)
-#define N32_ECCMON3_FEDATH6 (N32_ECCMON3_BASE + N32_ECCMON_FEDATH6_OFFSET)
-#define N32_ECCMON3_FECOD6 (N32_ECCMON3_BASE + N32_ECCMON_FECOD6_OFFSET)
+#define N32_ECCMON3_CTRL1               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_CTRL1_OFFSET)
+#define N32_ECCMON3_CTRL2               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_CTRL2_OFFSET)
+#define N32_ECCMON3_EINJ                (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_EINJ_OFFSET)
+#define N32_ECCMON3_INTFS               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTFS_OFFSET)
+#define N32_ECCMON3_INTF1               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTF1_OFFSET)
+#define N32_ECCMON3_FEADR1              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEADR1_OFFSET)
+#define N32_ECCMON3_FEDATL1             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATL1_OFFSET)
+#define N32_ECCMON3_FEDATH1             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATH1_OFFSET)
+#define N32_ECCMON3_FECOD1              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FECOD1_OFFSET)
+#define N32_ECCMON3_INTF2               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTF2_OFFSET)
+#define N32_ECCMON3_FEADR2              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEADR2_OFFSET)
+#define N32_ECCMON3_FEDATL2             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATL2_OFFSET)
+#define N32_ECCMON3_FEDATH2             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATH2_OFFSET)
+#define N32_ECCMON3_FECOD2              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FECOD2_OFFSET)
+#define N32_ECCMON3_INTF3               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTF3_OFFSET)
+#define N32_ECCMON3_FEADR3              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEADR3_OFFSET)
+#define N32_ECCMON3_FEDATL3             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATL3_OFFSET)
+#define N32_ECCMON3_FEDATH3             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATH3_OFFSET)
+#define N32_ECCMON3_FECOD3              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FECOD3_OFFSET)
+#define N32_ECCMON3_INTF4               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTF4_OFFSET)
+#define N32_ECCMON3_FEADR4              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEADR4_OFFSET)
+#define N32_ECCMON3_FEDATL4             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATL4_OFFSET)
+#define N32_ECCMON3_FEDATH4             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATH4_OFFSET)
+#define N32_ECCMON3_FECOD4              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FECOD4_OFFSET)
+#define N32_ECCMON3_INTF5               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTF5_OFFSET)
+#define N32_ECCMON3_FEADR5              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEADR5_OFFSET)
+#define N32_ECCMON3_FEDATL5             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATL5_OFFSET)
+#define N32_ECCMON3_FEDATH5             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATH5_OFFSET)
+#define N32_ECCMON3_FECOD5              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FECOD5_OFFSET)
+#define N32_ECCMON3_INTF6               (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_INTF6_OFFSET)
+#define N32_ECCMON3_FEADR6              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEADR6_OFFSET)
+#define N32_ECCMON3_FEDATL6             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATL6_OFFSET)
+#define N32_ECCMON3_FEDATH6             (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FEDATH6_OFFSET)
+#define N32_ECCMON3_FECOD6              (N32_ECCMON3_BASE + \
+                                         N32_ECCMON_FECOD6_OFFSET)
 
 /******** Bit definition for ECCMON_CTRL1 register  ********/
-#define ECCMON_CTRL1_E2INTEN6 (1 << 29) /* E2INTEN6 */
-#define ECCMON_CTRL1_E2INTEN5 (1 << 28) /* E2INTEN5 */
-#define ECCMON_CTRL1_E2INTEN4 (1 << 27) /* E2INTEN4 */
-#define ECCMON_CTRL1_E2INTEN3 (1 << 26) /* E2INTEN3 */
-#define ECCMON_CTRL1_E2INTEN2 (1 << 25) /* E2INTEN2 */
-#define ECCMON_CTRL1_E2INTEN1 (1 << 24) /* E2INTEN1 */
-#define ECCMON_CTRL1_E1INTEN6 (1 << 21) /* E1INTEN6 */
-#define ECCMON_CTRL1_E1INTEN5 (1 << 20) /* E1INTEN5 */
-#define ECCMON_CTRL1_E1INTEN4 (1 << 19) /* E1INTEN4 */
-#define ECCMON_CTRL1_E1INTEN3 (1 << 18) /* E1INTEN3 */
-#define ECCMON_CTRL1_E1INTEN2 (1 << 17) /* E1INTEN2 */
-#define ECCMON_CTRL1_E1INTEN1 (1 << 16) /* E1INTEN1 */
-#define ECCMON_CTRL1_TDRBYP6 (1 << 13) /* TDRBYP6 */
-#define ECCMON_CTRL1_TDRBYP5 (1 << 12) /* TDRBYP5 */
-#define ECCMON_CTRL1_TDRBYP4 (1 << 11) /* TDRBYP4 */
-#define ECCMON_CTRL1_TDRBYP3 (1 << 10) /* TDRBYP3 */
-#define ECCMON_CTRL1_TDRBYP2 (1 << 9) /* TDRBYP2 */
-#define ECCMON_CTRL1_TDRBYP1 (1 << 8) /* TDRBYP1 */
-#define ECCMON_CTRL1_ECCEN6 (1 << 5) /* ECCEN6 */
-#define ECCMON_CTRL1_ECCEN5 (1 << 4) /* ECCEN5 */
-#define ECCMON_CTRL1_ECCEN4 (1 << 3) /* ECCEN4 */
-#define ECCMON_CTRL1_ECCEN3 (1 << 2) /* ECCEN3 */
-#define ECCMON_CTRL1_ECCEN2 (1 << 1) /* ECCEN2 */
-#define ECCMON_CTRL1_ECCEN1 (1 << 0) /* ECCEN1 */
+#define ECCMON_CTRL1_E2INTEN6           (1 << 29)   /* E2INTEN6 */
+#define ECCMON_CTRL1_E2INTEN5           (1 << 28)   /* E2INTEN5 */
+#define ECCMON_CTRL1_E2INTEN4           (1 << 27)   /* E2INTEN4 */
+#define ECCMON_CTRL1_E2INTEN3           (1 << 26)   /* E2INTEN3 */
+#define ECCMON_CTRL1_E2INTEN2           (1 << 25)   /* E2INTEN2 */
+#define ECCMON_CTRL1_E2INTEN1           (1 << 24)   /* E2INTEN1 */
+#define ECCMON_CTRL1_E1INTEN6           (1 << 21)   /* E1INTEN6 */
+#define ECCMON_CTRL1_E1INTEN5           (1 << 20)   /* E1INTEN5 */
+#define ECCMON_CTRL1_E1INTEN4           (1 << 19)   /* E1INTEN4 */
+#define ECCMON_CTRL1_E1INTEN3           (1 << 18)   /* E1INTEN3 */
+#define ECCMON_CTRL1_E1INTEN2           (1 << 17)   /* E1INTEN2 */
+#define ECCMON_CTRL1_E1INTEN1           (1 << 16)   /* E1INTEN1 */
+#define ECCMON_CTRL1_TDRBYP6            (1 << 13)   /* TDRBYP6 */
+#define ECCMON_CTRL1_TDRBYP5            (1 << 12)   /* TDRBYP5 */
+#define ECCMON_CTRL1_TDRBYP4            (1 << 11)   /* TDRBYP4 */
+#define ECCMON_CTRL1_TDRBYP3            (1 << 10)   /* TDRBYP3 */
+#define ECCMON_CTRL1_TDRBYP2            (1 << 9)    /* TDRBYP2 */
+#define ECCMON_CTRL1_TDRBYP1            (1 << 8)    /* TDRBYP1 */
+#define ECCMON_CTRL1_ECCEN6             (1 << 5)    /* ECCEN6 */
+#define ECCMON_CTRL1_ECCEN5             (1 << 4)    /* ECCEN5 */
+#define ECCMON_CTRL1_ECCEN4             (1 << 3)    /* ECCEN4 */
+#define ECCMON_CTRL1_ECCEN3             (1 << 2)    /* ECCEN3 */
+#define ECCMON_CTRL1_ECCEN2             (1 << 1)    /* ECCEN2 */
+#define ECCMON_CTRL1_ECCEN1             (1 << 0)    /* ECCEN1 */
 
 /******** Bit definition for ECCMON_CTRL2 register  ********/
-#define ECCMON_CTRL2_E2FOEN6 (1 << 29) /* E2FOEN6 */
-#define ECCMON_CTRL2_E2FOEN5 (1 << 28) /* E2FOEN5 */
-#define ECCMON_CTRL2_E2FOEN4 (1 << 27) /* E2FOEN4 */
-#define ECCMON_CTRL2_E2FOEN3 (1 << 26) /* E2FOEN3 */
-#define ECCMON_CTRL2_E2FOEN2 (1 << 25) /* E2FOEN2 */
-#define ECCMON_CTRL2_E2FOEN1 (1 << 24) /* E2FOEN1 */
-#define ECCMON_CTRL2_E1FOEN6 (1 << 21) /* E1FOEN6 */
-#define ECCMON_CTRL2_E1FOEN5 (1 << 20) /* E1FOEN5 */
-#define ECCMON_CTRL2_E1FOEN4 (1 << 19) /* E1FOEN4 */
-#define ECCMON_CTRL2_E1FOEN3 (1 << 18) /* E1FOEN3 */
-#define ECCMON_CTRL2_E1FOEN2 (1 << 17) /* E1FOEN2 */
-#define ECCMON_CTRL2_E1FOEN1 (1 << 16) /* E1FOEN1 */
-#define ECCMON_CTRL2_WROE2EN6 (1 << 5) /* WROE2EN6 */
-#define ECCMON_CTRL2_WROE2EN5 (1 << 4) /* WROE2EN5 */
-#define ECCMON_CTRL2_WROE2EN4 (1 << 3) /* WROE2EN4 */
-#define ECCMON_CTRL2_WROE2EN3 (1 << 2) /* WROE2EN3 */
-#define ECCMON_CTRL2_WROE2EN2 (1 << 1) /* WROE2EN2 */
-#define ECCMON_CTRL2_WROE2EN1 (1 << 0) /* WROE2EN1 */
+#define ECCMON_CTRL2_E2FOEN6            (1 << 29)   /* E2FOEN6 */
+#define ECCMON_CTRL2_E2FOEN5            (1 << 28)   /* E2FOEN5 */
+#define ECCMON_CTRL2_E2FOEN4            (1 << 27)   /* E2FOEN4 */
+#define ECCMON_CTRL2_E2FOEN3            (1 << 26)   /* E2FOEN3 */
+#define ECCMON_CTRL2_E2FOEN2            (1 << 25)   /* E2FOEN2 */
+#define ECCMON_CTRL2_E2FOEN1            (1 << 24)   /* E2FOEN1 */
+#define ECCMON_CTRL2_E1FOEN6            (1 << 21)   /* E1FOEN6 */
+#define ECCMON_CTRL2_E1FOEN5            (1 << 20)   /* E1FOEN5 */
+#define ECCMON_CTRL2_E1FOEN4            (1 << 19)   /* E1FOEN4 */
+#define ECCMON_CTRL2_E1FOEN3            (1 << 18)   /* E1FOEN3 */
+#define ECCMON_CTRL2_E1FOEN2            (1 << 17)   /* E1FOEN2 */
+#define ECCMON_CTRL2_E1FOEN1            (1 << 16)   /* E1FOEN1 */
+#define ECCMON_CTRL2_WROE2EN6           (1 << 5)    /* WROE2EN6 */
+#define ECCMON_CTRL2_WROE2EN5           (1 << 4)    /* WROE2EN5 */
+#define ECCMON_CTRL2_WROE2EN4           (1 << 3)    /* WROE2EN4 */
+#define ECCMON_CTRL2_WROE2EN3           (1 << 2)    /* WROE2EN3 */
+#define ECCMON_CTRL2_WROE2EN2           (1 << 1)    /* WROE2EN2 */
+#define ECCMON_CTRL2_WROE2EN1           (1 << 0)    /* WROE2EN1 */
 
 /******** Bit definition for ECCMON_EINJ register  ********/
-#define ECCMON_EINJ_ECSEL6_SHIFT (26)
-#define ECCMON_EINJ_ECSEL6_MASK (0x3 << ECCMON_EINJ_ECSEL6_SHIFT) /* ECSEL6 */
-#define ECCMON_EINJ_ECSEL5_SHIFT (24)
-#define ECCMON_EINJ_ECSEL5_MASK (0x3 << ECCMON_EINJ_ECSEL5_SHIFT) /* ECSEL5 */
-#define ECCMON_EINJ_ECSEL4_SHIFT (22)
-#define ECCMON_EINJ_ECSEL4_MASK (0x3 << ECCMON_EINJ_ECSEL4_SHIFT) /* ECSEL4 */
-#define ECCMON_EINJ_ECSEL3_SHIFT (20)
-#define ECCMON_EINJ_ECSEL3_MASK (0x3 << ECCMON_EINJ_ECSEL3_SHIFT) /* ECSEL3 */
-#define ECCMON_EINJ_ECSEL2_SHIFT (18)
-#define ECCMON_EINJ_ECSEL2_MASK (0x3 << ECCMON_EINJ_ECSEL2_SHIFT) /* ECSEL2 */
-#define ECCMON_EINJ_ECSEL1_SHIFT (16)
-#define ECCMON_EINJ_ECSEL1_MASK (0x3 << ECCMON_EINJ_ECSEL1_SHIFT) /* ECSEL1 */
-#define ECCMON_EINJ_ERICTR6_SHIFT (10)
-#define ECCMON_EINJ_ERICTR6_MASK (0x3 << ECCMON_EINJ_ERICTR6_SHIFT) /* ERICTR6 */
-#define ECCMON_EINJ_ERICTR5_SHIFT (8)
-#define ECCMON_EINJ_ERICTR5_MASK (0x3 << ECCMON_EINJ_ERICTR5_SHIFT) /* ERICTR5 */
-#define ECCMON_EINJ_ERICTR4_SHIFT (6)
-#define ECCMON_EINJ_ERICTR4_MASK (0x3 << ECCMON_EINJ_ERICTR4_SHIFT) /* ERICTR4 */
-#define ECCMON_EINJ_ERICTR3_SHIFT (4)
-#define ECCMON_EINJ_ERICTR3_MASK (0x3 << ECCMON_EINJ_ERICTR3_SHIFT) /* ERICTR3 */
-#define ECCMON_EINJ_ERICTR2_SHIFT (2)
-#define ECCMON_EINJ_ERICTR2_MASK (0x3 << ECCMON_EINJ_ERICTR2_SHIFT) /* ERICTR2 */
-#define ECCMON_EINJ_ERICTR1_SHIFT (0)
-#define ECCMON_EINJ_ERICTR1_MASK (0x3 << ECCMON_EINJ_ERICTR1_SHIFT) /* ERICTR1 */
+#define ECCMON_EINJ_ECSEL6_SHIFT        (26)
+#define ECCMON_EINJ_ECSEL6_MASK         (0x3 << ECCMON_EINJ_ECSEL6_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ECSEL6
+                                                                             */
+#define ECCMON_EINJ_ECSEL5_SHIFT        (24)
+#define ECCMON_EINJ_ECSEL5_MASK         (0x3 << ECCMON_EINJ_ECSEL5_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ECSEL5
+                                                                             */
+#define ECCMON_EINJ_ECSEL4_SHIFT        (22)
+#define ECCMON_EINJ_ECSEL4_MASK         (0x3 << ECCMON_EINJ_ECSEL4_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ECSEL4
+                                                                             */
+#define ECCMON_EINJ_ECSEL3_SHIFT        (20)
+#define ECCMON_EINJ_ECSEL3_MASK         (0x3 << ECCMON_EINJ_ECSEL3_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ECSEL3
+                                                                             */
+#define ECCMON_EINJ_ECSEL2_SHIFT        (18)
+#define ECCMON_EINJ_ECSEL2_MASK         (0x3 << ECCMON_EINJ_ECSEL2_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ECSEL2
+                                                                             */
+#define ECCMON_EINJ_ECSEL1_SHIFT        (16)
+#define ECCMON_EINJ_ECSEL1_MASK         (0x3 << ECCMON_EINJ_ECSEL1_SHIFT)   /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ECSEL1
+                                                                             */
+#define ECCMON_EINJ_ERICTR6_SHIFT       (10)
+#define ECCMON_EINJ_ERICTR6_MASK        (0x3 << ECCMON_EINJ_ERICTR6_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERICTR6
+                                                                             */
+#define ECCMON_EINJ_ERICTR5_SHIFT       (8)
+#define ECCMON_EINJ_ERICTR5_MASK        (0x3 << ECCMON_EINJ_ERICTR5_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERICTR5
+                                                                             */
+#define ECCMON_EINJ_ERICTR4_SHIFT       (6)
+#define ECCMON_EINJ_ERICTR4_MASK        (0x3 << ECCMON_EINJ_ERICTR4_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERICTR4
+                                                                             */
+#define ECCMON_EINJ_ERICTR3_SHIFT       (4)
+#define ECCMON_EINJ_ERICTR3_MASK        (0x3 << ECCMON_EINJ_ERICTR3_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERICTR3
+                                                                             */
+#define ECCMON_EINJ_ERICTR2_SHIFT       (2)
+#define ECCMON_EINJ_ERICTR2_MASK        (0x3 << ECCMON_EINJ_ERICTR2_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERICTR2
+                                                                             */
+#define ECCMON_EINJ_ERICTR1_SHIFT       (0)
+#define ECCMON_EINJ_ERICTR1_MASK        (0x3 << ECCMON_EINJ_ERICTR1_SHIFT)  /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERICTR1
+                                                                             */
 
 /******** Bit definition for ECCMON_INTFS register  ********/
-#define ECCMON_INTFS_E2DCIF6 (1 << 21) /* E2DCIF6 */
-#define ECCMON_INTFS_E2DCIF5 (1 << 20) /* E2DCIF5 */
-#define ECCMON_INTFS_E2DCIF4 (1 << 19) /* E2DCIF4 */
-#define ECCMON_INTFS_E2DCIF3 (1 << 18) /* E2DCIF3 */
-#define ECCMON_INTFS_E2DCIF2 (1 << 17) /* E2DCIF2 */
-#define ECCMON_INTFS_E2DCIF1 (1 << 16) /* E2DCIF1 */
-#define ECCMON_INTFS_E1DCIF6 (1 << 5) /* E1DCIF6 */
-#define ECCMON_INTFS_E1DCIF5 (1 << 4) /* E1DCIF5 */
-#define ECCMON_INTFS_E1DCIF4 (1 << 3) /* E1DCIF4 */
-#define ECCMON_INTFS_E1DCIF3 (1 << 2) /* E1DCIF3 */
-#define ECCMON_INTFS_E1DCIF2 (1 << 1) /* E1DCIF2 */
-#define ECCMON_INTFS_E1DCIF1 (1 << 0) /* E1DCIF1 */
+#define ECCMON_INTFS_E2DCIF6            (1 << 21)   /* E2DCIF6 */
+#define ECCMON_INTFS_E2DCIF5            (1 << 20)   /* E2DCIF5 */
+#define ECCMON_INTFS_E2DCIF4            (1 << 19)   /* E2DCIF4 */
+#define ECCMON_INTFS_E2DCIF3            (1 << 18)   /* E2DCIF3 */
+#define ECCMON_INTFS_E2DCIF2            (1 << 17)   /* E2DCIF2 */
+#define ECCMON_INTFS_E2DCIF1            (1 << 16)   /* E2DCIF1 */
+#define ECCMON_INTFS_E1DCIF6            (1 << 5)    /* E1DCIF6 */
+#define ECCMON_INTFS_E1DCIF5            (1 << 4)    /* E1DCIF5 */
+#define ECCMON_INTFS_E1DCIF4            (1 << 3)    /* E1DCIF4 */
+#define ECCMON_INTFS_E1DCIF3            (1 << 2)    /* E1DCIF3 */
+#define ECCMON_INTFS_E1DCIF2            (1 << 1)    /* E1DCIF2 */
+#define ECCMON_INTFS_E1DCIF1            (1 << 0)    /* E1DCIF1 */
 
 /******** Bit definition for ECCMON_INTF1 register  ********/
-#define ECCMON_INTF1_E2DCIFR (1 << 3) /* E2DCIFR */
-#define ECCMON_INTF1_E1DCIFR (1 << 2) /* E1DCIFR */
-#define ECCMON_INTF1_E2DCIFW (1 << 1) /* E2DCIFW */
-#define ECCMON_INTF1_E1DCIFW (1 << 0) /* E1DCIFW */
+#define ECCMON_INTF1_E2DCIFR            (1 << 3)    /* E2DCIFR */
+#define ECCMON_INTF1_E1DCIFR            (1 << 2)    /* E1DCIFR */
+#define ECCMON_INTF1_E2DCIFW            (1 << 1)    /* E2DCIFW */
+#define ECCMON_INTF1_E1DCIFW            (1 << 0)    /* E1DCIFW */
 
 /******** Bit definition for ECCMON_FEADR1 register  ********/
-#define ECCMON_FEADR1_E2EAD (1 << 31) /* E2EAD */
-#define ECCMON_FEADR1_E1EAD (1 << 30) /* E1EAD */
-#define ECCMON_FEADR1_EER (1 << 29) /* EER */
-#define ECCMON_FEADR1_EEW (1 << 28) /* EEW */
-#define ECCMON_FEADR1_EFADR_SHIFT (0)
-#define ECCMON_FEADR1_EFADR_MASK (0xFFFFFFF << ECCMON_FEADR1_EFADR_SHIFT) /* EFADR */
+#define ECCMON_FEADR1_E2EAD             (1 << 31)   /* E2EAD */
+#define ECCMON_FEADR1_E1EAD             (1 << 30)   /* E1EAD */
+#define ECCMON_FEADR1_EER               (1 << 29)   /* EER */
+#define ECCMON_FEADR1_EEW               (1 << 28)   /* EEW */
+#define ECCMON_FEADR1_EFADR_SHIFT       (0)
+#define ECCMON_FEADR1_EFADR_MASK        (0xFFFFFFF << \
+                                         ECCMON_FEADR1_EFADR_SHIFT)       /*
+                                                                           * EFADR
+                                                                           */
 
 /******** Bit definition for ECCMON_FEDATL1 register  ********/
-#define ECCMON_FEDATL1_ERDATL_SHIFT (0)
-#define ECCMON_FEDATL1_ERDATL_MASK (0xFFFFFFFF << ECCMON_FEDATL1_ERDATL_SHIFT) /* ERDATL */
+#define ECCMON_FEDATL1_ERDATL_SHIFT     (0)
+#define ECCMON_FEDATL1_ERDATL_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATL1_ERDATL_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATL
+                                                                                */
 
 /******** Bit definition for ECCMON_FEDATH1 register  ********/
-#define ECCMON_FEDATH1_ERDATH_SHIFT (0)
-#define ECCMON_FEDATH1_ERDATH_MASK (0xFFFFFFFF << ECCMON_FEDATH1_ERDATH_SHIFT) /* ERDATH */
+#define ECCMON_FEDATH1_ERDATH_SHIFT     (0)
+#define ECCMON_FEDATH1_ERDATH_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATH1_ERDATH_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATH
+                                                                                */
 
 /******** Bit definition for ECCMON_FECOD1 register  ********/
-#define ECCMON_FECOD1_ERCOD_SHIFT (0)
-#define ECCMON_FECOD1_ERCOD_MASK (0x7F << ECCMON_FECOD1_ERCOD_SHIFT) /* ERCOD */
+#define ECCMON_FECOD1_ERCOD_SHIFT       (0)
+#define ECCMON_FECOD1_ERCOD_MASK        (0x7F << ECCMON_FECOD1_ERCOD_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERCOD
+                                                                             */
 
 /******** Bit definition for ECCMON_INTF2 register  ********/
-#define ECCMON_INTF2_E2DCIFR (1 << 3) /* E2DCIFR */
-#define ECCMON_INTF2_E1DCIFR (1 << 2) /* E1DCIFR */
-#define ECCMON_INTF2_E2DCIFW (1 << 1) /* E2DCIFW */
-#define ECCMON_INTF2_E1DCIFW (1 << 0) /* E1DCIFW */
+#define ECCMON_INTF2_E2DCIFR            (1 << 3)    /* E2DCIFR */
+#define ECCMON_INTF2_E1DCIFR            (1 << 2)    /* E1DCIFR */
+#define ECCMON_INTF2_E2DCIFW            (1 << 1)    /* E2DCIFW */
+#define ECCMON_INTF2_E1DCIFW            (1 << 0)    /* E1DCIFW */
 
 /******** Bit definition for ECCMON_FEADR2 register  ********/
-#define ECCMON_FEADR2_E2EAD (1 << 31) /* E2EAD */
-#define ECCMON_FEADR2_E1EAD (1 << 30) /* E1EAD */
-#define ECCMON_FEADR2_EER (1 << 29) /* EER */
-#define ECCMON_FEADR2_EEW (1 << 28) /* EEW */
-#define ECCMON_FEADR2_EFADR_SHIFT (0)
-#define ECCMON_FEADR2_EFADR_MASK (0xFFFFFFF << ECCMON_FEADR2_EFADR_SHIFT) /* EFADR */
+#define ECCMON_FEADR2_E2EAD             (1 << 31)   /* E2EAD */
+#define ECCMON_FEADR2_E1EAD             (1 << 30)   /* E1EAD */
+#define ECCMON_FEADR2_EER               (1 << 29)   /* EER */
+#define ECCMON_FEADR2_EEW               (1 << 28)   /* EEW */
+#define ECCMON_FEADR2_EFADR_SHIFT       (0)
+#define ECCMON_FEADR2_EFADR_MASK        (0xFFFFFFF << \
+                                         ECCMON_FEADR2_EFADR_SHIFT)       /*
+                                                                           * EFADR
+                                                                           */
 
 /******** Bit definition for ECCMON_FEDATL2 register  ********/
-#define ECCMON_FEDATL2_ERDATL_SHIFT (0)
-#define ECCMON_FEDATL2_ERDATL_MASK (0xFFFFFFFF << ECCMON_FEDATL2_ERDATL_SHIFT) /* ERDATL */
+#define ECCMON_FEDATL2_ERDATL_SHIFT     (0)
+#define ECCMON_FEDATL2_ERDATL_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATL2_ERDATL_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATL
+                                                                                */
 
 /******** Bit definition for ECCMON_FEDATH2 register  ********/
-#define ECCMON_FEDATH2_ERDATH_SHIFT (0)
-#define ECCMON_FEDATH2_ERDATH_MASK (0xFFFFFFFF << ECCMON_FEDATH2_ERDATH_SHIFT) /* ERDATH */
+#define ECCMON_FEDATH2_ERDATH_SHIFT     (0)
+#define ECCMON_FEDATH2_ERDATH_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATH2_ERDATH_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATH
+                                                                                */
 
 /******** Bit definition for ECCMON_FECOD2 register  ********/
-#define ECCMON_FECOD2_ERCOD_SHIFT (0)
-#define ECCMON_FECOD2_ERCOD_MASK (0x7F << ECCMON_FECOD2_ERCOD_SHIFT) /* ERCOD */
+#define ECCMON_FECOD2_ERCOD_SHIFT       (0)
+#define ECCMON_FECOD2_ERCOD_MASK        (0x7F << ECCMON_FECOD2_ERCOD_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERCOD
+                                                                             */
 
 /******** Bit definition for ECCMON_INTF3 register  ********/
-#define ECCMON_INTF3_E2DCIFR (1 << 3) /* E2DCIFR */
-#define ECCMON_INTF3_E1DCIFR (1 << 2) /* E1DCIFR */
-#define ECCMON_INTF3_E2DCIFW (1 << 1) /* E2DCIFW */
-#define ECCMON_INTF3_E1DCIFW (1 << 0) /* E1DCIFW */
+#define ECCMON_INTF3_E2DCIFR            (1 << 3)    /* E2DCIFR */
+#define ECCMON_INTF3_E1DCIFR            (1 << 2)    /* E1DCIFR */
+#define ECCMON_INTF3_E2DCIFW            (1 << 1)    /* E2DCIFW */
+#define ECCMON_INTF3_E1DCIFW            (1 << 0)    /* E1DCIFW */
 
 /******** Bit definition for ECCMON_FEADR3 register  ********/
-#define ECCMON_FEADR3_E2EAD (1 << 31) /* E2EAD */
-#define ECCMON_FEADR3_E1EAD (1 << 30) /* E1EAD */
-#define ECCMON_FEADR3_EER (1 << 29) /* EER */
-#define ECCMON_FEADR3_EEW (1 << 28) /* EEW */
-#define ECCMON_FEADR3_EFADR_SHIFT (0)
-#define ECCMON_FEADR3_EFADR_MASK (0xFFFFFFF << ECCMON_FEADR3_EFADR_SHIFT) /* EFADR */
+#define ECCMON_FEADR3_E2EAD             (1 << 31)   /* E2EAD */
+#define ECCMON_FEADR3_E1EAD             (1 << 30)   /* E1EAD */
+#define ECCMON_FEADR3_EER               (1 << 29)   /* EER */
+#define ECCMON_FEADR3_EEW               (1 << 28)   /* EEW */
+#define ECCMON_FEADR3_EFADR_SHIFT       (0)
+#define ECCMON_FEADR3_EFADR_MASK        (0xFFFFFFF << \
+                                         ECCMON_FEADR3_EFADR_SHIFT)       /*
+                                                                           * EFADR
+                                                                           */
 
 /******** Bit definition for ECCMON_FEDATL3 register  ********/
-#define ECCMON_FEDATL3_ERDATL_SHIFT (0)
-#define ECCMON_FEDATL3_ERDATL_MASK (0xFFFFFFFF << ECCMON_FEDATL3_ERDATL_SHIFT) /* ERDATL */
+#define ECCMON_FEDATL3_ERDATL_SHIFT     (0)
+#define ECCMON_FEDATL3_ERDATL_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATL3_ERDATL_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATL
+                                                                                */
 
 /******** Bit definition for ECCMON_FEDATH3 register  ********/
-#define ECCMON_FEDATH3_ERDATH_SHIFT (0)
-#define ECCMON_FEDATH3_ERDATH_MASK (0xFFFFFFFF << ECCMON_FEDATH3_ERDATH_SHIFT) /* ERDATH */
+#define ECCMON_FEDATH3_ERDATH_SHIFT     (0)
+#define ECCMON_FEDATH3_ERDATH_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATH3_ERDATH_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATH
+                                                                                */
 
 /******** Bit definition for ECCMON_FECOD3 register  ********/
-#define ECCMON_FECOD3_ERCOD_SHIFT (0)
-#define ECCMON_FECOD3_ERCOD_MASK (0x7F << ECCMON_FECOD3_ERCOD_SHIFT) /* ERCOD */
+#define ECCMON_FECOD3_ERCOD_SHIFT       (0)
+#define ECCMON_FECOD3_ERCOD_MASK        (0x7F << ECCMON_FECOD3_ERCOD_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERCOD
+                                                                             */
 
 /******** Bit definition for ECCMON_INTF4 register  ********/
-#define ECCMON_INTF4_E2DCIFR (1 << 3) /* E2DCIFR */
-#define ECCMON_INTF4_E1DCIFR (1 << 2) /* E1DCIFR */
-#define ECCMON_INTF4_E2DCIFW (1 << 1) /* E2DCIFW */
-#define ECCMON_INTF4_E1DCIFW (1 << 0) /* E1DCIFW */
+#define ECCMON_INTF4_E2DCIFR            (1 << 3)    /* E2DCIFR */
+#define ECCMON_INTF4_E1DCIFR            (1 << 2)    /* E1DCIFR */
+#define ECCMON_INTF4_E2DCIFW            (1 << 1)    /* E2DCIFW */
+#define ECCMON_INTF4_E1DCIFW            (1 << 0)    /* E1DCIFW */
 
 /******** Bit definition for ECCMON_FEADR4 register  ********/
-#define ECCMON_FEADR4_E2EAD (1 << 31) /* E2EAD */
-#define ECCMON_FEADR4_E1EAD (1 << 30) /* E1EAD */
-#define ECCMON_FEADR4_EER (1 << 29) /* EER */
-#define ECCMON_FEADR4_EEW (1 << 28) /* EEW */
-#define ECCMON_FEADR4_EFADR_SHIFT (0)
-#define ECCMON_FEADR4_EFADR_MASK (0xFFFFFFF << ECCMON_FEADR4_EFADR_SHIFT) /* EFADR */
+#define ECCMON_FEADR4_E2EAD             (1 << 31)   /* E2EAD */
+#define ECCMON_FEADR4_E1EAD             (1 << 30)   /* E1EAD */
+#define ECCMON_FEADR4_EER               (1 << 29)   /* EER */
+#define ECCMON_FEADR4_EEW               (1 << 28)   /* EEW */
+#define ECCMON_FEADR4_EFADR_SHIFT       (0)
+#define ECCMON_FEADR4_EFADR_MASK        (0xFFFFFFF << \
+                                         ECCMON_FEADR4_EFADR_SHIFT)       /*
+                                                                           * EFADR
+                                                                           */
 
 /******** Bit definition for ECCMON_FEDATL4 register  ********/
-#define ECCMON_FEDATL4_ERDATL_SHIFT (0)
-#define ECCMON_FEDATL4_ERDATL_MASK (0xFFFFFFFF << ECCMON_FEDATL4_ERDATL_SHIFT) /* ERDATL */
+#define ECCMON_FEDATL4_ERDATL_SHIFT     (0)
+#define ECCMON_FEDATL4_ERDATL_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATL4_ERDATL_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATL
+                                                                                */
 
 /******** Bit definition for ECCMON_FEDATH4 register  ********/
-#define ECCMON_FEDATH4_ERDATH_SHIFT (0)
-#define ECCMON_FEDATH4_ERDATH_MASK (0xFFFFFFFF << ECCMON_FEDATH4_ERDATH_SHIFT) /* ERDATH */
+#define ECCMON_FEDATH4_ERDATH_SHIFT     (0)
+#define ECCMON_FEDATH4_ERDATH_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATH4_ERDATH_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATH
+                                                                                */
 
 /******** Bit definition for ECCMON_FECOD4 register  ********/
-#define ECCMON_FECOD4_ERCOD_SHIFT (0)
-#define ECCMON_FECOD4_ERCOD_MASK (0x7F << ECCMON_FECOD4_ERCOD_SHIFT) /* ERCOD */
+#define ECCMON_FECOD4_ERCOD_SHIFT       (0)
+#define ECCMON_FECOD4_ERCOD_MASK        (0x7F << ECCMON_FECOD4_ERCOD_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERCOD
+                                                                             */
 
 /******** Bit definition for ECCMON_INTF5 register  ********/
-#define ECCMON_INTF5_E2DCIFR (1 << 3) /* E2DCIFR */
-#define ECCMON_INTF5_E1DCIFR (1 << 2) /* E1DCIFR */
-#define ECCMON_INTF5_E2DCIFW (1 << 1) /* E2DCIFW */
-#define ECCMON_INTF5_E1DCIFW (1 << 0) /* E1DCIFW */
+#define ECCMON_INTF5_E2DCIFR            (1 << 3)    /* E2DCIFR */
+#define ECCMON_INTF5_E1DCIFR            (1 << 2)    /* E1DCIFR */
+#define ECCMON_INTF5_E2DCIFW            (1 << 1)    /* E2DCIFW */
+#define ECCMON_INTF5_E1DCIFW            (1 << 0)    /* E1DCIFW */
 
 /******** Bit definition for ECCMON_FEADR5 register  ********/
-#define ECCMON_FEADR5_E2EAD (1 << 31) /* E2EAD */
-#define ECCMON_FEADR5_E1EAD (1 << 30) /* E1EAD */
-#define ECCMON_FEADR5_EER (1 << 29) /* EER */
-#define ECCMON_FEADR5_EEW (1 << 28) /* EEW */
-#define ECCMON_FEADR5_EFADR_SHIFT (0)
-#define ECCMON_FEADR5_EFADR_MASK (0xFFFFFFF << ECCMON_FEADR5_EFADR_SHIFT) /* EFADR */
+#define ECCMON_FEADR5_E2EAD             (1 << 31)   /* E2EAD */
+#define ECCMON_FEADR5_E1EAD             (1 << 30)   /* E1EAD */
+#define ECCMON_FEADR5_EER               (1 << 29)   /* EER */
+#define ECCMON_FEADR5_EEW               (1 << 28)   /* EEW */
+#define ECCMON_FEADR5_EFADR_SHIFT       (0)
+#define ECCMON_FEADR5_EFADR_MASK        (0xFFFFFFF << \
+                                         ECCMON_FEADR5_EFADR_SHIFT)       /*
+                                                                           * EFADR
+                                                                           */
 
 /******** Bit definition for ECCMON_FEDATL5 register  ********/
-#define ECCMON_FEDATL5_ERDATL_SHIFT (0)
-#define ECCMON_FEDATL5_ERDATL_MASK (0xFFFFFFFF << ECCMON_FEDATL5_ERDATL_SHIFT) /* ERDATL */
+#define ECCMON_FEDATL5_ERDATL_SHIFT     (0)
+#define ECCMON_FEDATL5_ERDATL_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATL5_ERDATL_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATL
+                                                                                */
 
 /******** Bit definition for ECCMON_FEDATH5 register  ********/
-#define ECCMON_FEDATH5_ERDATH_SHIFT (0)
-#define ECCMON_FEDATH5_ERDATH_MASK (0xFFFFFFFF << ECCMON_FEDATH5_ERDATH_SHIFT) /* ERDATH */
+#define ECCMON_FEDATH5_ERDATH_SHIFT     (0)
+#define ECCMON_FEDATH5_ERDATH_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATH5_ERDATH_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATH
+                                                                                */
 
 /******** Bit definition for ECCMON_FECOD5 register  ********/
-#define ECCMON_FECOD5_ERCOD_SHIFT (0)
-#define ECCMON_FECOD5_ERCOD_MASK (0x7F << ECCMON_FECOD5_ERCOD_SHIFT) /* ERCOD */
+#define ECCMON_FECOD5_ERCOD_SHIFT       (0)
+#define ECCMON_FECOD5_ERCOD_MASK        (0x7F << ECCMON_FECOD5_ERCOD_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERCOD
+                                                                             */
 
 /******** Bit definition for ECCMON_INTF6 register  ********/
-#define ECCMON_INTF6_E2DCIFR (1 << 3) /* E2DCIFR */
-#define ECCMON_INTF6_E1DCIFR (1 << 2) /* E1DCIFR */
-#define ECCMON_INTF6_E2DCIFW (1 << 1) /* E2DCIFW */
-#define ECCMON_INTF6_E1DCIFW (1 << 0) /* E1DCIFW */
+#define ECCMON_INTF6_E2DCIFR            (1 << 3)    /* E2DCIFR */
+#define ECCMON_INTF6_E1DCIFR            (1 << 2)    /* E1DCIFR */
+#define ECCMON_INTF6_E2DCIFW            (1 << 1)    /* E2DCIFW */
+#define ECCMON_INTF6_E1DCIFW            (1 << 0)    /* E1DCIFW */
 
 /******** Bit definition for ECCMON_FEADR6 register  ********/
-#define ECCMON_FEADR6_E2EAD (1 << 31) /* E2EAD */
-#define ECCMON_FEADR6_E1EAD (1 << 30) /* E1EAD */
-#define ECCMON_FEADR6_EER (1 << 29) /* EER */
-#define ECCMON_FEADR6_EEW (1 << 28) /* EEW */
-#define ECCMON_FEADR6_EFADR_SHIFT (0)
-#define ECCMON_FEADR6_EFADR_MASK (0xFFFFFFF << ECCMON_FEADR6_EFADR_SHIFT) /* EFADR */
+#define ECCMON_FEADR6_E2EAD             (1 << 31)   /* E2EAD */
+#define ECCMON_FEADR6_E1EAD             (1 << 30)   /* E1EAD */
+#define ECCMON_FEADR6_EER               (1 << 29)   /* EER */
+#define ECCMON_FEADR6_EEW               (1 << 28)   /* EEW */
+#define ECCMON_FEADR6_EFADR_SHIFT       (0)
+#define ECCMON_FEADR6_EFADR_MASK        (0xFFFFFFF << \
+                                         ECCMON_FEADR6_EFADR_SHIFT)       /*
+                                                                           * EFADR
+                                                                           */
 
 /******** Bit definition for ECCMON_FEDATL6 register  ********/
-#define ECCMON_FEDATL6_ERDATL_SHIFT (0)
-#define ECCMON_FEDATL6_ERDATL_MASK (0xFFFFFFFF << ECCMON_FEDATL6_ERDATL_SHIFT) /* ERDATL */
+#define ECCMON_FEDATL6_ERDATL_SHIFT     (0)
+#define ECCMON_FEDATL6_ERDATL_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATL6_ERDATL_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATL
+                                                                                */
 
 /******** Bit definition for ECCMON_FEDATH6 register  ********/
-#define ECCMON_FEDATH6_ERDATH_SHIFT (0)
-#define ECCMON_FEDATH6_ERDATH_MASK (0xFFFFFFFF << ECCMON_FEDATH6_ERDATH_SHIFT) /* ERDATH */
+#define ECCMON_FEDATH6_ERDATH_SHIFT     (0)
+#define ECCMON_FEDATH6_ERDATH_MASK      (0xFFFFFFFF << \
+                                         ECCMON_FEDATH6_ERDATH_SHIFT)          /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * ERDATH
+                                                                                */
 
 /******** Bit definition for ECCMON_FECOD6 register  ********/
-#define ECCMON_FECOD6_ERCOD_SHIFT (0)
-#define ECCMON_FECOD6_ERCOD_MASK (0x7F << ECCMON_FECOD6_ERCOD_SHIFT) /* ERCOD */
+#define ECCMON_FECOD6_ERCOD_SHIFT       (0)
+#define ECCMON_FECOD6_ERCOD_MASK        (0x7F << ECCMON_FECOD6_ERCOD_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * ERCOD
+                                                                             */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_ECCMON_H */

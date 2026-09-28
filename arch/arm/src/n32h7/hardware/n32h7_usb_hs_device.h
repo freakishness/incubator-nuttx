@@ -33,1453 +33,3734 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_USB_HS_DEVICE_USBHS_DCFG_OFFSET 0x0 /* USBHS_DCFG */
-#define N32_USB_HS_DEVICE_USBHS_DCTRL_OFFSET 0x4 /* USBHS_DCTRL */
-#define N32_USB_HS_DEVICE_USBHS_DSTS_OFFSET 0x8 /* USBHS_DSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEPINTEN_OFFSET 0x10 /* USBHS_DINEPINTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEPINTEN_OFFSET 0x14 /* USBHS_DOUTEPINTEN */
-#define N32_USB_HS_DEVICE_USBHS_DAEPINTSTS_OFFSET 0x18 /* USBHS_DAEPINTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DAEPINTEN_OFFSET 0x1C /* USBHS_DAEPINTEN */
-#define N32_USB_HS_DEVICE_USBHS_DTHRCTRL_OFFSET 0x30 /* USBHS_DTHRCTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEPFEINTEN_OFFSET 0x34 /* USBHS_DINEPFEINTEN */
-#define N32_USB_HS_DEVICE_USBHS_DEEPINTSTS_OFFSET 0x38 /* USBHS_DEEPINTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DEEPINTEN_OFFSET 0x3C /* USBHS_DEEPINTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP0INTEN_OFFSET 0x40 /* USBHS_DINEP0INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP1INTEN_OFFSET 0x44 /* USBHS_DINEP1INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP2INTEN_OFFSET 0x48 /* USBHS_DINEP2INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP3INTEN_OFFSET 0x4C /* USBHS_DINEP3INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP4INTEN_OFFSET 0x50 /* USBHS_DINEP4INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP5INTEN_OFFSET 0x54 /* USBHS_DINEP5INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP6INTEN_OFFSET 0x58 /* USBHS_DINEP6INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP7INTEN_OFFSET 0x5C /* USBHS_DINEP7INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP8INTEN_OFFSET 0x60 /* USBHS_DINEP8INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OFFSET 0x80 /* USBHS_DOUTEP0INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OFFSET 0x84 /* USBHS_DOUTEP1INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OFFSET 0x88 /* USBHS_DOUTEP2INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OFFSET 0x8C /* USBHS_DOUTEP3INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OFFSET 0x90 /* USBHS_DOUTEP4INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OFFSET 0x94 /* USBHS_DOUTEP5INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OFFSET 0x98 /* USBHS_DOUTEP6INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OFFSET 0x9C /* USBHS_DOUTEP7INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OFFSET 0xA0 /* USBHS_DOUTEP8INTEN */
-#define N32_USB_HS_DEVICE_USBHS_DINEP0CTRL_OFFSET 0x100 /* USBHS_DINEP0CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP0INTSTS_OFFSET 0x108 /* USBHS_DINEP0INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP0TXSIZ_OFFSET 0x110 /* USBHS_DINEP0TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP0DMADD_OFFSET 0x114 /* USBHS_DINEP0DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP0TXFSTS_OFFSET 0x118 /* USBHS_DINEP0TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP1CTRL_OFFSET 0x120 /* USBHS_DINEP1CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP1INTSTS_OFFSET 0x128 /* USBHS_DINEP1INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP1TXSIZ_OFFSET 0x130 /* USBHS_DINEP1TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP1DMADD_OFFSET 0x134 /* USBHS_DINEP1DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP1TXFSTS_OFFSET 0x138 /* USBHS_DINEP1TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP2CTRL_OFFSET 0x140 /* USBHS_DINEP2CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP2INTSTS_OFFSET 0x148 /* USBHS_DINEP2INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP2TXSIZ_OFFSET 0x150 /* USBHS_DINEP2TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP2DMADD_OFFSET 0x154 /* USBHS_DINEP2DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP2TXFSTS_OFFSET 0x158 /* USBHS_DINEP2TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP3CTRL_OFFSET 0x160 /* USBHS_DINEP3CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP3INTSTS_OFFSET 0x168 /* USBHS_DINEP3INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP3TXSIZ_OFFSET 0x170 /* USBHS_DINEP3TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP3DMADD_OFFSET 0x174 /* USBHS_DINEP3DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP3TXFSTS_OFFSET 0x178 /* USBHS_DINEP3TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP4CTRL_OFFSET 0x180 /* USBHS_DINEP4CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP4INTSTS_OFFSET 0x188 /* USBHS_DINEP4INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP4TXSIZ_OFFSET 0x190 /* USBHS_DINEP4TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP4DMADD_OFFSET 0x194 /* USBHS_DINEP4DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP4TXFSTS_OFFSET 0x198 /* USBHS_DINEP4TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP5CTRL_OFFSET 0x1A0 /* USBHS_DINEP5CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP5INTSTS_OFFSET 0x1A8 /* USBHS_DINEP5INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP5TXSIZ_OFFSET 0x1B0 /* USBHS_DINEP5TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP5DMADD_OFFSET 0x1B4 /* USBHS_DINEP5DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP5TXFSTS_OFFSET 0x1B8 /* USBHS_DINEP5TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP6CTRL_OFFSET 0x1C0 /* USBHS_DINEP6CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP6INTSTS_OFFSET 0x1C8 /* USBHS_DINEP6INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP6TXSIZ_OFFSET 0x1D0 /* USBHS_DINEP6TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP6DMADD_OFFSET 0x1D4 /* USBHS_DINEP6DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP6TXFSTS_OFFSET 0x1D8 /* USBHS_DINEP6TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP7CTRL_OFFSET 0x1E0 /* USBHS_DINEP7CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP7INTSTS_OFFSET 0x1E8 /* USBHS_DINEP7INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP7TXSIZ_OFFSET 0x1F0 /* USBHS_DINEP7TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP7DMADD_OFFSET 0x1F4 /* USBHS_DINEP7DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP7TXFSTS_OFFSET 0x1F8 /* USBHS_DINEP7TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP8CTRL_OFFSET 0x200 /* USBHS_DINEP8CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DINEP8INTSTS_OFFSET 0x208 /* USBHS_DINEP8INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DINEP8TXSIZ_OFFSET 0x210 /* USBHS_DINEP8TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DINEP8DMADD_OFFSET 0x214 /* USBHS_DINEP8DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DINEP8TXFSTS_OFFSET 0x218 /* USBHS_DINEP8TXFSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP0CTRL_OFFSET 0x300 /* USBHS_DOUTEP0CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OFFSET 0x308 /* USBHS_DOUTEP0INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_OFFSET 0x310 /* USBHS_DOUTEP0TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP0DMADD_OFFSET 0x314 /* USBHS_DOUTEP0DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP1CTRL_OFFSET 0x320 /* USBHS_DOUTEP1CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OFFSET 0x328 /* USBHS_DOUTEP1INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_OFFSET 0x330 /* USBHS_DOUTEP1TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP1DMADD_OFFSET 0x334 /* USBHS_DOUTEP1DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP2CTRL_OFFSET 0x340 /* USBHS_DOUTEP2CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OFFSET 0x348 /* USBHS_DOUTEP2INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_OFFSET 0x350 /* USBHS_DOUTEP2TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP2DMADD_OFFSET 0x354 /* USBHS_DOUTEP2DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP3CTRL_OFFSET 0x360 /* USBHS_DOUTEP3CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OFFSET 0x368 /* USBHS_DOUTEP3INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_OFFSET 0x370 /* USBHS_DOUTEP3TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP3DMADD_OFFSET 0x374 /* USBHS_DOUTEP3DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP4CTRL_OFFSET 0x380 /* USBHS_DOUTEP4CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OFFSET 0x388 /* USBHS_DOUTEP4INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_OFFSET 0x390 /* USBHS_DOUTEP4TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP4DMADD_OFFSET 0x394 /* USBHS_DOUTEP4DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP5CTRL_OFFSET 0x3A0 /* USBHS_DOUTEP5CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OFFSET 0x3A8 /* USBHS_DOUTEP5INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_OFFSET 0x3B0 /* USBHS_DOUTEP5TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP5DMADD_OFFSET 0x3B4 /* USBHS_DOUTEP5DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP6CTRL_OFFSET 0x3C0 /* USBHS_DOUTEP6CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OFFSET 0x3C8 /* USBHS_DOUTEP6INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_OFFSET 0x3D0 /* USBHS_DOUTEP6TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP6DMADD_OFFSET 0x3D4 /* USBHS_DOUTEP6DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP7CTRL_OFFSET 0x3E0 /* USBHS_DOUTEP7CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OFFSET 0x3E8 /* USBHS_DOUTEP7INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_OFFSET 0x3F0 /* USBHS_DOUTEP7TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP7DMADD_OFFSET 0x3F4 /* USBHS_DOUTEP7DMADD */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP8CTRL_OFFSET 0x400 /* USBHS_DOUTEP8CTRL */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OFFSET 0x408 /* USBHS_DOUTEP8INTSTS */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_OFFSET 0x410 /* USBHS_DOUTEP8TXSIZ */
-#define N32_USB_HS_DEVICE_USBHS_DOUTEP8DMADD_OFFSET 0x414 /* USBHS_DOUTEP8DMADD */
+#define N32_USB_HS_DEVICE_USBHS_DCFG_OFFSET                     0x0     /*
+                                                                         * USBHS_DCFG
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DCTRL_OFFSET                    0x4     /*
+                                                                         * USBHS_DCTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DSTS_OFFSET                     0x8     /*
+                                                                         * USBHS_DSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEPINTEN_OFFSET               0x10    /*
+                                                                         * USBHS_DINEPINTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEPINTEN_OFFSET              0x14    /*
+                                                                         * USBHS_DOUTEPINTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DAEPINTSTS_OFFSET               0x18    /*
+                                                                         * USBHS_DAEPINTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DAEPINTEN_OFFSET                0x1C    /*
+                                                                         * USBHS_DAEPINTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DTHRCTRL_OFFSET                 0x30    /*
+                                                                         * USBHS_DTHRCTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEPFEINTEN_OFFSET             0x34    /*
+                                                                         * USBHS_DINEPFEINTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DEEPINTSTS_OFFSET               0x38    /*
+                                                                         * USBHS_DEEPINTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DEEPINTEN_OFFSET                0x3C    /*
+                                                                         * USBHS_DEEPINTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP0INTEN_OFFSET              0x40    /*
+                                                                         * USBHS_DINEP0INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP1INTEN_OFFSET              0x44    /*
+                                                                         * USBHS_DINEP1INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP2INTEN_OFFSET              0x48    /*
+                                                                         * USBHS_DINEP2INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP3INTEN_OFFSET              0x4C    /*
+                                                                         * USBHS_DINEP3INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP4INTEN_OFFSET              0x50    /*
+                                                                         * USBHS_DINEP4INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP5INTEN_OFFSET              0x54    /*
+                                                                         * USBHS_DINEP5INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP6INTEN_OFFSET              0x58    /*
+                                                                         * USBHS_DINEP6INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP7INTEN_OFFSET              0x5C    /*
+                                                                         * USBHS_DINEP7INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP8INTEN_OFFSET              0x60    /*
+                                                                         * USBHS_DINEP8INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OFFSET             0x80    /*
+                                                                         * USBHS_DOUTEP0INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OFFSET             0x84    /*
+                                                                         * USBHS_DOUTEP1INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OFFSET             0x88    /*
+                                                                         * USBHS_DOUTEP2INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OFFSET             0x8C    /*
+                                                                         * USBHS_DOUTEP3INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OFFSET             0x90    /*
+                                                                         * USBHS_DOUTEP4INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OFFSET             0x94    /*
+                                                                         * USBHS_DOUTEP5INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OFFSET             0x98    /*
+                                                                         * USBHS_DOUTEP6INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OFFSET             0x9C    /*
+                                                                         * USBHS_DOUTEP7INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OFFSET             0xA0    /*
+                                                                         * USBHS_DOUTEP8INTEN
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP0CTRL_OFFSET               0x100   /*
+                                                                         * USBHS_DINEP0CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP0INTSTS_OFFSET             0x108   /*
+                                                                         * USBHS_DINEP0INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP0TXSIZ_OFFSET              0x110   /*
+                                                                         * USBHS_DINEP0TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP0DMADD_OFFSET              0x114   /*
+                                                                         * USBHS_DINEP0DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP0TXFSTS_OFFSET             0x118   /*
+                                                                         * USBHS_DINEP0TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP1CTRL_OFFSET               0x120   /*
+                                                                         * USBHS_DINEP1CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP1INTSTS_OFFSET             0x128   /*
+                                                                         * USBHS_DINEP1INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP1TXSIZ_OFFSET              0x130   /*
+                                                                         * USBHS_DINEP1TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP1DMADD_OFFSET              0x134   /*
+                                                                         * USBHS_DINEP1DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP1TXFSTS_OFFSET             0x138   /*
+                                                                         * USBHS_DINEP1TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP2CTRL_OFFSET               0x140   /*
+                                                                         * USBHS_DINEP2CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP2INTSTS_OFFSET             0x148   /*
+                                                                         * USBHS_DINEP2INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP2TXSIZ_OFFSET              0x150   /*
+                                                                         * USBHS_DINEP2TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP2DMADD_OFFSET              0x154   /*
+                                                                         * USBHS_DINEP2DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP2TXFSTS_OFFSET             0x158   /*
+                                                                         * USBHS_DINEP2TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP3CTRL_OFFSET               0x160   /*
+                                                                         * USBHS_DINEP3CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP3INTSTS_OFFSET             0x168   /*
+                                                                         * USBHS_DINEP3INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP3TXSIZ_OFFSET              0x170   /*
+                                                                         * USBHS_DINEP3TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP3DMADD_OFFSET              0x174   /*
+                                                                         * USBHS_DINEP3DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP3TXFSTS_OFFSET             0x178   /*
+                                                                         * USBHS_DINEP3TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP4CTRL_OFFSET               0x180   /*
+                                                                         * USBHS_DINEP4CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP4INTSTS_OFFSET             0x188   /*
+                                                                         * USBHS_DINEP4INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP4TXSIZ_OFFSET              0x190   /*
+                                                                         * USBHS_DINEP4TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP4DMADD_OFFSET              0x194   /*
+                                                                         * USBHS_DINEP4DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP4TXFSTS_OFFSET             0x198   /*
+                                                                         * USBHS_DINEP4TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP5CTRL_OFFSET               0x1A0   /*
+                                                                         * USBHS_DINEP5CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP5INTSTS_OFFSET             0x1A8   /*
+                                                                         * USBHS_DINEP5INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP5TXSIZ_OFFSET              0x1B0   /*
+                                                                         * USBHS_DINEP5TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP5DMADD_OFFSET              0x1B4   /*
+                                                                         * USBHS_DINEP5DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP5TXFSTS_OFFSET             0x1B8   /*
+                                                                         * USBHS_DINEP5TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP6CTRL_OFFSET               0x1C0   /*
+                                                                         * USBHS_DINEP6CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP6INTSTS_OFFSET             0x1C8   /*
+                                                                         * USBHS_DINEP6INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP6TXSIZ_OFFSET              0x1D0   /*
+                                                                         * USBHS_DINEP6TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP6DMADD_OFFSET              0x1D4   /*
+                                                                         * USBHS_DINEP6DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP6TXFSTS_OFFSET             0x1D8   /*
+                                                                         * USBHS_DINEP6TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP7CTRL_OFFSET               0x1E0   /*
+                                                                         * USBHS_DINEP7CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP7INTSTS_OFFSET             0x1E8   /*
+                                                                         * USBHS_DINEP7INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP7TXSIZ_OFFSET              0x1F0   /*
+                                                                         * USBHS_DINEP7TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP7DMADD_OFFSET              0x1F4   /*
+                                                                         * USBHS_DINEP7DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP7TXFSTS_OFFSET             0x1F8   /*
+                                                                         * USBHS_DINEP7TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP8CTRL_OFFSET               0x200   /*
+                                                                         * USBHS_DINEP8CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP8INTSTS_OFFSET             0x208   /*
+                                                                         * USBHS_DINEP8INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP8TXSIZ_OFFSET              0x210   /*
+                                                                         * USBHS_DINEP8TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP8DMADD_OFFSET              0x214   /*
+                                                                         * USBHS_DINEP8DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DINEP8TXFSTS_OFFSET             0x218   /*
+                                                                         * USBHS_DINEP8TXFSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP0CTRL_OFFSET              0x300   /*
+                                                                         * USBHS_DOUTEP0CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OFFSET            0x308   /*
+                                                                         * USBHS_DOUTEP0INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_OFFSET             0x310   /*
+                                                                         * USBHS_DOUTEP0TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP0DMADD_OFFSET             0x314   /*
+                                                                         * USBHS_DOUTEP0DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP1CTRL_OFFSET              0x320   /*
+                                                                         * USBHS_DOUTEP1CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OFFSET            0x328   /*
+                                                                         * USBHS_DOUTEP1INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_OFFSET             0x330   /*
+                                                                         * USBHS_DOUTEP1TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP1DMADD_OFFSET             0x334   /*
+                                                                         * USBHS_DOUTEP1DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP2CTRL_OFFSET              0x340   /*
+                                                                         * USBHS_DOUTEP2CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OFFSET            0x348   /*
+                                                                         * USBHS_DOUTEP2INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_OFFSET             0x350   /*
+                                                                         * USBHS_DOUTEP2TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP2DMADD_OFFSET             0x354   /*
+                                                                         * USBHS_DOUTEP2DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP3CTRL_OFFSET              0x360   /*
+                                                                         * USBHS_DOUTEP3CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OFFSET            0x368   /*
+                                                                         * USBHS_DOUTEP3INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_OFFSET             0x370   /*
+                                                                         * USBHS_DOUTEP3TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP3DMADD_OFFSET             0x374   /*
+                                                                         * USBHS_DOUTEP3DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP4CTRL_OFFSET              0x380   /*
+                                                                         * USBHS_DOUTEP4CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OFFSET            0x388   /*
+                                                                         * USBHS_DOUTEP4INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_OFFSET             0x390   /*
+                                                                         * USBHS_DOUTEP4TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP4DMADD_OFFSET             0x394   /*
+                                                                         * USBHS_DOUTEP4DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP5CTRL_OFFSET              0x3A0   /*
+                                                                         * USBHS_DOUTEP5CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OFFSET            0x3A8   /*
+                                                                         * USBHS_DOUTEP5INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_OFFSET             0x3B0   /*
+                                                                         * USBHS_DOUTEP5TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP5DMADD_OFFSET             0x3B4   /*
+                                                                         * USBHS_DOUTEP5DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP6CTRL_OFFSET              0x3C0   /*
+                                                                         * USBHS_DOUTEP6CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OFFSET            0x3C8   /*
+                                                                         * USBHS_DOUTEP6INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_OFFSET             0x3D0   /*
+                                                                         * USBHS_DOUTEP6TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP6DMADD_OFFSET             0x3D4   /*
+                                                                         * USBHS_DOUTEP6DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP7CTRL_OFFSET              0x3E0   /*
+                                                                         * USBHS_DOUTEP7CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OFFSET            0x3E8   /*
+                                                                         * USBHS_DOUTEP7INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_OFFSET             0x3F0   /*
+                                                                         * USBHS_DOUTEP7TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP7DMADD_OFFSET             0x3F4   /*
+                                                                         * USBHS_DOUTEP7DMADD
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP8CTRL_OFFSET              0x400   /*
+                                                                         * USBHS_DOUTEP8CTRL
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OFFSET            0x408   /*
+                                                                         * USBHS_DOUTEP8INTSTS
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_OFFSET             0x410   /*
+                                                                         * USBHS_DOUTEP8TXSIZ
+                                                                         */
+#define N32_USB_HS_DEVICE_USBHS_DOUTEP8DMADD_OFFSET             0x414   /*
+                                                                         * USBHS_DOUTEP8DMADD
+                                                                         */
 
-#define N32_USB_HS1_DEVICE_USBHS_DCFG (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCFG_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DCTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEPINTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEPINTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEPINTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEPINTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DAEPINTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DAEPINTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DTHRCTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DTHRCTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEPFEINTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEPFEINTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DEEPINTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DEEPINTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP0INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP1INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP2INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP3INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP4INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP5INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP6INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP7INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP8INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8INTEN (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP0CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP0INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP0TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP0DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP0TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP1CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP1INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP1TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP1DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP1TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP2CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP2INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP2TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP2DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP2TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP3CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP3INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP3TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP3DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP3TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP4CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP4INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP4TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP4DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP4TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP5CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP5INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP5TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP5DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP5TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP6CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP6INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP6TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP6DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP6TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP7CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP7INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP7TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP7DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP7TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP8CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP8INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP8TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP8DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DINEP8TXFSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8TXFSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7DMADD_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8CTRL (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8CTRL_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8INTSTS (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8TXSIZ (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_OFFSET)
-#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8DMADD (N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DCFG                           ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCFG_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DCTRL                          ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DSTS                           ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEPINTEN                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEPINTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEPINTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEPINTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DAEPINTSTS                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DAEPINTEN                      ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DTHRCTRL                       ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DTHRCTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEPFEINTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEPFEINTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DEEPINTSTS                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DEEPINTEN                      ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP0INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP1INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP2INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP3INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP4INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP5INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP6INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP7INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP8INTEN                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8INTEN                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP0CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP0INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP0TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP0DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP0TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP1CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP1INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP1TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP1DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP1TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP2CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP2INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP2TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP2DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP2TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP3CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP3INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP3TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP3DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP3TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP4CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP4INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP4TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP4DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP4TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP5CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP5INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP5TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP5DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP5TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP6CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP6INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP6TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP6DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP6TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP7CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP7INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP7TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP7DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP7TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP8CTRL                     ( \
+          N32_USB_HS1_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP8INTSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP8TXSIZ                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP8DMADD                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DINEP8TXFSTS                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8TXFSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP0DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP1DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP2DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP3DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP4DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP5DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP6DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP7DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7DMADD_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8CTRL                    ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8CTRL_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8INTSTS                  ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8TXSIZ                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_OFFSET)
+#define N32_USB_HS1_DEVICE_USBHS_DOUTEP8DMADD                   ( \
+          N32_USB_HS1_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8DMADD_OFFSET)
 
-#define N32_USB_HS2_DEVICE_USBHS_DCFG (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCFG_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DCTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEPINTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEPINTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEPINTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEPINTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DAEPINTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DAEPINTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DTHRCTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DTHRCTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEPFEINTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEPFEINTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DEEPINTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DEEPINTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP0INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP1INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP2INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP3INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP4INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP5INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP6INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP7INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP8INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8INTEN (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP0CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP0INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP0TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP0DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP0TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP1CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP1INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP1TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP1DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP1TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP2CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP2INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP2TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP2DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP2TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP3CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP3INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP3TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP3DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP3TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP4CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP4INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP4TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP4DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP4TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP5CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP5INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP5TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP5DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP5TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP6CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP6INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP6TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP6DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP6TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP7CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP7INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP7TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP7DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP7TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP8CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP8INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP8TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP8DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DINEP8TXFSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8TXFSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP0DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP1DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP2DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP3DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP4DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP5DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP6DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP7DMADD_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8CTRL (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8CTRL_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8INTSTS (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8TXSIZ (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_OFFSET)
-#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8DMADD (N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DOUTEP8DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DCFG                           ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCFG_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DCTRL                          ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DCTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DSTS                           ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEPINTEN                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEPINTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEPINTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEPINTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DAEPINTSTS                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DAEPINTEN                      ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DAEPINTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DTHRCTRL                       ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DTHRCTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEPFEINTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEPFEINTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DEEPINTSTS                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DEEPINTEN                      ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DEEPINTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP0INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP1INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP2INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP3INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP4INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP5INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP6INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP7INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP8INTEN                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8INTEN                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP0CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP0CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP0INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP0TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP0DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP0TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP0TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP1CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP1CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP1INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP1TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP1DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP1TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP1TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP2CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP2CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP2INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP2TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP2DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP2TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP2TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP3CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP3CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP3INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP3TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP3DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP3TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP3TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP4CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP4CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP4INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP4TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP4DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP4TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP4TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP5CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP5CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP5INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP5TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP5DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP5TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP5TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP6CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP6CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP6INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP6TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP6DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP6TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP6TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP7CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP7CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP7INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP7TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP7DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP7TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP7TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP8CTRL                     ( \
+          N32_USB_HS2_DEVICE_BASE + N32_USB_HS_DEVICE_USBHS_DINEP8CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP8INTSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP8TXSIZ                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP8DMADD                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DINEP8TXFSTS                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DINEP8TXFSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP0DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP0DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP1DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP1DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP2DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP2DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP3DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP3DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP4DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP4DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP5DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP5DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP6DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP6DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP7DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP7DMADD_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8CTRL                    ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8CTRL_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8INTSTS                  ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8TXSIZ                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_OFFSET)
+#define N32_USB_HS2_DEVICE_USBHS_DOUTEP8DMADD                   ( \
+          N32_USB_HS2_DEVICE_BASE +                               \
+          N32_USB_HS_DEVICE_USBHS_DOUTEP8DMADD_OFFSET)
 
 /******** Bit definition for USBHS_DCFG register  ********/
-#define USB_HS_DEVICE_USBHS_DCFG_DEVSPD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DCFG_DEVSPD_MASK (0x3 << USB_HS_DEVICE_USBHS_DCFG_DEVSPD_SHIFT) /* DEVSPD */
-#define USB_HS_DEVICE_USBHS_DCFG_NZLSOUTHSK (1 << 2) /* NZLSOUTHSK */
-#define USB_HS_DEVICE_USBHS_DCFG_DEVARR_SHIFT (4)
-#define USB_HS_DEVICE_USBHS_DCFG_DEVARR_MASK (0x7F << USB_HS_DEVICE_USBHS_DCFG_DEVARR_SHIFT) /* DEVARR */
-#define USB_HS_DEVICE_USBHS_DCFG_PFRITVL_SHIFT (11)
-#define USB_HS_DEVICE_USBHS_DCFG_PFRITVL_MASK (0x3 << USB_HS_DEVICE_USBHS_DCFG_PFRITVL_SHIFT) /* PFRITVL */
-#define USB_HS_DEVICE_USBHS_DCFG_XCVRDLY (1 << 14) /* XCVRDLY */
-#define USB_HS_DEVICE_USBHS_DCFG_EERRAIEN (1 << 15) /* EERRAIEN */
-#define USB_HS_DEVICE_USBHS_DCFG_PSITVL_SHIFT (24)
-#define USB_HS_DEVICE_USBHS_DCFG_PSITVL_MASK (0x3 << USB_HS_DEVICE_USBHS_DCFG_PSITVL_SHIFT) /* PSITVL */
+#define USB_HS_DEVICE_USBHS_DCFG_DEVSPD_SHIFT                   (0)
+#define USB_HS_DEVICE_USBHS_DCFG_DEVSPD_MASK                    (0x3 << \
+          USB_HS_DEVICE_USBHS_DCFG_DEVSPD_SHIFT)                            /*
+                                                                             * DEVSPD
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCFG_NZLSOUTHSK                     (1 << 2)    /*
+                                                                             * NZLSOUTHSK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCFG_DEVARR_SHIFT                   (4)
+#define USB_HS_DEVICE_USBHS_DCFG_DEVARR_MASK                    (0x7F << \
+          USB_HS_DEVICE_USBHS_DCFG_DEVARR_SHIFT)                                             /*
+                                                                                              * DEVARR
+                                                                                              */
+#define USB_HS_DEVICE_USBHS_DCFG_PFRITVL_SHIFT                  (11)
+#define USB_HS_DEVICE_USBHS_DCFG_PFRITVL_MASK                   (0x3 << \
+          USB_HS_DEVICE_USBHS_DCFG_PFRITVL_SHIFT)                           /*
+                                                                             * PFRITVL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCFG_XCVRDLY                        (1 << 14)   /*
+                                                                             * XCVRDLY
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCFG_EERRAIEN                       (1 << 15)   /*
+                                                                             * EERRAIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCFG_PSITVL_SHIFT                   (24)
+#define USB_HS_DEVICE_USBHS_DCFG_PSITVL_MASK                    (0x3 << \
+          USB_HS_DEVICE_USBHS_DCFG_PSITVL_SHIFT)                                            /*
+                                                                                             * PSITVL
+                                                                                             */
 
 /******** Bit definition for USBHS_DCTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DCTRL_RMWKUP (1 << 0) /* RMWKUP */
-#define USB_HS_DEVICE_USBHS_DCTRL_SFTDIS (1 << 1) /* SFTDIS */
-#define USB_HS_DEVICE_USBHS_DCTRL_GINAKSTS (1 << 2) /* GINAKSTS */
-#define USB_HS_DEVICE_USBHS_DCTRL_GONAKSTS (1 << 3) /* GONAKSTS */
-#define USB_HS_DEVICE_USBHS_DCTRL_TSCTRL_SHIFT (4)
-#define USB_HS_DEVICE_USBHS_DCTRL_TSCTRL_MASK (0x7 << USB_HS_DEVICE_USBHS_DCTRL_TSCTRL_SHIFT) /* TSCTRL */
-#define USB_HS_DEVICE_USBHS_DCTRL_SGINAK (1 << 7) /* SGINAK */
-#define USB_HS_DEVICE_USBHS_DCTRL_CGNPINAK (1 << 8) /* CGNPINAK */
-#define USB_HS_DEVICE_USBHS_DCTRL_SGONAK (1 << 9) /* SGONAK */
-#define USB_HS_DEVICE_USBHS_DCTRL_CGONAK (1 << 10) /* CGONAK */
-#define USB_HS_DEVICE_USBHS_DCTRL_POPDNE (1 << 11) /* POPDNE */
-#define USB_HS_DEVICE_USBHS_DCTRL_NAKOBBLE (1 << 16) /* NAKOBBLE */
+#define USB_HS_DEVICE_USBHS_DCTRL_RMWKUP                        (1 << 0)    /*
+                                                                             * RMWKUP
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_SFTDIS                        (1 << 1)    /*
+                                                                             * SFTDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_GINAKSTS                      (1 << 2)    /*
+                                                                             * GINAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_GONAKSTS                      (1 << 3)    /*
+                                                                             * GONAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_TSCTRL_SHIFT                  (4)
+#define USB_HS_DEVICE_USBHS_DCTRL_TSCTRL_MASK                   (0x7 << \
+          USB_HS_DEVICE_USBHS_DCTRL_TSCTRL_SHIFT)                           /*
+                                                                             * TSCTRL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_SGINAK                        (1 << 7)    /*
+                                                                             * SGINAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_CGNPINAK                      (1 << 8)    /*
+                                                                             * CGNPINAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_SGONAK                        (1 << 9)    /*
+                                                                             * SGONAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_CGONAK                        (1 << 10)   /*
+                                                                             * CGONAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_POPDNE                        (1 << 11)   /*
+                                                                             * POPDNE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DCTRL_NAKOBBLE                      (1 << 16)   /*
+                                                                             * NAKOBBLE
+                                                                             */
 
 /******** Bit definition for USBHS_DSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DSTS_SUSPF (1 << 0) /* SUSPF */
-#define USB_HS_DEVICE_USBHS_DSTS_ENUMSPD_SHIFT (1)
-#define USB_HS_DEVICE_USBHS_DSTS_ENUMSPD_MASK (0x3 << USB_HS_DEVICE_USBHS_DSTS_ENUMSPD_SHIFT) /* ENUMSPD */
-#define USB_HS_DEVICE_USBHS_DSTS_ERERRF (1 << 3) /* ERERRF */
-#define USB_HS_DEVICE_USBHS_DSTS_SOFFN_SHIFT (8)
-#define USB_HS_DEVICE_USBHS_DSTS_SOFFN_MASK (0x3FFF << USB_HS_DEVICE_USBHS_DSTS_SOFFN_SHIFT) /* SOFFN */
-#define USB_HS_DEVICE_USBHS_DSTS_DEVLINSTS_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DSTS_DEVLINSTS_MASK (0x3 << USB_HS_DEVICE_USBHS_DSTS_DEVLINSTS_SHIFT) /* DEVLINSTS */
+#define USB_HS_DEVICE_USBHS_DSTS_SUSPF                          (1 << 0) /*
+                                                                          * SUSPF
+                                                                          */
+#define USB_HS_DEVICE_USBHS_DSTS_ENUMSPD_SHIFT                  (1)
+#define USB_HS_DEVICE_USBHS_DSTS_ENUMSPD_MASK                   (0x3 << \
+          USB_HS_DEVICE_USBHS_DSTS_ENUMSPD_SHIFT)                           /*
+                                                                             * ENUMSPD
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DSTS_ERERRF                         (1 << 3)    /*
+                                                                             * ERERRF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DSTS_SOFFN_SHIFT                    (8)
+#define USB_HS_DEVICE_USBHS_DSTS_SOFFN_MASK                     (0x3FFF << \
+          USB_HS_DEVICE_USBHS_DSTS_SOFFN_SHIFT)                                              /*
+                                                                                              * SOFFN
+                                                                                              */
+#define USB_HS_DEVICE_USBHS_DSTS_DEVLINSTS_SHIFT                (22)
+#define USB_HS_DEVICE_USBHS_DSTS_DEVLINSTS_MASK                 (0x3 << \
+          USB_HS_DEVICE_USBHS_DSTS_DEVLINSTS_SHIFT)                                               /*
+                                                                                                   * DEVLINSTS
+                                                                                                   */
 
 /******** Bit definition for USBHS_DINEPINTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEPINTEN_NAKIEN (1 << 9) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_TXCIEN                   (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_EPDISIEN                 (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_AHBERRIEN                (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_TOIEN                    (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_TXFERINTKIEN             (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_INTREPMISIEN             (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_INEPNAKEIEN              (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_TXFUDIEN                 (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEPINTEN_NAKIEN                   (1 << 9)    /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEPINTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_EPDIEN (1 << 1) /* EPDIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_EPDIEN                  (1 << 1)    /*
+                                                                             * EPDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_STUPDNEIEN              (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_EPDISROTIEN             (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_B2BSTUPIEN              (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_OPERRIEN                (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_BERRIEN                 (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEPINTEN_NYETIEN                 (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DAEPINTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DAEPINTSTS_INEPINT_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DAEPINTSTS_INEPINT_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DAEPINTSTS_INEPINT_SHIFT) /* INEPINT */
-#define USB_HS_DEVICE_USBHS_DAEPINTSTS_OUTEPINT_SHIFT (16)
-#define USB_HS_DEVICE_USBHS_DAEPINTSTS_OUTEPINT_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DAEPINTSTS_OUTEPINT_SHIFT) /* OUTEPINT */
+#define USB_HS_DEVICE_USBHS_DAEPINTSTS_INEPINT_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DAEPINTSTS_INEPINT_MASK             (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DAEPINTSTS_INEPINT_SHIFT)                                                      /*
+                                                                                                              * INEPINT
+                                                                                                              */
+#define USB_HS_DEVICE_USBHS_DAEPINTSTS_OUTEPINT_SHIFT           (16)
+#define USB_HS_DEVICE_USBHS_DAEPINTSTS_OUTEPINT_MASK            (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DAEPINTSTS_OUTEPINT_SHIFT)                                                       /*
+                                                                                                                * OUTEPINT
+                                                                                                                */
 
 /******** Bit definition for USBHS_DAEPINTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DAEPINTEN_INEPIEN__SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DAEPINTEN_INEPIEN__MASK (0xFFFF << USB_HS_DEVICE_USBHS_DAEPINTEN_INEPIEN__SHIFT) /* INEPIEN */
-#define USB_HS_DEVICE_USBHS_DAEPINTEN_OUTEPIEN_SHIFT (16)
-#define USB_HS_DEVICE_USBHS_DAEPINTEN_OUTEPIEN_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DAEPINTEN_OUTEPIEN_SHIFT) /* OUTEPIEN */
+#define USB_HS_DEVICE_USBHS_DAEPINTEN_INEPIEN__SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DAEPINTEN_INEPIEN__MASK             (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DAEPINTEN_INEPIEN__SHIFT)                                                      /*
+                                                                                                              * INEPIEN
+                                                                                                              */
+#define USB_HS_DEVICE_USBHS_DAEPINTEN_OUTEPIEN_SHIFT            (16)
+#define USB_HS_DEVICE_USBHS_DAEPINTEN_OUTEPIEN_MASK             (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DAEPINTEN_OUTEPIEN_SHIFT)                                                      /*
+                                                                                                              * OUTEPIEN
+                                                                                                              */
 
 /******** Bit definition for USBHS_DTHRCTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_NISOINEPTHREN (1 << 0) /* NISOINEPTHREN */
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_ISOINEPTHREN (1 << 1) /* ISOINEPTHREN */
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_TXTHRLEN_SHIFT (2)
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_TXTHRLEN_MASK (0x1FF << USB_HS_DEVICE_USBHS_DTHRCTRL_TXTHRLEN_SHIFT) /* TXTHRLEN */
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHREN (1 << 16) /* RXTHREN */
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHRLEN_SHIFT (17)
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHRLEN_MASK (0x1FF << USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHRLEN_SHIFT) /* RXTHRLEN */
-#define USB_HS_DEVICE_USBHS_DTHRCTRL_ARPEN (1 << 27) /* ARPEN */
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_NISOINEPTHREN              (1 << 0)    /*
+                                                                             * NISOINEPTHREN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_ISOINEPTHREN               (1 << 1)    /*
+                                                                             * ISOINEPTHREN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_TXTHRLEN_SHIFT             (2)
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_TXTHRLEN_MASK              (0x1FF << \
+          USB_HS_DEVICE_USBHS_DTHRCTRL_TXTHRLEN_SHIFT)                      /*
+                                                                             * TXTHRLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHREN                    (1 << 16)   /*
+                                                                             * RXTHREN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHRLEN_SHIFT             (17)
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHRLEN_MASK              (0x1FF << \
+          USB_HS_DEVICE_USBHS_DTHRCTRL_RXTHRLEN_SHIFT)                      /*
+                                                                             * RXTHRLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DTHRCTRL_ARPEN                      (1 << 27)   /*
+                                                                             * ARPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEPFEINTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEPFEINTEN_INEPTXFEIEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEPFEINTEN_INEPTXFEIEN_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEPFEINTEN_INEPTXFEIEN_SHIFT) /* INEPTXFEIEN */
+#define USB_HS_DEVICE_USBHS_DINEPFEINTEN_INEPTXFEIEN_SHIFT      (0)
+#define USB_HS_DEVICE_USBHS_DINEPFEINTEN_INEPTXFEIEN_MASK       (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEPFEINTEN_INEPTXFEIEN_SHIFT)                                                            /*
+                                                                                                                          * INEPTXFEIEN
+                                                                                                                          */
 
 /******** Bit definition for USBHS_DEEPINTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DEEPINTSTS_INEPINT_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DEEPINTSTS_INEPINT_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DEEPINTSTS_INEPINT_SHIFT) /* INEPINT */
-#define USB_HS_DEVICE_USBHS_DEEPINTSTS_OUTEPINT_SHIFT (16)
-#define USB_HS_DEVICE_USBHS_DEEPINTSTS_OUTEPINT_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DEEPINTSTS_OUTEPINT_SHIFT) /* OUTEPINT */
+#define USB_HS_DEVICE_USBHS_DEEPINTSTS_INEPINT_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DEEPINTSTS_INEPINT_MASK             (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DEEPINTSTS_INEPINT_SHIFT)                                                      /*
+                                                                                                              * INEPINT
+                                                                                                              */
+#define USB_HS_DEVICE_USBHS_DEEPINTSTS_OUTEPINT_SHIFT           (16)
+#define USB_HS_DEVICE_USBHS_DEEPINTSTS_OUTEPINT_MASK            (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DEEPINTSTS_OUTEPINT_SHIFT)                                                       /*
+                                                                                                                * OUTEPINT
+                                                                                                                */
 
 /******** Bit definition for USBHS_DEEPINTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DEEPINTEN_INEPIEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DEEPINTEN_INEPIEN_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DEEPINTEN_INEPIEN_SHIFT) /* INEPIEN */
-#define USB_HS_DEVICE_USBHS_DEEPINTEN_OUTEPIEN_SHIFT (16)
-#define USB_HS_DEVICE_USBHS_DEEPINTEN_OUTEPIEN_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DEEPINTEN_OUTEPIEN_SHIFT) /* OUTEPIEN */
+#define USB_HS_DEVICE_USBHS_DEEPINTEN_INEPIEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DEEPINTEN_INEPIEN_MASK              (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DEEPINTEN_INEPIEN_SHIFT)                                                     /*
+                                                                                                            * INEPIEN
+                                                                                                            */
+#define USB_HS_DEVICE_USBHS_DEEPINTEN_OUTEPIEN_SHIFT            (16)
+#define USB_HS_DEVICE_USBHS_DEEPINTEN_OUTEPIEN_MASK             (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DEEPINTEN_OUTEPIEN_SHIFT)                                                      /*
+                                                                                                              * OUTEPIEN
+                                                                                                              */
 
 /******** Bit definition for USBHS_DINEP0INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP0INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP1INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP1INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP2INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP2INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP3INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP3INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP4INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP4INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP5INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP5INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP6INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP6INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP7INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP7INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP8INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TOIEN (1 << 3) /* TOIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TXFERINTKIEN (1 << 4) /* TXFERINTKIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_INTREPMISIEN (1 << 5) /* INTREPMISIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_INEPNAKEIEN (1 << 6) /* INEPNAKEIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TXFUDIEN (1 << 8) /* TXFUDIEN */
-#define USB_HS_DEVICE_USBHS_DINEP8INTEN_NAKIEN (1 << 13) /* NAKIEN */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TXCIEN                  (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_EPDISIEN                (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_AHBERRIEN               (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TOIEN                   (1 << 3)    /*
+                                                                             * TOIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TXFERINTKIEN            (1 << 4)    /*
+                                                                             * TXFERINTKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_INTREPMISIEN            (1 << 5)    /*
+                                                                             * INTREPMISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_INEPNAKEIEN             (1 << 6)    /*
+                                                                             * INEPNAKEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_TXFUDIEN                (1 << 8)    /*
+                                                                             * TXFUDIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTEN_NAKIEN                  (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP0INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP1INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP2INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP3INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP4INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP5INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP6INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP7INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP8INTEN register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_EPDISIEN (1 << 1) /* EPDISIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_STUPDNEIEN (1 << 3) /* STUPDNEIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_EPDISROTIEN (1 << 4) /* EPDISROTIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_B2BSTUPIEN (1 << 6) /* B2BSTUPIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OPERRIEN (1 << 8) /* OPERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_BERRIEN (1 << 12) /* BERRIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_NAKIEN (1 << 13) /* NAKIEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_NYETIEN (1 << 14) /* NYETIEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_TXCIEN                 (1 << 0)    /*
+                                                                             * TXCIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_EPDISIEN               (1 << 1)    /*
+                                                                             * EPDISIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_AHBERRIEN              (1 << 2)    /*
+                                                                             * AHBERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_STUPDNEIEN             (1 << 3)    /*
+                                                                             * STUPDNEIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_EPDISROTIEN            (1 << 4)    /*
+                                                                             * EPDISROTIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_B2BSTUPIEN             (1 << 6)    /*
+                                                                             * B2BSTUPIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_OPERRIEN               (1 << 8)    /*
+                                                                             * OPERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_BERRIEN                (1 << 12)   /*
+                                                                             * BERRIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_NAKIEN                 (1 << 13)   /*
+                                                                             * NAKIEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTEN_NYETIEN                (1 << 14)   /*
+                                                                             * NYETIEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP0CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_MPLEN_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP0CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP0CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP0CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_MPLEN_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP0CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP0CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP0CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP0INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP0INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP0TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_TLEN_MASK (0x7F << USB_HS_DEVICE_USBHS_DINEP0TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP0TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
+#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_TLEN_MASK               (0x7F << \
+          USB_HS_DEVICE_USBHS_DINEP0TXSIZ_TLEN_SHIFT)                                                  /*
+                                                                                                        * TLEN
+                                                                                                        */
+#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP0TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP0TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
 
 /******** Bit definition for USBHS_DINEP0DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP0DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP0DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP0DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP0DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP0DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP0DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP0TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP0TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP0TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP0TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP0TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP0TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP0TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP1CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP1CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP1CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP1CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP1CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP1CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP1CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP1INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP1INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP1TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP1TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP1TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP1TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP1TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP1TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP1TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP1TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP1DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP1DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP1DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP1DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP1DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP1DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP1DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP1TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP1TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP1TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP1TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP1TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP1TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP1TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP2CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP2CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP2CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP2CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP2CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP2CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP2CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP2INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP2INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP2TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP2TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP2TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP2TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP2TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP2TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP2TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP2TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP2DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP2DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP2DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP2DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP2DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP2DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP2DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP2TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP2TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP2TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP2TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP2TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP2TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP2TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP3CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP3CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP3CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP3CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP3CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP3CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP3CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP3INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP3INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP3TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP3TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP3TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP3TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP3TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP3TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP3TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP3TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP3DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP3DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP3DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP3DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP3DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP3DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP3DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP3TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP3TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP3TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP3TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP3TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP3TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP3TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP4CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP4CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP4CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP4CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP4CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP4CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP4CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP4INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP4INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP4TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP4TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP4TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP4TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP4TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP4TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP4TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP4TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP4DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP4DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP4DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP4DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP4DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP4DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP4DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP4TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP4TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP4TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP4TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP4TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP4TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP4TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP5CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP5CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP5CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP5CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP5CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP5CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP5CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP5INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP5INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP5TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP5TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP5TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP5TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP5TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP5TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP5TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP5TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP5DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP5DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP5DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP5DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP5DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP5DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP5DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP5TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP5TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP5TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP5TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP5TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP5TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP5TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP6CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP6CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP6CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP6CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP6CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP6CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP6CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP6INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP6INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP6TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP6TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP6TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP6TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP6TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP6TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP6TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP6TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP6DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP6DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP6DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP6DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP6DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP6DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP6DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP6TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP6TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP6TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP6TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP6TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP6TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP6TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP7CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP7CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP7CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP7CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP7CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP7CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP7CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP7INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP7INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP7TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP7TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP7TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP7TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP7TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP7TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP7TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP7TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP7DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP7DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP7DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP7DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP7DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP7DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP7DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP7TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP7TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP7TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP7TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP7TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP7TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP7TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DINEP8CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DINEP8CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EOFRM_DPID (1 << 16) /* EOFRM_DPID */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP8CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_TXFNUM_SHIFT (22)
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_TXFNUM_MASK (0xF << USB_HS_DEVICE_USBHS_DINEP8CTRL_TXFNUM_SHIFT) /* TXFNUM */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_MPLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_MPLEN_MASK               (0x7FF << \
+          USB_HS_DEVICE_USBHS_DINEP8CTRL_MPLEN_SHIFT)                       /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPACT                    (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EOFRM_DPID               (1 << 16)   /*
+                                                                             * EOFRM_DPID
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_NAKSTS                   (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPTYPE_SHIFT             (18)
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPTYPE_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP8CTRL_EPTYPE_SHIFT)                      /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_STALL                    (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_TXFNUM_SHIFT             (22)
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_TXFNUM_MASK              (0xF << \
+          USB_HS_DEVICE_USBHS_DINEP8CTRL_TXFNUM_SHIFT)                      /*
+                                                                             * TXFNUM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_CNAK                     (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_SNAK                     (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_SD0PID_SEVNFRM           (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_SD1PID_SODDFRM           (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPDIS                    (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8CTRL_EPEN                     (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP8INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TOUTIF (1 << 3) /* TOUTIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXFERINTIF (1 << 4) /* TXFERINTIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_INEPMISIF (1 << 5) /* INEPMISIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_INEPNAKEIF (1 << 6) /* INEPNAKEIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXFEIF (1 << 7) /* TXFEIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXFUDRIF (1 << 8) /* TXFUDRIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_NYETIF (1 << 14) /* NYETIF */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXCIF                  (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_EPDISIF                (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_AHBERRIF               (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TOUTIF                 (1 << 3)    /*
+                                                                             * TOUTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXFERINTIF             (1 << 4)    /*
+                                                                             * TXFERINTIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_INEPMISIF              (1 << 5)    /*
+                                                                             * INEPMISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_INEPNAKEIF             (1 << 6)    /*
+                                                                             * INEPNAKEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXFEIF                 (1 << 7)    /*
+                                                                             * TXFEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_TXFUDRIF               (1 << 8)    /*
+                                                                             * TXFUDRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_PKDRPSTS               (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_BBERRIF                (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_NAKIF                  (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DINEP8INTSTS_NYETIF                 (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
 
 /******** Bit definition for USBHS_DINEP8TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DINEP8TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_PKTCNT_SHIFT (19)
-#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_PKTCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP8TXSIZ_PKTCNT_SHIFT) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_MCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_MCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DINEP8TXSIZ_MCNT_SHIFT) /* MCNT */
+#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_TLEN_SHIFT              (0)
+#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_TLEN_MASK               (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DINEP8TXSIZ_TLEN_SHIFT)                                                     /*
+                                                                                                           * TLEN
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_PKTCNT_SHIFT            (19)
+#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_PKTCNT_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP8TXSIZ_PKTCNT_SHIFT)                                                   /*
+                                                                                                           * PKTCNT
+                                                                                                           */
+#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_MCNT_SHIFT              (29)
+#define USB_HS_DEVICE_USBHS_DINEP8TXSIZ_MCNT_MASK               (0x3 << \
+          USB_HS_DEVICE_USBHS_DINEP8TXSIZ_MCNT_SHIFT)                                                 /*
+                                                                                                       * MCNT
+                                                                                                       */
 
 /******** Bit definition for USBHS_DINEP8DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP8DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP8DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DINEP8DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DINEP8DMADD_DMADD_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DINEP8DMADD_DMADD_MASK              (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP8DMADD_DMADD_SHIFT)                                                         /*
+                                                                                                                * DMADD
+                                                                                                                */
 
 /******** Bit definition for USBHS_DINEP8TXFSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DINEP8TXFSTS_TXFSPCAVL_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DINEP8TXFSTS_TXFSPCAVL_MASK (0xFFFF << USB_HS_DEVICE_USBHS_DINEP8TXFSTS_TXFSPCAVL_SHIFT) /* TXFSPCAVL */
+#define USB_HS_DEVICE_USBHS_DINEP8TXFSTS_TXFSPCAVL_SHIFT        (0)
+#define USB_HS_DEVICE_USBHS_DINEP8TXFSTS_TXFSPCAVL_MASK         (0xFFFF << \
+          USB_HS_DEVICE_USBHS_DINEP8TXFSTS_TXFSPCAVL_SHIFT)                                                          /*
+                                                                                                                      * TXFSPCAVL
+                                                                                                                      */
 
 /******** Bit definition for USBHS_DOUTEP0CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_MPLEN_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP0CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_MPLEN_MASK              (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP0CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP0INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP0TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_TLEN_MASK (0x7F << USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_STUPPCNT_SHIFT) /* STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_TLEN_MASK              (0x7F << \
+          USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_STUPPCNT_SHIFT         (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_STUPPCNT_MASK          (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP0TXSIZ_STUPPCNT_SHIFT)                                                      /*
+                                                                                                                 * STUPPCNT
+                                                                                                                 */
 
 /******** Bit definition for USBHS_DOUTEP0DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP0DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP0DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP0DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP0DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP0DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP0DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP1CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP1CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP1CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP1INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP1TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP1TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP1DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP1DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP1DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP1DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP1DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP1DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP1DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP2CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP2CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP2CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP2INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP2TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP2TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP2DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP2DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP2DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP2DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP2DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP2DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP2DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP3CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP3CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP3CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP3INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP3TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP3TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP3DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP3DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP3DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP3DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP3DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP3DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP3DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP4CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP4CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP4CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP4INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP4TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP4TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP4DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP4DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP4DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP4DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP4DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP4DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP4DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP5CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP5CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP5CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP5INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP5TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP5TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP5DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP5DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP5DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP5DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP5DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP5DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP5DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP6CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP6CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP6CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP6INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP6TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP6TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP6DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP6DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP6DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP6DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP6DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP6DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP6DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP7CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP7CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP7CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP7INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP7TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP7TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP7DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP7DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP7DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP7DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP7DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP7DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP7DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 /******** Bit definition for USBHS_DOUTEP8CTRL register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_MPLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_MPLEN_MASK (0x7FF << USB_HS_DEVICE_USBHS_DOUTEP8CTRL_MPLEN_SHIFT) /* MPLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPACT (1 << 15) /* EPACT */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPDPID_EPEOFRM (1 << 16) /* EPDPID_EPEOFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_NAKSTS (1 << 17) /* NAKSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPTYPE_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_STALL (1 << 21) /* STALL */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_CNAK (1 << 26) /* CNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_SNAK (1 << 27) /* SNAK */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_SD0PID_SEVNFRM (1 << 28) /* SD0PID_SEVNFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_SD1PID_SODDFRM (1 << 29) /* SD1PID_SODDFRM */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPDIS (1 << 30) /* EPDIS */
-#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPEN (1 << 31) /* EPEN */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_MPLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_MPLEN_MASK              (0x7FF << \
+          USB_HS_DEVICE_USBHS_DOUTEP8CTRL_MPLEN_SHIFT)                      /*
+                                                                             * MPLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPACT                   (1 << 15)   /*
+                                                                             * EPACT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPDPID_EPEOFRM          (1 << 16)   /*
+                                                                             * EPDPID_EPEOFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_NAKSTS                  (1 << 17)   /*
+                                                                             * NAKSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPTYPE_SHIFT            (18)
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPTYPE_MASK             (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPTYPE_SHIFT)                     /*
+                                                                             * EPTYPE
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_STALL                   (1 << 21)   /*
+                                                                             * STALL
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_CNAK                    (1 << 26)   /*
+                                                                             * CNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_SNAK                    (1 << 27)   /*
+                                                                             * SNAK
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_SD0PID_SEVNFRM          (1 << 28)   /*
+                                                                             * SD0PID_SEVNFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_SD1PID_SODDFRM          (1 << 29)   /*
+                                                                             * SD1PID_SODDFRM
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPDIS                   (1 << 30)   /*
+                                                                             * EPDIS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8CTRL_EPEN                    (1 << 31)   /*
+                                                                             * EPEN
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP8INTSTS register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_TXCIF (1 << 0) /* TXCIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_EPDISIF (1 << 1) /* EPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_STUPPDNEIF (1 << 3) /* STUPPDNEIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OUTTRXEPDISIF (1 << 4) /* OUTTRXEPDISIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_STSPRXIF (1 << 5) /* STSPRXIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_B2BSTUPRIF (1 << 6) /* B2BSTUPRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OUTPCKERRIF (1 << 8) /* OUTPCKERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_PKDRPSTS (1 << 11) /* PKDRPSTS */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_BBERRIF (1 << 12) /* BBERRIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_NAKIF (1 << 13) /* NAKIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_NYETIF (1 << 14) /* NYETIF */
-#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_STUPPRXIF (1 << 15) /* STUPPRXIF */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_TXCIF                 (1 << 0)    /*
+                                                                             * TXCIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_EPDISIF               (1 << 1)    /*
+                                                                             * EPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_AHBERRIF              (1 << 2)    /*
+                                                                             * AHBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_STUPPDNEIF            (1 << 3)    /*
+                                                                             * STUPPDNEIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OUTTRXEPDISIF         (1 << 4)    /*
+                                                                             * OUTTRXEPDISIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_STSPRXIF              (1 << 5)    /*
+                                                                             * STSPRXIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_B2BSTUPRIF            (1 << 6)    /*
+                                                                             * B2BSTUPRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_OUTPCKERRIF           (1 << 8)    /*
+                                                                             * OUTPCKERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_PKDRPSTS              (1 << 11)   /*
+                                                                             * PKDRPSTS
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_BBERRIF               (1 << 12)   /*
+                                                                             * BBERRIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_NAKIF                 (1 << 13)   /*
+                                                                             * NAKIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_NYETIF                (1 << 14)   /*
+                                                                             * NYETIF
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8INTSTS_STUPPRXIF             (1 << 15)   /*
+                                                                             * STUPPRXIF
+                                                                             */
 
 /******** Bit definition for USBHS_DOUTEP8TXSIZ register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_TLEN_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_TLEN_MASK (0x7FFFF << USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_TLEN_SHIFT) /* TLEN */
-#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_PKTCNT (1 << 19) /* PKTCNT */
-#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_RXDPID_STUPPCNT_SHIFT (29)
-#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_RXDPID_STUPPCNT_MASK (0x3 << USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_RXDPID_STUPPCNT_SHIFT) /* RXDPID_STUPPCNT */
+#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_TLEN_SHIFT             (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_TLEN_MASK              (0x7FFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_TLEN_SHIFT)                      /*
+                                                                             * TLEN
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_PKTCNT                 (1 << 19)   /*
+                                                                             * PKTCNT
+                                                                             */
+#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_RXDPID_STUPPCNT_SHIFT  (29)
+#define USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_RXDPID_STUPPCNT_MASK   (0x3 << \
+          USB_HS_DEVICE_USBHS_DOUTEP8TXSIZ_RXDPID_STUPPCNT_SHIFT)                                                             /*
+                                                                                                                               * RXDPID_STUPPCNT
+                                                                                                                               */
 
 /******** Bit definition for USBHS_DOUTEP8DMADD register  ********/
-#define USB_HS_DEVICE_USBHS_DOUTEP8DMADD_DMADD_SHIFT (0)
-#define USB_HS_DEVICE_USBHS_DOUTEP8DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_DEVICE_USBHS_DOUTEP8DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_DEVICE_USBHS_DOUTEP8DMADD_DMADD_SHIFT            (0)
+#define USB_HS_DEVICE_USBHS_DOUTEP8DMADD_DMADD_MASK             (0xFFFFFFFF << \
+          USB_HS_DEVICE_USBHS_DOUTEP8DMADD_DMADD_SHIFT)                                                          /*
+                                                                                                                  * DMADD
+                                                                                                                  */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_USB_HS_DEVICE_H */

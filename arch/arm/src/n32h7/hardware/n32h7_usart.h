@@ -33,301 +33,381 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_USART_CTRL1_OFFSET 0x0 /* USART_CTRL1 */
-#define N32_USART_CTRL2_OFFSET 0x4 /* USART_CTRL2 */
-#define N32_USART_CTRL3_OFFSET 0x8 /* USART_CTRL3 */
-#define N32_USART_STS_OFFSET 0xC /* USART_STS */
-#define N32_USART_DAT_OFFSET 0x10 /* USART_DAT */
-#define N32_USART_BRCF_OFFSET 0x14 /* USART_BRCF */
-#define N32_USART_GTP_OFFSET 0x18 /* USART_GTP */
-#define N32_USART_FIFO_OFFSET 0x1C /* USART_FIFO */
-#define N32_USART_IFW_OFFSET 0x20 /* USART_IFW */
-#define N32_USART_RTO_OFFSET 0x24 /* USART_RTO */
+#define N32_USART_CTRL1_OFFSET      0x0     /* USART_CTRL1 */
+#define N32_USART_CTRL2_OFFSET      0x4     /* USART_CTRL2 */
+#define N32_USART_CTRL3_OFFSET      0x8     /* USART_CTRL3 */
+#define N32_USART_STS_OFFSET        0xC     /* USART_STS */
+#define N32_USART_DAT_OFFSET        0x10    /* USART_DAT */
+#define N32_USART_BRCF_OFFSET       0x14    /* USART_BRCF */
+#define N32_USART_GTP_OFFSET        0x18    /* USART_GTP */
+#define N32_USART_FIFO_OFFSET       0x1C    /* USART_FIFO */
+#define N32_USART_IFW_OFFSET        0x20    /* USART_IFW */
+#define N32_USART_RTO_OFFSET        0x24    /* USART_RTO */
 
-#define N32_USART1_CTRL1 (N32_USART1_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART1_CTRL2 (N32_USART1_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART1_CTRL3 (N32_USART1_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART1_STS (N32_USART1_BASE + N32_USART_STS_OFFSET)
-#define N32_USART1_DAT (N32_USART1_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART1_BRCF (N32_USART1_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART1_GTP (N32_USART1_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART1_FIFO (N32_USART1_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART1_IFW (N32_USART1_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART1_RTO (N32_USART1_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART1_CTRL1            (N32_USART1_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART1_CTRL2            (N32_USART1_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART1_CTRL3            (N32_USART1_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART1_STS              (N32_USART1_BASE + N32_USART_STS_OFFSET)
+#define N32_USART1_DAT              (N32_USART1_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART1_BRCF             (N32_USART1_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART1_GTP              (N32_USART1_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART1_FIFO             (N32_USART1_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART1_IFW              (N32_USART1_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART1_RTO              (N32_USART1_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART2_CTRL1 (N32_USART2_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART2_CTRL2 (N32_USART2_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART2_CTRL3 (N32_USART2_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART2_STS (N32_USART2_BASE + N32_USART_STS_OFFSET)
-#define N32_USART2_DAT (N32_USART2_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART2_BRCF (N32_USART2_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART2_GTP (N32_USART2_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART2_FIFO (N32_USART2_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART2_IFW (N32_USART2_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART2_RTO (N32_USART2_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART2_CTRL1            (N32_USART2_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART2_CTRL2            (N32_USART2_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART2_CTRL3            (N32_USART2_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART2_STS              (N32_USART2_BASE + N32_USART_STS_OFFSET)
+#define N32_USART2_DAT              (N32_USART2_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART2_BRCF             (N32_USART2_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART2_GTP              (N32_USART2_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART2_FIFO             (N32_USART2_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART2_IFW              (N32_USART2_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART2_RTO              (N32_USART2_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART3_CTRL1 (N32_USART3_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART3_CTRL2 (N32_USART3_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART3_CTRL3 (N32_USART3_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART3_STS (N32_USART3_BASE + N32_USART_STS_OFFSET)
-#define N32_USART3_DAT (N32_USART3_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART3_BRCF (N32_USART3_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART3_GTP (N32_USART3_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART3_FIFO (N32_USART3_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART3_IFW (N32_USART3_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART3_RTO (N32_USART3_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART3_CTRL1            (N32_USART3_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART3_CTRL2            (N32_USART3_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART3_CTRL3            (N32_USART3_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART3_STS              (N32_USART3_BASE + N32_USART_STS_OFFSET)
+#define N32_USART3_DAT              (N32_USART3_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART3_BRCF             (N32_USART3_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART3_GTP              (N32_USART3_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART3_FIFO             (N32_USART3_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART3_IFW              (N32_USART3_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART3_RTO              (N32_USART3_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART4_CTRL1 (N32_USART4_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART4_CTRL2 (N32_USART4_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART4_CTRL3 (N32_USART4_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART4_STS (N32_USART4_BASE + N32_USART_STS_OFFSET)
-#define N32_USART4_DAT (N32_USART4_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART4_BRCF (N32_USART4_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART4_GTP (N32_USART4_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART4_FIFO (N32_USART4_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART4_IFW (N32_USART4_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART4_RTO (N32_USART4_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART4_CTRL1            (N32_USART4_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART4_CTRL2            (N32_USART4_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART4_CTRL3            (N32_USART4_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART4_STS              (N32_USART4_BASE + N32_USART_STS_OFFSET)
+#define N32_USART4_DAT              (N32_USART4_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART4_BRCF             (N32_USART4_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART4_GTP              (N32_USART4_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART4_FIFO             (N32_USART4_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART4_IFW              (N32_USART4_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART4_RTO              (N32_USART4_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART5_CTRL1 (N32_USART5_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART5_CTRL2 (N32_USART5_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART5_CTRL3 (N32_USART5_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART5_STS (N32_USART5_BASE + N32_USART_STS_OFFSET)
-#define N32_USART5_DAT (N32_USART5_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART5_BRCF (N32_USART5_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART5_GTP (N32_USART5_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART5_FIFO (N32_USART5_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART5_IFW (N32_USART5_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART5_RTO (N32_USART5_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART5_CTRL1            (N32_USART5_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART5_CTRL2            (N32_USART5_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART5_CTRL3            (N32_USART5_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART5_STS              (N32_USART5_BASE + N32_USART_STS_OFFSET)
+#define N32_USART5_DAT              (N32_USART5_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART5_BRCF             (N32_USART5_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART5_GTP              (N32_USART5_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART5_FIFO             (N32_USART5_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART5_IFW              (N32_USART5_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART5_RTO              (N32_USART5_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART6_CTRL1 (N32_USART6_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART6_CTRL2 (N32_USART6_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART6_CTRL3 (N32_USART6_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART6_STS (N32_USART6_BASE + N32_USART_STS_OFFSET)
-#define N32_USART6_DAT (N32_USART6_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART6_BRCF (N32_USART6_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART6_GTP (N32_USART6_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART6_FIFO (N32_USART6_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART6_IFW (N32_USART6_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART6_RTO (N32_USART6_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART6_CTRL1            (N32_USART6_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART6_CTRL2            (N32_USART6_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART6_CTRL3            (N32_USART6_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART6_STS              (N32_USART6_BASE + N32_USART_STS_OFFSET)
+#define N32_USART6_DAT              (N32_USART6_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART6_BRCF             (N32_USART6_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART6_GTP              (N32_USART6_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART6_FIFO             (N32_USART6_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART6_IFW              (N32_USART6_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART6_RTO              (N32_USART6_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART7_CTRL1 (N32_USART7_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART7_CTRL2 (N32_USART7_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART7_CTRL3 (N32_USART7_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART7_STS (N32_USART7_BASE + N32_USART_STS_OFFSET)
-#define N32_USART7_DAT (N32_USART7_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART7_BRCF (N32_USART7_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART7_GTP (N32_USART7_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART7_FIFO (N32_USART7_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART7_IFW (N32_USART7_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART7_RTO (N32_USART7_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART7_CTRL1            (N32_USART7_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART7_CTRL2            (N32_USART7_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART7_CTRL3            (N32_USART7_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART7_STS              (N32_USART7_BASE + N32_USART_STS_OFFSET)
+#define N32_USART7_DAT              (N32_USART7_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART7_BRCF             (N32_USART7_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART7_GTP              (N32_USART7_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART7_FIFO             (N32_USART7_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART7_IFW              (N32_USART7_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART7_RTO              (N32_USART7_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_USART8_CTRL1 (N32_USART8_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_USART8_CTRL2 (N32_USART8_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_USART8_CTRL3 (N32_USART8_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_USART8_STS (N32_USART8_BASE + N32_USART_STS_OFFSET)
-#define N32_USART8_DAT (N32_USART8_BASE + N32_USART_DAT_OFFSET)
-#define N32_USART8_BRCF (N32_USART8_BASE + N32_USART_BRCF_OFFSET)
-#define N32_USART8_GTP (N32_USART8_BASE + N32_USART_GTP_OFFSET)
-#define N32_USART8_FIFO (N32_USART8_BASE + N32_USART_FIFO_OFFSET)
-#define N32_USART8_IFW (N32_USART8_BASE + N32_USART_IFW_OFFSET)
-#define N32_USART8_RTO (N32_USART8_BASE + N32_USART_RTO_OFFSET)
+#define N32_USART8_CTRL1            (N32_USART8_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_USART8_CTRL2            (N32_USART8_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_USART8_CTRL3            (N32_USART8_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_USART8_STS              (N32_USART8_BASE + N32_USART_STS_OFFSET)
+#define N32_USART8_DAT              (N32_USART8_BASE + N32_USART_DAT_OFFSET)
+#define N32_USART8_BRCF             (N32_USART8_BASE + N32_USART_BRCF_OFFSET)
+#define N32_USART8_GTP              (N32_USART8_BASE + N32_USART_GTP_OFFSET)
+#define N32_USART8_FIFO             (N32_USART8_BASE + N32_USART_FIFO_OFFSET)
+#define N32_USART8_IFW              (N32_USART8_BASE + N32_USART_IFW_OFFSET)
+#define N32_USART8_RTO              (N32_USART8_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART9_CTRL1 (N32_UART9_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART9_CTRL2 (N32_UART9_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART9_CTRL3 (N32_UART9_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART9_STS (N32_UART9_BASE + N32_USART_STS_OFFSET)
-#define N32_UART9_DAT (N32_UART9_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART9_BRCF (N32_UART9_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART9_GTP (N32_UART9_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART9_FIFO (N32_UART9_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART9_IFW (N32_UART9_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART9_RTO (N32_UART9_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART9_CTRL1             (N32_UART9_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART9_CTRL2             (N32_UART9_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART9_CTRL3             (N32_UART9_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART9_STS               (N32_UART9_BASE + N32_USART_STS_OFFSET)
+#define N32_UART9_DAT               (N32_UART9_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART9_BRCF              (N32_UART9_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART9_GTP               (N32_UART9_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART9_FIFO              (N32_UART9_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART9_IFW               (N32_UART9_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART9_RTO               (N32_UART9_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART10_CTRL1 (N32_UART10_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART10_CTRL2 (N32_UART10_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART10_CTRL3 (N32_UART10_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART10_STS (N32_UART10_BASE + N32_USART_STS_OFFSET)
-#define N32_UART10_DAT (N32_UART10_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART10_BRCF (N32_UART10_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART10_GTP (N32_UART10_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART10_FIFO (N32_UART10_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART10_IFW (N32_UART10_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART10_RTO (N32_UART10_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART10_CTRL1            (N32_UART10_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART10_CTRL2            (N32_UART10_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART10_CTRL3            (N32_UART10_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART10_STS              (N32_UART10_BASE + N32_USART_STS_OFFSET)
+#define N32_UART10_DAT              (N32_UART10_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART10_BRCF             (N32_UART10_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART10_GTP              (N32_UART10_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART10_FIFO             (N32_UART10_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART10_IFW              (N32_UART10_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART10_RTO              (N32_UART10_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART11_CTRL1 (N32_UART11_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART11_CTRL2 (N32_UART11_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART11_CTRL3 (N32_UART11_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART11_STS (N32_UART11_BASE + N32_USART_STS_OFFSET)
-#define N32_UART11_DAT (N32_UART11_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART11_BRCF (N32_UART11_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART11_GTP (N32_UART11_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART11_FIFO (N32_UART11_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART11_IFW (N32_UART11_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART11_RTO (N32_UART11_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART11_CTRL1            (N32_UART11_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART11_CTRL2            (N32_UART11_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART11_CTRL3            (N32_UART11_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART11_STS              (N32_UART11_BASE + N32_USART_STS_OFFSET)
+#define N32_UART11_DAT              (N32_UART11_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART11_BRCF             (N32_UART11_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART11_GTP              (N32_UART11_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART11_FIFO             (N32_UART11_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART11_IFW              (N32_UART11_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART11_RTO              (N32_UART11_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART12_CTRL1 (N32_UART12_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART12_CTRL2 (N32_UART12_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART12_CTRL3 (N32_UART12_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART12_STS (N32_UART12_BASE + N32_USART_STS_OFFSET)
-#define N32_UART12_DAT (N32_UART12_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART12_BRCF (N32_UART12_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART12_GTP (N32_UART12_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART12_FIFO (N32_UART12_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART12_IFW (N32_UART12_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART12_RTO (N32_UART12_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART12_CTRL1            (N32_UART12_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART12_CTRL2            (N32_UART12_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART12_CTRL3            (N32_UART12_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART12_STS              (N32_UART12_BASE + N32_USART_STS_OFFSET)
+#define N32_UART12_DAT              (N32_UART12_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART12_BRCF             (N32_UART12_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART12_GTP              (N32_UART12_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART12_FIFO             (N32_UART12_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART12_IFW              (N32_UART12_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART12_RTO              (N32_UART12_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART13_CTRL1 (N32_UART13_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART13_CTRL2 (N32_UART13_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART13_CTRL3 (N32_UART13_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART13_STS (N32_UART13_BASE + N32_USART_STS_OFFSET)
-#define N32_UART13_DAT (N32_UART13_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART13_BRCF (N32_UART13_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART13_GTP (N32_UART13_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART13_FIFO (N32_UART13_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART13_IFW (N32_UART13_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART13_RTO (N32_UART13_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART13_CTRL1            (N32_UART13_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART13_CTRL2            (N32_UART13_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART13_CTRL3            (N32_UART13_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART13_STS              (N32_UART13_BASE + N32_USART_STS_OFFSET)
+#define N32_UART13_DAT              (N32_UART13_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART13_BRCF             (N32_UART13_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART13_GTP              (N32_UART13_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART13_FIFO             (N32_UART13_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART13_IFW              (N32_UART13_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART13_RTO              (N32_UART13_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART14_CTRL1 (N32_UART14_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART14_CTRL2 (N32_UART14_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART14_CTRL3 (N32_UART14_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART14_STS (N32_UART14_BASE + N32_USART_STS_OFFSET)
-#define N32_UART14_DAT (N32_UART14_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART14_BRCF (N32_UART14_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART14_GTP (N32_UART14_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART14_FIFO (N32_UART14_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART14_IFW (N32_UART14_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART14_RTO (N32_UART14_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART14_CTRL1            (N32_UART14_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART14_CTRL2            (N32_UART14_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART14_CTRL3            (N32_UART14_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART14_STS              (N32_UART14_BASE + N32_USART_STS_OFFSET)
+#define N32_UART14_DAT              (N32_UART14_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART14_BRCF             (N32_UART14_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART14_GTP              (N32_UART14_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART14_FIFO             (N32_UART14_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART14_IFW              (N32_UART14_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART14_RTO              (N32_UART14_BASE + N32_USART_RTO_OFFSET)
 
-#define N32_UART15_CTRL1 (N32_UART15_BASE + N32_USART_CTRL1_OFFSET)
-#define N32_UART15_CTRL2 (N32_UART15_BASE + N32_USART_CTRL2_OFFSET)
-#define N32_UART15_CTRL3 (N32_UART15_BASE + N32_USART_CTRL3_OFFSET)
-#define N32_UART15_STS (N32_UART15_BASE + N32_USART_STS_OFFSET)
-#define N32_UART15_DAT (N32_UART15_BASE + N32_USART_DAT_OFFSET)
-#define N32_UART15_BRCF (N32_UART15_BASE + N32_USART_BRCF_OFFSET)
-#define N32_UART15_GTP (N32_UART15_BASE + N32_USART_GTP_OFFSET)
-#define N32_UART15_FIFO (N32_UART15_BASE + N32_USART_FIFO_OFFSET)
-#define N32_UART15_IFW (N32_UART15_BASE + N32_USART_IFW_OFFSET)
-#define N32_UART15_RTO (N32_UART15_BASE + N32_USART_RTO_OFFSET)
+#define N32_UART15_CTRL1            (N32_UART15_BASE + N32_USART_CTRL1_OFFSET)
+#define N32_UART15_CTRL2            (N32_UART15_BASE + N32_USART_CTRL2_OFFSET)
+#define N32_UART15_CTRL3            (N32_UART15_BASE + N32_USART_CTRL3_OFFSET)
+#define N32_UART15_STS              (N32_UART15_BASE + N32_USART_STS_OFFSET)
+#define N32_UART15_DAT              (N32_UART15_BASE + N32_USART_DAT_OFFSET)
+#define N32_UART15_BRCF             (N32_UART15_BASE + N32_USART_BRCF_OFFSET)
+#define N32_UART15_GTP              (N32_UART15_BASE + N32_USART_GTP_OFFSET)
+#define N32_UART15_FIFO             (N32_UART15_BASE + N32_USART_FIFO_OFFSET)
+#define N32_UART15_IFW              (N32_UART15_BASE + N32_USART_IFW_OFFSET)
+#define N32_UART15_RTO              (N32_UART15_BASE + N32_USART_RTO_OFFSET)
 
 /******** Bit definition for USART_CTRL1 register  ********/
-#define USART_CTRL1_IFCEN (1 << 28) /* IFCEN */
-#define USART_CTRL1_SWAP (1 << 27) /* SWAP */
-#define USART_CTRL1_OSPM (1 << 26) /* OSPM */
-#define USART_CTRL1_DEAT_SHIFT (21)
-#define USART_CTRL1_DEAT_MASK (0x1F << USART_CTRL1_DEAT_SHIFT) /* DEAT */
-#define USART_CTRL1_DEDT_SHIFT (16)
-#define USART_CTRL1_DEDT_MASK (0x1F << USART_CTRL1_DEDT_SHIFT) /* DEDT */
-#define USART_CTRL1_DEP (1 << 15) /* DEP */
-#define USART_CTRL1_DEM (1 << 14) /* DEM */
-#define USART_CTRL1_SDBRK (1 << 13) /* SDBRK */
-#define USART_CTRL1_PEIEN (1 << 12) /* PEIEN */
-#define USART_CTRL1_TXCIEN (1 << 11) /* TXCIEN */
-#define USART_CTRL1_TXDEIEN (1 << 10) /* TXDEIEN */
-#define USART_CTRL1_RXDNEIEN (1 << 9) /* RXDNEIEN */
-#define USART_CTRL1_IDLEIEN (1 << 8) /* IDLEIEN */
-#define USART_CTRL1_WUM (1 << 7) /* WUM */
-#define USART_CTRL1_RCVWU (1 << 6) /* RCVWU */
-#define USART_CTRL1_WL (1 << 5) /* WL */
-#define USART_CTRL1_PCEN (1 << 4) /* PCEN */
-#define USART_CTRL1_PSEL (1 << 3) /* PSEL */
-#define USART_CTRL1_TXEN (1 << 2) /* TXEN */
-#define USART_CTRL1_RXEN (1 << 1) /* RXEN */
-#define USART_CTRL1_UEN (1 << 0) /* UEN */
+#define USART_CTRL1_IFCEN           (1 << 28)                           /*
+                                                                         * IFCEN
+                                                                         */
+#define USART_CTRL1_SWAP            (1 << 27)                           /*
+                                                                         * SWAP
+                                                                         */
+#define USART_CTRL1_OSPM            (1 << 26)                           /*
+                                                                         * OSPM
+                                                                         */
+#define USART_CTRL1_DEAT_SHIFT      (21)
+#define USART_CTRL1_DEAT_MASK       (0x1F << USART_CTRL1_DEAT_SHIFT)    /*
+                                                                         * DEAT
+                                                                         */
+#define USART_CTRL1_DEDT_SHIFT      (16)
+#define USART_CTRL1_DEDT_MASK       (0x1F << USART_CTRL1_DEDT_SHIFT)    /*
+                                                                         * DEDT
+                                                                         */
+#define USART_CTRL1_DEP             (1 << 15)                           /* DEP
+                                                                         */
+#define USART_CTRL1_DEM             (1 << 14)                           /* DEM
+                                                                         */
+#define USART_CTRL1_SDBRK           (1 << 13)                           /*
+                                                                         * SDBRK
+                                                                         */
+#define USART_CTRL1_PEIEN           (1 << 12)                           /*
+                                                                         * PEIEN
+                                                                         */
+#define USART_CTRL1_TXCIEN          (1 << 11)                           /*
+                                                                         * TXCIEN
+                                                                         */
+#define USART_CTRL1_TXDEIEN         (1 << 10)                           /*
+                                                                         * TXDEIEN
+                                                                         */
+#define USART_CTRL1_RXDNEIEN        (1 << 9)                            /*
+                                                                         * RXDNEIEN
+                                                                         */
+#define USART_CTRL1_IDLEIEN         (1 << 8)                            /*
+                                                                         * IDLEIEN
+                                                                         */
+#define USART_CTRL1_WUM             (1 << 7)                            /* WUM
+                                                                         */
+#define USART_CTRL1_RCVWU           (1 << 6)                            /*
+                                                                         * RCVWU
+                                                                         */
+#define USART_CTRL1_WL              (1 << 5)                            /* WL
+                                                                         */
+#define USART_CTRL1_PCEN            (1 << 4)                            /*
+                                                                         * PCEN
+                                                                         */
+#define USART_CTRL1_PSEL            (1 << 3)                            /*
+                                                                         * PSEL
+                                                                         */
+#define USART_CTRL1_TXEN            (1 << 2)                            /*
+                                                                         * TXEN
+                                                                         */
+#define USART_CTRL1_RXEN            (1 << 1)                            /*
+                                                                         * RXEN
+                                                                         */
+#define USART_CTRL1_UEN             (1 << 0)                            /* UEN
+                                                                         */
 
 /******** Bit definition for USART_CTRL2 register  ********/
-#define USART_CTRL2_FEFLOSE (1 << 20) /* FEFLOSE */
-#define USART_CTRL2_NEFLOSE (1 << 19) /* NEFLOSE */
-#define USART_CTRL2_PEFLOSE (1 << 18) /* PEFLOSE */
-#define USART_CTRL2_RTOIEN (1 << 17) /* RTOIEN */
-#define USART_CTRL2_RTOCF (1 << 16) /* RTOCF */
-#define USART_CTRL2_RTOEN (1 << 15) /* RTOEN */
-#define USART_CTRL2_LINBDL (1 << 14) /* LINBDL */
-#define USART_CTRL2_LINBDIEN (1 << 13) /* LINBDIEN */
-#define USART_CTRL2_LINMEN (1 << 12) /* LINMEN */
-#define USART_CTRL2_LBCLK (1 << 11) /* LBCLK */
-#define USART_CTRL2_CLKPHA (1 << 10) /* CLKPHA */
-#define USART_CTRL2_CLKPOL (1 << 9) /* CLKPOL */
-#define USART_CTRL2_CLKEN (1 << 8) /* CLKEN */
-#define USART_CTRL2_STPB_SHIFT (5)
-#define USART_CTRL2_STPB_MASK (0x3 << USART_CTRL2_STPB_SHIFT) /* STPB */
-#define USART_CTRL2_ADDR_SHIFT (0)
-#define USART_CTRL2_ADDR_MASK (0xF << USART_CTRL2_ADDR_SHIFT) /* ADDR */
+#define USART_CTRL2_FEFLOSE         (1 << 20)                       /* FEFLOSE
+                                                                     */
+#define USART_CTRL2_NEFLOSE         (1 << 19)                       /* NEFLOSE
+                                                                     */
+#define USART_CTRL2_PEFLOSE         (1 << 18)                       /* PEFLOSE
+                                                                     */
+#define USART_CTRL2_RTOIEN          (1 << 17)                       /* RTOIEN
+                                                                     */
+#define USART_CTRL2_RTOCF           (1 << 16)                       /* RTOCF
+                                                                     */
+#define USART_CTRL2_RTOEN           (1 << 15)                       /* RTOEN
+                                                                     */
+#define USART_CTRL2_LINBDL          (1 << 14)                       /* LINBDL
+                                                                     */
+#define USART_CTRL2_LINBDIEN        (1 << 13)                       /*
+                                                                     * LINBDIEN
+                                                                     */
+#define USART_CTRL2_LINMEN          (1 << 12)                       /* LINMEN
+                                                                     */
+#define USART_CTRL2_LBCLK           (1 << 11)                       /* LBCLK
+                                                                     */
+#define USART_CTRL2_CLKPHA          (1 << 10)                       /* CLKPHA
+                                                                     */
+#define USART_CTRL2_CLKPOL          (1 << 9)                        /* CLKPOL
+                                                                     */
+#define USART_CTRL2_CLKEN           (1 << 8)                        /* CLKEN
+                                                                     */
+#define USART_CTRL2_STPB_SHIFT      (5)
+#define USART_CTRL2_STPB_MASK       (0x3 << USART_CTRL2_STPB_SHIFT) /* STPB */
+#define USART_CTRL2_ADDR_SHIFT      (0)
+#define USART_CTRL2_ADDR_MASK       (0xF << USART_CTRL2_ADDR_SHIFT) /* ADDR */
 
 /******** Bit definition for USART_CTRL3 register  ********/
-#define USART_CTRL3_SCNACK (1 << 10) /* SCNACK */
-#define USART_CTRL3_SCMEN (1 << 9) /* SCMEN */
-#define USART_CTRL3_IRDALP (1 << 8) /* IRDALP */
-#define USART_CTRL3_IRDAMEN (1 << 7) /* IRDAMEN */
-#define USART_CTRL3_ERRIEN (1 << 6) /* ERRIEN */
-#define USART_CTRL3_DMARXEN (1 << 5) /* DMARXEN */
-#define USART_CTRL3_DMATXEN (1 << 4) /* DMATXEN */
-#define USART_CTRL3_HDMEN (1 << 3) /* HDMEN */
-#define USART_CTRL3_RTSEN (1 << 2) /* RTSEN */
-#define USART_CTRL3_CTSIEN (1 << 1) /* CTSIEN */
-#define USART_CTRL3_CTSEN (1 << 0) /* CTSEN */
+#define USART_CTRL3_SCNACK          (1 << 10)   /* SCNACK */
+#define USART_CTRL3_SCMEN           (1 << 9)    /* SCMEN */
+#define USART_CTRL3_IRDALP          (1 << 8)    /* IRDALP */
+#define USART_CTRL3_IRDAMEN         (1 << 7)    /* IRDAMEN */
+#define USART_CTRL3_ERRIEN          (1 << 6)    /* ERRIEN */
+#define USART_CTRL3_DMARXEN         (1 << 5)    /* DMARXEN */
+#define USART_CTRL3_DMATXEN         (1 << 4)    /* DMATXEN */
+#define USART_CTRL3_HDMEN           (1 << 3)    /* HDMEN */
+#define USART_CTRL3_RTSEN           (1 << 2)    /* RTSEN */
+#define USART_CTRL3_CTSIEN          (1 << 1)    /* CTSIEN */
+#define USART_CTRL3_CTSEN           (1 << 0)    /* CTSEN */
 
 /******** Bit definition for USART_STS register  ********/
-#define USART_STS_FELOSEF (1 << 19) /* FELOSEF */
-#define USART_STS_NELOSEF (1 << 18) /* NELOSEF */
-#define USART_STS_PELOSEF (1 << 17) /* PELOSEF */
-#define USART_STS_RTOF (1 << 16) /* RTOF */
-#define USART_STS_FEF (1 << 15) /* FEF */
-#define USART_STS_NEF (1 << 14) /* NEF */
-#define USART_STS_OREF (1 << 13) /* OREF */
-#define USART_STS_PEF (1 << 12) /* PEF */
-#define USART_STS_LINBDF (1 << 11) /* LINBDF */
-#define USART_STS_CTSF (1 << 10) /* CTSF */
-#define USART_STS_RXDNE (1 << 9) /* RXDNE */
-#define USART_STS_TXC (1 << 8) /* TXC */
-#define USART_STS_TXDE (1 << 7) /* TXDE */
-#define USART_STS_IDLEF (1 << 6) /* IDLEF */
-#define USART_STS_TXFT (1 << 5) /* TXFT */
-#define USART_STS_RXFT (1 << 4) /* RXFT */
-#define USART_STS_RXFE (1 << 3) /* RXFE */
-#define USART_STS_TXFE (1 << 2) /* TXFE */
-#define USART_STS_RXFF (1 << 1) /* RXFF */
-#define USART_STS_TXFF (1 << 0) /* TXFF */
+#define USART_STS_FELOSEF           (1 << 19)   /* FELOSEF */
+#define USART_STS_NELOSEF           (1 << 18)   /* NELOSEF */
+#define USART_STS_PELOSEF           (1 << 17)   /* PELOSEF */
+#define USART_STS_RTOF              (1 << 16)   /* RTOF */
+#define USART_STS_FEF               (1 << 15)   /* FEF */
+#define USART_STS_NEF               (1 << 14)   /* NEF */
+#define USART_STS_OREF              (1 << 13)   /* OREF */
+#define USART_STS_PEF               (1 << 12)   /* PEF */
+#define USART_STS_LINBDF            (1 << 11)   /* LINBDF */
+#define USART_STS_CTSF              (1 << 10)   /* CTSF */
+#define USART_STS_RXDNE             (1 << 9)    /* RXDNE */
+#define USART_STS_TXC               (1 << 8)    /* TXC */
+#define USART_STS_TXDE              (1 << 7)    /* TXDE */
+#define USART_STS_IDLEF             (1 << 6)    /* IDLEF */
+#define USART_STS_TXFT              (1 << 5)    /* TXFT */
+#define USART_STS_RXFT              (1 << 4)    /* RXFT */
+#define USART_STS_RXFE              (1 << 3)    /* RXFE */
+#define USART_STS_TXFE              (1 << 2)    /* TXFE */
+#define USART_STS_RXFF              (1 << 1)    /* RXFF */
+#define USART_STS_TXFF              (1 << 0)    /* TXFF */
 
 /******** Bit definition for USART_DAT register  ********/
-#define USART_DAT_DATV_SHIFT (0)
-#define USART_DAT_DATV_MASK (0x1FF << USART_DAT_DATV_SHIFT) /* DATV */
+#define USART_DAT_DATV_SHIFT        (0)
+#define USART_DAT_DATV_MASK         (0x1FF << USART_DAT_DATV_SHIFT) /* DATV */
 
 /******** Bit definition for USART_BRCF register  ********/
-#define USART_BRCF_DIVINT__SHIFT (4)
-#define USART_BRCF_DIVINT__MASK (0xFFF << USART_BRCF_DIVINT__SHIFT) /* DIVINT */
-#define USART_BRCF_DIVDEC_SHIFT (0)
-#define USART_BRCF_DIVDEC_MASK (0xF << USART_BRCF_DIVDEC_SHIFT) /* DIVDEC */
+#define USART_BRCF_DIVINT__SHIFT    (4)
+#define USART_BRCF_DIVINT__MASK     (0xFFF << USART_BRCF_DIVINT__SHIFT) /*
+                                                                         * DIVINT
+                                                                         */
+#define USART_BRCF_DIVDEC_SHIFT     (0)
+#define USART_BRCF_DIVDEC_MASK      (0xF << USART_BRCF_DIVDEC_SHIFT)    /*
+                                                                         * DIVDEC
+                                                                         */
 
 /******** Bit definition for USART_GTP register  ********/
-#define USART_GTP_GTV_SHIFT (8)
-#define USART_GTP_GTV_MASK (0xFF << USART_GTP_GTV_SHIFT) /* GTV */
-#define USART_GTP_PSCV_SHIFT (0)
-#define USART_GTP_PSCV_MASK (0xFF << USART_GTP_PSCV_SHIFT) /* PSCV */
+#define USART_GTP_GTV_SHIFT         (8)
+#define USART_GTP_GTV_MASK          (0xFF << USART_GTP_GTV_SHIFT)   /* GTV */
+#define USART_GTP_PSCV_SHIFT        (0)
+#define USART_GTP_PSCV_MASK         (0xFF << USART_GTP_PSCV_SHIFT)  /* PSCV */
 
 /******** Bit definition for USART_FIFO register  ********/
-#define USART_FIFO_TXCNT_SHIFT (18)
-#define USART_FIFO_TXCNT_MASK (0xF << USART_FIFO_TXCNT_SHIFT) /* TXCNT */
-#define USART_FIFO_RXCNT_SHIFT (14)
-#define USART_FIFO_RXCNT_MASK (0xF << USART_FIFO_RXCNT_SHIFT) /* RXCNT */
-#define USART_FIFO_TXFTIEN (1 << 13) /* TXFTIEN */
-#define USART_FIFO_RXFTIEN (1 << 12) /* RXFTIEN */
-#define USART_FIFO_RXFEIEN (1 << 11) /* RXFEIEN */
-#define USART_FIFO_TXFEIEN (1 << 10) /* TXFEIEN */
-#define USART_FIFO_RXFFIEN (1 << 9) /* RXFFIEN */
-#define USART_FIFO_TXFFIEN (1 << 8) /* TXFFIEN */
-#define USART_FIFO_RXFTCFG_SHIFT (5)
-#define USART_FIFO_RXFTCFG_MASK (0x7 << USART_FIFO_RXFTCFG_SHIFT) /* RXFTCFG */
-#define USART_FIFO_TXFTCFG_SHIFT (2)
-#define USART_FIFO_TXFTCFG_MASK (0x7 << USART_FIFO_TXFTCFG_SHIFT) /* TXFTCFG */
-#define USART_FIFO_CLR (1 << 1) /* CLR */
-#define USART_FIFO_EN (1 << 0) /* EN */
+#define USART_FIFO_TXCNT_SHIFT      (18)
+#define USART_FIFO_TXCNT_MASK       (0xF << USART_FIFO_TXCNT_SHIFT)     /*
+                                                                         * TXCNT
+                                                                         */
+#define USART_FIFO_RXCNT_SHIFT      (14)
+#define USART_FIFO_RXCNT_MASK       (0xF << USART_FIFO_RXCNT_SHIFT)     /*
+                                                                         * RXCNT
+                                                                         */
+#define USART_FIFO_TXFTIEN          (1 << 13)                           /*
+                                                                         * TXFTIEN
+                                                                         */
+#define USART_FIFO_RXFTIEN          (1 << 12)                           /*
+                                                                         * RXFTIEN
+                                                                         */
+#define USART_FIFO_RXFEIEN          (1 << 11)                           /*
+                                                                         * RXFEIEN
+                                                                         */
+#define USART_FIFO_TXFEIEN          (1 << 10)                           /*
+                                                                         * TXFEIEN
+                                                                         */
+#define USART_FIFO_RXFFIEN          (1 << 9)                            /*
+                                                                         * RXFFIEN
+                                                                         */
+#define USART_FIFO_TXFFIEN          (1 << 8)                            /*
+                                                                         * TXFFIEN
+                                                                         */
+#define USART_FIFO_RXFTCFG_SHIFT    (5)
+#define USART_FIFO_RXFTCFG_MASK     (0x7 << USART_FIFO_RXFTCFG_SHIFT)   /*
+                                                                         * RXFTCFG
+                                                                         */
+#define USART_FIFO_TXFTCFG_SHIFT    (2)
+#define USART_FIFO_TXFTCFG_MASK     (0x7 << USART_FIFO_TXFTCFG_SHIFT)   /*
+                                                                         * TXFTCFG
+                                                                         */
+#define USART_FIFO_CLR              (1 << 1)                            /* CLR
+                                                                         */
+#define USART_FIFO_EN               (1 << 0)                            /* EN
+                                                                         */
 
 /******** Bit definition for USART_IFW register  ********/
-#define USART_IFW_WIDTH_SHIFT (0)
-#define USART_IFW_WIDTH_MASK (0xFFFF << USART_IFW_WIDTH_SHIFT) /* WIDTH */
+#define USART_IFW_WIDTH_SHIFT       (0)
+#define USART_IFW_WIDTH_MASK        (0xFFFF << USART_IFW_WIDTH_SHIFT) /* WIDTH
+                                                                       */
 
 /******** Bit definition for USART_RTO register  ********/
-#define USART_RTO_TIME_SHIFT (0)
-#define USART_RTO_TIME_MASK (0xFFFFFFF << USART_RTO_TIME_SHIFT) /* TIME */
+#define USART_RTO_TIME_SHIFT        (0)
+#define USART_RTO_TIME_MASK         (0xFFFFFFF << USART_RTO_TIME_SHIFT) /*
+                                                                         * TIME
+                                                                         */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_USART_H */

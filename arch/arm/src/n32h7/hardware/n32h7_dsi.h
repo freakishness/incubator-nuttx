@@ -33,501 +33,919 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_DSI_NUMLANES_OFFSET 0x0 /* DSI_NUMLANES */
-#define N32_DSI_CONTHSCLK_OFFSET 0x4 /* DSI_CONTHSCLK */
-#define N32_DSI_TPRE_OFFSET 0x8 /* DSI_TPRE */
-#define N32_DSI_TPOST_OFFSET 0xC /* DSI_TPOST */
-#define N32_DSI_TXGAP_OFFSET 0x10 /* DSI_TXGAP */
-#define N32_DSI_AUTOINSERT_EOTP_OFFSET 0x14 /* DSI_AUTOINSERT_EOTP */
-#define N32_DSI_DISRXCRCCHK_OFFSET 0x18 /* DSI_DISRXCRCCHK */
-#define N32_DSI_HSTXTOCNT_OFFSET 0x1C /* DSI_HSTXTOCNT */
-#define N32_DSI_LRXTOCNT_OFFSET 0x20 /* DSI_LRXTOCNT */
-#define N32_DSI_BTATOCNT_OFFSET 0x24 /* DSI_BTATOCNT */
-#define N32_DSI_TWAKEUP_OFFSET 0x28 /* DSI_TWAKEUP */
-#define N32_DSI_DISBST_OFFSET 0x2C /* DSI_DISBST */
-#define N32_DSI_STS_OFFSET 0x3C /* DSI_STS */
-#define N32_DSI_ERRSTS_OFFSET 0x40 /* DSI_ERRSTS */
-#define N32_DSI_CLKLANEN_OFFSET 0x60 /* DSI_CLKLANEN */
-#define N32_DSI_DATLANEN_OFFSET 0x64 /* DSI_DATLANEN */
-#define N32_DSI_SKEWCALTIMI_OFFSET 0xC0 /* DSI_SKEWCALTIMI */
-#define N32_DSI_SKEWCALTIMP_OFFSET 0xC4 /* DSI_SKEWCALTIMP */
-#define N32_DSI_ALTCALTIM_OFFSET 0xC8 /* DSI_ALTCALTIM */
-#define N32_DSI_VID_SKEWCALINE_OFFSET 0xCC /* VID_SKEWCALINE */
-#define N32_DSI_VID_EN_OFFSET 0x200 /* VID_EN */
-#define N32_DSI_VID_PIXPERPKT_OFFSET 0x204 /* VID_PIXPERPKT */
-#define N32_DSI_VID_PIXPLDSIZ_OFFSET 0x208 /* VID_PIXPLDSIZ */
-#define N32_DSI_VID_PIXALIGN_OFFSET 0x20C /* VID_PIXALIGN */
-#define N32_DSI_VID_PIXFMT_OFFSET 0x210 /* VID_PIXFMT */
-#define N32_DSI_VID_VSYNCPOL_OFFSET 0x214 /* VID_VSYNCPOL */
-#define N32_DSI_VID_HSYNCPOL_OFFSET 0x218 /* VID_HSYNCPOL */
-#define N32_DSI_VID_VIDEOMOD_OFFSET 0x21C /* VID_VIDEOMOD */
-#define N32_DSI_VID_OVERIDE_OFFSET 0x220 /* VID_OVERIDE */
-#define N32_DSI_VID_STD_OFFSET 0x224 /* VID_STD */
-#define N32_DSI_VID_HFP_OFFSET 0x228 /* VID_HFP */
-#define N32_DSI_VID_HBP_OFFSET 0x22C /* VID_HBP */
-#define N32_DSI_VID_HSA_OFFSET 0x230 /* VID_HSA */
-#define N32_DSI_VID_PKTPERLINE_OFFSET 0x234 /* VID_PKTPERLINE */
-#define N32_DSI_VID_VBP_OFFSET 0x238 /* VID_VBP */
-#define N32_DSI_VID_VFP_OFFSET 0x23C /* VID_VFP */
-#define N32_DSI_VID_BLLPMOD_OFFSET 0x240 /* VID_BLLPMOD */
-#define N32_DSI_VID_NULLPKTBLLP_OFFSET 0x244 /* VID_NULLPKTBLLP */
-#define N32_DSI_VID_VACT_OFFSET 0x248 /* VID_VACT */
-#define N32_DSI_VID_VC_OFFSET 0x24C /* VID_VC */
-#define N32_DSI_VID_EXTPKTEN_OFFSET 0x250 /* VID_EXTPKTEN */
-#define N32_DSI_VID_VSSPLD_OFFSET 0x254 /* VID_VSSPLD */
-#define N32_DSI_VID_PLDPERPKT_OFFSET 0x258 /* VID_PLDPERPKT */
-#define N32_DSI_TXPLD_OFFSET 0x280 /* DSI_TXPLD */
-#define N32_DSI_PKTCTRL_OFFSET 0x284 /* DSI_PKTCTRL */
-#define N32_DSI_SENDPKT_OFFSET 0x288 /* DSI_SENDPKT */
-#define N32_DSI_PKTSTS_OFFSET 0x28C /* DSI_PKTSTS */
-#define N32_DSI_PKTFWRLVL_OFFSET 0x290 /* DSI_PKTFWRLVL */
-#define N32_DSI_PKTFRDLVL_OFFSET 0x294 /* DSI_PKTFRDLVL */
-#define N32_DSI_PKTRXPLD_OFFSET 0x298 /* DSI_PKTRXPLD */
-#define N32_DSI_PKTRXHDR_OFFSET 0x29C /* DSI_PKTRXHDR */
-#define N32_DSI_IFPRIOSEL_OFFSET 0x2B0 /* DSI_IFPRIOSEL */
-#define N32_DSI_WRPCTRL_OFFSET 0x4AC00 /* DSI_WRPCTRL */
-#define N32_DSI_WRPSTS_OFFSET 0x4AC04 /* DSI_WRPSTS */
-#define N32_DSI_DSIPHY_CTRL1_OFFSET 0x4AC08 /* DSIPHY_CTRL1 */
-#define N32_DSI_DSIPHY_CTRL2_OFFSET 0x4AC0C /* DSIPHY_CTRL2 */
-#define N32_DSI_DSIPHY_CTRL3_OFFSET 0x4AC10 /* DSIPHY_CTRL3 */
-#define N32_DSI_DSIPHY_CTRL4_OFFSET 0x4AC14 /* DSIPHY_CTRL4 */
-#define N32_DSI_DSIPHY_PLLCTRL1_OFFSET 0x4AC64 /* DSIPHY_PLLCTRL1 */
-#define N32_DSI_DSIPHY_PLLCTRL2_OFFSET 0x4AC68 /* DSIPHY_PLLCTRL2 */
-#define N32_DSI_DSIPHY_PLLCTRL3_OFFSET 0x4AC6C /* DSIPHY_PLLCTRL3 */
-#define N32_DSI_DSIPHY_PLLCTRL4_OFFSET 0x4AC70 /* DSIPHY_PLLCTRL4 */
-#define N32_DSI_DSIPHY_PLLCTRL5_OFFSET 0x4AC74 /* DSIPHY_PLLCTRL5 */
-#define N32_DSI_DSIPHY_PLLSTS_OFFSET 0x4AC78 /* DSIPHY_PLLSTS */
+#define N32_DSI_NUMLANES_OFFSET                 0x0     /* DSI_NUMLANES */
+#define N32_DSI_CONTHSCLK_OFFSET                0x4     /* DSI_CONTHSCLK */
+#define N32_DSI_TPRE_OFFSET                     0x8     /* DSI_TPRE */
+#define N32_DSI_TPOST_OFFSET                    0xC     /* DSI_TPOST */
+#define N32_DSI_TXGAP_OFFSET                    0x10    /* DSI_TXGAP */
+#define N32_DSI_AUTOINSERT_EOTP_OFFSET          0x14    /* DSI_AUTOINSERT_EOTP
+                                                         */
+#define N32_DSI_DISRXCRCCHK_OFFSET              0x18    /* DSI_DISRXCRCCHK */
+#define N32_DSI_HSTXTOCNT_OFFSET                0x1C    /* DSI_HSTXTOCNT */
+#define N32_DSI_LRXTOCNT_OFFSET                 0x20    /* DSI_LRXTOCNT */
+#define N32_DSI_BTATOCNT_OFFSET                 0x24    /* DSI_BTATOCNT */
+#define N32_DSI_TWAKEUP_OFFSET                  0x28    /* DSI_TWAKEUP */
+#define N32_DSI_DISBST_OFFSET                   0x2C    /* DSI_DISBST */
+#define N32_DSI_STS_OFFSET                      0x3C    /* DSI_STS */
+#define N32_DSI_ERRSTS_OFFSET                   0x40    /* DSI_ERRSTS */
+#define N32_DSI_CLKLANEN_OFFSET                 0x60    /* DSI_CLKLANEN */
+#define N32_DSI_DATLANEN_OFFSET                 0x64    /* DSI_DATLANEN */
+#define N32_DSI_SKEWCALTIMI_OFFSET              0xC0    /* DSI_SKEWCALTIMI */
+#define N32_DSI_SKEWCALTIMP_OFFSET              0xC4    /* DSI_SKEWCALTIMP */
+#define N32_DSI_ALTCALTIM_OFFSET                0xC8    /* DSI_ALTCALTIM */
+#define N32_DSI_VID_SKEWCALINE_OFFSET           0xCC    /* VID_SKEWCALINE */
+#define N32_DSI_VID_EN_OFFSET                   0x200   /* VID_EN */
+#define N32_DSI_VID_PIXPERPKT_OFFSET            0x204   /* VID_PIXPERPKT */
+#define N32_DSI_VID_PIXPLDSIZ_OFFSET            0x208   /* VID_PIXPLDSIZ */
+#define N32_DSI_VID_PIXALIGN_OFFSET             0x20C   /* VID_PIXALIGN */
+#define N32_DSI_VID_PIXFMT_OFFSET               0x210   /* VID_PIXFMT */
+#define N32_DSI_VID_VSYNCPOL_OFFSET             0x214   /* VID_VSYNCPOL */
+#define N32_DSI_VID_HSYNCPOL_OFFSET             0x218   /* VID_HSYNCPOL */
+#define N32_DSI_VID_VIDEOMOD_OFFSET             0x21C   /* VID_VIDEOMOD */
+#define N32_DSI_VID_OVERIDE_OFFSET              0x220   /* VID_OVERIDE */
+#define N32_DSI_VID_STD_OFFSET                  0x224   /* VID_STD */
+#define N32_DSI_VID_HFP_OFFSET                  0x228   /* VID_HFP */
+#define N32_DSI_VID_HBP_OFFSET                  0x22C   /* VID_HBP */
+#define N32_DSI_VID_HSA_OFFSET                  0x230   /* VID_HSA */
+#define N32_DSI_VID_PKTPERLINE_OFFSET           0x234   /* VID_PKTPERLINE */
+#define N32_DSI_VID_VBP_OFFSET                  0x238   /* VID_VBP */
+#define N32_DSI_VID_VFP_OFFSET                  0x23C   /* VID_VFP */
+#define N32_DSI_VID_BLLPMOD_OFFSET              0x240   /* VID_BLLPMOD */
+#define N32_DSI_VID_NULLPKTBLLP_OFFSET          0x244   /* VID_NULLPKTBLLP */
+#define N32_DSI_VID_VACT_OFFSET                 0x248   /* VID_VACT */
+#define N32_DSI_VID_VC_OFFSET                   0x24C   /* VID_VC */
+#define N32_DSI_VID_EXTPKTEN_OFFSET             0x250   /* VID_EXTPKTEN */
+#define N32_DSI_VID_VSSPLD_OFFSET               0x254   /* VID_VSSPLD */
+#define N32_DSI_VID_PLDPERPKT_OFFSET            0x258   /* VID_PLDPERPKT */
+#define N32_DSI_TXPLD_OFFSET                    0x280   /* DSI_TXPLD */
+#define N32_DSI_PKTCTRL_OFFSET                  0x284   /* DSI_PKTCTRL */
+#define N32_DSI_SENDPKT_OFFSET                  0x288   /* DSI_SENDPKT */
+#define N32_DSI_PKTSTS_OFFSET                   0x28C   /* DSI_PKTSTS */
+#define N32_DSI_PKTFWRLVL_OFFSET                0x290   /* DSI_PKTFWRLVL */
+#define N32_DSI_PKTFRDLVL_OFFSET                0x294   /* DSI_PKTFRDLVL */
+#define N32_DSI_PKTRXPLD_OFFSET                 0x298   /* DSI_PKTRXPLD */
+#define N32_DSI_PKTRXHDR_OFFSET                 0x29C   /* DSI_PKTRXHDR */
+#define N32_DSI_IFPRIOSEL_OFFSET                0x2B0   /* DSI_IFPRIOSEL */
+#define N32_DSI_WRPCTRL_OFFSET                  0x4AC00 /* DSI_WRPCTRL */
+#define N32_DSI_WRPSTS_OFFSET                   0x4AC04 /* DSI_WRPSTS */
+#define N32_DSI_DSIPHY_CTRL1_OFFSET             0x4AC08 /* DSIPHY_CTRL1 */
+#define N32_DSI_DSIPHY_CTRL2_OFFSET             0x4AC0C /* DSIPHY_CTRL2 */
+#define N32_DSI_DSIPHY_CTRL3_OFFSET             0x4AC10 /* DSIPHY_CTRL3 */
+#define N32_DSI_DSIPHY_CTRL4_OFFSET             0x4AC14 /* DSIPHY_CTRL4 */
+#define N32_DSI_DSIPHY_PLLCTRL1_OFFSET          0x4AC64 /* DSIPHY_PLLCTRL1 */
+#define N32_DSI_DSIPHY_PLLCTRL2_OFFSET          0x4AC68 /* DSIPHY_PLLCTRL2 */
+#define N32_DSI_DSIPHY_PLLCTRL3_OFFSET          0x4AC6C /* DSIPHY_PLLCTRL3 */
+#define N32_DSI_DSIPHY_PLLCTRL4_OFFSET          0x4AC70 /* DSIPHY_PLLCTRL4 */
+#define N32_DSI_DSIPHY_PLLCTRL5_OFFSET          0x4AC74 /* DSIPHY_PLLCTRL5 */
+#define N32_DSI_DSIPHY_PLLSTS_OFFSET            0x4AC78 /* DSIPHY_PLLSTS */
 
-#define N32_DSI_HOST_NUMLANES (N32_DSI_HOST_BASE + N32_DSI_NUMLANES_OFFSET)
-#define N32_DSI_HOST_CONTHSCLK (N32_DSI_HOST_BASE + N32_DSI_CONTHSCLK_OFFSET)
-#define N32_DSI_HOST_TPRE (N32_DSI_HOST_BASE + N32_DSI_TPRE_OFFSET)
-#define N32_DSI_HOST_TPOST (N32_DSI_HOST_BASE + N32_DSI_TPOST_OFFSET)
-#define N32_DSI_HOST_TXGAP (N32_DSI_HOST_BASE + N32_DSI_TXGAP_OFFSET)
-#define N32_DSI_HOST_AUTOINSERT_EOTP (N32_DSI_HOST_BASE + N32_DSI_AUTOINSERT_EOTP_OFFSET)
-#define N32_DSI_HOST_DISRXCRCCHK (N32_DSI_HOST_BASE + N32_DSI_DISRXCRCCHK_OFFSET)
-#define N32_DSI_HOST_HSTXTOCNT (N32_DSI_HOST_BASE + N32_DSI_HSTXTOCNT_OFFSET)
-#define N32_DSI_HOST_LRXTOCNT (N32_DSI_HOST_BASE + N32_DSI_LRXTOCNT_OFFSET)
-#define N32_DSI_HOST_BTATOCNT (N32_DSI_HOST_BASE + N32_DSI_BTATOCNT_OFFSET)
-#define N32_DSI_HOST_TWAKEUP (N32_DSI_HOST_BASE + N32_DSI_TWAKEUP_OFFSET)
-#define N32_DSI_HOST_DISBST (N32_DSI_HOST_BASE + N32_DSI_DISBST_OFFSET)
-#define N32_DSI_HOST_STS (N32_DSI_HOST_BASE + N32_DSI_STS_OFFSET)
-#define N32_DSI_HOST_ERRSTS (N32_DSI_HOST_BASE + N32_DSI_ERRSTS_OFFSET)
-#define N32_DSI_HOST_CLKLANEN (N32_DSI_HOST_BASE + N32_DSI_CLKLANEN_OFFSET)
-#define N32_DSI_HOST_DATLANEN (N32_DSI_HOST_BASE + N32_DSI_DATLANEN_OFFSET)
-#define N32_DSI_HOST_SKEWCALTIMI (N32_DSI_HOST_BASE + N32_DSI_SKEWCALTIMI_OFFSET)
-#define N32_DSI_HOST_SKEWCALTIMP (N32_DSI_HOST_BASE + N32_DSI_SKEWCALTIMP_OFFSET)
-#define N32_DSI_HOST_ALTCALTIM (N32_DSI_HOST_BASE + N32_DSI_ALTCALTIM_OFFSET)
-#define N32_DSI_HOST_VID_SKEWCALINE (N32_DSI_HOST_BASE + N32_DSI_VID_SKEWCALINE_OFFSET)
-#define N32_DSI_HOST_VID_EN (N32_DSI_HOST_BASE + N32_DSI_VID_EN_OFFSET)
-#define N32_DSI_HOST_VID_PIXPERPKT (N32_DSI_HOST_BASE + N32_DSI_VID_PIXPERPKT_OFFSET)
-#define N32_DSI_HOST_VID_PIXPLDSIZ (N32_DSI_HOST_BASE + N32_DSI_VID_PIXPLDSIZ_OFFSET)
-#define N32_DSI_HOST_VID_PIXALIGN (N32_DSI_HOST_BASE + N32_DSI_VID_PIXALIGN_OFFSET)
-#define N32_DSI_HOST_VID_PIXFMT (N32_DSI_HOST_BASE + N32_DSI_VID_PIXFMT_OFFSET)
-#define N32_DSI_HOST_VID_VSYNCPOL (N32_DSI_HOST_BASE + N32_DSI_VID_VSYNCPOL_OFFSET)
-#define N32_DSI_HOST_VID_HSYNCPOL (N32_DSI_HOST_BASE + N32_DSI_VID_HSYNCPOL_OFFSET)
-#define N32_DSI_HOST_VID_VIDEOMOD (N32_DSI_HOST_BASE + N32_DSI_VID_VIDEOMOD_OFFSET)
-#define N32_DSI_HOST_VID_OVERIDE (N32_DSI_HOST_BASE + N32_DSI_VID_OVERIDE_OFFSET)
-#define N32_DSI_HOST_VID_STD (N32_DSI_HOST_BASE + N32_DSI_VID_STD_OFFSET)
-#define N32_DSI_HOST_VID_HFP (N32_DSI_HOST_BASE + N32_DSI_VID_HFP_OFFSET)
-#define N32_DSI_HOST_VID_HBP (N32_DSI_HOST_BASE + N32_DSI_VID_HBP_OFFSET)
-#define N32_DSI_HOST_VID_HSA (N32_DSI_HOST_BASE + N32_DSI_VID_HSA_OFFSET)
-#define N32_DSI_HOST_VID_PKTPERLINE (N32_DSI_HOST_BASE + N32_DSI_VID_PKTPERLINE_OFFSET)
-#define N32_DSI_HOST_VID_VBP (N32_DSI_HOST_BASE + N32_DSI_VID_VBP_OFFSET)
-#define N32_DSI_HOST_VID_VFP (N32_DSI_HOST_BASE + N32_DSI_VID_VFP_OFFSET)
-#define N32_DSI_HOST_VID_BLLPMOD (N32_DSI_HOST_BASE + N32_DSI_VID_BLLPMOD_OFFSET)
-#define N32_DSI_HOST_VID_NULLPKTBLLP (N32_DSI_HOST_BASE + N32_DSI_VID_NULLPKTBLLP_OFFSET)
-#define N32_DSI_HOST_VID_VACT (N32_DSI_HOST_BASE + N32_DSI_VID_VACT_OFFSET)
-#define N32_DSI_HOST_VID_VC (N32_DSI_HOST_BASE + N32_DSI_VID_VC_OFFSET)
-#define N32_DSI_HOST_VID_EXTPKTEN (N32_DSI_HOST_BASE + N32_DSI_VID_EXTPKTEN_OFFSET)
-#define N32_DSI_HOST_VID_VSSPLD (N32_DSI_HOST_BASE + N32_DSI_VID_VSSPLD_OFFSET)
-#define N32_DSI_HOST_VID_PLDPERPKT (N32_DSI_HOST_BASE + N32_DSI_VID_PLDPERPKT_OFFSET)
-#define N32_DSI_HOST_TXPLD (N32_DSI_HOST_BASE + N32_DSI_TXPLD_OFFSET)
-#define N32_DSI_HOST_PKTCTRL (N32_DSI_HOST_BASE + N32_DSI_PKTCTRL_OFFSET)
-#define N32_DSI_HOST_SENDPKT (N32_DSI_HOST_BASE + N32_DSI_SENDPKT_OFFSET)
-#define N32_DSI_HOST_PKTSTS (N32_DSI_HOST_BASE + N32_DSI_PKTSTS_OFFSET)
-#define N32_DSI_HOST_PKTFWRLVL (N32_DSI_HOST_BASE + N32_DSI_PKTFWRLVL_OFFSET)
-#define N32_DSI_HOST_PKTFRDLVL (N32_DSI_HOST_BASE + N32_DSI_PKTFRDLVL_OFFSET)
-#define N32_DSI_HOST_PKTRXPLD (N32_DSI_HOST_BASE + N32_DSI_PKTRXPLD_OFFSET)
-#define N32_DSI_HOST_PKTRXHDR (N32_DSI_HOST_BASE + N32_DSI_PKTRXHDR_OFFSET)
-#define N32_DSI_HOST_IFPRIOSEL (N32_DSI_HOST_BASE + N32_DSI_IFPRIOSEL_OFFSET)
-#define N32_DSI_HOST_WRPCTRL (N32_DSI_HOST_BASE + N32_DSI_WRPCTRL_OFFSET)
-#define N32_DSI_HOST_WRPSTS (N32_DSI_HOST_BASE + N32_DSI_WRPSTS_OFFSET)
-#define N32_DSI_HOST_DSIPHY_CTRL1 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_CTRL1_OFFSET)
-#define N32_DSI_HOST_DSIPHY_CTRL2 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_CTRL2_OFFSET)
-#define N32_DSI_HOST_DSIPHY_CTRL3 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_CTRL3_OFFSET)
-#define N32_DSI_HOST_DSIPHY_CTRL4 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_CTRL4_OFFSET)
-#define N32_DSI_HOST_DSIPHY_PLLCTRL1 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_PLLCTRL1_OFFSET)
-#define N32_DSI_HOST_DSIPHY_PLLCTRL2 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_PLLCTRL2_OFFSET)
-#define N32_DSI_HOST_DSIPHY_PLLCTRL3 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_PLLCTRL3_OFFSET)
-#define N32_DSI_HOST_DSIPHY_PLLCTRL4 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_PLLCTRL4_OFFSET)
-#define N32_DSI_HOST_DSIPHY_PLLCTRL5 (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_PLLCTRL5_OFFSET)
-#define N32_DSI_HOST_DSIPHY_PLLSTS (N32_DSI_HOST_BASE + N32_DSI_DSIPHY_PLLSTS_OFFSET)
+#define N32_DSI_HOST_NUMLANES                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_NUMLANES_OFFSET)
+#define N32_DSI_HOST_CONTHSCLK                  (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_CONTHSCLK_OFFSET)
+#define N32_DSI_HOST_TPRE                       (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_TPRE_OFFSET)
+#define N32_DSI_HOST_TPOST                      (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_TPOST_OFFSET)
+#define N32_DSI_HOST_TXGAP                      (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_TXGAP_OFFSET)
+#define N32_DSI_HOST_AUTOINSERT_EOTP            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_AUTOINSERT_EOTP_OFFSET)
+#define N32_DSI_HOST_DISRXCRCCHK                (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DISRXCRCCHK_OFFSET)
+#define N32_DSI_HOST_HSTXTOCNT                  (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_HSTXTOCNT_OFFSET)
+#define N32_DSI_HOST_LRXTOCNT                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_LRXTOCNT_OFFSET)
+#define N32_DSI_HOST_BTATOCNT                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_BTATOCNT_OFFSET)
+#define N32_DSI_HOST_TWAKEUP                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_TWAKEUP_OFFSET)
+#define N32_DSI_HOST_DISBST                     (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DISBST_OFFSET)
+#define N32_DSI_HOST_STS                        (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_STS_OFFSET)
+#define N32_DSI_HOST_ERRSTS                     (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_ERRSTS_OFFSET)
+#define N32_DSI_HOST_CLKLANEN                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_CLKLANEN_OFFSET)
+#define N32_DSI_HOST_DATLANEN                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DATLANEN_OFFSET)
+#define N32_DSI_HOST_SKEWCALTIMI                (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_SKEWCALTIMI_OFFSET)
+#define N32_DSI_HOST_SKEWCALTIMP                (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_SKEWCALTIMP_OFFSET)
+#define N32_DSI_HOST_ALTCALTIM                  (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_ALTCALTIM_OFFSET)
+#define N32_DSI_HOST_VID_SKEWCALINE             (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_SKEWCALINE_OFFSET)
+#define N32_DSI_HOST_VID_EN                     (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_EN_OFFSET)
+#define N32_DSI_HOST_VID_PIXPERPKT              (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_PIXPERPKT_OFFSET)
+#define N32_DSI_HOST_VID_PIXPLDSIZ              (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_PIXPLDSIZ_OFFSET)
+#define N32_DSI_HOST_VID_PIXALIGN               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_PIXALIGN_OFFSET)
+#define N32_DSI_HOST_VID_PIXFMT                 (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_PIXFMT_OFFSET)
+#define N32_DSI_HOST_VID_VSYNCPOL               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VSYNCPOL_OFFSET)
+#define N32_DSI_HOST_VID_HSYNCPOL               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_HSYNCPOL_OFFSET)
+#define N32_DSI_HOST_VID_VIDEOMOD               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VIDEOMOD_OFFSET)
+#define N32_DSI_HOST_VID_OVERIDE                (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_OVERIDE_OFFSET)
+#define N32_DSI_HOST_VID_STD                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_STD_OFFSET)
+#define N32_DSI_HOST_VID_HFP                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_HFP_OFFSET)
+#define N32_DSI_HOST_VID_HBP                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_HBP_OFFSET)
+#define N32_DSI_HOST_VID_HSA                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_HSA_OFFSET)
+#define N32_DSI_HOST_VID_PKTPERLINE             (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_PKTPERLINE_OFFSET)
+#define N32_DSI_HOST_VID_VBP                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VBP_OFFSET)
+#define N32_DSI_HOST_VID_VFP                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VFP_OFFSET)
+#define N32_DSI_HOST_VID_BLLPMOD                (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_BLLPMOD_OFFSET)
+#define N32_DSI_HOST_VID_NULLPKTBLLP            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_NULLPKTBLLP_OFFSET)
+#define N32_DSI_HOST_VID_VACT                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VACT_OFFSET)
+#define N32_DSI_HOST_VID_VC                     (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VC_OFFSET)
+#define N32_DSI_HOST_VID_EXTPKTEN               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_EXTPKTEN_OFFSET)
+#define N32_DSI_HOST_VID_VSSPLD                 (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_VSSPLD_OFFSET)
+#define N32_DSI_HOST_VID_PLDPERPKT              (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_VID_PLDPERPKT_OFFSET)
+#define N32_DSI_HOST_TXPLD                      (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_TXPLD_OFFSET)
+#define N32_DSI_HOST_PKTCTRL                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_PKTCTRL_OFFSET)
+#define N32_DSI_HOST_SENDPKT                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_SENDPKT_OFFSET)
+#define N32_DSI_HOST_PKTSTS                     (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_PKTSTS_OFFSET)
+#define N32_DSI_HOST_PKTFWRLVL                  (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_PKTFWRLVL_OFFSET)
+#define N32_DSI_HOST_PKTFRDLVL                  (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_PKTFRDLVL_OFFSET)
+#define N32_DSI_HOST_PKTRXPLD                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_PKTRXPLD_OFFSET)
+#define N32_DSI_HOST_PKTRXHDR                   (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_PKTRXHDR_OFFSET)
+#define N32_DSI_HOST_IFPRIOSEL                  (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_IFPRIOSEL_OFFSET)
+#define N32_DSI_HOST_WRPCTRL                    (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_WRPCTRL_OFFSET)
+#define N32_DSI_HOST_WRPSTS                     (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_WRPSTS_OFFSET)
+#define N32_DSI_HOST_DSIPHY_CTRL1               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_CTRL1_OFFSET)
+#define N32_DSI_HOST_DSIPHY_CTRL2               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_CTRL2_OFFSET)
+#define N32_DSI_HOST_DSIPHY_CTRL3               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_CTRL3_OFFSET)
+#define N32_DSI_HOST_DSIPHY_CTRL4               (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_CTRL4_OFFSET)
+#define N32_DSI_HOST_DSIPHY_PLLCTRL1            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_PLLCTRL1_OFFSET)
+#define N32_DSI_HOST_DSIPHY_PLLCTRL2            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_PLLCTRL2_OFFSET)
+#define N32_DSI_HOST_DSIPHY_PLLCTRL3            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_PLLCTRL3_OFFSET)
+#define N32_DSI_HOST_DSIPHY_PLLCTRL4            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_PLLCTRL4_OFFSET)
+#define N32_DSI_HOST_DSIPHY_PLLCTRL5            (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_PLLCTRL5_OFFSET)
+#define N32_DSI_HOST_DSIPHY_PLLSTS              (N32_DSI_HOST_BASE + \
+                                                 N32_DSI_DSIPHY_PLLSTS_OFFSET)
 
 /******** Bit definition for DSI_NUMLANES register  ********/
-#define DSI_NUMLANES_NUMLANES_SHIFT (0)
-#define DSI_NUMLANES_NUMLANES_MASK (0xF << DSI_NUMLANES_NUMLANES_SHIFT) /* NUMLANES */
+#define DSI_NUMLANES_NUMLANES_SHIFT             (0)
+#define DSI_NUMLANES_NUMLANES_MASK              (0xF << \
+                                                 DSI_NUMLANES_NUMLANES_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * NUMLANES
+                                                                               */
 
 /******** Bit definition for DSI_CONTHSCLK register  ********/
-#define DSI_CONTHSCLK_CONTHSCLK (1 << 0) /* CONTHSCLK */
+#define DSI_CONTHSCLK_CONTHSCLK                 (1 << 0) /* CONTHSCLK */
 
 /******** Bit definition for DSI_TPRE register  ********/
-#define DSI_TPRE_TPRE_SHIFT (0)
-#define DSI_TPRE_TPRE_MASK (0xFF << DSI_TPRE_TPRE_SHIFT) /* TPRE */
+#define DSI_TPRE_TPRE_SHIFT                     (0)
+#define DSI_TPRE_TPRE_MASK                      (0xFF << DSI_TPRE_TPRE_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * TPRE
+                                                                               */
 
 /******** Bit definition for DSI_TPOST register  ********/
-#define DSI_TPOST_TPOST_SHIFT (0)
-#define DSI_TPOST_TPOST_MASK (0xFF << DSI_TPOST_TPOST_SHIFT) /* TPOST */
+#define DSI_TPOST_TPOST_SHIFT                   (0)
+#define DSI_TPOST_TPOST_MASK                    (0xFF << \
+                                                 DSI_TPOST_TPOST_SHIFT) /*
+                                                                         * TPOST
+                                                                         */
 
 /******** Bit definition for DSI_TXGAP register  ********/
-#define DSI_TXGAP_TXGAP_SHIFT (0)
-#define DSI_TXGAP_TXGAP_MASK (0xFF << DSI_TXGAP_TXGAP_SHIFT) /* TXGAP */
+#define DSI_TXGAP_TXGAP_SHIFT                   (0)
+#define DSI_TXGAP_TXGAP_MASK                    (0xFF << \
+                                                 DSI_TXGAP_TXGAP_SHIFT) /*
+                                                                         * TXGAP
+                                                                         */
 
 /******** Bit definition for DSI_AUTOINSERT_EOTP register  ********/
-#define DSI_AUTOINSERT_EOTP_AUTOINSEOTP (1 << 0) /* AUTOINSEOTP */
+#define DSI_AUTOINSERT_EOTP_AUTOINSEOTP         (1 << 0) /* AUTOINSEOTP */
 
 /******** Bit definition for DSI_DISRXCRCCHK register  ********/
-#define DSI_DISRXCRCCHK_DISRXCRCCHK (1 << 0) /* DISRXCRCCHK */
+#define DSI_DISRXCRCCHK_DISRXCRCCHK             (1 << 0) /* DISRXCRCCHK */
 
 /******** Bit definition for DSI_HSTXTOCNT register  ********/
-#define DSI_HSTXTOCNT_HSTXTOCNT_SHIFT (0)
-#define DSI_HSTXTOCNT_HSTXTOCNT_MASK (0xFFFFFF << DSI_HSTXTOCNT_HSTXTOCNT_SHIFT) /* HSTXTOCNT */
+#define DSI_HSTXTOCNT_HSTXTOCNT_SHIFT           (0)
+#define DSI_HSTXTOCNT_HSTXTOCNT_MASK            (0xFFFFFF <<                    \
+                                                 DSI_HSTXTOCNT_HSTXTOCNT_SHIFT) \
+        /*
+         * HSTXTOCNT
+         */
 
 /******** Bit definition for DSI_LRXTOCNT register  ********/
-#define DSI_LRXTOCNT_LRXTOCNT_SHIFT (0)
-#define DSI_LRXTOCNT_LRXTOCNT_MASK (0xFFFFFF << DSI_LRXTOCNT_LRXTOCNT_SHIFT) /* LRXTOCNT */
+#define DSI_LRXTOCNT_LRXTOCNT_SHIFT             (0)
+#define DSI_LRXTOCNT_LRXTOCNT_MASK              (0xFFFFFF << \
+                                                 DSI_LRXTOCNT_LRXTOCNT_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * LRXTOCNT
+                                                                               */
 
 /******** Bit definition for DSI_BTATOCNT register  ********/
-#define DSI_BTATOCNT_BTATOCNT_SHIFT (0)
-#define DSI_BTATOCNT_BTATOCNT_MASK (0xFFFFFF << DSI_BTATOCNT_BTATOCNT_SHIFT) /* BTATOCNT */
+#define DSI_BTATOCNT_BTATOCNT_SHIFT             (0)
+#define DSI_BTATOCNT_BTATOCNT_MASK              (0xFFFFFF << \
+                                                 DSI_BTATOCNT_BTATOCNT_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * BTATOCNT
+                                                                               */
 
 /******** Bit definition for DSI_TWAKEUP register  ********/
-#define DSI_TWAKEUP_TWAKEUP_SHIFT (0)
-#define DSI_TWAKEUP_TWAKEUP_MASK (0x7FFFF << DSI_TWAKEUP_TWAKEUP_SHIFT) /* TWAKEUP */
+#define DSI_TWAKEUP_TWAKEUP_SHIFT               (0)
+#define DSI_TWAKEUP_TWAKEUP_MASK                (0x7FFFF << \
+                                                 DSI_TWAKEUP_TWAKEUP_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * TWAKEUP
+                                                                             */
 
 /******** Bit definition for DSI_DISBST register  ********/
-#define DSI_DISBST_DISBST (1 << 0) /* DISBST */
+#define DSI_DISBST_DISBST                       (1 << 0) /* DISBST */
 
 /******** Bit definition for DSI_STS register  ********/
-#define DSI_STS_BIT3 (1 << 19) /* BIT3 */
-#define DSI_STS_BIT2 (1 << 18) /* BIT2 */
-#define DSI_STS_BIT1 (1 << 17) /* BIT1 */
-#define DSI_STS_BIT0 (1 << 16) /* BIT0 */
-#define DSI_STS_PROVILT (1 << 15) /* PROVILT */
-#define DSI_STS_INVLDTXL (1 << 13) /* INVLDTXL */
-#define DSI_STS_VCIDINVLD (1 << 12) /* VCIDINVLD */
-#define DSI_STS_DATYPERR (1 << 11) /* DATYPERR */
-#define DSI_STS_CRCERR (1 << 10) /* CRCERR */
-#define DSI_STS_ECCMERR (1 << 9) /* ECCMERR */
-#define DSI_STS_ECCSERR (1 << 8) /* ECCSERR */
-#define DSI_STS_COTDET (1 << 7) /* COTDET */
-#define DSI_STS_FCTRLERR (1 << 6) /* FCTRLERR */
-#define DSI_STS_TOERR (1 << 5) /* TOERR */
-#define DSI_STS_LPTXSYNCERR (1 << 4) /* LPTXSYNCERR */
-#define DSI_STS_ESCMODERR (1 << 3) /* ESCMODERR */
-#define DSI_STS_EOTSYNCERR (1 << 2) /* EOTSYNCERR */
-#define DSI_STS_SOTSYNCERR (1 << 1) /* SOTSYNCERR */
-#define DSI_STS_SOTERR (1 << 0) /* SOTERR */
+#define DSI_STS_BIT3                            (1 << 19)   /* BIT3 */
+#define DSI_STS_BIT2                            (1 << 18)   /* BIT2 */
+#define DSI_STS_BIT1                            (1 << 17)   /* BIT1 */
+#define DSI_STS_BIT0                            (1 << 16)   /* BIT0 */
+#define DSI_STS_PROVILT                         (1 << 15)   /* PROVILT */
+#define DSI_STS_INVLDTXL                        (1 << 13)   /* INVLDTXL */
+#define DSI_STS_VCIDINVLD                       (1 << 12)   /* VCIDINVLD */
+#define DSI_STS_DATYPERR                        (1 << 11)   /* DATYPERR */
+#define DSI_STS_CRCERR                          (1 << 10)   /* CRCERR */
+#define DSI_STS_ECCMERR                         (1 << 9)    /* ECCMERR */
+#define DSI_STS_ECCSERR                         (1 << 8)    /* ECCSERR */
+#define DSI_STS_COTDET                          (1 << 7)    /* COTDET */
+#define DSI_STS_FCTRLERR                        (1 << 6)    /* FCTRLERR */
+#define DSI_STS_TOERR                           (1 << 5)    /* TOERR */
+#define DSI_STS_LPTXSYNCERR                     (1 << 4)    /* LPTXSYNCERR */
+#define DSI_STS_ESCMODERR                       (1 << 3)    /* ESCMODERR */
+#define DSI_STS_EOTSYNCERR                      (1 << 2)    /* EOTSYNCERR */
+#define DSI_STS_SOTSYNCERR                      (1 << 1)    /* SOTSYNCERR */
+#define DSI_STS_SOTERR                          (1 << 0)    /* SOTERR */
 
 /******** Bit definition for DSI_ERRSTS register  ********/
-#define DSI_ERRSTS_BATTOERR (1 << 10) /* BATTOERR */
-#define DSI_ERRSTS_LRXTOERR (1 << 9) /* LRXTOERR */
-#define DSI_ERRSTS_HTXTOERR (1 << 8) /* HTXTOERR */
-#define DSI_ERRSTS_CRCERR (1 << 7) /* CRCERR */
-#define DSI_ERRSTS_ECCERRBIT_SHIFT (2)
-#define DSI_ERRSTS_ECCERRBIT_MASK (0x1F << DSI_ERRSTS_ECCERRBIT_SHIFT) /* ECCERRBIT */
-#define DSI_ERRSTS_ECCMERR (1 << 1) /* ECCMERR */
-#define DSI_ERRSTS_ECCSERR (1 << 0) /* ECCSERR */
+#define DSI_ERRSTS_BATTOERR                     (1 << 10)   /* BATTOERR */
+#define DSI_ERRSTS_LRXTOERR                     (1 << 9)    /* LRXTOERR */
+#define DSI_ERRSTS_HTXTOERR                     (1 << 8)    /* HTXTOERR */
+#define DSI_ERRSTS_CRCERR                       (1 << 7)    /* CRCERR */
+#define DSI_ERRSTS_ECCERRBIT_SHIFT              (2)
+#define DSI_ERRSTS_ECCERRBIT_MASK               (0x1F << \
+                                                 DSI_ERRSTS_ECCERRBIT_SHIFT)    /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ECCERRBIT
+                                                                                 */
+#define DSI_ERRSTS_ECCMERR                      (1 << 1)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ECCMERR
+                                                                                 */
+#define DSI_ERRSTS_ECCSERR                      (1 << 0)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ECCSERR
+                                                                                 */
 
 /******** Bit definition for DSI_CLKLANEN register  ********/
-#define DSI_CLKLANEN_CLKLANEN (1 << 0) /* CLKLANEN */
+#define DSI_CLKLANEN_CLKLANEN                   (1 << 0) /* CLKLANEN */
 
 /******** Bit definition for DSI_DATLANEN register  ********/
-#define DSI_DATLANEN_DATLANEN_SHIFT (0)
-#define DSI_DATLANEN_DATLANEN_MASK (0xF << DSI_DATLANEN_DATLANEN_SHIFT) /* DATLANEN */
+#define DSI_DATLANEN_DATLANEN_SHIFT             (0)
+#define DSI_DATLANEN_DATLANEN_MASK              (0xF << \
+                                                 DSI_DATLANEN_DATLANEN_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * DATLANEN
+                                                                               */
 
 /******** Bit definition for DSI_SKEWCALTIMI register  ********/
-#define DSI_SKEWCALTIMI_SKEWCALTIMI_SHIFT (0)
-#define DSI_SKEWCALTIMI_SKEWCALTIMI_MASK (0xFFFF << DSI_SKEWCALTIMI_SKEWCALTIMI_SHIFT) /* SKEWCALTIMI */
+#define DSI_SKEWCALTIMI_SKEWCALTIMI_SHIFT       (0)
+#define DSI_SKEWCALTIMI_SKEWCALTIMI_MASK        (0xFFFF <<                          \
+                                                 DSI_SKEWCALTIMI_SKEWCALTIMI_SHIFT) \
+        /*
+         * SKEWCALTIMI
+         */
 
 /******** Bit definition for DSI_SKEWCALTIMP register  ********/
-#define DSI_SKEWCALTIMP_SKEWCALTIMP_SHIFT (0)
-#define DSI_SKEWCALTIMP_SKEWCALTIMP_MASK (0xFFFF << DSI_SKEWCALTIMP_SKEWCALTIMP_SHIFT) /* SKEWCALTIMP */
+#define DSI_SKEWCALTIMP_SKEWCALTIMP_SHIFT       (0)
+#define DSI_SKEWCALTIMP_SKEWCALTIMP_MASK        (0xFFFF <<                          \
+                                                 DSI_SKEWCALTIMP_SKEWCALTIMP_SHIFT) \
+        /*
+         * SKEWCALTIMP
+         */
 
 /******** Bit definition for DSI_ALTCALTIM register  ********/
-#define DSI_ALTCALTIM_ALTCALTIM_SHIFT (0)
-#define DSI_ALTCALTIM_ALTCALTIM_MASK (0xFFFF << DSI_ALTCALTIM_ALTCALTIM_SHIFT) /* ALTCALTIM */
+#define DSI_ALTCALTIM_ALTCALTIM_SHIFT           (0)
+#define DSI_ALTCALTIM_ALTCALTIM_MASK            (0xFFFF <<                      \
+                                                 DSI_ALTCALTIM_ALTCALTIM_SHIFT) \
+        /*
+         * ALTCALTIM
+         */
 
 /******** Bit definition for VID_SKEWCALINE register  ********/
-#define DSI_VID_SKEWCALINE_SKEWCALINE_SHIFT (0)
-#define DSI_VID_SKEWCALINE_SKEWCALINE_MASK (0xFF << DSI_VID_SKEWCALINE_SKEWCALINE_SHIFT) /* SKEWCALINE */
+#define DSI_VID_SKEWCALINE_SKEWCALINE_SHIFT     (0)
+#define DSI_VID_SKEWCALINE_SKEWCALINE_MASK      (0xFF <<                              \
+                                                 DSI_VID_SKEWCALINE_SKEWCALINE_SHIFT) \
+        /*
+         * SKEWCALINE
+         */
 
 /******** Bit definition for VID_EN register  ********/
-#define DSI_VID_EN_EN (1 << 0) /* EN */
+#define DSI_VID_EN_EN                           (1 << 0) /* EN */
 
 /******** Bit definition for VID_PIXPERPKT register  ********/
-#define DSI_VID_PIXPERPKT_PIXPERPKT_SHIFT (0)
-#define DSI_VID_PIXPERPKT_PIXPERPKT_MASK (0xFFFF << DSI_VID_PIXPERPKT_PIXPERPKT_SHIFT) /* PIXPERPKT */
+#define DSI_VID_PIXPERPKT_PIXPERPKT_SHIFT       (0)
+#define DSI_VID_PIXPERPKT_PIXPERPKT_MASK        (0xFFFF <<                          \
+                                                 DSI_VID_PIXPERPKT_PIXPERPKT_SHIFT) \
+        /*
+         * PIXPERPKT
+         */
 
 /******** Bit definition for VID_PIXPLDSIZ register  ********/
-#define DSI_VID_PIXPLDSIZ_PIXPLDSIZ_SHIFT (0)
-#define DSI_VID_PIXPLDSIZ_PIXPLDSIZ_MASK (0xFFFF << DSI_VID_PIXPLDSIZ_PIXPLDSIZ_SHIFT) /* PIXPLDSIZ */
+#define DSI_VID_PIXPLDSIZ_PIXPLDSIZ_SHIFT       (0)
+#define DSI_VID_PIXPLDSIZ_PIXPLDSIZ_MASK        (0xFFFF <<                          \
+                                                 DSI_VID_PIXPLDSIZ_PIXPLDSIZ_SHIFT) \
+        /*
+         * PIXPLDSIZ
+         */
 
 /******** Bit definition for VID_PIXALIGN register  ********/
-#define DSI_VID_PIXALIGN_PIXALIGN (1 << 0) /* PIXALIGN */
+#define DSI_VID_PIXALIGN_PIXALIGN               (1 << 0) /* PIXALIGN */
 
 /******** Bit definition for VID_PIXFMT register  ********/
-#define DSI_VID_PIXFMT_PIXFMT_SHIFT (0)
-#define DSI_VID_PIXFMT_PIXFMT_MASK (0x3F << DSI_VID_PIXFMT_PIXFMT_SHIFT) /* PIXFMT */
+#define DSI_VID_PIXFMT_PIXFMT_SHIFT             (0)
+#define DSI_VID_PIXFMT_PIXFMT_MASK              (0x3F << \
+                                                 DSI_VID_PIXFMT_PIXFMT_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * PIXFMT
+                                                                               */
 
 /******** Bit definition for VID_VSYNCPOL register  ********/
-#define DSI_VID_VSYNCPOL_VSYNCPOL (1 << 0) /* VSYNCPOL */
+#define DSI_VID_VSYNCPOL_VSYNCPOL               (1 << 0) /* VSYNCPOL */
 
 /******** Bit definition for VID_HSYNCPOL register  ********/
-#define DSI_VID_HSYNCPOL_HSYNCPOL (1 << 0) /* HSYNCPOL */
+#define DSI_VID_HSYNCPOL_HSYNCPOL               (1 << 0) /* HSYNCPOL */
 
 /******** Bit definition for VID_VIDEOMOD register  ********/
-#define DSI_VID_VIDEOMOD_VIDEOMOD_SHIFT (0)
-#define DSI_VID_VIDEOMOD_VIDEOMOD_MASK (0x3 << DSI_VID_VIDEOMOD_VIDEOMOD_SHIFT) /* VIDEOMOD */
+#define DSI_VID_VIDEOMOD_VIDEOMOD_SHIFT         (0)
+#define DSI_VID_VIDEOMOD_VIDEOMOD_MASK          (0x3 <<                           \
+                                                 DSI_VID_VIDEOMOD_VIDEOMOD_SHIFT) \
+        /*
+         * VIDEOMOD
+         */
 
 /******** Bit definition for VID_OVERIDE register  ********/
-#define DSI_VID_OVERIDE_OVERIDE (1 << 0) /* OVERIDE */
+#define DSI_VID_OVERIDE_OVERIDE                 (1 << 0) /* OVERIDE */
 
 /******** Bit definition for VID_STD register  ********/
-#define DSI_VID_STD_STD_SHIFT (0)
-#define DSI_VID_STD_STD_MASK (0xFFFF << DSI_VID_STD_STD_SHIFT) /* STD */
+#define DSI_VID_STD_STD_SHIFT                   (0)
+#define DSI_VID_STD_STD_MASK                    (0xFFFF << \
+                                                 DSI_VID_STD_STD_SHIFT) /* STD
+                                                                         */
 
 /******** Bit definition for VID_HFP register  ********/
-#define DSI_VID_HFP_HFP_SHIFT (0)
-#define DSI_VID_HFP_HFP_MASK (0xFFFF << DSI_VID_HFP_HFP_SHIFT) /* HFP */
+#define DSI_VID_HFP_HFP_SHIFT                   (0)
+#define DSI_VID_HFP_HFP_MASK                    (0xFFFF << \
+                                                 DSI_VID_HFP_HFP_SHIFT) /* HFP
+                                                                         */
 
 /******** Bit definition for VID_HBP register  ********/
-#define DSI_VID_HBP_HBP_SHIFT (0)
-#define DSI_VID_HBP_HBP_MASK (0xFFFF << DSI_VID_HBP_HBP_SHIFT) /* HBP */
+#define DSI_VID_HBP_HBP_SHIFT                   (0)
+#define DSI_VID_HBP_HBP_MASK                    (0xFFFF << \
+                                                 DSI_VID_HBP_HBP_SHIFT) /* HBP
+                                                                         */
 
 /******** Bit definition for VID_HSA register  ********/
-#define DSI_VID_HSA_HAS_SHIFT (0)
-#define DSI_VID_HSA_HAS_MASK (0xFFFF << DSI_VID_HSA_HAS_SHIFT) /* HAS */
+#define DSI_VID_HSA_HAS_SHIFT                   (0)
+#define DSI_VID_HSA_HAS_MASK                    (0xFFFF << \
+                                                 DSI_VID_HSA_HAS_SHIFT) /* HAS
+                                                                         */
 
 /******** Bit definition for VID_PKTPERLINE register  ********/
-#define DSI_VID_PKTPERLINE_PKTPERLINE_SHIFT (0)
-#define DSI_VID_PKTPERLINE_PKTPERLINE_MASK (0xF << DSI_VID_PKTPERLINE_PKTPERLINE_SHIFT) /* PKTPERLINE */
+#define DSI_VID_PKTPERLINE_PKTPERLINE_SHIFT     (0)
+#define DSI_VID_PKTPERLINE_PKTPERLINE_MASK      (0xF <<                               \
+                                                 DSI_VID_PKTPERLINE_PKTPERLINE_SHIFT) \
+        /*
+         * PKTPERLINE
+         */
 
 /******** Bit definition for VID_VBP register  ********/
-#define DSI_VID_VBP_VBP_SHIFT (0)
-#define DSI_VID_VBP_VBP_MASK (0xFFFF << DSI_VID_VBP_VBP_SHIFT) /* VBP */
+#define DSI_VID_VBP_VBP_SHIFT                   (0)
+#define DSI_VID_VBP_VBP_MASK                    (0xFFFF << \
+                                                 DSI_VID_VBP_VBP_SHIFT) /* VBP
+                                                                         */
 
 /******** Bit definition for VID_VFP register  ********/
-#define DSI_VID_VFP_VFP_SHIFT (0)
-#define DSI_VID_VFP_VFP_MASK (0xFFFF << DSI_VID_VFP_VFP_SHIFT) /* VFP */
+#define DSI_VID_VFP_VFP_SHIFT                   (0)
+#define DSI_VID_VFP_VFP_MASK                    (0xFFFF << \
+                                                 DSI_VID_VFP_VFP_SHIFT) /* VFP
+                                                                         */
 
 /******** Bit definition for VID_BLLPMOD register  ********/
-#define DSI_VID_BLLPMOD_BLLPMOD (1 << 0) /* BLLPMOD */
+#define DSI_VID_BLLPMOD_BLLPMOD                 (1 << 0) /* BLLPMOD */
 
 /******** Bit definition for VID_NULLPKTBLLP register  ********/
-#define DSI_VID_NULLPKTBLLP_NULLPKTBLLP (1 << 0) /* NULLPKTBLLP */
+#define DSI_VID_NULLPKTBLLP_NULLPKTBLLP         (1 << 0) /* NULLPKTBLLP */
 
 /******** Bit definition for VID_VACT register  ********/
-#define DSI_VID_VACT_VACT_SHIFT (0)
-#define DSI_VID_VACT_VACT_MASK (0xFFFF << DSI_VID_VACT_VACT_SHIFT) /* VACT */
+#define DSI_VID_VACT_VACT_SHIFT                 (0)
+#define DSI_VID_VACT_VACT_MASK                  (0xFFFF << \
+                                                 DSI_VID_VACT_VACT_SHIFT) /*
+                                                                           * VACT
+                                                                           */
 
 /******** Bit definition for VID_VC register  ********/
-#define DSI_VID_VC_VC_SHIFT (0)
-#define DSI_VID_VC_VC_MASK (0x3 << DSI_VID_VC_VC_SHIFT) /* VC */
+#define DSI_VID_VC_VC_SHIFT                     (0)
+#define DSI_VID_VC_VC_MASK                      (0x3 << DSI_VID_VC_VC_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * VC
+                                                                              */
 
 /******** Bit definition for VID_EXTPKTEN register  ********/
-#define DSI_VID_EXTPKTEN_EXTPKTEN_SHIFT (0)
-#define DSI_VID_EXTPKTEN_EXTPKTEN_MASK (0xF << DSI_VID_EXTPKTEN_EXTPKTEN_SHIFT) /* EXTPKTEN */
+#define DSI_VID_EXTPKTEN_EXTPKTEN_SHIFT         (0)
+#define DSI_VID_EXTPKTEN_EXTPKTEN_MASK          (0xF <<                           \
+                                                 DSI_VID_EXTPKTEN_EXTPKTEN_SHIFT) \
+        /*
+         * EXTPKTEN
+         */
 
 /******** Bit definition for VID_VSSPLD register  ********/
-#define DSI_VID_VSSPLD_VSSPLD_SHIFT (0)
-#define DSI_VID_VSSPLD_VSSPLD_MASK (0xFFFF << DSI_VID_VSSPLD_VSSPLD_SHIFT) /* VSSPLD */
+#define DSI_VID_VSSPLD_VSSPLD_SHIFT             (0)
+#define DSI_VID_VSSPLD_VSSPLD_MASK              (0xFFFF << \
+                                                 DSI_VID_VSSPLD_VSSPLD_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * VSSPLD
+                                                                               */
 
 /******** Bit definition for VID_PLDPERPKT register  ********/
-#define DSI_VID_PLDPERPKT_PLDPERPKT_SHIFT (0)
-#define DSI_VID_PLDPERPKT_PLDPERPKT_MASK (0xFFFF << DSI_VID_PLDPERPKT_PLDPERPKT_SHIFT) /* PLDPERPKT */
+#define DSI_VID_PLDPERPKT_PLDPERPKT_SHIFT       (0)
+#define DSI_VID_PLDPERPKT_PLDPERPKT_MASK        (0xFFFF <<                          \
+                                                 DSI_VID_PLDPERPKT_PLDPERPKT_SHIFT) \
+        /*
+         * PLDPERPKT
+         */
 
 /******** Bit definition for DSI_TXPLD register  ********/
-#define DSI_TXPLD_TXPLD_SHIFT (0)
-#define DSI_TXPLD_TXPLD_MASK (0xFFFFFFFF << DSI_TXPLD_TXPLD_SHIFT) /* TXPLD */
+#define DSI_TXPLD_TXPLD_SHIFT                   (0)
+#define DSI_TXPLD_TXPLD_MASK                    (0xFFFFFFFF << \
+                                                 DSI_TXPLD_TXPLD_SHIFT) /*
+                                                                         * TXPLD
+                                                                         */
 
 /******** Bit definition for DSI_PKTCTRL register  ********/
-#define DSI_PKTCTRL_BTANOPKT (1 << 26) /* BTANOPKT */
-#define DSI_PKTCTRL_BTAIMM (1 << 25) /* BTAIMM */
-#define DSI_PKTCTRL_MOD (1 << 24) /* MOD */
-#define DSI_PKTCTRL_HDTYP_SHIFT (18)
-#define DSI_PKTCTRL_HDTYP_MASK (0x3F << DSI_PKTCTRL_HDTYP_SHIFT) /* HDTYP */
-#define DSI_PKTCTRL_VC_SHIFT (16)
-#define DSI_PKTCTRL_VC_MASK (0x3 << DSI_PKTCTRL_VC_SHIFT) /* VC */
-#define DSI_PKTCTRL_CNT_SHIFT (0)
-#define DSI_PKTCTRL_CNT_MASK (0xFFFF << DSI_PKTCTRL_CNT_SHIFT) /* CNT */
+#define DSI_PKTCTRL_BTANOPKT                    (1 << 26)   /* BTANOPKT */
+#define DSI_PKTCTRL_BTAIMM                      (1 << 25)   /* BTAIMM */
+#define DSI_PKTCTRL_MOD                         (1 << 24)   /* MOD */
+#define DSI_PKTCTRL_HDTYP_SHIFT                 (18)
+#define DSI_PKTCTRL_HDTYP_MASK                  (0x3F << \
+                                                 DSI_PKTCTRL_HDTYP_SHIFT)       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * HDTYP
+                                                                                 */
+#define DSI_PKTCTRL_VC_SHIFT                    (16)
+#define DSI_PKTCTRL_VC_MASK                     (0x3 << DSI_PKTCTRL_VC_SHIFT)   /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * VC
+                                                                                 */
+#define DSI_PKTCTRL_CNT_SHIFT                   (0)
+#define DSI_PKTCTRL_CNT_MASK                    (0xFFFF << \
+                                                 DSI_PKTCTRL_CNT_SHIFT) /* CNT
+                                                                         */
 
 /******** Bit definition for DSI_SENDPKT register  ********/
-#define DSI_SENDPKT_SENDPKT (1 << 0) /* SENDPKT */
+#define DSI_SENDPKT_SENDPKT                     (1 << 0) /* SENDPKT */
 
 /******** Bit definition for DSI_PKTSTS register  ********/
-#define DSI_PKTSTS_ALLRXPKTD (1 << 8) /* ALLRXPKTD */
-#define DSI_PKTSTS_RXPKTD (1 << 7) /* RXPKTD */
-#define DSI_PKTSTS_RXFUNDER (1 << 6) /* RXFUNDER */
-#define DSI_PKTSTS_RXFOVER (1 << 5) /* RXFOVER */
-#define DSI_PKTSTS_TXFUNDER (1 << 4) /* TXFUNDER */
-#define DSI_PKTSTS_TXFOVER (1 << 3) /* TXFOVER */
-#define DSI_PKTSTS_DPHYDIR (1 << 2) /* DPHYDIR */
-#define DSI_PKTSTS_TXD (1 << 1) /* TXD */
-#define DSI_PKTSTS_NIDLE (1 << 0) /* NIDLE */
+#define DSI_PKTSTS_ALLRXPKTD                    (1 << 8)    /* ALLRXPKTD */
+#define DSI_PKTSTS_RXPKTD                       (1 << 7)    /* RXPKTD */
+#define DSI_PKTSTS_RXFUNDER                     (1 << 6)    /* RXFUNDER */
+#define DSI_PKTSTS_RXFOVER                      (1 << 5)    /* RXFOVER */
+#define DSI_PKTSTS_TXFUNDER                     (1 << 4)    /* TXFUNDER */
+#define DSI_PKTSTS_TXFOVER                      (1 << 3)    /* TXFOVER */
+#define DSI_PKTSTS_DPHYDIR                      (1 << 2)    /* DPHYDIR */
+#define DSI_PKTSTS_TXD                          (1 << 1)    /* TXD */
+#define DSI_PKTSTS_NIDLE                        (1 << 0)    /* NIDLE */
 
 /******** Bit definition for DSI_PKTFWRLVL register  ********/
-#define DSI_PKTFWRLVL_PKTFWRLVL_SHIFT (0)
-#define DSI_PKTFWRLVL_PKTFWRLVL_MASK (0xFFFF << DSI_PKTFWRLVL_PKTFWRLVL_SHIFT) /* PKTFWRLVL */
+#define DSI_PKTFWRLVL_PKTFWRLVL_SHIFT           (0)
+#define DSI_PKTFWRLVL_PKTFWRLVL_MASK            (0xFFFF <<                      \
+                                                 DSI_PKTFWRLVL_PKTFWRLVL_SHIFT) \
+        /*
+         * PKTFWRLVL
+         */
 
 /******** Bit definition for DSI_PKTFRDLVL register  ********/
-#define DSI_PKTFRDLVL_PKTFRDLVL_SHIFT (0)
-#define DSI_PKTFRDLVL_PKTFRDLVL_MASK (0xFFFF << DSI_PKTFRDLVL_PKTFRDLVL_SHIFT) /* PKTFRDLVL */
+#define DSI_PKTFRDLVL_PKTFRDLVL_SHIFT           (0)
+#define DSI_PKTFRDLVL_PKTFRDLVL_MASK            (0xFFFF <<                      \
+                                                 DSI_PKTFRDLVL_PKTFRDLVL_SHIFT) \
+        /*
+         * PKTFRDLVL
+         */
 
 /******** Bit definition for DSI_PKTRXPLD register  ********/
-#define DSI_PKTRXPLD_PKTRXPLD_SHIFT (0)
-#define DSI_PKTRXPLD_PKTRXPLD_MASK (0xFFFFFFFF << DSI_PKTRXPLD_PKTRXPLD_SHIFT) /* PKTRXPLD */
+#define DSI_PKTRXPLD_PKTRXPLD_SHIFT             (0)
+#define DSI_PKTRXPLD_PKTRXPLD_MASK              (0xFFFFFFFF << \
+                                                 DSI_PKTRXPLD_PKTRXPLD_SHIFT)  /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PKTRXPLD
+                                                                                */
 
 /******** Bit definition for DSI_PKTRXHDR register  ********/
-#define DSI_PKTRXHDR_VCN_SHIFT (22)
-#define DSI_PKTRXHDR_VCN_MASK (0x3 << DSI_PKTRXHDR_VCN_SHIFT) /* VCN */
-#define DSI_PKTRXHDR_DATATYP_SHIFT (16)
-#define DSI_PKTRXHDR_DATATYP_MASK (0x3F << DSI_PKTRXHDR_DATATYP_SHIFT) /* DATATYP */
-#define DSI_PKTRXHDR_CNT_SHIFT (0)
-#define DSI_PKTRXHDR_CNT_MASK (0xFFFF << DSI_PKTRXHDR_CNT_SHIFT) /* CNT */
+#define DSI_PKTRXHDR_VCN_SHIFT                  (22)
+#define DSI_PKTRXHDR_VCN_MASK                   (0x3 << \
+                                                 DSI_PKTRXHDR_VCN_SHIFT) /*
+                                                                          * VCN
+                                                                          */
+#define DSI_PKTRXHDR_DATATYP_SHIFT              (16)
+#define DSI_PKTRXHDR_DATATYP_MASK               (0x3F << \
+                                                 DSI_PKTRXHDR_DATATYP_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * DATATYP
+                                                                              */
+#define DSI_PKTRXHDR_CNT_SHIFT                  (0)
+#define DSI_PKTRXHDR_CNT_MASK                   (0xFFFF << \
+                                                 DSI_PKTRXHDR_CNT_SHIFT) /*
+                                                                          * CNT
+                                                                          */
 
 /******** Bit definition for DSI_IFPRIOSEL register  ********/
-#define DSI_IFPRIOSEL_IFPRIOSEL (1 << 0) /* IFPRIOSEL */
+#define DSI_IFPRIOSEL_IFPRIOSEL                 (1 << 0) /* IFPRIOSEL */
 
 /******** Bit definition for DSI_WRPCTRL register  ********/
-#define DSI_WRPCTRL_UNDERRIEN (1 << 13) /* UNDERRIEN */
-#define DSI_WRPCTRL_OVERRIEN (1 << 12) /* OVERRIEN */
-#define DSI_WRPCTRL_SPERRIEN (1 << 11) /* SPERRIEN */
-#define DSI_WRPCTRL_BLKERRIEN (1 << 10) /* BLKERRIEN */
-#define DSI_WRPCTRL_TRIGREQ (1 << 9) /* TRIGREQ */
-#define DSI_WRPCTRL_TRIGSEND_SHIFT (7)
-#define DSI_WRPCTRL_TRIGSEND_MASK (0x3 << DSI_WRPCTRL_TRIGSEND_SHIFT) /* TRIGSEND */
-#define DSI_WRPCTRL_PSKEWCAL (1 << 6) /* PSKEWCAL */
-#define DSI_WRPCTRL_ISKEWCAL (1 << 5) /* ISKEWCAL */
-#define DSI_WRPCTRL_ULPSDLEN_SHIFT (1)
-#define DSI_WRPCTRL_ULPSDLEN_MASK (0xF << DSI_WRPCTRL_ULPSDLEN_SHIFT) /* ULPSDLEN */
-#define DSI_WRPCTRL_ULPSCLEN (1 << 0) /* ULPSCLEN */
+#define DSI_WRPCTRL_UNDERRIEN                   (1 << 13)   /* UNDERRIEN */
+#define DSI_WRPCTRL_OVERRIEN                    (1 << 12)   /* OVERRIEN */
+#define DSI_WRPCTRL_SPERRIEN                    (1 << 11)   /* SPERRIEN */
+#define DSI_WRPCTRL_BLKERRIEN                   (1 << 10)   /* BLKERRIEN */
+#define DSI_WRPCTRL_TRIGREQ                     (1 << 9)    /* TRIGREQ */
+#define DSI_WRPCTRL_TRIGSEND_SHIFT              (7)
+#define DSI_WRPCTRL_TRIGSEND_MASK               (0x3 << \
+                                                 DSI_WRPCTRL_TRIGSEND_SHIFT)    /*
+                                                                                 *
+                                                                                 *
+                                                                                 * TRIGSEND
+                                                                                 */
+#define DSI_WRPCTRL_PSKEWCAL                    (1 << 6)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 * PSKEWCAL
+                                                                                 */
+#define DSI_WRPCTRL_ISKEWCAL                    (1 << 5)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ISKEWCAL
+                                                                                 */
+#define DSI_WRPCTRL_ULPSDLEN_SHIFT              (1)
+#define DSI_WRPCTRL_ULPSDLEN_MASK               (0xF << \
+                                                 DSI_WRPCTRL_ULPSDLEN_SHIFT)    /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ULPSDLEN
+                                                                                 */
+#define DSI_WRPCTRL_ULPSCLEN                    (1 << 0)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ULPSCLEN
+                                                                                 */
 
 /******** Bit definition for DSI_WRPSTS register  ********/
-#define DSI_WRPSTS_UNDERRF (1 << 11) /* UNDERRF */
-#define DSI_WRPSTS_OVERRF (1 << 10) /* OVERRF */
-#define DSI_WRPSTS_SPERRF (1 << 9) /* SPERRF */
-#define DSI_WRPSTS_BLKERRF (1 << 8) /* BLKERRF */
-#define DSI_WRPSTS_TRIGACK (1 << 7) /* TRIGACK */
-#define DSI_WRPSTS_PSKEWCALDN (1 << 6) /* PSKEWCALDN */
-#define DSI_WRPSTS_ISKEWCALDN (1 << 5) /* ISKEWCALDN */
-#define DSI_WRPSTS_ULPSDLACT_SHIFT (1)
-#define DSI_WRPSTS_ULPSDLACT_MASK (0xF << DSI_WRPSTS_ULPSDLACT_SHIFT) /* ULPSDLACT */
-#define DSI_WRPSTS_ULPSCLACT (1 << 0) /* ULPSCLACT */
+#define DSI_WRPSTS_UNDERRF                      (1 << 11)   /* UNDERRF */
+#define DSI_WRPSTS_OVERRF                       (1 << 10)   /* OVERRF */
+#define DSI_WRPSTS_SPERRF                       (1 << 9)    /* SPERRF */
+#define DSI_WRPSTS_BLKERRF                      (1 << 8)    /* BLKERRF */
+#define DSI_WRPSTS_TRIGACK                      (1 << 7)    /* TRIGACK */
+#define DSI_WRPSTS_PSKEWCALDN                   (1 << 6)    /* PSKEWCALDN */
+#define DSI_WRPSTS_ISKEWCALDN                   (1 << 5)    /* ISKEWCALDN */
+#define DSI_WRPSTS_ULPSDLACT_SHIFT              (1)
+#define DSI_WRPSTS_ULPSDLACT_MASK               (0xF << \
+                                                 DSI_WRPSTS_ULPSDLACT_SHIFT)    /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ULPSDLACT
+                                                                                 */
+#define DSI_WRPSTS_ULPSCLACT                    (1 << 0)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 * ULPSCLACT
+                                                                                 */
 
 /******** Bit definition for DSIPHY_CTRL1 register  ********/
-#define DSI_DSIPHY_CTRL1_EXTDCYCEL_SHIFT (29)
-#define DSI_DSIPHY_CTRL1_EXTDCYCEL_MASK (0x7 << DSI_DSIPHY_CTRL1_EXTDCYCEL_SHIFT) /* EXTDCYCEL */
-#define DSI_DSIPHY_CTRL1_REFCKSEL_SHIFT (26)
-#define DSI_DSIPHY_CTRL1_REFCKSEL_MASK (0x7 << DSI_DSIPHY_CTRL1_REFCKSEL_SHIFT) /* REFCKSEL */
-#define DSI_DSIPHY_CTRL1_DPDNSEN_SHIFT (21)
-#define DSI_DSIPHY_CTRL1_DPDNSEN_MASK (0x1F << DSI_DSIPHY_CTRL1_DPDNSEN_SHIFT) /* DPDNSEN */
-#define DSI_DSIPHY_CTRL1_L0SEL_SHIFT (18)
-#define DSI_DSIPHY_CTRL1_L0SEL_MASK (0x7 << DSI_DSIPHY_CTRL1_L0SEL_SHIFT) /* L0SEL */
-#define DSI_DSIPHY_CTRL1_L1SEL_SHIFT (15)
-#define DSI_DSIPHY_CTRL1_L1SEL_MASK (0x7 << DSI_DSIPHY_CTRL1_L1SEL_SHIFT) /* L1SEL */
-#define DSI_DSIPHY_CTRL1_L2SEL_SHIFT (12)
-#define DSI_DSIPHY_CTRL1_L2SEL_MASK (0x7 << DSI_DSIPHY_CTRL1_L2SEL_SHIFT) /* L2SEL */
-#define DSI_DSIPHY_CTRL1_L3SEL_SHIFT (9)
-#define DSI_DSIPHY_CTRL1_L3SEL_MASK (0x7 << DSI_DSIPHY_CTRL1_L3SEL_SHIFT) /* L3SEL */
-#define DSI_DSIPHY_CTRL1_L4SEL_SHIFT (6)
-#define DSI_DSIPHY_CTRL1_L4SEL_MASK (0x7 << DSI_DSIPHY_CTRL1_L4SEL_SHIFT) /* L4SEL */
-#define DSI_DSIPHY_CTRL1_CKLANESET_SHIFT (1)
-#define DSI_DSIPHY_CTRL1_CKLANESET_MASK (0x1F << DSI_DSIPHY_CTRL1_CKLANESET_SHIFT) /* CKLANESET */
-#define DSI_DSIPHY_CTRL1_HSDBW (1 << 0) /* HSDBW */
+#define DSI_DSIPHY_CTRL1_EXTDCYCEL_SHIFT        (29)
+#define DSI_DSIPHY_CTRL1_EXTDCYCEL_MASK         (0x7 <<                            \
+                                                 DSI_DSIPHY_CTRL1_EXTDCYCEL_SHIFT) \
+        /*
+         * EXTDCYCEL
+         */
+#define DSI_DSIPHY_CTRL1_REFCKSEL_SHIFT         (26)
+#define DSI_DSIPHY_CTRL1_REFCKSEL_MASK          (0x7 <<                           \
+                                                 DSI_DSIPHY_CTRL1_REFCKSEL_SHIFT) \
+        /*
+         * REFCKSEL
+         */
+#define DSI_DSIPHY_CTRL1_DPDNSEN_SHIFT          (21)
+#define DSI_DSIPHY_CTRL1_DPDNSEN_MASK           (0x1F <<                         \
+                                                 DSI_DSIPHY_CTRL1_DPDNSEN_SHIFT) \
+        /*
+         * DPDNSEN
+         */
+#define DSI_DSIPHY_CTRL1_L0SEL_SHIFT            (18)
+#define DSI_DSIPHY_CTRL1_L0SEL_MASK             (0x7 << \
+                                                 DSI_DSIPHY_CTRL1_L0SEL_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * L0SEL
+                                                                                */
+#define DSI_DSIPHY_CTRL1_L1SEL_SHIFT            (15)
+#define DSI_DSIPHY_CTRL1_L1SEL_MASK             (0x7 << \
+                                                 DSI_DSIPHY_CTRL1_L1SEL_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * L1SEL
+                                                                                */
+#define DSI_DSIPHY_CTRL1_L2SEL_SHIFT            (12)
+#define DSI_DSIPHY_CTRL1_L2SEL_MASK             (0x7 << \
+                                                 DSI_DSIPHY_CTRL1_L2SEL_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * L2SEL
+                                                                                */
+#define DSI_DSIPHY_CTRL1_L3SEL_SHIFT            (9)
+#define DSI_DSIPHY_CTRL1_L3SEL_MASK             (0x7 << \
+                                                 DSI_DSIPHY_CTRL1_L3SEL_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * L3SEL
+                                                                                */
+#define DSI_DSIPHY_CTRL1_L4SEL_SHIFT            (6)
+#define DSI_DSIPHY_CTRL1_L4SEL_MASK             (0x7 << \
+                                                 DSI_DSIPHY_CTRL1_L4SEL_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * L4SEL
+                                                                                */
+#define DSI_DSIPHY_CTRL1_CKLANESET_SHIFT        (1)
+#define DSI_DSIPHY_CTRL1_CKLANESET_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_CTRL1_CKLANESET_SHIFT) \
+        /* CKLANESET */
+#define DSI_DSIPHY_CTRL1_HSDBW                  (1 << 0)    /* HSDBW */
 
 /******** Bit definition for DSIPHY_CTRL2 register  ********/
-#define DSI_DSIPHY_CTRL2_CLPRET_SHIFT (24)
-#define DSI_DSIPHY_CTRL2_CLPRET_MASK (0xFF << DSI_DSIPHY_CTRL2_CLPRET_SHIFT) /* CLPRET */
-#define DSI_DSIPHY_CTRL2_DLTRAT_SHIFT (16)
-#define DSI_DSIPHY_CTRL2_DLTRAT_MASK (0xFF << DSI_DSIPHY_CTRL2_DLTRAT_SHIFT) /* DLTRAT */
-#define DSI_DSIPHY_CTRL2_DLZEROT_SHIFT (8)
-#define DSI_DSIPHY_CTRL2_DLZEROT_MASK (0xFF << DSI_DSIPHY_CTRL2_DLZEROT_SHIFT) /* DLZEROT */
-#define DSI_DSIPHY_CTRL2_DLPRET_SHIFT (0)
-#define DSI_DSIPHY_CTRL2_DLPRET_MASK (0xFF << DSI_DSIPHY_CTRL2_DLPRET_SHIFT) /* DLPRET */
+#define DSI_DSIPHY_CTRL2_CLPRET_SHIFT           (24)
+#define DSI_DSIPHY_CTRL2_CLPRET_MASK            (0xFF <<                        \
+                                                 DSI_DSIPHY_CTRL2_CLPRET_SHIFT) \
+        /*
+         * CLPRET
+         */
+#define DSI_DSIPHY_CTRL2_DLTRAT_SHIFT           (16)
+#define DSI_DSIPHY_CTRL2_DLTRAT_MASK            (0xFF <<                        \
+                                                 DSI_DSIPHY_CTRL2_DLTRAT_SHIFT) \
+        /*
+         * DLTRAT
+         */
+#define DSI_DSIPHY_CTRL2_DLZEROT_SHIFT          (8)
+#define DSI_DSIPHY_CTRL2_DLZEROT_MASK           (0xFF <<                         \
+                                                 DSI_DSIPHY_CTRL2_DLZEROT_SHIFT) \
+        /*
+         * DLZEROT
+         */
+#define DSI_DSIPHY_CTRL2_DLPRET_SHIFT           (0)
+#define DSI_DSIPHY_CTRL2_DLPRET_MASK            (0xFF <<                        \
+                                                 DSI_DSIPHY_CTRL2_DLPRET_SHIFT) \
+        /*
+         * DLPRET
+         */
 
 /******** Bit definition for DSIPHY_CTRL3 register  ********/
-#define DSI_DSIPHY_CTRL3_CLCLKPOST_SHIFT (24)
-#define DSI_DSIPHY_CTRL3_CLCLKPOST_MASK (0xFF << DSI_DSIPHY_CTRL3_CLCLKPOST_SHIFT) /* CLCLKPOST */
-#define DSI_DSIPHY_CTRL3_CLCLKPRET_SHIFT (16)
-#define DSI_DSIPHY_CTRL3_CLCLKPRET_MASK (0xFF << DSI_DSIPHY_CTRL3_CLCLKPRET_SHIFT) /* CLCLKPRET */
-#define DSI_DSIPHY_CTRL3_CLTRLT_SHIFT (8)
-#define DSI_DSIPHY_CTRL3_CLTRLT_MASK (0xFF << DSI_DSIPHY_CTRL3_CLTRLT_SHIFT) /* CLTRLT */
-#define DSI_DSIPHY_CTRL3_CLZEROT_SHIFT (0)
-#define DSI_DSIPHY_CTRL3_CLZEROT_MASK (0xFF << DSI_DSIPHY_CTRL3_CLZEROT_SHIFT) /* CLZEROT */
+#define DSI_DSIPHY_CTRL3_CLCLKPOST_SHIFT        (24)
+#define DSI_DSIPHY_CTRL3_CLCLKPOST_MASK         (0xFF <<                           \
+                                                 DSI_DSIPHY_CTRL3_CLCLKPOST_SHIFT) \
+        /*
+         * CLCLKPOST
+         */
+#define DSI_DSIPHY_CTRL3_CLCLKPRET_SHIFT        (16)
+#define DSI_DSIPHY_CTRL3_CLCLKPRET_MASK         (0xFF <<                           \
+                                                 DSI_DSIPHY_CTRL3_CLCLKPRET_SHIFT) \
+        /*
+         * CLCLKPRET
+         */
+#define DSI_DSIPHY_CTRL3_CLTRLT_SHIFT           (8)
+#define DSI_DSIPHY_CTRL3_CLTRLT_MASK            (0xFF <<                        \
+                                                 DSI_DSIPHY_CTRL3_CLTRLT_SHIFT) \
+        /*
+         * CLTRLT
+         */
+#define DSI_DSIPHY_CTRL3_CLZEROT_SHIFT          (0)
+#define DSI_DSIPHY_CTRL3_CLZEROT_MASK           (0xFF <<                         \
+                                                 DSI_DSIPHY_CTRL3_CLZEROT_SHIFT) \
+        /*
+         * CLZEROT
+         */
 
 /******** Bit definition for DSIPHY_CTRL4 register  ********/
-#define DSI_DSIPHY_CTRL4_VCTRL_SHIFT (0)
-#define DSI_DSIPHY_CTRL4_VCTRL_MASK (0x1F << DSI_DSIPHY_CTRL4_VCTRL_SHIFT) /* VCTRL */
+#define DSI_DSIPHY_CTRL4_VCTRL_SHIFT            (0)
+#define DSI_DSIPHY_CTRL4_VCTRL_MASK             (0x1F << \
+                                                 DSI_DSIPHY_CTRL4_VCTRL_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * VCTRL
+                                                                                */
 
 /******** Bit definition for DSIPHY_PLLCTRL1 register  ********/
-#define DSI_DSIPHY_PLLCTRL1_PLLFBKFRA_SHIFT (0)
-#define DSI_DSIPHY_PLLCTRL1_PLLFBKFRA_MASK (0xFFFFFF << DSI_DSIPHY_PLLCTRL1_PLLFBKFRA_SHIFT) /* PLLFBKFRA */
+#define DSI_DSIPHY_PLLCTRL1_PLLFBKFRA_SHIFT     (0)
+#define DSI_DSIPHY_PLLCTRL1_PLLFBKFRA_MASK      (0xFFFFFF <<                          \
+                                                 DSI_DSIPHY_PLLCTRL1_PLLFBKFRA_SHIFT) \
+        /*
+         * PLLFBKFRA
+         */
 
 /******** Bit definition for DSIPHY_PLLCTRL2 register  ********/
-#define DSI_DSIPHY_PLLCTRL2_SSCAMPOP_SHIFT (12)
-#define DSI_DSIPHY_PLLCTRL2_SSCAMPOP_MASK (0x3FFFF << DSI_DSIPHY_PLLCTRL2_SSCAMPOP_SHIFT) /* SSCAMPOP */
-#define DSI_DSIPHY_PLLCTRL2_DOSTBEN (1 << 11) /* DOSTBEN */
-#define DSI_DSIPHY_PLLCTRL2_PREDIV_SHIFT (9)
-#define DSI_DSIPHY_PLLCTRL2_PREDIV_MASK (0x3 << DSI_DSIPHY_PLLCTRL2_PREDIV_SHIFT) /* PREDIV */
-#define DSI_DSIPHY_PLLCTRL2_FBKINT_SHIFT (0)
-#define DSI_DSIPHY_PLLCTRL2_FBKINT_MASK (0x1FF << DSI_DSIPHY_PLLCTRL2_FBKINT_SHIFT) /* FBKINT */
+#define DSI_DSIPHY_PLLCTRL2_SSCAMPOP_SHIFT      (12)
+#define DSI_DSIPHY_PLLCTRL2_SSCAMPOP_MASK       (0x3FFFF <<                          \
+                                                 DSI_DSIPHY_PLLCTRL2_SSCAMPOP_SHIFT) \
+        /* SSCAMPOP */
+#define DSI_DSIPHY_PLLCTRL2_DOSTBEN             (1 << 11)   /* DOSTBEN */
+#define DSI_DSIPHY_PLLCTRL2_PREDIV_SHIFT        (9)
+#define DSI_DSIPHY_PLLCTRL2_PREDIV_MASK         (0x3 <<                            \
+                                                 DSI_DSIPHY_PLLCTRL2_PREDIV_SHIFT) \
+        /*
+         * PREDIV
+         */
+#define DSI_DSIPHY_PLLCTRL2_FBKINT_SHIFT        (0)
+#define DSI_DSIPHY_PLLCTRL2_FBKINT_MASK         (0x1FF <<                          \
+                                                 DSI_DSIPHY_PLLCTRL2_FBKINT_SHIFT) \
+        /*
+         * FBKINT
+         */
 
 /******** Bit definition for DSIPHY_PLLCTRL3 register  ********/
-#define DSI_DSIPHY_PLLCTRL3_PLLLDOST_SHIFT (30)
-#define DSI_DSIPHY_PLLCTRL3_PLLLDOST_MASK (0x3 << DSI_DSIPHY_PLLCTRL3_PLLLDOST_SHIFT) /* PLLLDOST */
-#define DSI_DSIPHY_PLLCTRL3_PLLFBKCHG (1 << 29) /* PLLFBKCHG */
-#define DSI_DSIPHY_PLLCTRL3_SSCEN (1 << 28) /* SSCEN */
-#define DSI_DSIPHY_PLLCTRL3_SSCPRD_SHIFT (18)
-#define DSI_DSIPHY_PLLCTRL3_SSCPRD_MASK (0x3FF << DSI_DSIPHY_PLLCTRL3_SSCPRD_SHIFT) /* SSCPRD */
-#define DSI_DSIPHY_PLLCTRL3_SSCAMPINIT_SHIFT (0)
-#define DSI_DSIPHY_PLLCTRL3_SSCAMPINIT_MASK (0x3FFFF << DSI_DSIPHY_PLLCTRL3_SSCAMPINIT_SHIFT) /* SSCAMPINIT */
+#define DSI_DSIPHY_PLLCTRL3_PLLLDOST_SHIFT      (30)
+#define DSI_DSIPHY_PLLCTRL3_PLLLDOST_MASK       (0x3 <<                              \
+                                                 DSI_DSIPHY_PLLCTRL3_PLLLDOST_SHIFT) \
+        /* PLLLDOST */
+#define DSI_DSIPHY_PLLCTRL3_PLLFBKCHG           (1 << 29)   /* PLLFBKCHG */
+#define DSI_DSIPHY_PLLCTRL3_SSCEN               (1 << 28)   /* SSCEN */
+#define DSI_DSIPHY_PLLCTRL3_SSCPRD_SHIFT        (18)
+#define DSI_DSIPHY_PLLCTRL3_SSCPRD_MASK         (0x3FF <<                          \
+                                                 DSI_DSIPHY_PLLCTRL3_SSCPRD_SHIFT) \
+        /*
+         * SSCPRD
+         */
+#define DSI_DSIPHY_PLLCTRL3_SSCAMPINIT_SHIFT    (0)
+#define DSI_DSIPHY_PLLCTRL3_SSCAMPINIT_MASK     (0x3FFFF <<                            \
+                                                 DSI_DSIPHY_PLLCTRL3_SSCAMPINIT_SHIFT) \
+        /*
+         * SSCAMPINIT
+         */
 
 /******** Bit definition for DSIPHY_PLLCTRL4 register  ********/
-#define DSI_DSIPHY_PLLCTRL4_L0PHTR_SHIFT (25)
-#define DSI_DSIPHY_PLLCTRL4_L0PHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL4_L0PHTR_SHIFT) /* L0PHTR */
-#define DSI_DSIPHY_PLLCTRL4_L0NHTR_SHIFT (20)
-#define DSI_DSIPHY_PLLCTRL4_L0NHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL4_L0NHTR_SHIFT) /* L0NHTR */
-#define DSI_DSIPHY_PLLCTRL4_L1PHTR_SHIFT (15)
-#define DSI_DSIPHY_PLLCTRL4_L1PHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL4_L1PHTR_SHIFT) /* L1PHTR */
-#define DSI_DSIPHY_PLLCTRL4_L1NHTR_SHIFT (10)
-#define DSI_DSIPHY_PLLCTRL4_L1NHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL4_L1NHTR_SHIFT) /* L1NHTR */
-#define DSI_DSIPHY_PLLCTRL4_L2PHTR_SHIFT (5)
-#define DSI_DSIPHY_PLLCTRL4_L2PHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL4_L2PHTR_SHIFT) /* L2PHTR */
-#define DSI_DSIPHY_PLLCTRL4_L2NHTR_SHIFT (0)
-#define DSI_DSIPHY_PLLCTRL4_L2NHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL4_L2NHTR_SHIFT) /* L2NHTR */
+#define DSI_DSIPHY_PLLCTRL4_L0PHTR_SHIFT        (25)
+#define DSI_DSIPHY_PLLCTRL4_L0PHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL4_L0PHTR_SHIFT) \
+        /*
+         * L0PHTR
+         */
+#define DSI_DSIPHY_PLLCTRL4_L0NHTR_SHIFT        (20)
+#define DSI_DSIPHY_PLLCTRL4_L0NHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL4_L0NHTR_SHIFT) \
+        /*
+         * L0NHTR
+         */
+#define DSI_DSIPHY_PLLCTRL4_L1PHTR_SHIFT        (15)
+#define DSI_DSIPHY_PLLCTRL4_L1PHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL4_L1PHTR_SHIFT) \
+        /*
+         * L1PHTR
+         */
+#define DSI_DSIPHY_PLLCTRL4_L1NHTR_SHIFT        (10)
+#define DSI_DSIPHY_PLLCTRL4_L1NHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL4_L1NHTR_SHIFT) \
+        /*
+         * L1NHTR
+         */
+#define DSI_DSIPHY_PLLCTRL4_L2PHTR_SHIFT        (5)
+#define DSI_DSIPHY_PLLCTRL4_L2PHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL4_L2PHTR_SHIFT) \
+        /*
+         * L2PHTR
+         */
+#define DSI_DSIPHY_PLLCTRL4_L2NHTR_SHIFT        (0)
+#define DSI_DSIPHY_PLLCTRL4_L2NHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL4_L2NHTR_SHIFT) \
+        /*
+         * L2NHTR
+         */
 
 /******** Bit definition for DSIPHY_PLLCTRL5 register  ********/
-#define DSI_DSIPHY_PLLCTRL5_PLLFMEN (1 << 23) /* PLLFMEN */
-#define DSI_DSIPHY_PLLCTRL5_PLLWTGEN (1 << 22) /* PLLWTGEN */
-#define DSI_DSIPHY_PLLCTRL5_PLLFMTOR_SHIFT (20)
-#define DSI_DSIPHY_PLLCTRL5_PLLFMTOR_MASK (0x3 << DSI_DSIPHY_PLLCTRL5_PLLFMTOR_SHIFT) /* PLLFMTOR */
-#define DSI_DSIPHY_PLLCTRL5_L3PHTR_SHIFT (15)
-#define DSI_DSIPHY_PLLCTRL5_L3PHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL5_L3PHTR_SHIFT) /* L3PHTR */
-#define DSI_DSIPHY_PLLCTRL5_L3NHTR_SHIFT (10)
-#define DSI_DSIPHY_PLLCTRL5_L3NHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL5_L3NHTR_SHIFT) /* L3NHTR */
-#define DSI_DSIPHY_PLLCTRL5_L4PHTR_SHIFT (5)
-#define DSI_DSIPHY_PLLCTRL5_L4PHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL5_L4PHTR_SHIFT) /* L4PHTR */
-#define DSI_DSIPHY_PLLCTRL5_L4NHTR_SHIFT (0)
-#define DSI_DSIPHY_PLLCTRL5_L4NHTR_MASK (0x1F << DSI_DSIPHY_PLLCTRL5_L4NHTR_SHIFT) /* L4NHTR */
+#define DSI_DSIPHY_PLLCTRL5_PLLFMEN             (1 << 23)   /* PLLFMEN */
+#define DSI_DSIPHY_PLLCTRL5_PLLWTGEN            (1 << 22)   /* PLLWTGEN */
+#define DSI_DSIPHY_PLLCTRL5_PLLFMTOR_SHIFT      (20)
+#define DSI_DSIPHY_PLLCTRL5_PLLFMTOR_MASK       (0x3 <<                              \
+                                                 DSI_DSIPHY_PLLCTRL5_PLLFMTOR_SHIFT) \
+        /*
+         * PLLFMTOR
+         */
+#define DSI_DSIPHY_PLLCTRL5_L3PHTR_SHIFT        (15)
+#define DSI_DSIPHY_PLLCTRL5_L3PHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL5_L3PHTR_SHIFT) \
+        /*
+         * L3PHTR
+         */
+#define DSI_DSIPHY_PLLCTRL5_L3NHTR_SHIFT        (10)
+#define DSI_DSIPHY_PLLCTRL5_L3NHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL5_L3NHTR_SHIFT) \
+        /*
+         * L3NHTR
+         */
+#define DSI_DSIPHY_PLLCTRL5_L4PHTR_SHIFT        (5)
+#define DSI_DSIPHY_PLLCTRL5_L4PHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL5_L4PHTR_SHIFT) \
+        /*
+         * L4PHTR
+         */
+#define DSI_DSIPHY_PLLCTRL5_L4NHTR_SHIFT        (0)
+#define DSI_DSIPHY_PLLCTRL5_L4NHTR_MASK         (0x1F <<                           \
+                                                 DSI_DSIPHY_PLLCTRL5_L4NHTR_SHIFT) \
+        /*
+         * L4NHTR
+         */
 
 /******** Bit definition for DSIPHY_PLLSTS register  ********/
-#define DSI_DSIPHY_PLLSTS_PHYREADY (1 << 7) /* PHYREADY */
-#define DSI_DSIPHY_PLLSTS_PLLREFCKMISS (1 << 6) /* PLLREFCKMISS */
-#define DSI_DSIPHY_PLLSTS_PLLFBKCKMISS (1 << 5) /* PLLFBKCKMISS */
-#define DSI_DSIPHY_PLLSTS_PLLDIGCKMISS (1 << 4) /* PLLDIGCKMISS */
-#define DSI_DSIPHY_PLLSTS_PLLFMOVER (1 << 3) /* PLLFMOVER */
-#define DSI_DSIPHY_PLLSTS_PLLFMUNDER (1 << 2) /* PLLFMUNDER */
-#define DSI_DSIPHY_PLLSTS_PLLFMCPLT (1 << 1) /* PLLFMCPLT */
-#define DSI_DSIPHY_PLLSTS_PLLUNLOCK (1 << 0) /* PLLUNLOCK */
+#define DSI_DSIPHY_PLLSTS_PHYREADY              (1 << 7)    /* PHYREADY */
+#define DSI_DSIPHY_PLLSTS_PLLREFCKMISS          (1 << 6)    /* PLLREFCKMISS */
+#define DSI_DSIPHY_PLLSTS_PLLFBKCKMISS          (1 << 5)    /* PLLFBKCKMISS */
+#define DSI_DSIPHY_PLLSTS_PLLDIGCKMISS          (1 << 4)    /* PLLDIGCKMISS */
+#define DSI_DSIPHY_PLLSTS_PLLFMOVER             (1 << 3)    /* PLLFMOVER */
+#define DSI_DSIPHY_PLLSTS_PLLFMUNDER            (1 << 2)    /* PLLFMUNDER */
+#define DSI_DSIPHY_PLLSTS_PLLFMCPLT             (1 << 1)    /* PLLFMCPLT */
+#define DSI_DSIPHY_PLLSTS_PLLUNLOCK             (1 << 0)    /* PLLUNLOCK */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_DSI_H */

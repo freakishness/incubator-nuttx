@@ -48,12 +48,12 @@
  * arch/stm32h7/chip.h header file.
  */
 
-#define ARMV7M_PERIPHERAL_INTERRUPTS STM32_IRQ_NEXTINTS
+#define ARMV7M_PERIPHERAL_INTERRUPTS    STM32_IRQ_NEXTINTS
 
 /* Cache line sizes (in bytes)for the STM32H7 */
 
-#define ARMV7M_DCACHE_LINESIZE 32  /* 32 bytes (8 words) */
-#define ARMV7M_ICACHE_LINESIZE 32  /* 32 bytes (8 words) */
+#define ARMV7M_DCACHE_LINESIZE          32  /* 32 bytes (8 words) */
+#define ARMV7M_ICACHE_LINESIZE          32  /* 32 bytes (8 words) */
 
 /****************************************************************************
  * Public Types

@@ -33,810 +33,1501 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_AFIO_RMP_CFG_OFFSET 0x0 /* Mapping configurations */
-#define N32_AFIO_FILTER_CFG_OFFSET 0x4 /* IOM_FILT */
-#define N32_AFIO_XSPI1_NON0_OFFSET 0x8 /* Xspi_dec_nonce */
-#define N32_AFIO_XSPI1_NON1_OFFSET 0xC /* Xspi_dec_nonce */
-#define N32_AFIO_XSPI1_NON2_OFFSET 0x10 /* Xspi_dec_nonce */
-#define N32_AFIO_ADCRMP_CFG_OFFSET 0x14 /* ADC_ETRG */
-#define N32_AFIO_EXTI_CFG0_OFFSET 0x18 /* EXTI line configuration (0-3) */
-#define N32_AFIO_EXTI_CFG1_OFFSET 0x1C /* EXTI line configuration (4-7) */
-#define N32_AFIO_EXTI_CFG2_OFFSET 0x20 /* EXTI line configuration (8-11) */
-#define N32_AFIO_EXTI_CFG3_OFFSET 0x24 /* EXTI line configuration (12-15) */
-#define N32_AFIO_ANAEN_CFG0_OFFSET 0x28 /* GPIOA Analog Signal Channel Config */
-#define N32_AFIO_ANAEN_CFG1_OFFSET 0x2C /* GPIOB Analog Signal Channel Config */
-#define N32_AFIO_ANAEN_CFG2_OFFSET 0x30 /* GPIOC Analog Signal Channel Config */
-#define N32_AFIO_SHRT1_FALT_CFG_OFFSET 0x34 /* SHRTIM1_FLT */
-#define N32_AFIO_SHRT2_FALT_CFG_OFFSET 0x38 /* SHRTIM2_FLT */
-#define N32_AFIO_ANAEN_CFG3_OFFSET 0x3C /* GPIOF Analog Signal Channel Config */
-#define N32_AFIO_ANAEN_CFG4_OFFSET 0x44 /* GPIOH Analog Signal Channel Config */
-#define N32_AFIO_ANAEN_CFG5_OFFSET 0x48 /* GPIOI Analog Signal Channel Config */
-#define N32_AFIO_ANAEN_CFG6_OFFSET 0x4C /* GPIOJ Analog Signal Channel Config */
-#define N32_AFIO_EFT_CFG0_OFFSET 0x54 /* AB_EFTIE */
-#define N32_AFIO_EFT_CFG1_OFFSET 0x58 /* CD_EFTIE */
-#define N32_AFIO_EFT_CFG2_OFFSET 0x5C /* EF_EFTIE */
-#define N32_AFIO_EFT_CFG3_OFFSET 0x60 /* GH_EFTIE */
-#define N32_AFIO_EFT_CFG4_OFFSET 0x64 /* IJ_EFTIE */
-#define N32_AFIO_EFT_CFG5_OFFSET 0x68 /* K_EFTIE */
-#define N32_AFIO_DIGEFT_CFG0_OFFSET 0x6C /* AB_ DigitalEFTIE */
-#define N32_AFIO_DIGEFT_CFG1_OFFSET 0x70 /* CD_ DigitalEFTIE */
-#define N32_AFIO_DIGEFT_CFG2_OFFSET 0x74 /* EF_ DigitalEFTIE */
-#define N32_AFIO_DIGEFT_CFG3_OFFSET 0x78 /* GH_ DigitalEFTIE */
-#define N32_AFIO_DIGEFT_CFG4_OFFSET 0x7C /* IJ_ DigitalEFTIE */
-#define N32_AFIO_DIGEFT_CFG5_OFFSET 0x80 /* K_ DigitalEFTIE */
-#define N32_AFIO_SHRT1_EXEV_CFG0_OFFSET 0x84 /* SHRT_EXEV1 */
-#define N32_AFIO_SHRT1_EXEV_CFG1_OFFSET 0x88 /* SHRT_EXEV2 */
-#define N32_AFIO_SHRT2_EXEV_CFG0_OFFSET 0x8C /* SHRT_EXEV3 */
-#define N32_AFIO_SHRT2_EXEV_CFG1_OFFSET 0x90 /* SHRT_EXEV4 */
-#define N32_AFIO_SIP_PUPD_OFFSET 0x94 /* SIP_PULL_UP_DOWN */
-#define N32_AFIO_HSMOD_CFG0_OFFSET 0x98 /* AB_HSMODE */
-#define N32_AFIO_HSMOD_CFG1_OFFSET 0x9C /* CD_HSMODE */
-#define N32_AFIO_HSMOD_CFG2_OFFSET 0xA0 /* EF_HSMODE */
-#define N32_AFIO_HSMOD_CFG3_OFFSET 0xA4 /* GH_HSMODE */
-#define N32_AFIO_HSMOD_CFG4_OFFSET 0xA8 /* I_HSMODE */
-#define N32_AFIO_SIP_SR_OFFSET 0xB0 /* SIPSR */
-#define N32_AFIO_SIP_DS_OFFSET 0xB4 /* SIPDS */
-#define N32_AFIO_ADCSW_CFG_OFFSET 0xD0 /* ADCSW */
-#define N32_AFIO_HSMOD_VREF_EN0_OFFSET 0xD8 /* IO Port High Speed Mode VREF Enable0 */
-#define N32_AFIO_HSMOD_VREF_EN1_OFFSET 0xDC /* IO Port High Speed Mode VREF Enable1 */
-#define N32_AFIO_HSMOD_VREF_EN2_OFFSET 0xE0 /* IO Port High Speed Mode VREF Enable2 */
-#define N32_AFIO_HS_DSN_CFG0_OFFSET 0xE4 /* High Speed IO Port DSN CFG0 */
-#define N32_AFIO_HS_DSN_CFG1_OFFSET 0xE8 /* High Speed IO Port DSN CFG1 */
-#define N32_AFIO_HS_DSN_CFG2_OFFSET 0xEC /* High Speed IO Port DSN CFG2 */
-#define N32_AFIO_HS_DSP_CFG0_OFFSET 0xF0 /* High Speed IO Port DSP CFG0 */
-#define N32_AFIO_HS_DSP_CFG1_OFFSET 0xF4 /* High Speed IO Port DSP CFG1 */
-#define N32_AFIO_HS_DSP_CFG2_OFFSET 0xF8 /* High Speed IO Port DSP CFG2 */
+#define N32_AFIO_RMP_CFG_OFFSET                 0x0     /* Mapping
+                                                         * configurations */
+#define N32_AFIO_FILTER_CFG_OFFSET              0x4     /* IOM_FILT */
+#define N32_AFIO_XSPI1_NON0_OFFSET              0x8     /* Xspi_dec_nonce */
+#define N32_AFIO_XSPI1_NON1_OFFSET              0xC     /* Xspi_dec_nonce */
+#define N32_AFIO_XSPI1_NON2_OFFSET              0x10    /* Xspi_dec_nonce */
+#define N32_AFIO_ADCRMP_CFG_OFFSET              0x14    /* ADC_ETRG */
+#define N32_AFIO_EXTI_CFG0_OFFSET               0x18    /* EXTI line
+                                                         * configuration (0-3)
+                                                         */
+#define N32_AFIO_EXTI_CFG1_OFFSET               0x1C    /* EXTI line
+                                                         * configuration (4-7)
+                                                         */
+#define N32_AFIO_EXTI_CFG2_OFFSET               0x20    /* EXTI line
+                                                         * configuration
+                                                         * (8-11) */
+#define N32_AFIO_EXTI_CFG3_OFFSET               0x24    /* EXTI line
+                                                         * configuration
+                                                         * (12-15) */
+#define N32_AFIO_ANAEN_CFG0_OFFSET              0x28    /* GPIOA Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_ANAEN_CFG1_OFFSET              0x2C    /* GPIOB Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_ANAEN_CFG2_OFFSET              0x30    /* GPIOC Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_SHRT1_FALT_CFG_OFFSET          0x34    /* SHRTIM1_FLT */
+#define N32_AFIO_SHRT2_FALT_CFG_OFFSET          0x38    /* SHRTIM2_FLT */
+#define N32_AFIO_ANAEN_CFG3_OFFSET              0x3C    /* GPIOF Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_ANAEN_CFG4_OFFSET              0x44    /* GPIOH Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_ANAEN_CFG5_OFFSET              0x48    /* GPIOI Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_ANAEN_CFG6_OFFSET              0x4C    /* GPIOJ Analog Signal
+                                                         * Channel Config */
+#define N32_AFIO_EFT_CFG0_OFFSET                0x54    /* AB_EFTIE */
+#define N32_AFIO_EFT_CFG1_OFFSET                0x58    /* CD_EFTIE */
+#define N32_AFIO_EFT_CFG2_OFFSET                0x5C    /* EF_EFTIE */
+#define N32_AFIO_EFT_CFG3_OFFSET                0x60    /* GH_EFTIE */
+#define N32_AFIO_EFT_CFG4_OFFSET                0x64    /* IJ_EFTIE */
+#define N32_AFIO_EFT_CFG5_OFFSET                0x68    /* K_EFTIE */
+#define N32_AFIO_DIGEFT_CFG0_OFFSET             0x6C    /* AB_ DigitalEFTIE */
+#define N32_AFIO_DIGEFT_CFG1_OFFSET             0x70    /* CD_ DigitalEFTIE */
+#define N32_AFIO_DIGEFT_CFG2_OFFSET             0x74    /* EF_ DigitalEFTIE */
+#define N32_AFIO_DIGEFT_CFG3_OFFSET             0x78    /* GH_ DigitalEFTIE */
+#define N32_AFIO_DIGEFT_CFG4_OFFSET             0x7C    /* IJ_ DigitalEFTIE */
+#define N32_AFIO_DIGEFT_CFG5_OFFSET             0x80    /* K_ DigitalEFTIE */
+#define N32_AFIO_SHRT1_EXEV_CFG0_OFFSET         0x84    /* SHRT_EXEV1 */
+#define N32_AFIO_SHRT1_EXEV_CFG1_OFFSET         0x88    /* SHRT_EXEV2 */
+#define N32_AFIO_SHRT2_EXEV_CFG0_OFFSET         0x8C    /* SHRT_EXEV3 */
+#define N32_AFIO_SHRT2_EXEV_CFG1_OFFSET         0x90    /* SHRT_EXEV4 */
+#define N32_AFIO_SIP_PUPD_OFFSET                0x94    /* SIP_PULL_UP_DOWN */
+#define N32_AFIO_HSMOD_CFG0_OFFSET              0x98    /* AB_HSMODE */
+#define N32_AFIO_HSMOD_CFG1_OFFSET              0x9C    /* CD_HSMODE */
+#define N32_AFIO_HSMOD_CFG2_OFFSET              0xA0    /* EF_HSMODE */
+#define N32_AFIO_HSMOD_CFG3_OFFSET              0xA4    /* GH_HSMODE */
+#define N32_AFIO_HSMOD_CFG4_OFFSET              0xA8    /* I_HSMODE */
+#define N32_AFIO_SIP_SR_OFFSET                  0xB0    /* SIPSR */
+#define N32_AFIO_SIP_DS_OFFSET                  0xB4    /* SIPDS */
+#define N32_AFIO_ADCSW_CFG_OFFSET               0xD0    /* ADCSW */
+#define N32_AFIO_HSMOD_VREF_EN0_OFFSET          0xD8    /* IO Port High Speed
+                                                         * Mode VREF Enable0
+                                                         */
+#define N32_AFIO_HSMOD_VREF_EN1_OFFSET          0xDC    /* IO Port High Speed
+                                                         * Mode VREF Enable1
+                                                         */
+#define N32_AFIO_HSMOD_VREF_EN2_OFFSET          0xE0    /* IO Port High Speed
+                                                         * Mode VREF Enable2
+                                                         */
+#define N32_AFIO_HS_DSN_CFG0_OFFSET             0xE4    /* High Speed IO Port
+                                                         * DSN CFG0 */
+#define N32_AFIO_HS_DSN_CFG1_OFFSET             0xE8    /* High Speed IO Port
+                                                         * DSN CFG1 */
+#define N32_AFIO_HS_DSN_CFG2_OFFSET             0xEC    /* High Speed IO Port
+                                                         * DSN CFG2 */
+#define N32_AFIO_HS_DSP_CFG0_OFFSET             0xF0    /* High Speed IO Port
+                                                         * DSP CFG0 */
+#define N32_AFIO_HS_DSP_CFG1_OFFSET             0xF4    /* High Speed IO Port
+                                                         * DSP CFG1 */
+#define N32_AFIO_HS_DSP_CFG2_OFFSET             0xF8    /* High Speed IO Port
+                                                         * DSP CFG2 */
 
-#define N32_AFIO_RMP_CFG (N32_AFIO_BASE + N32_AFIO_RMP_CFG_OFFSET)
-#define N32_AFIO_FILTER_CFG (N32_AFIO_BASE + N32_AFIO_FILTER_CFG_OFFSET)
-#define N32_AFIO_XSPI1_NON0 (N32_AFIO_BASE + N32_AFIO_XSPI1_NON0_OFFSET)
-#define N32_AFIO_XSPI1_NON1 (N32_AFIO_BASE + N32_AFIO_XSPI1_NON1_OFFSET)
-#define N32_AFIO_XSPI1_NON2 (N32_AFIO_BASE + N32_AFIO_XSPI1_NON2_OFFSET)
-#define N32_AFIO_ADCRMP_CFG (N32_AFIO_BASE + N32_AFIO_ADCRMP_CFG_OFFSET)
-#define N32_AFIO_EXTI_CFG0 (N32_AFIO_BASE + N32_AFIO_EXTI_CFG0_OFFSET)
-#define N32_AFIO_EXTI_CFG1 (N32_AFIO_BASE + N32_AFIO_EXTI_CFG1_OFFSET)
-#define N32_AFIO_EXTI_CFG2 (N32_AFIO_BASE + N32_AFIO_EXTI_CFG2_OFFSET)
-#define N32_AFIO_EXTI_CFG3 (N32_AFIO_BASE + N32_AFIO_EXTI_CFG3_OFFSET)
-#define N32_AFIO_ANAEN_CFG0 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG0_OFFSET)
-#define N32_AFIO_ANAEN_CFG1 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG1_OFFSET)
-#define N32_AFIO_ANAEN_CFG2 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG2_OFFSET)
-#define N32_AFIO_SHRT1_FALT_CFG (N32_AFIO_BASE + N32_AFIO_SHRT1_FALT_CFG_OFFSET)
-#define N32_AFIO_SHRT2_FALT_CFG (N32_AFIO_BASE + N32_AFIO_SHRT2_FALT_CFG_OFFSET)
-#define N32_AFIO_ANAEN_CFG3 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG3_OFFSET)
-#define N32_AFIO_ANAEN_CFG4 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG4_OFFSET)
-#define N32_AFIO_ANAEN_CFG5 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG5_OFFSET)
-#define N32_AFIO_ANAEN_CFG6 (N32_AFIO_BASE + N32_AFIO_ANAEN_CFG6_OFFSET)
-#define N32_AFIO_EFT_CFG0 (N32_AFIO_BASE + N32_AFIO_EFT_CFG0_OFFSET)
-#define N32_AFIO_EFT_CFG1 (N32_AFIO_BASE + N32_AFIO_EFT_CFG1_OFFSET)
-#define N32_AFIO_EFT_CFG2 (N32_AFIO_BASE + N32_AFIO_EFT_CFG2_OFFSET)
-#define N32_AFIO_EFT_CFG3 (N32_AFIO_BASE + N32_AFIO_EFT_CFG3_OFFSET)
-#define N32_AFIO_EFT_CFG4 (N32_AFIO_BASE + N32_AFIO_EFT_CFG4_OFFSET)
-#define N32_AFIO_EFT_CFG5 (N32_AFIO_BASE + N32_AFIO_EFT_CFG5_OFFSET)
-#define N32_AFIO_DIGEFT_CFG0 (N32_AFIO_BASE + N32_AFIO_DIGEFT_CFG0_OFFSET)
-#define N32_AFIO_DIGEFT_CFG1 (N32_AFIO_BASE + N32_AFIO_DIGEFT_CFG1_OFFSET)
-#define N32_AFIO_DIGEFT_CFG2 (N32_AFIO_BASE + N32_AFIO_DIGEFT_CFG2_OFFSET)
-#define N32_AFIO_DIGEFT_CFG3 (N32_AFIO_BASE + N32_AFIO_DIGEFT_CFG3_OFFSET)
-#define N32_AFIO_DIGEFT_CFG4 (N32_AFIO_BASE + N32_AFIO_DIGEFT_CFG4_OFFSET)
-#define N32_AFIO_DIGEFT_CFG5 (N32_AFIO_BASE + N32_AFIO_DIGEFT_CFG5_OFFSET)
-#define N32_AFIO_SHRT1_EXEV_CFG0 (N32_AFIO_BASE + N32_AFIO_SHRT1_EXEV_CFG0_OFFSET)
-#define N32_AFIO_SHRT1_EXEV_CFG1 (N32_AFIO_BASE + N32_AFIO_SHRT1_EXEV_CFG1_OFFSET)
-#define N32_AFIO_SHRT2_EXEV_CFG0 (N32_AFIO_BASE + N32_AFIO_SHRT2_EXEV_CFG0_OFFSET)
-#define N32_AFIO_SHRT2_EXEV_CFG1 (N32_AFIO_BASE + N32_AFIO_SHRT2_EXEV_CFG1_OFFSET)
-#define N32_AFIO_SIP_PUPD (N32_AFIO_BASE + N32_AFIO_SIP_PUPD_OFFSET)
-#define N32_AFIO_HSMOD_CFG0 (N32_AFIO_BASE + N32_AFIO_HSMOD_CFG0_OFFSET)
-#define N32_AFIO_HSMOD_CFG1 (N32_AFIO_BASE + N32_AFIO_HSMOD_CFG1_OFFSET)
-#define N32_AFIO_HSMOD_CFG2 (N32_AFIO_BASE + N32_AFIO_HSMOD_CFG2_OFFSET)
-#define N32_AFIO_HSMOD_CFG3 (N32_AFIO_BASE + N32_AFIO_HSMOD_CFG3_OFFSET)
-#define N32_AFIO_HSMOD_CFG4 (N32_AFIO_BASE + N32_AFIO_HSMOD_CFG4_OFFSET)
-#define N32_AFIO_SIP_SR (N32_AFIO_BASE + N32_AFIO_SIP_SR_OFFSET)
-#define N32_AFIO_SIP_DS (N32_AFIO_BASE + N32_AFIO_SIP_DS_OFFSET)
-#define N32_AFIO_ADCSW_CFG (N32_AFIO_BASE + N32_AFIO_ADCSW_CFG_OFFSET)
-#define N32_AFIO_HSMOD_VREF_EN0 (N32_AFIO_BASE + N32_AFIO_HSMOD_VREF_EN0_OFFSET)
-#define N32_AFIO_HSMOD_VREF_EN1 (N32_AFIO_BASE + N32_AFIO_HSMOD_VREF_EN1_OFFSET)
-#define N32_AFIO_HSMOD_VREF_EN2 (N32_AFIO_BASE + N32_AFIO_HSMOD_VREF_EN2_OFFSET)
-#define N32_AFIO_HS_DSN_CFG0 (N32_AFIO_BASE + N32_AFIO_HS_DSN_CFG0_OFFSET)
-#define N32_AFIO_HS_DSN_CFG1 (N32_AFIO_BASE + N32_AFIO_HS_DSN_CFG1_OFFSET)
-#define N32_AFIO_HS_DSN_CFG2 (N32_AFIO_BASE + N32_AFIO_HS_DSN_CFG2_OFFSET)
-#define N32_AFIO_HS_DSP_CFG0 (N32_AFIO_BASE + N32_AFIO_HS_DSP_CFG0_OFFSET)
-#define N32_AFIO_HS_DSP_CFG1 (N32_AFIO_BASE + N32_AFIO_HS_DSP_CFG1_OFFSET)
-#define N32_AFIO_HS_DSP_CFG2 (N32_AFIO_BASE + N32_AFIO_HS_DSP_CFG2_OFFSET)
+#define N32_AFIO_RMP_CFG                        (N32_AFIO_BASE + \
+                                                 N32_AFIO_RMP_CFG_OFFSET)
+#define N32_AFIO_FILTER_CFG                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_FILTER_CFG_OFFSET)
+#define N32_AFIO_XSPI1_NON0                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_XSPI1_NON0_OFFSET)
+#define N32_AFIO_XSPI1_NON1                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_XSPI1_NON1_OFFSET)
+#define N32_AFIO_XSPI1_NON2                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_XSPI1_NON2_OFFSET)
+#define N32_AFIO_ADCRMP_CFG                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ADCRMP_CFG_OFFSET)
+#define N32_AFIO_EXTI_CFG0                      (N32_AFIO_BASE + \
+                                                 N32_AFIO_EXTI_CFG0_OFFSET)
+#define N32_AFIO_EXTI_CFG1                      (N32_AFIO_BASE + \
+                                                 N32_AFIO_EXTI_CFG1_OFFSET)
+#define N32_AFIO_EXTI_CFG2                      (N32_AFIO_BASE + \
+                                                 N32_AFIO_EXTI_CFG2_OFFSET)
+#define N32_AFIO_EXTI_CFG3                      (N32_AFIO_BASE + \
+                                                 N32_AFIO_EXTI_CFG3_OFFSET)
+#define N32_AFIO_ANAEN_CFG0                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG0_OFFSET)
+#define N32_AFIO_ANAEN_CFG1                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG1_OFFSET)
+#define N32_AFIO_ANAEN_CFG2                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG2_OFFSET)
+#define N32_AFIO_SHRT1_FALT_CFG                 (N32_AFIO_BASE + \
+                                                 N32_AFIO_SHRT1_FALT_CFG_OFFSET)
+#define N32_AFIO_SHRT2_FALT_CFG                 (N32_AFIO_BASE + \
+                                                 N32_AFIO_SHRT2_FALT_CFG_OFFSET)
+#define N32_AFIO_ANAEN_CFG3                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG3_OFFSET)
+#define N32_AFIO_ANAEN_CFG4                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG4_OFFSET)
+#define N32_AFIO_ANAEN_CFG5                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG5_OFFSET)
+#define N32_AFIO_ANAEN_CFG6                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_ANAEN_CFG6_OFFSET)
+#define N32_AFIO_EFT_CFG0                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_EFT_CFG0_OFFSET)
+#define N32_AFIO_EFT_CFG1                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_EFT_CFG1_OFFSET)
+#define N32_AFIO_EFT_CFG2                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_EFT_CFG2_OFFSET)
+#define N32_AFIO_EFT_CFG3                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_EFT_CFG3_OFFSET)
+#define N32_AFIO_EFT_CFG4                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_EFT_CFG4_OFFSET)
+#define N32_AFIO_EFT_CFG5                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_EFT_CFG5_OFFSET)
+#define N32_AFIO_DIGEFT_CFG0                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_DIGEFT_CFG0_OFFSET)
+#define N32_AFIO_DIGEFT_CFG1                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_DIGEFT_CFG1_OFFSET)
+#define N32_AFIO_DIGEFT_CFG2                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_DIGEFT_CFG2_OFFSET)
+#define N32_AFIO_DIGEFT_CFG3                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_DIGEFT_CFG3_OFFSET)
+#define N32_AFIO_DIGEFT_CFG4                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_DIGEFT_CFG4_OFFSET)
+#define N32_AFIO_DIGEFT_CFG5                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_DIGEFT_CFG5_OFFSET)
+#define N32_AFIO_SHRT1_EXEV_CFG0                (N32_AFIO_BASE + \
+                                                 N32_AFIO_SHRT1_EXEV_CFG0_OFFSET)
+#define N32_AFIO_SHRT1_EXEV_CFG1                (N32_AFIO_BASE + \
+                                                 N32_AFIO_SHRT1_EXEV_CFG1_OFFSET)
+#define N32_AFIO_SHRT2_EXEV_CFG0                (N32_AFIO_BASE + \
+                                                 N32_AFIO_SHRT2_EXEV_CFG0_OFFSET)
+#define N32_AFIO_SHRT2_EXEV_CFG1                (N32_AFIO_BASE + \
+                                                 N32_AFIO_SHRT2_EXEV_CFG1_OFFSET)
+#define N32_AFIO_SIP_PUPD                       (N32_AFIO_BASE + \
+                                                 N32_AFIO_SIP_PUPD_OFFSET)
+#define N32_AFIO_HSMOD_CFG0                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_CFG0_OFFSET)
+#define N32_AFIO_HSMOD_CFG1                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_CFG1_OFFSET)
+#define N32_AFIO_HSMOD_CFG2                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_CFG2_OFFSET)
+#define N32_AFIO_HSMOD_CFG3                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_CFG3_OFFSET)
+#define N32_AFIO_HSMOD_CFG4                     (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_CFG4_OFFSET)
+#define N32_AFIO_SIP_SR                         (N32_AFIO_BASE + \
+                                                 N32_AFIO_SIP_SR_OFFSET)
+#define N32_AFIO_SIP_DS                         (N32_AFIO_BASE + \
+                                                 N32_AFIO_SIP_DS_OFFSET)
+#define N32_AFIO_ADCSW_CFG                      (N32_AFIO_BASE + \
+                                                 N32_AFIO_ADCSW_CFG_OFFSET)
+#define N32_AFIO_HSMOD_VREF_EN0                 (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_VREF_EN0_OFFSET)
+#define N32_AFIO_HSMOD_VREF_EN1                 (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_VREF_EN1_OFFSET)
+#define N32_AFIO_HSMOD_VREF_EN2                 (N32_AFIO_BASE + \
+                                                 N32_AFIO_HSMOD_VREF_EN2_OFFSET)
+#define N32_AFIO_HS_DSN_CFG0                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_HS_DSN_CFG0_OFFSET)
+#define N32_AFIO_HS_DSN_CFG1                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_HS_DSN_CFG1_OFFSET)
+#define N32_AFIO_HS_DSN_CFG2                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_HS_DSN_CFG2_OFFSET)
+#define N32_AFIO_HS_DSP_CFG0                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_HS_DSP_CFG0_OFFSET)
+#define N32_AFIO_HS_DSP_CFG1                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_HS_DSP_CFG1_OFFSET)
+#define N32_AFIO_HS_DSP_CFG2                    (N32_AFIO_BASE + \
+                                                 N32_AFIO_HS_DSP_CFG2_OFFSET)
 
 /******** Bit definition for AFIO_RMP_CFG register  ********/
-#define AFIO_RMP_CFG_EXTI_AFLTBYPS (1 << 30) /* EXTI_AFLTBYPS */
-#define AFIO_RMP_CFG_SIP_SDRAM_SEL (1 << 29) /* SIP_SDRAM_SEL */
-#define AFIO_RMP_CFG_SPI4SEL (1 << 28) /* SPI4SEL */
-#define AFIO_RMP_CFG_SPI3SEL (1 << 27) /* SPI3SEL */
-#define AFIO_RMP_CFG_SPI2SEL (1 << 26) /* SPI2SEL */
-#define AFIO_RMP_CFG_SPI1SEL (1 << 25) /* SPI1SEL */
-#define AFIO_RMP_CFG_SDMMC1_CLKFB (1 << 24) /* SDMMC1_CLKFB */
-#define AFIO_RMP_CFG_SDMMC2_CLKFB (1 << 23) /* SDMMC2_CLKFB */
-#define AFIO_RMP_CFG_I2S_FDUP_SHIFT (21)
-#define AFIO_RMP_CFG_I2S_FDUP_MASK (0x3 << AFIO_RMP_CFG_I2S_FDUP_SHIFT) /* I2S_FDUP */
-#define AFIO_RMP_CFG_XSPI2_EDN (1 << 19) /* XSPI2_EDN */
-#define AFIO_RMP_CFG_XSPI1_EDN (1 << 18) /* XSPI1_EDN */
-#define AFIO_RMP_CFG_FEMCSEL (1 << 17) /* FEMCSEL */
-#define AFIO_RMP_CFG_FEMC_NOBYTE (1 << 16) /* FEMC_NOBYTE */
-#define AFIO_RMP_CFG_ETH2_PHY (1 << 15) /* ETH2_PHY */
-#define AFIO_RMP_CFG_ETH1_PHY_SHIFT (13)
-#define AFIO_RMP_CFG_ETH1_PHY_MASK (0x3 << AFIO_RMP_CFG_ETH1_PHY_SHIFT) /* ETH1_PHY */
-#define AFIO_RMP_CFG_SPI7_NSS (1 << 12) /* SPI7_NSS */
-#define AFIO_RMP_CFG_SPI6_NSS (1 << 11) /* SPI6_NSS */
-#define AFIO_RMP_CFG_SPI5_NSS (1 << 10) /* SPI5_NSS */
-#define AFIO_RMP_CFG_SPI4_NSS (1 << 9) /* SPI4_NSS */
-#define AFIO_RMP_CFG_SPI3_NSS (1 << 8) /* SPI3_NSS */
-#define AFIO_RMP_CFG_SPI2_NSS (1 << 7) /* SPI2_NSS */
-#define AFIO_RMP_CFG_SPI1_NSS (1 << 6) /* SPI1_NSS */
-#define AFIO_RMP_CFG_SIP_FLASHSEL_SHIFT (0)
-#define AFIO_RMP_CFG_SIP_FLASHSEL_MASK (0x7 << AFIO_RMP_CFG_SIP_FLASHSEL_SHIFT) /* SIP_FLASHSEL */
+#define AFIO_RMP_CFG_EXTI_AFLTBYPS              (1 << 30)   /* EXTI_AFLTBYPS
+                                                             */
+#define AFIO_RMP_CFG_SIP_SDRAM_SEL              (1 << 29)   /* SIP_SDRAM_SEL
+                                                             */
+#define AFIO_RMP_CFG_SPI4SEL                    (1 << 28)   /* SPI4SEL */
+#define AFIO_RMP_CFG_SPI3SEL                    (1 << 27)   /* SPI3SEL */
+#define AFIO_RMP_CFG_SPI2SEL                    (1 << 26)   /* SPI2SEL */
+#define AFIO_RMP_CFG_SPI1SEL                    (1 << 25)   /* SPI1SEL */
+#define AFIO_RMP_CFG_SDMMC1_CLKFB               (1 << 24)   /* SDMMC1_CLKFB */
+#define AFIO_RMP_CFG_SDMMC2_CLKFB               (1 << 23)   /* SDMMC2_CLKFB */
+#define AFIO_RMP_CFG_I2S_FDUP_SHIFT             (21)
+#define AFIO_RMP_CFG_I2S_FDUP_MASK              (0x3 << \
+                                                 AFIO_RMP_CFG_I2S_FDUP_SHIFT)   /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * I2S_FDUP
+                                                                                 */
+#define AFIO_RMP_CFG_XSPI2_EDN                  (1 << 19)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * XSPI2_EDN
+                                                                                 */
+#define AFIO_RMP_CFG_XSPI1_EDN                  (1 << 18)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * XSPI1_EDN
+                                                                                 */
+#define AFIO_RMP_CFG_FEMCSEL                    (1 << 17)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * FEMCSEL
+                                                                                 */
+#define AFIO_RMP_CFG_FEMC_NOBYTE                (1 << 16)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * FEMC_NOBYTE
+                                                                                 */
+#define AFIO_RMP_CFG_ETH2_PHY                   (1 << 15)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * ETH2_PHY
+                                                                                 */
+#define AFIO_RMP_CFG_ETH1_PHY_SHIFT             (13)
+#define AFIO_RMP_CFG_ETH1_PHY_MASK              (0x3 << \
+                                                 AFIO_RMP_CFG_ETH1_PHY_SHIFT)   /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * ETH1_PHY
+                                                                                 */
+#define AFIO_RMP_CFG_SPI7_NSS                   (1 << 12)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI7_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SPI6_NSS                   (1 << 11)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI6_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SPI5_NSS                   (1 << 10)                       /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI5_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SPI4_NSS                   (1 << 9)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI4_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SPI3_NSS                   (1 << 8)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI3_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SPI2_NSS                   (1 << 7)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI2_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SPI1_NSS                   (1 << 6)                        /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * SPI1_NSS
+                                                                                 */
+#define AFIO_RMP_CFG_SIP_FLASHSEL_SHIFT         (0)
+#define AFIO_RMP_CFG_SIP_FLASHSEL_MASK          (0x7 <<                           \
+                                                 AFIO_RMP_CFG_SIP_FLASHSEL_SHIFT) \
+        /*
+         * SIP_FLASHSEL
+         */
 
 /******** Bit definition for AFIO_FILTER_CFG register  ********/
-#define AFIO_FILTER_CFG_IOFLITCFG_SHIFT (0)
-#define AFIO_FILTER_CFG_IOFLITCFG_MASK (0x7F << AFIO_FILTER_CFG_IOFLITCFG_SHIFT) /* IOFLITCFG */
+#define AFIO_FILTER_CFG_IOFLITCFG_SHIFT         (0)
+#define AFIO_FILTER_CFG_IOFLITCFG_MASK          (0x7F <<                          \
+                                                 AFIO_FILTER_CFG_IOFLITCFG_SHIFT) \
+        /*
+         * IOFLITCFG
+         */
 
 /******** Bit definition for AFIO_XSPI1_NON0 register  ********/
-#define AFIO_XSPI1_NON0_XSPI1_DEC_NONCE_SHIFT (0)
-#define AFIO_XSPI1_NON0_XSPI1_DEC_NONCE_MASK (0xFFFFFFFF << AFIO_XSPI1_NON0_XSPI1_DEC_NONCE_SHIFT) /* XSPI1_DEC_NONCE */
+#define AFIO_XSPI1_NON0_XSPI1_DEC_NONCE_SHIFT   (0)
+#define AFIO_XSPI1_NON0_XSPI1_DEC_NONCE_MASK    (0xFFFFFFFF <<                          \
+                                                 AFIO_XSPI1_NON0_XSPI1_DEC_NONCE_SHIFT) \
+        /*
+         * XSPI1_DEC_NONCE
+         */
 
 /******** Bit definition for AFIO_XSPI1_NON1 register  ********/
-#define AFIO_XSPI1_NON1_XSPI1_DEC_NONCE_SHIFT (0)
-#define AFIO_XSPI1_NON1_XSPI1_DEC_NONCE_MASK (0xFFFFFFFF << AFIO_XSPI1_NON1_XSPI1_DEC_NONCE_SHIFT) /* XSPI1_DEC_NONCE */
+#define AFIO_XSPI1_NON1_XSPI1_DEC_NONCE_SHIFT   (0)
+#define AFIO_XSPI1_NON1_XSPI1_DEC_NONCE_MASK    (0xFFFFFFFF <<                          \
+                                                 AFIO_XSPI1_NON1_XSPI1_DEC_NONCE_SHIFT) \
+        /*
+         * XSPI1_DEC_NONCE
+         */
 
 /******** Bit definition for AFIO_XSPI1_NON2 register  ********/
-#define AFIO_XSPI1_NON2_XSPI1_DEC_NONCE_SHIFT (0)
-#define AFIO_XSPI1_NON2_XSPI1_DEC_NONCE_MASK (0xFFFFFFFF << AFIO_XSPI1_NON2_XSPI1_DEC_NONCE_SHIFT) /* XSPI1_DEC_NONCE */
+#define AFIO_XSPI1_NON2_XSPI1_DEC_NONCE_SHIFT   (0)
+#define AFIO_XSPI1_NON2_XSPI1_DEC_NONCE_MASK    (0xFFFFFFFF <<                          \
+                                                 AFIO_XSPI1_NON2_XSPI1_DEC_NONCE_SHIFT) \
+        /*
+         * XSPI1_DEC_NONCE
+         */
 
 /******** Bit definition for AFIO_ADCRMP_CFG register  ********/
-#define AFIO_ADCRMP_CFG_ADC1_EXTIETRI_SHIFT (20)
-#define AFIO_ADCRMP_CFG_ADC1_EXTIETRI_MASK (0xF << AFIO_ADCRMP_CFG_ADC1_EXTIETRI_SHIFT) /* ADC1_EXTIETRI */
-#define AFIO_ADCRMP_CFG_ADC1_EXTIETRR_SHIFT (16)
-#define AFIO_ADCRMP_CFG_ADC1_EXTIETRR_MASK (0xF << AFIO_ADCRMP_CFG_ADC1_EXTIETRR_SHIFT) /* ADC1_EXTIETRR */
-#define AFIO_ADCRMP_CFG_ADC2_EXTIETRI_SHIFT (12)
-#define AFIO_ADCRMP_CFG_ADC2_EXTIETRI_MASK (0xF << AFIO_ADCRMP_CFG_ADC2_EXTIETRI_SHIFT) /* ADC2_EXTIETRI */
-#define AFIO_ADCRMP_CFG_ADC2_EXTIETRR_SHIFT (8)
-#define AFIO_ADCRMP_CFG_ADC2_EXTIETRR_MASK (0xF << AFIO_ADCRMP_CFG_ADC2_EXTIETRR_SHIFT) /* ADC2_EXTIETRR */
-#define AFIO_ADCRMP_CFG_ADC3_EXTIETRI_SHIFT (4)
-#define AFIO_ADCRMP_CFG_ADC3_EXTIETRI_MASK (0xF << AFIO_ADCRMP_CFG_ADC3_EXTIETRI_SHIFT) /* ADC3_EXTIETRI */
-#define AFIO_ADCRMP_CFG_ADC3_EXTIETRR_SHIFT (0)
-#define AFIO_ADCRMP_CFG_ADC3_EXTIETRR_MASK (0xF << AFIO_ADCRMP_CFG_ADC3_EXTIETRR_SHIFT) /* ADC3_EXTIETRR */
+#define AFIO_ADCRMP_CFG_ADC1_EXTIETRI_SHIFT     (20)
+#define AFIO_ADCRMP_CFG_ADC1_EXTIETRI_MASK      (0xF <<                               \
+                                                 AFIO_ADCRMP_CFG_ADC1_EXTIETRI_SHIFT) \
+        /*
+         * ADC1_EXTIETRI
+         */
+#define AFIO_ADCRMP_CFG_ADC1_EXTIETRR_SHIFT     (16)
+#define AFIO_ADCRMP_CFG_ADC1_EXTIETRR_MASK      (0xF <<                               \
+                                                 AFIO_ADCRMP_CFG_ADC1_EXTIETRR_SHIFT) \
+        /*
+         * ADC1_EXTIETRR
+         */
+#define AFIO_ADCRMP_CFG_ADC2_EXTIETRI_SHIFT     (12)
+#define AFIO_ADCRMP_CFG_ADC2_EXTIETRI_MASK      (0xF <<                               \
+                                                 AFIO_ADCRMP_CFG_ADC2_EXTIETRI_SHIFT) \
+        /*
+         * ADC2_EXTIETRI
+         */
+#define AFIO_ADCRMP_CFG_ADC2_EXTIETRR_SHIFT     (8)
+#define AFIO_ADCRMP_CFG_ADC2_EXTIETRR_MASK      (0xF <<                               \
+                                                 AFIO_ADCRMP_CFG_ADC2_EXTIETRR_SHIFT) \
+        /*
+         * ADC2_EXTIETRR
+         */
+#define AFIO_ADCRMP_CFG_ADC3_EXTIETRI_SHIFT     (4)
+#define AFIO_ADCRMP_CFG_ADC3_EXTIETRI_MASK      (0xF <<                               \
+                                                 AFIO_ADCRMP_CFG_ADC3_EXTIETRI_SHIFT) \
+        /*
+         * ADC3_EXTIETRI
+         */
+#define AFIO_ADCRMP_CFG_ADC3_EXTIETRR_SHIFT     (0)
+#define AFIO_ADCRMP_CFG_ADC3_EXTIETRR_MASK      (0xF <<                               \
+                                                 AFIO_ADCRMP_CFG_ADC3_EXTIETRR_SHIFT) \
+        /*
+         * ADC3_EXTIETRR
+         */
 
 /******** Bit definition for AFIO_EXTI_CFG0 register  ********/
-#define AFIO_EXTI_CFG0_EXTI3_SHIFT (24)
-#define AFIO_EXTI_CFG0_EXTI3_MASK (0xFF << AFIO_EXTI_CFG0_EXTI3_SHIFT) /* EXTI3 */
-#define AFIO_EXTI_CFG0_EXTI2_SHIFT (16)
-#define AFIO_EXTI_CFG0_EXTI2_MASK (0xFF << AFIO_EXTI_CFG0_EXTI2_SHIFT) /* EXTI2 */
-#define AFIO_EXTI_CFG0_EXTI1_SHIFT (8)
-#define AFIO_EXTI_CFG0_EXTI1_MASK (0xFF << AFIO_EXTI_CFG0_EXTI1_SHIFT) /* EXTI1 */
-#define AFIO_EXTI_CFG0_EXTI0_SHIFT (0)
-#define AFIO_EXTI_CFG0_EXTI0_MASK (0xFF << AFIO_EXTI_CFG0_EXTI0_SHIFT) /* EXTI0 */
+#define AFIO_EXTI_CFG0_EXTI3_SHIFT              (24)
+#define AFIO_EXTI_CFG0_EXTI3_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG0_EXTI3_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI3
+                                                                              */
+#define AFIO_EXTI_CFG0_EXTI2_SHIFT              (16)
+#define AFIO_EXTI_CFG0_EXTI2_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG0_EXTI2_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI2
+                                                                              */
+#define AFIO_EXTI_CFG0_EXTI1_SHIFT              (8)
+#define AFIO_EXTI_CFG0_EXTI1_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG0_EXTI1_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI1
+                                                                              */
+#define AFIO_EXTI_CFG0_EXTI0_SHIFT              (0)
+#define AFIO_EXTI_CFG0_EXTI0_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG0_EXTI0_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI0
+                                                                              */
 
 /******** Bit definition for AFIO_EXTI_CFG1 register  ********/
-#define AFIO_EXTI_CFG1_EXTI7_SHIFT (24)
-#define AFIO_EXTI_CFG1_EXTI7_MASK (0xFF << AFIO_EXTI_CFG1_EXTI7_SHIFT) /* EXTI7 */
-#define AFIO_EXTI_CFG1_EXTI6_SHIFT (16)
-#define AFIO_EXTI_CFG1_EXTI6_MASK (0xFF << AFIO_EXTI_CFG1_EXTI6_SHIFT) /* EXTI6 */
-#define AFIO_EXTI_CFG1_EXTI5_SHIFT (8)
-#define AFIO_EXTI_CFG1_EXTI5_MASK (0xFF << AFIO_EXTI_CFG1_EXTI5_SHIFT) /* EXTI5 */
-#define AFIO_EXTI_CFG1_EXTI4_SHIFT (0)
-#define AFIO_EXTI_CFG1_EXTI4_MASK (0xFF << AFIO_EXTI_CFG1_EXTI4_SHIFT) /* EXTI4 */
+#define AFIO_EXTI_CFG1_EXTI7_SHIFT              (24)
+#define AFIO_EXTI_CFG1_EXTI7_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG1_EXTI7_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI7
+                                                                              */
+#define AFIO_EXTI_CFG1_EXTI6_SHIFT              (16)
+#define AFIO_EXTI_CFG1_EXTI6_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG1_EXTI6_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI6
+                                                                              */
+#define AFIO_EXTI_CFG1_EXTI5_SHIFT              (8)
+#define AFIO_EXTI_CFG1_EXTI5_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG1_EXTI5_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI5
+                                                                              */
+#define AFIO_EXTI_CFG1_EXTI4_SHIFT              (0)
+#define AFIO_EXTI_CFG1_EXTI4_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG1_EXTI4_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI4
+                                                                              */
 
 /******** Bit definition for AFIO_EXTI_CFG2 register  ********/
-#define AFIO_EXTI_CFG2_EXTI11_SHIFT (24)
-#define AFIO_EXTI_CFG2_EXTI11_MASK (0xFF << AFIO_EXTI_CFG2_EXTI11_SHIFT) /* EXTI11 */
-#define AFIO_EXTI_CFG2_EXTI10_SHIFT (16)
-#define AFIO_EXTI_CFG2_EXTI10_MASK (0xFF << AFIO_EXTI_CFG2_EXTI10_SHIFT) /* EXTI10 */
-#define AFIO_EXTI_CFG2_EXTI9_SHIFT (8)
-#define AFIO_EXTI_CFG2_EXTI9_MASK (0xFF << AFIO_EXTI_CFG2_EXTI9_SHIFT) /* EXTI9 */
-#define AFIO_EXTI_CFG2_EXTI8_SHIFT (0)
-#define AFIO_EXTI_CFG2_EXTI8_MASK (0xFF << AFIO_EXTI_CFG2_EXTI8_SHIFT) /* EXTI8 */
+#define AFIO_EXTI_CFG2_EXTI11_SHIFT             (24)
+#define AFIO_EXTI_CFG2_EXTI11_MASK              (0xFF << \
+                                                 AFIO_EXTI_CFG2_EXTI11_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * EXTI11
+                                                                               */
+#define AFIO_EXTI_CFG2_EXTI10_SHIFT             (16)
+#define AFIO_EXTI_CFG2_EXTI10_MASK              (0xFF << \
+                                                 AFIO_EXTI_CFG2_EXTI10_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * EXTI10
+                                                                               */
+#define AFIO_EXTI_CFG2_EXTI9_SHIFT              (8)
+#define AFIO_EXTI_CFG2_EXTI9_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG2_EXTI9_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI9
+                                                                              */
+#define AFIO_EXTI_CFG2_EXTI8_SHIFT              (0)
+#define AFIO_EXTI_CFG2_EXTI8_MASK               (0xFF << \
+                                                 AFIO_EXTI_CFG2_EXTI8_SHIFT) /*
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              *
+                                                                              * EXTI8
+                                                                              */
 
 /******** Bit definition for AFIO_EXTI_CFG3 register  ********/
-#define AFIO_EXTI_CFG3_EXTI15_SHIFT (24)
-#define AFIO_EXTI_CFG3_EXTI15_MASK (0xFF << AFIO_EXTI_CFG3_EXTI15_SHIFT) /* EXTI15 */
-#define AFIO_EXTI_CFG3_EXTI14_SHIFT (16)
-#define AFIO_EXTI_CFG3_EXTI14_MASK (0xFF << AFIO_EXTI_CFG3_EXTI14_SHIFT) /* EXTI14 */
-#define AFIO_EXTI_CFG3_EXTI13_SHIFT (8)
-#define AFIO_EXTI_CFG3_EXTI13_MASK (0xFF << AFIO_EXTI_CFG3_EXTI13_SHIFT) /* EXTI13 */
-#define AFIO_EXTI_CFG3_EXTI12_SHIFT (0)
-#define AFIO_EXTI_CFG3_EXTI12_MASK (0xFF << AFIO_EXTI_CFG3_EXTI12_SHIFT) /* EXTI12 */
+#define AFIO_EXTI_CFG3_EXTI15_SHIFT             (24)
+#define AFIO_EXTI_CFG3_EXTI15_MASK              (0xFF << \
+                                                 AFIO_EXTI_CFG3_EXTI15_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * EXTI15
+                                                                               */
+#define AFIO_EXTI_CFG3_EXTI14_SHIFT             (16)
+#define AFIO_EXTI_CFG3_EXTI14_MASK              (0xFF << \
+                                                 AFIO_EXTI_CFG3_EXTI14_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * EXTI14
+                                                                               */
+#define AFIO_EXTI_CFG3_EXTI13_SHIFT             (8)
+#define AFIO_EXTI_CFG3_EXTI13_MASK              (0xFF << \
+                                                 AFIO_EXTI_CFG3_EXTI13_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * EXTI13
+                                                                               */
+#define AFIO_EXTI_CFG3_EXTI12_SHIFT             (0)
+#define AFIO_EXTI_CFG3_EXTI12_MASK              (0xFF << \
+                                                 AFIO_EXTI_CFG3_EXTI12_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * EXTI12
+                                                                               */
 
 /******** Bit definition for AFIO_ANAEN_CFG0 register  ********/
-#define AFIO_ANAEN_CFG0_PA7_ANAEN (1 << 9) /* PA7_ANAEN */
-#define AFIO_ANAEN_CFG0_PA6_ANAEN (1 << 8) /* PA6_ANAEN */
-#define AFIO_ANAEN_CFG0_PA5_ANAEN (1 << 7) /* PA5_ANAEN */
-#define AFIO_ANAEN_CFG0_PA4_ANAEN (1 << 6) /* PA4_ANAEN */
-#define AFIO_ANAEN_CFG0_PA3_ANAEN (1 << 5) /* PA3_ANAEN */
-#define AFIO_ANAEN_CFG0_PA2_ANAEN (1 << 4) /* PA2_ANAEN */
-#define AFIO_ANAEN_CFG0_PA1_ANAEN (1 << 3) /* PA1_ANAEN */
-#define AFIO_ANAEN_CFG0_PA1_CANAEN (1 << 2) /* PA1_CANAEN */
-#define AFIO_ANAEN_CFG0_PA0_ANAEN (1 << 1) /* PA0_ANAEN */
-#define AFIO_ANAEN_CFG0_PA0_CANAEN (1 << 0) /* PA0_CANAEN */
+#define AFIO_ANAEN_CFG0_PA7_ANAEN               (1 << 9)    /* PA7_ANAEN */
+#define AFIO_ANAEN_CFG0_PA6_ANAEN               (1 << 8)    /* PA6_ANAEN */
+#define AFIO_ANAEN_CFG0_PA5_ANAEN               (1 << 7)    /* PA5_ANAEN */
+#define AFIO_ANAEN_CFG0_PA4_ANAEN               (1 << 6)    /* PA4_ANAEN */
+#define AFIO_ANAEN_CFG0_PA3_ANAEN               (1 << 5)    /* PA3_ANAEN */
+#define AFIO_ANAEN_CFG0_PA2_ANAEN               (1 << 4)    /* PA2_ANAEN */
+#define AFIO_ANAEN_CFG0_PA1_ANAEN               (1 << 3)    /* PA1_ANAEN */
+#define AFIO_ANAEN_CFG0_PA1_CANAEN              (1 << 2)    /* PA1_CANAEN */
+#define AFIO_ANAEN_CFG0_PA0_ANAEN               (1 << 1)    /* PA0_ANAEN */
+#define AFIO_ANAEN_CFG0_PA0_CANAEN              (1 << 0)    /* PA0_CANAEN */
 
 /******** Bit definition for AFIO_ANAEN_CFG1 register  ********/
-#define AFIO_ANAEN_CFG1_PB1_ANAEN (1 << 1) /* PB1_ANAEN */
-#define AFIO_ANAEN_CFG1_PB0_ANAEN (1 << 0) /* PB0_ANAEN */
+#define AFIO_ANAEN_CFG1_PB1_ANAEN               (1 << 1)    /* PB1_ANAEN */
+#define AFIO_ANAEN_CFG1_PB0_ANAEN               (1 << 0)    /* PB0_ANAEN */
 
 /******** Bit definition for AFIO_ANAEN_CFG2 register  ********/
-#define AFIO_ANAEN_CFG2_PC13_ANAEN (1 << 10) /* PC13_ANAEN */
-#define AFIO_ANAEN_CFG2_PC8_ANAEN (1 << 9) /* PC8_ANAEN */
-#define AFIO_ANAEN_CFG2_PC6_ANAEN (1 << 8) /* PC6_ANAEN */
-#define AFIO_ANAEN_CFG2_PC5_ANAEN (1 << 7) /* PC5_ANAEN */
-#define AFIO_ANAEN_CFG2_PC4_ANAEN (1 << 6) /* PC4_ANAEN */
-#define AFIO_ANAEN_CFG2_PC3_CANAEN (1 << 5) /* PC3_CANAEN */
-#define AFIO_ANAEN_CFG2_PC3_ANAEN (1 << 4) /* PC3_ANAEN */
-#define AFIO_ANAEN_CFG2_PC2_CANAEN (1 << 3) /* PC2_CANAEN */
-#define AFIO_ANAEN_CFG2_PC2_ANAEN (1 << 2) /* PC2_ANAEN */
-#define AFIO_ANAEN_CFG2_PC1_ANAEN (1 << 1) /* PC1_ANAEN */
-#define AFIO_ANAEN_CFG2_PC0_ANAEN (1 << 0) /* PC0_ANAEN */
+#define AFIO_ANAEN_CFG2_PC13_ANAEN              (1 << 10)   /* PC13_ANAEN */
+#define AFIO_ANAEN_CFG2_PC8_ANAEN               (1 << 9)    /* PC8_ANAEN */
+#define AFIO_ANAEN_CFG2_PC6_ANAEN               (1 << 8)    /* PC6_ANAEN */
+#define AFIO_ANAEN_CFG2_PC5_ANAEN               (1 << 7)    /* PC5_ANAEN */
+#define AFIO_ANAEN_CFG2_PC4_ANAEN               (1 << 6)    /* PC4_ANAEN */
+#define AFIO_ANAEN_CFG2_PC3_CANAEN              (1 << 5)    /* PC3_CANAEN */
+#define AFIO_ANAEN_CFG2_PC3_ANAEN               (1 << 4)    /* PC3_ANAEN */
+#define AFIO_ANAEN_CFG2_PC2_CANAEN              (1 << 3)    /* PC2_CANAEN */
+#define AFIO_ANAEN_CFG2_PC2_ANAEN               (1 << 2)    /* PC2_ANAEN */
+#define AFIO_ANAEN_CFG2_PC1_ANAEN               (1 << 1)    /* PC1_ANAEN */
+#define AFIO_ANAEN_CFG2_PC0_ANAEN               (1 << 0)    /* PC0_ANAEN */
 
 /******** Bit definition for AFIO_SHRT1_FALT_CFG register  ********/
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT6_SHIFT (20)
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT6_MASK (0xF << AFIO_SHRT1_FALT_CFG_SHRT_FALT6_SHIFT) /* SHRT_FALT6 */
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT5_SHIFT (16)
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT5_MASK (0xF << AFIO_SHRT1_FALT_CFG_SHRT_FALT5_SHIFT) /* SHRT_FALT5 */
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT4_SHIFT (12)
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT4_MASK (0xF << AFIO_SHRT1_FALT_CFG_SHRT_FALT4_SHIFT) /* SHRT_FALT4 */
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT3_SHIFT (8)
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT3_MASK (0xF << AFIO_SHRT1_FALT_CFG_SHRT_FALT3_SHIFT) /* SHRT_FALT3 */
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT2_SHIFT (4)
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT2_MASK (0xF << AFIO_SHRT1_FALT_CFG_SHRT_FALT2_SHIFT) /* SHRT_FALT2 */
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT1_SHIFT (0)
-#define AFIO_SHRT1_FALT_CFG_SHRT_FALT1_MASK (0xF << AFIO_SHRT1_FALT_CFG_SHRT_FALT1_SHIFT) /* SHRT_FALT1 */
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT6_SHIFT    (20)
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT6_MASK     (0xF <<                                \
+                                                 AFIO_SHRT1_FALT_CFG_SHRT_FALT6_SHIFT) \
+        /*
+         * SHRT_FALT6
+         */
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT5_SHIFT    (16)
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT5_MASK     (0xF <<                                \
+                                                 AFIO_SHRT1_FALT_CFG_SHRT_FALT5_SHIFT) \
+        /*
+         * SHRT_FALT5
+         */
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT4_SHIFT    (12)
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT4_MASK     (0xF <<                                \
+                                                 AFIO_SHRT1_FALT_CFG_SHRT_FALT4_SHIFT) \
+        /*
+         * SHRT_FALT4
+         */
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT3_SHIFT    (8)
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT3_MASK     (0xF <<                                \
+                                                 AFIO_SHRT1_FALT_CFG_SHRT_FALT3_SHIFT) \
+        /*
+         * SHRT_FALT3
+         */
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT2_SHIFT    (4)
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT2_MASK     (0xF <<                                \
+                                                 AFIO_SHRT1_FALT_CFG_SHRT_FALT2_SHIFT) \
+        /*
+         * SHRT_FALT2
+         */
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT1_SHIFT    (0)
+#define AFIO_SHRT1_FALT_CFG_SHRT_FALT1_MASK     (0xF <<                                \
+                                                 AFIO_SHRT1_FALT_CFG_SHRT_FALT1_SHIFT) \
+        /*
+         * SHRT_FALT1
+         */
 
 /******** Bit definition for AFIO_SHRT2_FALT_CFG register  ********/
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT6_SHIFT (20)
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT6_MASK (0xF << AFIO_SHRT2_FALT_CFG_SHRT_FALT6_SHIFT) /* SHRT_FALT6 */
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT5_SHIFT (16)
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT5_MASK (0xF << AFIO_SHRT2_FALT_CFG_SHRT_FALT5_SHIFT) /* SHRT_FALT5 */
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT4_SHIFT (12)
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT4_MASK (0xF << AFIO_SHRT2_FALT_CFG_SHRT_FALT4_SHIFT) /* SHRT_FALT4 */
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT3_SHIFT (8)
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT3_MASK (0xF << AFIO_SHRT2_FALT_CFG_SHRT_FALT3_SHIFT) /* SHRT_FALT3 */
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT2_SHIFT (4)
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT2_MASK (0xF << AFIO_SHRT2_FALT_CFG_SHRT_FALT2_SHIFT) /* SHRT_FALT2 */
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT1_SHIFT (0)
-#define AFIO_SHRT2_FALT_CFG_SHRT_FALT1_MASK (0xF << AFIO_SHRT2_FALT_CFG_SHRT_FALT1_SHIFT) /* SHRT_FALT1 */
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT6_SHIFT    (20)
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT6_MASK     (0xF <<                                \
+                                                 AFIO_SHRT2_FALT_CFG_SHRT_FALT6_SHIFT) \
+        /*
+         * SHRT_FALT6
+         */
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT5_SHIFT    (16)
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT5_MASK     (0xF <<                                \
+                                                 AFIO_SHRT2_FALT_CFG_SHRT_FALT5_SHIFT) \
+        /*
+         * SHRT_FALT5
+         */
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT4_SHIFT    (12)
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT4_MASK     (0xF <<                                \
+                                                 AFIO_SHRT2_FALT_CFG_SHRT_FALT4_SHIFT) \
+        /*
+         * SHRT_FALT4
+         */
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT3_SHIFT    (8)
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT3_MASK     (0xF <<                                \
+                                                 AFIO_SHRT2_FALT_CFG_SHRT_FALT3_SHIFT) \
+        /*
+         * SHRT_FALT3
+         */
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT2_SHIFT    (4)
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT2_MASK     (0xF <<                                \
+                                                 AFIO_SHRT2_FALT_CFG_SHRT_FALT2_SHIFT) \
+        /*
+         * SHRT_FALT2
+         */
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT1_SHIFT    (0)
+#define AFIO_SHRT2_FALT_CFG_SHRT_FALT1_MASK     (0xF <<                                \
+                                                 AFIO_SHRT2_FALT_CFG_SHRT_FALT1_SHIFT) \
+        /*
+         * SHRT_FALT1
+         */
 
 /******** Bit definition for AFIO_ANAEN_CFG3 register  ********/
-#define AFIO_ANAEN_CFG3_PF14_ANAEN (1 << 11) /* PF14_ANAEN */
-#define AFIO_ANAEN_CFG3_PF13_ANAEN (1 << 10) /* PF13_ANAEN */
-#define AFIO_ANAEN_CFG3_PF12_ANAEN (1 << 9) /* PF12_ANAEN */
-#define AFIO_ANAEN_CFG3_PF11_ANAEN (1 << 8) /* PF11_ANAEN */
-#define AFIO_ANAEN_CFG3_PF10_ANAEN (1 << 7) /* PF10_ANAEN */
-#define AFIO_ANAEN_CFG3_PF9_ANAEN (1 << 6) /* PF9_ANAEN */
-#define AFIO_ANAEN_CFG3_PF8_ANAEN (1 << 5) /* PF8_ANAEN */
-#define AFIO_ANAEN_CFG3_PF7_ANAEN (1 << 4) /* PF7_ANAEN */
-#define AFIO_ANAEN_CFG3_PF6_ANAEN (1 << 3) /* PF6_ANAEN */
-#define AFIO_ANAEN_CFG3_PF5_ANAEN (1 << 2) /* PF5_ANAEN */
-#define AFIO_ANAEN_CFG3_PF4_ANAEN (1 << 1) /* PF4_ANAEN */
-#define AFIO_ANAEN_CFG3_PF3_ANAEN (1 << 0) /* PF3_ANAEN */
+#define AFIO_ANAEN_CFG3_PF14_ANAEN              (1 << 11)   /* PF14_ANAEN */
+#define AFIO_ANAEN_CFG3_PF13_ANAEN              (1 << 10)   /* PF13_ANAEN */
+#define AFIO_ANAEN_CFG3_PF12_ANAEN              (1 << 9)    /* PF12_ANAEN */
+#define AFIO_ANAEN_CFG3_PF11_ANAEN              (1 << 8)    /* PF11_ANAEN */
+#define AFIO_ANAEN_CFG3_PF10_ANAEN              (1 << 7)    /* PF10_ANAEN */
+#define AFIO_ANAEN_CFG3_PF9_ANAEN               (1 << 6)    /* PF9_ANAEN */
+#define AFIO_ANAEN_CFG3_PF8_ANAEN               (1 << 5)    /* PF8_ANAEN */
+#define AFIO_ANAEN_CFG3_PF7_ANAEN               (1 << 4)    /* PF7_ANAEN */
+#define AFIO_ANAEN_CFG3_PF6_ANAEN               (1 << 3)    /* PF6_ANAEN */
+#define AFIO_ANAEN_CFG3_PF5_ANAEN               (1 << 2)    /* PF5_ANAEN */
+#define AFIO_ANAEN_CFG3_PF4_ANAEN               (1 << 1)    /* PF4_ANAEN */
+#define AFIO_ANAEN_CFG3_PF3_ANAEN               (1 << 0)    /* PF3_ANAEN */
 
 /******** Bit definition for AFIO_ANAEN_CFG4 register  ********/
-#define AFIO_ANAEN_CFG4_PH5_ANAEN (1 << 3) /* PH5_ANAEN */
-#define AFIO_ANAEN_CFG4_PH4_ANAEN (1 << 2) /* PH4_ANAEN */
-#define AFIO_ANAEN_CFG4_PH3_ANAEN (1 << 1) /* PH3_ANAEN */
-#define AFIO_ANAEN_CFG4_PH2_ANAEN (1 << 0) /* PH2_ANAEN */
+#define AFIO_ANAEN_CFG4_PH5_ANAEN               (1 << 3)    /* PH5_ANAEN */
+#define AFIO_ANAEN_CFG4_PH4_ANAEN               (1 << 2)    /* PH4_ANAEN */
+#define AFIO_ANAEN_CFG4_PH3_ANAEN               (1 << 1)    /* PH3_ANAEN */
+#define AFIO_ANAEN_CFG4_PH2_ANAEN               (1 << 0)    /* PH2_ANAEN */
 
 /******** Bit definition for AFIO_ANAEN_CFG5 register  ********/
-#define AFIO_ANAEN_CFG5_PI15_ANAEN (1 << 1) /* PI15_ANAEN */
-#define AFIO_ANAEN_CFG5_PI8_ANAEN (1 << 0) /* PI8_ANAEN */
+#define AFIO_ANAEN_CFG5_PI15_ANAEN              (1 << 1)    /* PI15_ANAEN */
+#define AFIO_ANAEN_CFG5_PI8_ANAEN               (1 << 0)    /* PI8_ANAEN */
 
 /******** Bit definition for AFIO_ANAEN_CFG6 register  ********/
-#define AFIO_ANAEN_CFG6_PJ7_ANAEN (1 << 5) /* PJ7_ANAEN */
-#define AFIO_ANAEN_CFG6_PJ6_ANAEN (1 << 4) /* PJ6_ANAEN */
-#define AFIO_ANAEN_CFG6_PJ5_ANAEN (1 << 3) /* PJ5_ANAEN */
-#define AFIO_ANAEN_CFG6_PJ4_ANAEN (1 << 2) /* PJ4_ANAEN */
-#define AFIO_ANAEN_CFG6_PJ3_ANAEN (1 << 1) /* PJ3_ANAEN */
-#define AFIO_ANAEN_CFG6_PJ0_ANAEN (1 << 0) /* PJ0_ANAEN */
+#define AFIO_ANAEN_CFG6_PJ7_ANAEN               (1 << 5)    /* PJ7_ANAEN */
+#define AFIO_ANAEN_CFG6_PJ6_ANAEN               (1 << 4)    /* PJ6_ANAEN */
+#define AFIO_ANAEN_CFG6_PJ5_ANAEN               (1 << 3)    /* PJ5_ANAEN */
+#define AFIO_ANAEN_CFG6_PJ4_ANAEN               (1 << 2)    /* PJ4_ANAEN */
+#define AFIO_ANAEN_CFG6_PJ3_ANAEN               (1 << 1)    /* PJ3_ANAEN */
+#define AFIO_ANAEN_CFG6_PJ0_ANAEN               (1 << 0)    /* PJ0_ANAEN */
 
 /******** Bit definition for AFIO_EFT_CFG0 register  ********/
-#define AFIO_EFT_CFG0_PB_EFTEN_SHIFT (16)
-#define AFIO_EFT_CFG0_PB_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG0_PB_EFTEN_SHIFT) /* PB_EFTEN */
-#define AFIO_EFT_CFG0_PA_EFTEN_SHIFT (0)
-#define AFIO_EFT_CFG0_PA_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG0_PA_EFTEN_SHIFT) /* PA_EFTEN */
+#define AFIO_EFT_CFG0_PB_EFTEN_SHIFT            (16)
+#define AFIO_EFT_CFG0_PB_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG0_PB_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PB_EFTEN
+                                                                                */
+#define AFIO_EFT_CFG0_PA_EFTEN_SHIFT            (0)
+#define AFIO_EFT_CFG0_PA_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG0_PA_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PA_EFTEN
+                                                                                */
 
 /******** Bit definition for AFIO_EFT_CFG1 register  ********/
-#define AFIO_EFT_CFG1_PD_EFTEN_SHIFT (16)
-#define AFIO_EFT_CFG1_PD_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG1_PD_EFTEN_SHIFT) /* PD_EFTEN */
-#define AFIO_EFT_CFG1_PC_EFTEN_SHIFT (0)
-#define AFIO_EFT_CFG1_PC_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG1_PC_EFTEN_SHIFT) /* PC_EFTEN */
+#define AFIO_EFT_CFG1_PD_EFTEN_SHIFT            (16)
+#define AFIO_EFT_CFG1_PD_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG1_PD_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PD_EFTEN
+                                                                                */
+#define AFIO_EFT_CFG1_PC_EFTEN_SHIFT            (0)
+#define AFIO_EFT_CFG1_PC_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG1_PC_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PC_EFTEN
+                                                                                */
 
 /******** Bit definition for AFIO_EFT_CFG2 register  ********/
-#define AFIO_EFT_CFG2_PF_EFTEN_SHIFT (16)
-#define AFIO_EFT_CFG2_PF_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG2_PF_EFTEN_SHIFT) /* PF_EFTEN */
-#define AFIO_EFT_CFG2_PE_EFTEN_SHIFT (0)
-#define AFIO_EFT_CFG2_PE_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG2_PE_EFTEN_SHIFT) /* PE_EFTEN */
+#define AFIO_EFT_CFG2_PF_EFTEN_SHIFT            (16)
+#define AFIO_EFT_CFG2_PF_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG2_PF_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PF_EFTEN
+                                                                                */
+#define AFIO_EFT_CFG2_PE_EFTEN_SHIFT            (0)
+#define AFIO_EFT_CFG2_PE_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG2_PE_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PE_EFTEN
+                                                                                */
 
 /******** Bit definition for AFIO_EFT_CFG3 register  ********/
-#define AFIO_EFT_CFG3_PH_EFTEN_SHIFT (16)
-#define AFIO_EFT_CFG3_PH_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG3_PH_EFTEN_SHIFT) /* PH_EFTEN */
-#define AFIO_EFT_CFG3_PG_EFTEN_SHIFT (0)
-#define AFIO_EFT_CFG3_PG_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG3_PG_EFTEN_SHIFT) /* PG_EFTEN */
+#define AFIO_EFT_CFG3_PH_EFTEN_SHIFT            (16)
+#define AFIO_EFT_CFG3_PH_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG3_PH_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PH_EFTEN
+                                                                                */
+#define AFIO_EFT_CFG3_PG_EFTEN_SHIFT            (0)
+#define AFIO_EFT_CFG3_PG_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG3_PG_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PG_EFTEN
+                                                                                */
 
 /******** Bit definition for AFIO_EFT_CFG4 register  ********/
-#define AFIO_EFT_CFG4_PI_EFTEN_SHIFT (16)
-#define AFIO_EFT_CFG4_PI_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG4_PI_EFTEN_SHIFT) /* PI_EFTEN */
-#define AFIO_EFT_CFG4_PJ_EFTEN_SHIFT (0)
-#define AFIO_EFT_CFG4_PJ_EFTEN_MASK (0xFFFF << AFIO_EFT_CFG4_PJ_EFTEN_SHIFT) /* PJ_EFTEN */
+#define AFIO_EFT_CFG4_PI_EFTEN_SHIFT            (16)
+#define AFIO_EFT_CFG4_PI_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG4_PI_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PI_EFTEN
+                                                                                */
+#define AFIO_EFT_CFG4_PJ_EFTEN_SHIFT            (0)
+#define AFIO_EFT_CFG4_PJ_EFTEN_MASK             (0xFFFF << \
+                                                 AFIO_EFT_CFG4_PJ_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PJ_EFTEN
+                                                                                */
 
 /******** Bit definition for AFIO_EFT_CFG5 register  ********/
-#define AFIO_EFT_CFG5_JRST_EFTBYPS (1 << 9) /* JRST_EFTBYPS */
-#define AFIO_EFT_CFG5_BOOT_EFTEN (1 << 8) /* BOOT_EFTEN */
-#define AFIO_EFT_CFG5_PK_EFTEN_SHIFT (0)
-#define AFIO_EFT_CFG5_PK_EFTEN_MASK (0xFF << AFIO_EFT_CFG5_PK_EFTEN_SHIFT) /* PK_EFTEN */
+#define AFIO_EFT_CFG5_JRST_EFTBYPS              (1 << 9)    /* JRST_EFTBYPS */
+#define AFIO_EFT_CFG5_BOOT_EFTEN                (1 << 8)    /* BOOT_EFTEN */
+#define AFIO_EFT_CFG5_PK_EFTEN_SHIFT            (0)
+#define AFIO_EFT_CFG5_PK_EFTEN_MASK             (0xFF << \
+                                                 AFIO_EFT_CFG5_PK_EFTEN_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * PK_EFTEN
+                                                                                */
 
 /******** Bit definition for AFIO_DIGEFT_CFG0 register  ********/
-#define AFIO_DIGEFT_CFG0_PB_DIGEFTEN_SHIFT (16)
-#define AFIO_DIGEFT_CFG0_PB_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG0_PB_DIGEFTEN_SHIFT) /* PB_DIGEFTEN */
-#define AFIO_DIGEFT_CFG0_PA_DIGEFTEN_SHIFT (0)
-#define AFIO_DIGEFT_CFG0_PA_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG0_PA_DIGEFTEN_SHIFT) /* PA_DIGEFTEN */
+#define AFIO_DIGEFT_CFG0_PB_DIGEFTEN_SHIFT      (16)
+#define AFIO_DIGEFT_CFG0_PB_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG0_PB_DIGEFTEN_SHIFT) \
+        /*
+         * PB_DIGEFTEN
+         */
+#define AFIO_DIGEFT_CFG0_PA_DIGEFTEN_SHIFT      (0)
+#define AFIO_DIGEFT_CFG0_PA_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG0_PA_DIGEFTEN_SHIFT) \
+        /*
+         * PA_DIGEFTEN
+         */
 
 /******** Bit definition for AFIO_DIGEFT_CFG1 register  ********/
-#define AFIO_DIGEFT_CFG1_PD_DIGEFTEN_SHIFT (16)
-#define AFIO_DIGEFT_CFG1_PD_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG1_PD_DIGEFTEN_SHIFT) /* PD_DIGEFTEN */
-#define AFIO_DIGEFT_CFG1_PC_DIGEFTEN_SHIFT (0)
-#define AFIO_DIGEFT_CFG1_PC_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG1_PC_DIGEFTEN_SHIFT) /* PC_DIGEFTEN */
+#define AFIO_DIGEFT_CFG1_PD_DIGEFTEN_SHIFT      (16)
+#define AFIO_DIGEFT_CFG1_PD_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG1_PD_DIGEFTEN_SHIFT) \
+        /*
+         * PD_DIGEFTEN
+         */
+#define AFIO_DIGEFT_CFG1_PC_DIGEFTEN_SHIFT      (0)
+#define AFIO_DIGEFT_CFG1_PC_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG1_PC_DIGEFTEN_SHIFT) \
+        /*
+         * PC_DIGEFTEN
+         */
 
 /******** Bit definition for AFIO_DIGEFT_CFG2 register  ********/
-#define AFIO_DIGEFT_CFG2_PF_DIGEFTEN_SHIFT (16)
-#define AFIO_DIGEFT_CFG2_PF_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG2_PF_DIGEFTEN_SHIFT) /* PF_DIGEFTEN */
-#define AFIO_DIGEFT_CFG2_PE_DIGEFTEN_SHIFT (0)
-#define AFIO_DIGEFT_CFG2_PE_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG2_PE_DIGEFTEN_SHIFT) /* PE_DIGEFTEN */
+#define AFIO_DIGEFT_CFG2_PF_DIGEFTEN_SHIFT      (16)
+#define AFIO_DIGEFT_CFG2_PF_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG2_PF_DIGEFTEN_SHIFT) \
+        /*
+         * PF_DIGEFTEN
+         */
+#define AFIO_DIGEFT_CFG2_PE_DIGEFTEN_SHIFT      (0)
+#define AFIO_DIGEFT_CFG2_PE_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG2_PE_DIGEFTEN_SHIFT) \
+        /*
+         * PE_DIGEFTEN
+         */
 
 /******** Bit definition for AFIO_DIGEFT_CFG3 register  ********/
-#define AFIO_DIGEFT_CFG3_PH_DIGEFTEN_SHIFT (16)
-#define AFIO_DIGEFT_CFG3_PH_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG3_PH_DIGEFTEN_SHIFT) /* PH_DIGEFTEN */
-#define AFIO_DIGEFT_CFG3_PG_DIGEFTEN_SHIFT (0)
-#define AFIO_DIGEFT_CFG3_PG_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG3_PG_DIGEFTEN_SHIFT) /* PG_DIGEFTEN */
+#define AFIO_DIGEFT_CFG3_PH_DIGEFTEN_SHIFT      (16)
+#define AFIO_DIGEFT_CFG3_PH_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG3_PH_DIGEFTEN_SHIFT) \
+        /*
+         * PH_DIGEFTEN
+         */
+#define AFIO_DIGEFT_CFG3_PG_DIGEFTEN_SHIFT      (0)
+#define AFIO_DIGEFT_CFG3_PG_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG3_PG_DIGEFTEN_SHIFT) \
+        /*
+         * PG_DIGEFTEN
+         */
 
 /******** Bit definition for AFIO_DIGEFT_CFG4 register  ********/
-#define AFIO_DIGEFT_CFG4_PI_DIGEFTEN_SHIFT (16)
-#define AFIO_DIGEFT_CFG4_PI_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG4_PI_DIGEFTEN_SHIFT) /* PI_DIGEFTEN */
-#define AFIO_DIGEFT_CFG4_PJ_DIGEFTEN_SHIFT (0)
-#define AFIO_DIGEFT_CFG4_PJ_DIGEFTEN_MASK (0xFFFF << AFIO_DIGEFT_CFG4_PJ_DIGEFTEN_SHIFT) /* PJ_DIGEFTEN */
+#define AFIO_DIGEFT_CFG4_PI_DIGEFTEN_SHIFT      (16)
+#define AFIO_DIGEFT_CFG4_PI_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG4_PI_DIGEFTEN_SHIFT) \
+        /*
+         * PI_DIGEFTEN
+         */
+#define AFIO_DIGEFT_CFG4_PJ_DIGEFTEN_SHIFT      (0)
+#define AFIO_DIGEFT_CFG4_PJ_DIGEFTEN_MASK       (0xFFFF <<                           \
+                                                 AFIO_DIGEFT_CFG4_PJ_DIGEFTEN_SHIFT) \
+        /*
+         * PJ_DIGEFTEN
+         */
 
 /******** Bit definition for AFIO_DIGEFT_CFG5 register  ********/
-#define AFIO_DIGEFT_CFG5_PK_DIGEFTEN_SHIFT (0)
-#define AFIO_DIGEFT_CFG5_PK_DIGEFTEN_MASK (0xFF << AFIO_DIGEFT_CFG5_PK_DIGEFTEN_SHIFT) /* PK_DIGEFTEN */
+#define AFIO_DIGEFT_CFG5_PK_DIGEFTEN_SHIFT      (0)
+#define AFIO_DIGEFT_CFG5_PK_DIGEFTEN_MASK       (0xFF <<                             \
+                                                 AFIO_DIGEFT_CFG5_PK_DIGEFTEN_SHIFT) \
+        /*
+         * PK_DIGEFTEN
+         */
 
 /******** Bit definition for AFIO_SHRT1_EXEV_CFG0 register  ********/
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV5_SHIFT (20)
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV5_MASK (0x1F << AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV5_SHIFT) /* SHRT_EXEV5 */
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV4_SHIFT (15)
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV4_MASK (0x1F << AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV4_SHIFT) /* SHRT_EXEV4 */
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV3_SHIFT (10)
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV3_MASK (0x1F << AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV3_SHIFT) /* SHRT_EXEV3 */
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV2_SHIFT (5)
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV2_MASK (0x1F << AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV2_SHIFT) /* SHRT_EXEV2 */
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV1_SHIFT (0)
-#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV1_MASK (0x1F << AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV1_SHIFT) /* SHRT_EXEV1 */
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV5_SHIFT   (20)
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV5_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV5_SHIFT) \
+        /*
+         * SHRT_EXEV5
+         */
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV4_SHIFT   (15)
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV4_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV4_SHIFT) \
+        /*
+         * SHRT_EXEV4
+         */
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV3_SHIFT   (10)
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV3_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV3_SHIFT) \
+        /*
+         * SHRT_EXEV3
+         */
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV2_SHIFT   (5)
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV2_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV2_SHIFT) \
+        /*
+         * SHRT_EXEV2
+         */
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV1_SHIFT   (0)
+#define AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV1_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG0_SHRT_EXEV1_SHIFT) \
+        /*
+         * SHRT_EXEV1
+         */
 
 /******** Bit definition for AFIO_SHRT1_EXEV_CFG1 register  ********/
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV10_SHIFT (20)
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV10_MASK (0x1F << AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV10_SHIFT) /* SHRT_EXEV10 */
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV9_SHIFT (15)
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV9_MASK (0x1F << AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV9_SHIFT) /* SHRT_EXEV9 */
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV8_SHIFT (10)
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV8_MASK (0x1F << AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV8_SHIFT) /* SHRT_EXEV8 */
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV7_SHIFT (5)
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV7_MASK (0x1F << AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV7_SHIFT) /* SHRT_EXEV7 */
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV6_SHIFT (0)
-#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV6_MASK (0x1F << AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV6_SHIFT) /* SHRT_EXEV6 */
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV10_SHIFT  (20)
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV10_MASK   (0x1F <<                                 \
+                                                 AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV10_SHIFT) \
+        /*
+         * SHRT_EXEV10
+         */
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV9_SHIFT   (15)
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV9_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV9_SHIFT) \
+        /*
+         * SHRT_EXEV9
+         */
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV8_SHIFT   (10)
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV8_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV8_SHIFT) \
+        /*
+         * SHRT_EXEV8
+         */
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV7_SHIFT   (5)
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV7_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV7_SHIFT) \
+        /*
+         * SHRT_EXEV7
+         */
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV6_SHIFT   (0)
+#define AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV6_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT1_EXEV_CFG1_SHRT_EXEV6_SHIFT) \
+        /*
+         * SHRT_EXEV6
+         */
 
 /******** Bit definition for AFIO_SHRT2_EXEV_CFG0 register  ********/
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV5_SHIFT (20)
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV5_MASK (0x1F << AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV5_SHIFT) /* SHRT_EXEV5 */
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV4_SHIFT (15)
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV4_MASK (0x1F << AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV4_SHIFT) /* SHRT_EXEV4 */
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV3_SHIFT (10)
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV3_MASK (0x1F << AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV3_SHIFT) /* SHRT_EXEV3 */
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV2_SHIFT (5)
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV2_MASK (0x1F << AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV2_SHIFT) /* SHRT_EXEV2 */
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV1_SHIFT (0)
-#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV1_MASK (0x1F << AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV1_SHIFT) /* SHRT_EXEV1 */
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV5_SHIFT   (20)
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV5_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV5_SHIFT) \
+        /*
+         * SHRT_EXEV5
+         */
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV4_SHIFT   (15)
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV4_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV4_SHIFT) \
+        /*
+         * SHRT_EXEV4
+         */
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV3_SHIFT   (10)
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV3_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV3_SHIFT) \
+        /*
+         * SHRT_EXEV3
+         */
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV2_SHIFT   (5)
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV2_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV2_SHIFT) \
+        /*
+         * SHRT_EXEV2
+         */
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV1_SHIFT   (0)
+#define AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV1_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG0_SHRT_EXEV1_SHIFT) \
+        /*
+         * SHRT_EXEV1
+         */
 
 /******** Bit definition for AFIO_SHRT2_EXEV_CFG1 register  ********/
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV10_SHIFT (20)
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV10_MASK (0x1F << AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV10_SHIFT) /* SHRT_EXEV10 */
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV9_SHIFT (15)
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV9_MASK (0x1F << AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV9_SHIFT) /* SHRT_EXEV9 */
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV8_SHIFT (10)
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV8_MASK (0x1F << AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV8_SHIFT) /* SHRT_EXEV8 */
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV7_SHIFT (5)
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV7_MASK (0x1F << AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV7_SHIFT) /* SHRT_EXEV7 */
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV6_SHIFT (0)
-#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV6_MASK (0x1F << AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV6_SHIFT) /* SHRT_EXEV6 */
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV10_SHIFT  (20)
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV10_MASK   (0x1F <<                                 \
+                                                 AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV10_SHIFT) \
+        /*
+         * SHRT_EXEV10
+         */
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV9_SHIFT   (15)
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV9_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV9_SHIFT) \
+        /*
+         * SHRT_EXEV9
+         */
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV8_SHIFT   (10)
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV8_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV8_SHIFT) \
+        /*
+         * SHRT_EXEV8
+         */
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV7_SHIFT   (5)
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV7_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV7_SHIFT) \
+        /*
+         * SHRT_EXEV7
+         */
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV6_SHIFT   (0)
+#define AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV6_MASK    (0x1F <<                                \
+                                                 AFIO_SHRT2_EXEV_CFG1_SHRT_EXEV6_SHIFT) \
+        /*
+         * SHRT_EXEV6
+         */
 
 /******** Bit definition for AFIO_SIP_PUPD register  ********/
-#define AFIO_SIP_PUPD_PUPD7_SHIFT (14)
-#define AFIO_SIP_PUPD_PUPD7_MASK (0x3 << AFIO_SIP_PUPD_PUPD7_SHIFT) /* PUPD7 */
-#define AFIO_SIP_PUPD_PUPD6_SHIFT (12)
-#define AFIO_SIP_PUPD_PUPD6_MASK (0x3 << AFIO_SIP_PUPD_PUPD6_SHIFT) /* PUPD6 */
-#define AFIO_SIP_PUPD_PUPD5_SHIFT (10)
-#define AFIO_SIP_PUPD_PUPD5_MASK (0x3 << AFIO_SIP_PUPD_PUPD5_SHIFT) /* PUPD5 */
-#define AFIO_SIP_PUPD_PUPD4_SHIFT (8)
-#define AFIO_SIP_PUPD_PUPD4_MASK (0x3 << AFIO_SIP_PUPD_PUPD4_SHIFT) /* PUPD4 */
-#define AFIO_SIP_PUPD_PUPD3_SHIFT (6)
-#define AFIO_SIP_PUPD_PUPD3_MASK (0x3 << AFIO_SIP_PUPD_PUPD3_SHIFT) /* PUPD3 */
-#define AFIO_SIP_PUPD_PUPD2_SHIFT (4)
-#define AFIO_SIP_PUPD_PUPD2_MASK (0x3 << AFIO_SIP_PUPD_PUPD2_SHIFT) /* PUPD2 */
-#define AFIO_SIP_PUPD_PUPD1_SHIFT (2)
-#define AFIO_SIP_PUPD_PUPD1_MASK (0x3 << AFIO_SIP_PUPD_PUPD1_SHIFT) /* PUPD1 */
-#define AFIO_SIP_PUPD_PUPD0_SHIFT (0)
-#define AFIO_SIP_PUPD_PUPD0_MASK (0x3 << AFIO_SIP_PUPD_PUPD0_SHIFT) /* PUPD0 */
+#define AFIO_SIP_PUPD_PUPD7_SHIFT               (14)
+#define AFIO_SIP_PUPD_PUPD7_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD7_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD7
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD6_SHIFT               (12)
+#define AFIO_SIP_PUPD_PUPD6_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD6_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD6
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD5_SHIFT               (10)
+#define AFIO_SIP_PUPD_PUPD5_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD5_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD5
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD4_SHIFT               (8)
+#define AFIO_SIP_PUPD_PUPD4_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD4_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD4
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD3_SHIFT               (6)
+#define AFIO_SIP_PUPD_PUPD3_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD3_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD3
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD2_SHIFT               (4)
+#define AFIO_SIP_PUPD_PUPD2_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD2_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD2
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD1_SHIFT               (2)
+#define AFIO_SIP_PUPD_PUPD1_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD1_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD1
+                                                                             */
+#define AFIO_SIP_PUPD_PUPD0_SHIFT               (0)
+#define AFIO_SIP_PUPD_PUPD0_MASK                (0x3 << \
+                                                 AFIO_SIP_PUPD_PUPD0_SHIFT) /*
+                                                                             *
+                                                                             *
+                                                                             *
+                                                                             * PUPD0
+                                                                             */
 
 /******** Bit definition for AFIO_HSMOD_CFG0 register  ********/
-#define AFIO_HSMOD_CFG0_PA7HSEN (1 << 23) /* PA7HSEN */
-#define AFIO_HSMOD_CFG0_PA5HSEN (1 << 21) /* PA5HSEN */
-#define AFIO_HSMOD_CFG0_PA4HSEN (1 << 20) /* PA4HSEN */
-#define AFIO_HSMOD_CFG0_PB15HSEN (1 << 15) /* PB15HSEN */
-#define AFIO_HSMOD_CFG0_PB14HSEN (1 << 14) /* PB14HSEN */
-#define AFIO_HSMOD_CFG0_PB6HSEN (1 << 6) /* PB6HSEN */
-#define AFIO_HSMOD_CFG0_PB5HSEN (1 << 5) /* PB5HSEN */
+#define AFIO_HSMOD_CFG0_PA7HSEN                 (1 << 23)   /* PA7HSEN */
+#define AFIO_HSMOD_CFG0_PA5HSEN                 (1 << 21)   /* PA5HSEN */
+#define AFIO_HSMOD_CFG0_PA4HSEN                 (1 << 20)   /* PA4HSEN */
+#define AFIO_HSMOD_CFG0_PB15HSEN                (1 << 15)   /* PB15HSEN */
+#define AFIO_HSMOD_CFG0_PB14HSEN                (1 << 14)   /* PB14HSEN */
+#define AFIO_HSMOD_CFG0_PB6HSEN                 (1 << 6)    /* PB6HSEN */
+#define AFIO_HSMOD_CFG0_PB5HSEN                 (1 << 5)    /* PB5HSEN */
 
 /******** Bit definition for AFIO_HSMOD_CFG1 register  ********/
-#define AFIO_HSMOD_CFG1_PC12HSEN (1 << 28) /* PC12HSEN */
-#define AFIO_HSMOD_CFG1_PC5HSEN (1 << 21) /* PC5HSEN */
-#define AFIO_HSMOD_CFG1_PC4HSEN (1 << 20) /* PC4HSEN */
-#define AFIO_HSMOD_CFG1_PC3HSEN (1 << 19) /* PC3HSEN */
-#define AFIO_HSMOD_CFG1_PC2HSEN (1 << 18) /* PC2HSEN */
-#define AFIO_HSMOD_CFG1_PC0HSEN (1 << 16) /* PC0HSEN */
-#define AFIO_HSMOD_CFG1_PD15HSEN (1 << 15) /* PD15HSEN */
-#define AFIO_HSMOD_CFG1_PD14HSEN (1 << 14) /* PD14HSEN */
-#define AFIO_HSMOD_CFG1_PD10HSEN (1 << 10) /* PD10HSEN */
-#define AFIO_HSMOD_CFG1_PD9HSEN (1 << 9) /* PD9HSEN */
-#define AFIO_HSMOD_CFG1_PD8HSEN (1 << 8) /* PD8HSEN */
-#define AFIO_HSMOD_CFG1_PD2HSEN (1 << 2) /* PD2HSEN */
-#define AFIO_HSMOD_CFG1_PD1HSEN (1 << 1) /* PD1HSEN */
-#define AFIO_HSMOD_CFG1_PD0HSEN (1 << 0) /* PD0HSEN */
+#define AFIO_HSMOD_CFG1_PC12HSEN                (1 << 28)   /* PC12HSEN */
+#define AFIO_HSMOD_CFG1_PC5HSEN                 (1 << 21)   /* PC5HSEN */
+#define AFIO_HSMOD_CFG1_PC4HSEN                 (1 << 20)   /* PC4HSEN */
+#define AFIO_HSMOD_CFG1_PC3HSEN                 (1 << 19)   /* PC3HSEN */
+#define AFIO_HSMOD_CFG1_PC2HSEN                 (1 << 18)   /* PC2HSEN */
+#define AFIO_HSMOD_CFG1_PC0HSEN                 (1 << 16)   /* PC0HSEN */
+#define AFIO_HSMOD_CFG1_PD15HSEN                (1 << 15)   /* PD15HSEN */
+#define AFIO_HSMOD_CFG1_PD14HSEN                (1 << 14)   /* PD14HSEN */
+#define AFIO_HSMOD_CFG1_PD10HSEN                (1 << 10)   /* PD10HSEN */
+#define AFIO_HSMOD_CFG1_PD9HSEN                 (1 << 9)    /* PD9HSEN */
+#define AFIO_HSMOD_CFG1_PD8HSEN                 (1 << 8)    /* PD8HSEN */
+#define AFIO_HSMOD_CFG1_PD2HSEN                 (1 << 2)    /* PD2HSEN */
+#define AFIO_HSMOD_CFG1_PD1HSEN                 (1 << 1)    /* PD1HSEN */
+#define AFIO_HSMOD_CFG1_PD0HSEN                 (1 << 0)    /* PD0HSEN */
 
 /******** Bit definition for AFIO_HSMOD_CFG2 register  ********/
-#define AFIO_HSMOD_CFG2_PE15HSEN (1 << 31) /* PE15HSEN */
-#define AFIO_HSMOD_CFG2_PE14HSEN (1 << 30) /* PE14HSEN */
-#define AFIO_HSMOD_CFG2_PE13HSEN (1 << 29) /* PE13HSEN */
-#define AFIO_HSMOD_CFG2_PE12HSEN (1 << 28) /* PE12HSEN */
-#define AFIO_HSMOD_CFG2_PE11HSEN (1 << 27) /* PE11HSEN */
-#define AFIO_HSMOD_CFG2_PE10HSEN (1 << 26) /* PE10HSEN */
-#define AFIO_HSMOD_CFG2_PE9HSEN (1 << 25) /* PE9HSEN */
-#define AFIO_HSMOD_CFG2_PE8HSEN (1 << 24) /* PE8HSEN */
-#define AFIO_HSMOD_CFG2_PE7HSEN (1 << 23) /* PE7HSEN */
-#define AFIO_HSMOD_CFG2_PE1HSEN (1 << 17) /* PE1HSEN */
-#define AFIO_HSMOD_CFG2_PE0HSEN (1 << 16) /* PE0HSEN */
-#define AFIO_HSMOD_CFG2_PF15HSEN (1 << 15) /* PF15HSEN */
-#define AFIO_HSMOD_CFG2_PF14HSEN (1 << 14) /* PF14HSEN */
-#define AFIO_HSMOD_CFG2_PF13HSEN (1 << 13) /* PF13HSEN */
-#define AFIO_HSMOD_CFG2_PF12HSEN (1 << 12) /* PF12HSEN */
-#define AFIO_HSMOD_CFG2_PF11HSEN (1 << 11) /* PF11HSEN */
-#define AFIO_HSMOD_CFG2_PF5HSEN (1 << 5) /* PF5HSEN */
-#define AFIO_HSMOD_CFG2_PF4HSEN (1 << 4) /* PF4HSEN */
-#define AFIO_HSMOD_CFG2_PF3HSEN (1 << 3) /* PF3HSEN */
-#define AFIO_HSMOD_CFG2_PF2HSEN (1 << 2) /* PF2HSEN */
-#define AFIO_HSMOD_CFG2_PF1HSEN (1 << 1) /* PF1HSEN */
-#define AFIO_HSMOD_CFG2_PF0HSEN (1 << 0) /* PF0HSEN */
+#define AFIO_HSMOD_CFG2_PE15HSEN                (1 << 31)   /* PE15HSEN */
+#define AFIO_HSMOD_CFG2_PE14HSEN                (1 << 30)   /* PE14HSEN */
+#define AFIO_HSMOD_CFG2_PE13HSEN                (1 << 29)   /* PE13HSEN */
+#define AFIO_HSMOD_CFG2_PE12HSEN                (1 << 28)   /* PE12HSEN */
+#define AFIO_HSMOD_CFG2_PE11HSEN                (1 << 27)   /* PE11HSEN */
+#define AFIO_HSMOD_CFG2_PE10HSEN                (1 << 26)   /* PE10HSEN */
+#define AFIO_HSMOD_CFG2_PE9HSEN                 (1 << 25)   /* PE9HSEN */
+#define AFIO_HSMOD_CFG2_PE8HSEN                 (1 << 24)   /* PE8HSEN */
+#define AFIO_HSMOD_CFG2_PE7HSEN                 (1 << 23)   /* PE7HSEN */
+#define AFIO_HSMOD_CFG2_PE1HSEN                 (1 << 17)   /* PE1HSEN */
+#define AFIO_HSMOD_CFG2_PE0HSEN                 (1 << 16)   /* PE0HSEN */
+#define AFIO_HSMOD_CFG2_PF15HSEN                (1 << 15)   /* PF15HSEN */
+#define AFIO_HSMOD_CFG2_PF14HSEN                (1 << 14)   /* PF14HSEN */
+#define AFIO_HSMOD_CFG2_PF13HSEN                (1 << 13)   /* PF13HSEN */
+#define AFIO_HSMOD_CFG2_PF12HSEN                (1 << 12)   /* PF12HSEN */
+#define AFIO_HSMOD_CFG2_PF11HSEN                (1 << 11)   /* PF11HSEN */
+#define AFIO_HSMOD_CFG2_PF5HSEN                 (1 << 5)    /* PF5HSEN */
+#define AFIO_HSMOD_CFG2_PF4HSEN                 (1 << 4)    /* PF4HSEN */
+#define AFIO_HSMOD_CFG2_PF3HSEN                 (1 << 3)    /* PF3HSEN */
+#define AFIO_HSMOD_CFG2_PF2HSEN                 (1 << 2)    /* PF2HSEN */
+#define AFIO_HSMOD_CFG2_PF1HSEN                 (1 << 1)    /* PF1HSEN */
+#define AFIO_HSMOD_CFG2_PF0HSEN                 (1 << 0)    /* PF0HSEN */
 
 /******** Bit definition for AFIO_HSMOD_CFG3 register  ********/
-#define AFIO_HSMOD_CFG3_PG15HSEN (1 << 31) /* PG15HSEN */
-#define AFIO_HSMOD_CFG3_PG8HSEN (1 << 24) /* PG8HSEN */
-#define AFIO_HSMOD_CFG3_PG5HSEN (1 << 21) /* PG5HSEN */
-#define AFIO_HSMOD_CFG3_PG4HSEN (1 << 20) /* PG4HSEN */
-#define AFIO_HSMOD_CFG3_PG2HSEN (1 << 18) /* PG2HSEN */
-#define AFIO_HSMOD_CFG3_PG1HSEN (1 << 17) /* PG1HSEN */
-#define AFIO_HSMOD_CFG3_PG0HSEN (1 << 16) /* PG0HSEN */
-#define AFIO_HSMOD_CFG3_PH15HSEN (1 << 15) /* PH15HSEN */
-#define AFIO_HSMOD_CFG3_PH14HSEN (1 << 14) /* PH14HSEN */
-#define AFIO_HSMOD_CFG3_PH13HSEN (1 << 13) /* PH13HSEN */
-#define AFIO_HSMOD_CFG3_PH12HSEN (1 << 12) /* PH12HSEN */
-#define AFIO_HSMOD_CFG3_PH11HSEN (1 << 11) /* PH11HSEN */
-#define AFIO_HSMOD_CFG3_PH10HSEN (1 << 10) /* PH10HSEN */
-#define AFIO_HSMOD_CFG3_PH9HSEN (1 << 9) /* PH9HSEN */
-#define AFIO_HSMOD_CFG3_PH8HSEN (1 << 8) /* PH8HSEN */
-#define AFIO_HSMOD_CFG3_PH7HSEN (1 << 7) /* PH7HSEN */
-#define AFIO_HSMOD_CFG3_PH6HSEN (1 << 6) /* PH6HSEN */
-#define AFIO_HSMOD_CFG3_PH5HSEN (1 << 5) /* PH5HSEN */
-#define AFIO_HSMOD_CFG3_PH3HSEN (1 << 3) /* PH3HSEN */
-#define AFIO_HSMOD_CFG3_PH2HSEN (1 << 2) /* PH2HSEN */
+#define AFIO_HSMOD_CFG3_PG15HSEN                (1 << 31)   /* PG15HSEN */
+#define AFIO_HSMOD_CFG3_PG8HSEN                 (1 << 24)   /* PG8HSEN */
+#define AFIO_HSMOD_CFG3_PG5HSEN                 (1 << 21)   /* PG5HSEN */
+#define AFIO_HSMOD_CFG3_PG4HSEN                 (1 << 20)   /* PG4HSEN */
+#define AFIO_HSMOD_CFG3_PG2HSEN                 (1 << 18)   /* PG2HSEN */
+#define AFIO_HSMOD_CFG3_PG1HSEN                 (1 << 17)   /* PG1HSEN */
+#define AFIO_HSMOD_CFG3_PG0HSEN                 (1 << 16)   /* PG0HSEN */
+#define AFIO_HSMOD_CFG3_PH15HSEN                (1 << 15)   /* PH15HSEN */
+#define AFIO_HSMOD_CFG3_PH14HSEN                (1 << 14)   /* PH14HSEN */
+#define AFIO_HSMOD_CFG3_PH13HSEN                (1 << 13)   /* PH13HSEN */
+#define AFIO_HSMOD_CFG3_PH12HSEN                (1 << 12)   /* PH12HSEN */
+#define AFIO_HSMOD_CFG3_PH11HSEN                (1 << 11)   /* PH11HSEN */
+#define AFIO_HSMOD_CFG3_PH10HSEN                (1 << 10)   /* PH10HSEN */
+#define AFIO_HSMOD_CFG3_PH9HSEN                 (1 << 9)    /* PH9HSEN */
+#define AFIO_HSMOD_CFG3_PH8HSEN                 (1 << 8)    /* PH8HSEN */
+#define AFIO_HSMOD_CFG3_PH7HSEN                 (1 << 7)    /* PH7HSEN */
+#define AFIO_HSMOD_CFG3_PH6HSEN                 (1 << 6)    /* PH6HSEN */
+#define AFIO_HSMOD_CFG3_PH5HSEN                 (1 << 5)    /* PH5HSEN */
+#define AFIO_HSMOD_CFG3_PH3HSEN                 (1 << 3)    /* PH3HSEN */
+#define AFIO_HSMOD_CFG3_PH2HSEN                 (1 << 2)    /* PH2HSEN */
 
 /******** Bit definition for AFIO_HSMOD_CFG4 register  ********/
-#define AFIO_HSMOD_CFG4_PI10HSEN (1 << 26) /* PI10HSEN */
-#define AFIO_HSMOD_CFG4_PI9HSEN (1 << 25) /* PI9HSEN */
-#define AFIO_HSMOD_CFG4_PI7HSEN (1 << 23) /* PI7HSEN */
-#define AFIO_HSMOD_CFG4_PI6HSEN (1 << 22) /* PI6HSEN */
-#define AFIO_HSMOD_CFG4_PI5HSEN (1 << 21) /* PI5HSEN */
-#define AFIO_HSMOD_CFG4_PI4HSEN (1 << 20) /* PI4HSEN */
-#define AFIO_HSMOD_CFG4_PI3HSEN (1 << 19) /* PI3HSEN */
-#define AFIO_HSMOD_CFG4_PI2HSEN (1 << 18) /* PI2HSEN */
-#define AFIO_HSMOD_CFG4_PI1HSEN (1 << 17) /* PI1HSEN */
-#define AFIO_HSMOD_CFG4_PI0HSEN (1 << 16) /* PI0HSEN */
+#define AFIO_HSMOD_CFG4_PI10HSEN                (1 << 26)   /* PI10HSEN */
+#define AFIO_HSMOD_CFG4_PI9HSEN                 (1 << 25)   /* PI9HSEN */
+#define AFIO_HSMOD_CFG4_PI7HSEN                 (1 << 23)   /* PI7HSEN */
+#define AFIO_HSMOD_CFG4_PI6HSEN                 (1 << 22)   /* PI6HSEN */
+#define AFIO_HSMOD_CFG4_PI5HSEN                 (1 << 21)   /* PI5HSEN */
+#define AFIO_HSMOD_CFG4_PI4HSEN                 (1 << 20)   /* PI4HSEN */
+#define AFIO_HSMOD_CFG4_PI3HSEN                 (1 << 19)   /* PI3HSEN */
+#define AFIO_HSMOD_CFG4_PI2HSEN                 (1 << 18)   /* PI2HSEN */
+#define AFIO_HSMOD_CFG4_PI1HSEN                 (1 << 17)   /* PI1HSEN */
+#define AFIO_HSMOD_CFG4_PI0HSEN                 (1 << 16)   /* PI0HSEN */
 
 /******** Bit definition for AFIO_SIP_SR register  ********/
-#define AFIO_SIP_SR_SR7 (1 << 7) /* SR7 */
-#define AFIO_SIP_SR_SR6 (1 << 6) /* SR6 */
-#define AFIO_SIP_SR_SR5 (1 << 5) /* SR5 */
-#define AFIO_SIP_SR_SR4 (1 << 4) /* SR4 */
-#define AFIO_SIP_SR_SR3 (1 << 3) /* SR3 */
-#define AFIO_SIP_SR_SR2 (1 << 2) /* SR2 */
-#define AFIO_SIP_SR_SR1 (1 << 1) /* SR1 */
-#define AFIO_SIP_SR_SR0 (1 << 0) /* SR0 */
+#define AFIO_SIP_SR_SR7                         (1 << 7)    /* SR7 */
+#define AFIO_SIP_SR_SR6                         (1 << 6)    /* SR6 */
+#define AFIO_SIP_SR_SR5                         (1 << 5)    /* SR5 */
+#define AFIO_SIP_SR_SR4                         (1 << 4)    /* SR4 */
+#define AFIO_SIP_SR_SR3                         (1 << 3)    /* SR3 */
+#define AFIO_SIP_SR_SR2                         (1 << 2)    /* SR2 */
+#define AFIO_SIP_SR_SR1                         (1 << 1)    /* SR1 */
+#define AFIO_SIP_SR_SR0                         (1 << 0)    /* SR0 */
 
 /******** Bit definition for AFIO_SIP_DS register  ********/
-#define AFIO_SIP_DS_DS7_SHIFT (14)
-#define AFIO_SIP_DS_DS7_MASK (0x3 << AFIO_SIP_DS_DS7_SHIFT) /* DS7 */
-#define AFIO_SIP_DS_DS6_SHIFT (12)
-#define AFIO_SIP_DS_DS6_MASK (0x3 << AFIO_SIP_DS_DS6_SHIFT) /* DS6 */
-#define AFIO_SIP_DS_DS5_SHIFT (10)
-#define AFIO_SIP_DS_DS5_MASK (0x3 << AFIO_SIP_DS_DS5_SHIFT) /* DS5 */
-#define AFIO_SIP_DS_DS4_SHIFT (8)
-#define AFIO_SIP_DS_DS4_MASK (0x3 << AFIO_SIP_DS_DS4_SHIFT) /* DS4 */
-#define AFIO_SIP_DS_DS3_SHIFT (6)
-#define AFIO_SIP_DS_DS3_MASK (0x3 << AFIO_SIP_DS_DS3_SHIFT) /* DS3 */
-#define AFIO_SIP_DS_DS2_SHIFT (4)
-#define AFIO_SIP_DS_DS2_MASK (0x3 << AFIO_SIP_DS_DS2_SHIFT) /* DS2 */
-#define AFIO_SIP_DS_DS1_SHIFT (2)
-#define AFIO_SIP_DS_DS1_MASK (0x3 << AFIO_SIP_DS_DS1_SHIFT) /* DS1 */
-#define AFIO_SIP_DS_DS0_SHIFT (0)
-#define AFIO_SIP_DS_DS0_MASK (0x3 << AFIO_SIP_DS_DS0_SHIFT) /* DS0 */
+#define AFIO_SIP_DS_DS7_SHIFT                   (14)
+#define AFIO_SIP_DS_DS7_MASK                    (0x3 << AFIO_SIP_DS_DS7_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS7
+                                                                                 */
+#define AFIO_SIP_DS_DS6_SHIFT                   (12)
+#define AFIO_SIP_DS_DS6_MASK                    (0x3 << AFIO_SIP_DS_DS6_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS6
+                                                                                 */
+#define AFIO_SIP_DS_DS5_SHIFT                   (10)
+#define AFIO_SIP_DS_DS5_MASK                    (0x3 << AFIO_SIP_DS_DS5_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS5
+                                                                                 */
+#define AFIO_SIP_DS_DS4_SHIFT                   (8)
+#define AFIO_SIP_DS_DS4_MASK                    (0x3 << AFIO_SIP_DS_DS4_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS4
+                                                                                 */
+#define AFIO_SIP_DS_DS3_SHIFT                   (6)
+#define AFIO_SIP_DS_DS3_MASK                    (0x3 << AFIO_SIP_DS_DS3_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS3
+                                                                                 */
+#define AFIO_SIP_DS_DS2_SHIFT                   (4)
+#define AFIO_SIP_DS_DS2_MASK                    (0x3 << AFIO_SIP_DS_DS2_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS2
+                                                                                 */
+#define AFIO_SIP_DS_DS1_SHIFT                   (2)
+#define AFIO_SIP_DS_DS1_MASK                    (0x3 << AFIO_SIP_DS_DS1_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS1
+                                                                                 */
+#define AFIO_SIP_DS_DS0_SHIFT                   (0)
+#define AFIO_SIP_DS_DS0_MASK                    (0x3 << AFIO_SIP_DS_DS0_SHIFT)  /*
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 *
+                                                                                 * DS0
+                                                                                 */
 
 /******** Bit definition for AFIO_ADCSW_CFG register  ********/
-#define AFIO_ADCSW_CFG_VREF (1 << 28) /* VREF */
-#define AFIO_ADCSW_CFG_SWPJ7 (1 << 27) /* SWPJ7 */
-#define AFIO_ADCSW_CFG_SWPJ6 (1 << 26) /* SWPJ6 */
-#define AFIO_ADCSW_CFG_DAC3_OUT1 (1 << 25) /* DAC3_OUT1 */
-#define AFIO_ADCSW_CFG_DAC2_OUT1 (1 << 24) /* DAC2_OUT1 */
-#define AFIO_ADCSW_CFG_DAC1_OUT1 (1 << 23) /* DAC1_OUT1 */
-#define AFIO_ADCSW_CFG_SWPJ5 (1 << 22) /* SWPJ5 */
-#define AFIO_ADCSW_CFG_SWPJ4 (1 << 21) /* SWPJ4 */
-#define AFIO_ADCSW_CFG_TEMP (1 << 20) /* TEMP */
-#define AFIO_ADCSW_CFG_SWPJ3 (1 << 19) /* SWPJ3 */
-#define AFIO_ADCSW_CFG_SWPJ0 (1 << 18) /* SWPJ0 */
-#define AFIO_ADCSW_CFG_DAC3_OUT2 (1 << 17) /* DAC3_OUT2 */
-#define AFIO_ADCSW_CFG_DAC2_OUT2 (1 << 16) /* DAC2_OUT2 */
-#define AFIO_ADCSW_CFG_DAC1_OUT2 (1 << 15) /* DAC1_OUT2 */
-#define AFIO_ADCSW_CFG_VBAT (1 << 14) /* VBAT */
-#define AFIO_ADCSW_CFG_SWPI15_SHIFT (12)
-#define AFIO_ADCSW_CFG_SWPI15_MASK (0x3 << AFIO_ADCSW_CFG_SWPI15_SHIFT) /* SWPI15 */
-#define AFIO_ADCSW_CFG_SWPA1_C_SHIFT (10)
-#define AFIO_ADCSW_CFG_SWPA1_C_MASK (0x3 << AFIO_ADCSW_CFG_SWPA1_C_SHIFT) /* SWPA1_C */
-#define AFIO_ADCSW_CFG_SWPC3_C_SHIFT (8)
-#define AFIO_ADCSW_CFG_SWPC3_C_MASK (0x3 << AFIO_ADCSW_CFG_SWPC3_C_SHIFT) /* SWPC3_C */
-#define AFIO_ADCSW_CFG_SWPC2_C_SHIFT (4)
-#define AFIO_ADCSW_CFG_SWPC2_C_MASK (0xF << AFIO_ADCSW_CFG_SWPC2_C_SHIFT) /* SWPC2_C */
-#define AFIO_ADCSW_CFG_SWPA0_C_SHIFT (0)
-#define AFIO_ADCSW_CFG_SWPA0_C_MASK (0xF << AFIO_ADCSW_CFG_SWPA0_C_SHIFT) /* SWPA0_C */
+#define AFIO_ADCSW_CFG_VREF                     (1 << 28)   /* VREF */
+#define AFIO_ADCSW_CFG_SWPJ7                    (1 << 27)   /* SWPJ7 */
+#define AFIO_ADCSW_CFG_SWPJ6                    (1 << 26)   /* SWPJ6 */
+#define AFIO_ADCSW_CFG_DAC3_OUT1                (1 << 25)   /* DAC3_OUT1 */
+#define AFIO_ADCSW_CFG_DAC2_OUT1                (1 << 24)   /* DAC2_OUT1 */
+#define AFIO_ADCSW_CFG_DAC1_OUT1                (1 << 23)   /* DAC1_OUT1 */
+#define AFIO_ADCSW_CFG_SWPJ5                    (1 << 22)   /* SWPJ5 */
+#define AFIO_ADCSW_CFG_SWPJ4                    (1 << 21)   /* SWPJ4 */
+#define AFIO_ADCSW_CFG_TEMP                     (1 << 20)   /* TEMP */
+#define AFIO_ADCSW_CFG_SWPJ3                    (1 << 19)   /* SWPJ3 */
+#define AFIO_ADCSW_CFG_SWPJ0                    (1 << 18)   /* SWPJ0 */
+#define AFIO_ADCSW_CFG_DAC3_OUT2                (1 << 17)   /* DAC3_OUT2 */
+#define AFIO_ADCSW_CFG_DAC2_OUT2                (1 << 16)   /* DAC2_OUT2 */
+#define AFIO_ADCSW_CFG_DAC1_OUT2                (1 << 15)   /* DAC1_OUT2 */
+#define AFIO_ADCSW_CFG_VBAT                     (1 << 14)   /* VBAT */
+#define AFIO_ADCSW_CFG_SWPI15_SHIFT             (12)
+#define AFIO_ADCSW_CFG_SWPI15_MASK              (0x3 << \
+                                                 AFIO_ADCSW_CFG_SWPI15_SHIFT) /*
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               *
+                                                                               * SWPI15
+                                                                               */
+#define AFIO_ADCSW_CFG_SWPA1_C_SHIFT            (10)
+#define AFIO_ADCSW_CFG_SWPA1_C_MASK             (0x3 << \
+                                                 AFIO_ADCSW_CFG_SWPA1_C_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * SWPA1_C
+                                                                                */
+#define AFIO_ADCSW_CFG_SWPC3_C_SHIFT            (8)
+#define AFIO_ADCSW_CFG_SWPC3_C_MASK             (0x3 << \
+                                                 AFIO_ADCSW_CFG_SWPC3_C_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * SWPC3_C
+                                                                                */
+#define AFIO_ADCSW_CFG_SWPC2_C_SHIFT            (4)
+#define AFIO_ADCSW_CFG_SWPC2_C_MASK             (0xF << \
+                                                 AFIO_ADCSW_CFG_SWPC2_C_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * SWPC2_C
+                                                                                */
+#define AFIO_ADCSW_CFG_SWPA0_C_SHIFT            (0)
+#define AFIO_ADCSW_CFG_SWPA0_C_MASK             (0xF << \
+                                                 AFIO_ADCSW_CFG_SWPA0_C_SHIFT) /*
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                *
+                                                                                * SWPA0_C
+                                                                                */
 
 /******** Bit definition for AFIO_HSMOD_VREF_EN0 register  ********/
-#define AFIO_HSMOD_VREF_EN0_PE15VREFEN (1 << 31) /* PE15VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE14VREFEN (1 << 30) /* PE14VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE13VREFEN (1 << 29) /* PE13VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE12VREFEN (1 << 28) /* PE12VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE11VREFEN (1 << 27) /* PE11VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE10VREFEN (1 << 26) /* PE10VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE9VREFEN (1 << 25) /* PE9VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE8VREFEN (1 << 24) /* PE8VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE7VREFEN (1 << 23) /* PE7VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE1VREFEN (1 << 22) /* PE1VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PE0VREFEN (1 << 21) /* PE0VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD15VREFEN (1 << 20) /* PD15VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD14VREFEN (1 << 19) /* PD14VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD10VREFEN (1 << 18) /* PD10VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD9VREFEN (1 << 17) /* PD9VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD8VREFEN (1 << 16) /* PD8VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD2VREFEN (1 << 15) /* PD2VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD1VREFEN (1 << 14) /* PD1VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PD0VREFEN (1 << 13) /* PD0VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PC12VREFEN (1 << 12) /* PC12VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PC5VREFEN (1 << 11) /* PC5VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PC4VREFEN (1 << 10) /* PC4VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PC3VREFEN (1 << 9) /* PC3VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PC2VREFEN (1 << 8) /* PC2VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PC0VREFEN (1 << 7) /* PC0VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PB15VREFEN (1 << 6) /* PB15VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PB14VREFEN (1 << 5) /* PB14VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PB6VREFEN (1 << 4) /* PB6VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PB5VREFEN (1 << 3) /* PB5VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PA7VREFEN (1 << 2) /* PA7VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PA5VREFEN (1 << 1) /* PA5VREFEN */
-#define AFIO_HSMOD_VREF_EN0_PA4VREFEN (1 << 0) /* PA4VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE15VREFEN          (1 << 31)   /* PE15VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE14VREFEN          (1 << 30)   /* PE14VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE13VREFEN          (1 << 29)   /* PE13VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE12VREFEN          (1 << 28)   /* PE12VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE11VREFEN          (1 << 27)   /* PE11VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE10VREFEN          (1 << 26)   /* PE10VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE9VREFEN           (1 << 25)   /* PE9VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE8VREFEN           (1 << 24)   /* PE8VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE7VREFEN           (1 << 23)   /* PE7VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE1VREFEN           (1 << 22)   /* PE1VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PE0VREFEN           (1 << 21)   /* PE0VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD15VREFEN          (1 << 20)   /* PD15VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD14VREFEN          (1 << 19)   /* PD14VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD10VREFEN          (1 << 18)   /* PD10VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD9VREFEN           (1 << 17)   /* PD9VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD8VREFEN           (1 << 16)   /* PD8VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD2VREFEN           (1 << 15)   /* PD2VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD1VREFEN           (1 << 14)   /* PD1VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PD0VREFEN           (1 << 13)   /* PD0VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PC12VREFEN          (1 << 12)   /* PC12VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PC5VREFEN           (1 << 11)   /* PC5VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PC4VREFEN           (1 << 10)   /* PC4VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PC3VREFEN           (1 << 9)    /* PC3VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PC2VREFEN           (1 << 8)    /* PC2VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PC0VREFEN           (1 << 7)    /* PC0VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PB15VREFEN          (1 << 6)    /* PB15VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PB14VREFEN          (1 << 5)    /* PB14VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PB6VREFEN           (1 << 4)    /* PB6VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PB5VREFEN           (1 << 3)    /* PB5VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PA7VREFEN           (1 << 2)    /* PA7VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PA5VREFEN           (1 << 1)    /* PA5VREFEN */
+#define AFIO_HSMOD_VREF_EN0_PA4VREFEN           (1 << 0)    /* PA4VREFEN */
 
 /******** Bit definition for AFIO_HSMOD_VREF_EN1 register  ********/
-#define AFIO_HSMOD_VREF_EN1_PI0VREFEN (1 << 31) /* PI0VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH15VREFEN (1 << 30) /* PH15VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH14VREFEN (1 << 29) /* PH14VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH13VREFEN (1 << 28) /* PH13VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH12VREFEN (1 << 27) /* PH12VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH11VREFEN (1 << 26) /* PH11VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH10VREFEN (1 << 25) /* PH10VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH9VREFEN (1 << 24) /* PH9VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH8VREFEN (1 << 23) /* PH8VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH7VREFEN (1 << 22) /* PH7VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH6VREFEN (1 << 21) /* PH6VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH5VREFEN (1 << 20) /* PH5VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH3VREFEN (1 << 19) /* PH3VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PH2VREFEN (1 << 18) /* PH2VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG15VREFEN (1 << 17) /* PG15VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG8VREFEN (1 << 16) /* PG8VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG5VREFEN (1 << 15) /* PG5VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG4VREFEN (1 << 14) /* PG4VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG2VREFEN (1 << 13) /* PG2VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG1VREFEN (1 << 12) /* PG1VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PG0VREFEN (1 << 11) /* PG0VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF15VREFEN (1 << 10) /* PF15VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF14VREFEN (1 << 9) /* PF14VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF13VREFEN (1 << 8) /* PF13VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF12VREFEN (1 << 7) /* PF12VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF11VREFEN (1 << 6) /* PF11VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF5VREFEN (1 << 5) /* PF5VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF4VREFEN (1 << 4) /* PF4VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF3VREFEN (1 << 3) /* PF3VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF2VREFEN (1 << 2) /* PF2VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF1VREFEN (1 << 1) /* PF1VREFEN */
-#define AFIO_HSMOD_VREF_EN1_PF0VREFEN (1 << 0) /* PF0VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PI0VREFEN           (1 << 31)   /* PI0VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH15VREFEN          (1 << 30)   /* PH15VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH14VREFEN          (1 << 29)   /* PH14VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH13VREFEN          (1 << 28)   /* PH13VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH12VREFEN          (1 << 27)   /* PH12VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH11VREFEN          (1 << 26)   /* PH11VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH10VREFEN          (1 << 25)   /* PH10VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH9VREFEN           (1 << 24)   /* PH9VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH8VREFEN           (1 << 23)   /* PH8VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH7VREFEN           (1 << 22)   /* PH7VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH6VREFEN           (1 << 21)   /* PH6VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH5VREFEN           (1 << 20)   /* PH5VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH3VREFEN           (1 << 19)   /* PH3VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PH2VREFEN           (1 << 18)   /* PH2VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG15VREFEN          (1 << 17)   /* PG15VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG8VREFEN           (1 << 16)   /* PG8VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG5VREFEN           (1 << 15)   /* PG5VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG4VREFEN           (1 << 14)   /* PG4VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG2VREFEN           (1 << 13)   /* PG2VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG1VREFEN           (1 << 12)   /* PG1VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PG0VREFEN           (1 << 11)   /* PG0VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF15VREFEN          (1 << 10)   /* PF15VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF14VREFEN          (1 << 9)    /* PF14VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF13VREFEN          (1 << 8)    /* PF13VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF12VREFEN          (1 << 7)    /* PF12VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF11VREFEN          (1 << 6)    /* PF11VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF5VREFEN           (1 << 5)    /* PF5VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF4VREFEN           (1 << 4)    /* PF4VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF3VREFEN           (1 << 3)    /* PF3VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF2VREFEN           (1 << 2)    /* PF2VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF1VREFEN           (1 << 1)    /* PF1VREFEN */
+#define AFIO_HSMOD_VREF_EN1_PF0VREFEN           (1 << 0)    /* PF0VREFEN */
 
 /******** Bit definition for AFIO_HSMOD_VREF_EN2 register  ********/
-#define AFIO_HSMOD_VREF_EN2_PI10VREFEN (1 << 8) /* PI10VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI9VREFEN (1 << 7) /* PI9VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI7VREFEN (1 << 6) /* PI7VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI6VREFEN (1 << 5) /* PI6VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI5VREFEN (1 << 4) /* PI5VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI4VREFEN (1 << 3) /* PI4VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI3VREFEN (1 << 2) /* PI3VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI2VREFEN (1 << 1) /* PI2VREFEN */
-#define AFIO_HSMOD_VREF_EN2_PI1VREFEN (1 << 0) /* PI1VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI10VREFEN          (1 << 8)    /* PI10VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI9VREFEN           (1 << 7)    /* PI9VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI7VREFEN           (1 << 6)    /* PI7VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI6VREFEN           (1 << 5)    /* PI6VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI5VREFEN           (1 << 4)    /* PI5VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI4VREFEN           (1 << 3)    /* PI4VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI3VREFEN           (1 << 2)    /* PI3VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI2VREFEN           (1 << 1)    /* PI2VREFEN */
+#define AFIO_HSMOD_VREF_EN2_PI1VREFEN           (1 << 0)    /* PI1VREFEN */
 
 /******** Bit definition for AFIO_HS_DSN_CFG0 register  ********/
-#define AFIO_HS_DSN_CFG0_PE15DSN (1 << 31) /* PE15DSN */
-#define AFIO_HS_DSN_CFG0_PE14DSN (1 << 30) /* PE14DSN */
-#define AFIO_HS_DSN_CFG0_PE13DSN (1 << 29) /* PE13DSN */
-#define AFIO_HS_DSN_CFG0_PE12DSN (1 << 28) /* PE12DSN */
-#define AFIO_HS_DSN_CFG0_PE11DSN (1 << 27) /* PE11DSN */
-#define AFIO_HS_DSN_CFG0_PE10DSN (1 << 26) /* PE10DSN */
-#define AFIO_HS_DSN_CFG0_PE9DSN (1 << 25) /* PE9DSN */
-#define AFIO_HS_DSN_CFG0_PE8DSN (1 << 24) /* PE8DSN */
-#define AFIO_HS_DSN_CFG0_PE7DSN (1 << 23) /* PE7DSN */
-#define AFIO_HS_DSN_CFG0_PE1DSN (1 << 22) /* PE1DSN */
-#define AFIO_HS_DSN_CFG0_PE0DSN (1 << 21) /* PE0DSN */
-#define AFIO_HS_DSN_CFG0_PD15DSN (1 << 20) /* PD15DSN */
-#define AFIO_HS_DSN_CFG0_PD14DSN (1 << 19) /* PD14DSN */
-#define AFIO_HS_DSN_CFG0_PD10DSN (1 << 18) /* PD10DSN */
-#define AFIO_HS_DSN_CFG0_PD9DSN (1 << 17) /* PD9DSN */
-#define AFIO_HS_DSN_CFG0_PD8DSN (1 << 16) /* PD8DSN */
-#define AFIO_HS_DSN_CFG0_PD2DSN (1 << 15) /* PD2DSN */
-#define AFIO_HS_DSN_CFG0_PD1DSN (1 << 14) /* PD1DSN */
-#define AFIO_HS_DSN_CFG0_PD0DSN (1 << 13) /* PD0DSN */
-#define AFIO_HS_DSN_CFG0_PC12DSN (1 << 12) /* PC12DSN */
-#define AFIO_HS_DSN_CFG0_PC5DSN (1 << 11) /* PC5DSN */
-#define AFIO_HS_DSN_CFG0_PC4DSN (1 << 10) /* PC4DSN */
-#define AFIO_HS_DSN_CFG0_PC3DSN (1 << 9) /* PC3DSN */
-#define AFIO_HS_DSN_CFG0_PC2DSN (1 << 8) /* PC2DSN */
-#define AFIO_HS_DSN_CFG0_PC0DSN (1 << 7) /* PC0DSN */
-#define AFIO_HS_DSN_CFG0_PB15DSN (1 << 6) /* PB15DSN */
-#define AFIO_HS_DSN_CFG0_PB14DSN (1 << 5) /* PB14DSN */
-#define AFIO_HS_DSN_CFG0_PB6DSN (1 << 4) /* PB6DSN */
-#define AFIO_HS_DSN_CFG0_PB5DSN (1 << 3) /* PB5DSN */
-#define AFIO_HS_DSN_CFG0_PA7DSN (1 << 2) /* PA7DSN */
-#define AFIO_HS_DSN_CFG0_PA5DSN (1 << 1) /* PA5DSN */
-#define AFIO_HS_DSN_CFG0_PA4DSN (1 << 0) /* PA4DSN */
+#define AFIO_HS_DSN_CFG0_PE15DSN                (1 << 31)   /* PE15DSN */
+#define AFIO_HS_DSN_CFG0_PE14DSN                (1 << 30)   /* PE14DSN */
+#define AFIO_HS_DSN_CFG0_PE13DSN                (1 << 29)   /* PE13DSN */
+#define AFIO_HS_DSN_CFG0_PE12DSN                (1 << 28)   /* PE12DSN */
+#define AFIO_HS_DSN_CFG0_PE11DSN                (1 << 27)   /* PE11DSN */
+#define AFIO_HS_DSN_CFG0_PE10DSN                (1 << 26)   /* PE10DSN */
+#define AFIO_HS_DSN_CFG0_PE9DSN                 (1 << 25)   /* PE9DSN */
+#define AFIO_HS_DSN_CFG0_PE8DSN                 (1 << 24)   /* PE8DSN */
+#define AFIO_HS_DSN_CFG0_PE7DSN                 (1 << 23)   /* PE7DSN */
+#define AFIO_HS_DSN_CFG0_PE1DSN                 (1 << 22)   /* PE1DSN */
+#define AFIO_HS_DSN_CFG0_PE0DSN                 (1 << 21)   /* PE0DSN */
+#define AFIO_HS_DSN_CFG0_PD15DSN                (1 << 20)   /* PD15DSN */
+#define AFIO_HS_DSN_CFG0_PD14DSN                (1 << 19)   /* PD14DSN */
+#define AFIO_HS_DSN_CFG0_PD10DSN                (1 << 18)   /* PD10DSN */
+#define AFIO_HS_DSN_CFG0_PD9DSN                 (1 << 17)   /* PD9DSN */
+#define AFIO_HS_DSN_CFG0_PD8DSN                 (1 << 16)   /* PD8DSN */
+#define AFIO_HS_DSN_CFG0_PD2DSN                 (1 << 15)   /* PD2DSN */
+#define AFIO_HS_DSN_CFG0_PD1DSN                 (1 << 14)   /* PD1DSN */
+#define AFIO_HS_DSN_CFG0_PD0DSN                 (1 << 13)   /* PD0DSN */
+#define AFIO_HS_DSN_CFG0_PC12DSN                (1 << 12)   /* PC12DSN */
+#define AFIO_HS_DSN_CFG0_PC5DSN                 (1 << 11)   /* PC5DSN */
+#define AFIO_HS_DSN_CFG0_PC4DSN                 (1 << 10)   /* PC4DSN */
+#define AFIO_HS_DSN_CFG0_PC3DSN                 (1 << 9)    /* PC3DSN */
+#define AFIO_HS_DSN_CFG0_PC2DSN                 (1 << 8)    /* PC2DSN */
+#define AFIO_HS_DSN_CFG0_PC0DSN                 (1 << 7)    /* PC0DSN */
+#define AFIO_HS_DSN_CFG0_PB15DSN                (1 << 6)    /* PB15DSN */
+#define AFIO_HS_DSN_CFG0_PB14DSN                (1 << 5)    /* PB14DSN */
+#define AFIO_HS_DSN_CFG0_PB6DSN                 (1 << 4)    /* PB6DSN */
+#define AFIO_HS_DSN_CFG0_PB5DSN                 (1 << 3)    /* PB5DSN */
+#define AFIO_HS_DSN_CFG0_PA7DSN                 (1 << 2)    /* PA7DSN */
+#define AFIO_HS_DSN_CFG0_PA5DSN                 (1 << 1)    /* PA5DSN */
+#define AFIO_HS_DSN_CFG0_PA4DSN                 (1 << 0)    /* PA4DSN */
 
 /******** Bit definition for AFIO_HS_DSN_CFG1 register  ********/
-#define AFIO_HS_DSN_CFG1_PI0DSN (1 << 31) /* PI0DSN */
-#define AFIO_HS_DSN_CFG1_PH15DSN (1 << 30) /* PH15DSN */
-#define AFIO_HS_DSN_CFG1_PH14DSN (1 << 29) /* PH14DSN */
-#define AFIO_HS_DSN_CFG1_PH13DSN (1 << 28) /* PH13DSN */
-#define AFIO_HS_DSN_CFG1_PH12DSN (1 << 27) /* PH12DSN */
-#define AFIO_HS_DSN_CFG1_PH11DSN (1 << 26) /* PH11DSN */
-#define AFIO_HS_DSN_CFG1_PH10DSN (1 << 25) /* PH10DSN */
-#define AFIO_HS_DSN_CFG1_PH9DSN (1 << 24) /* PH9DSN */
-#define AFIO_HS_DSN_CFG1_PH8DSN (1 << 23) /* PH8DSN */
-#define AFIO_HS_DSN_CFG1_PH7DSN (1 << 22) /* PH7DSN */
-#define AFIO_HS_DSN_CFG1_PH6DSN (1 << 21) /* PH6DSN */
-#define AFIO_HS_DSN_CFG1_PH5DSN (1 << 20) /* PH5DSN */
-#define AFIO_HS_DSN_CFG1_PH3DSN (1 << 19) /* PH3DSN */
-#define AFIO_HS_DSN_CFG1_PH2DSN (1 << 18) /* PH2DSN */
-#define AFIO_HS_DSN_CFG1_PG15DSN (1 << 17) /* PG15DSN */
-#define AFIO_HS_DSN_CFG1_PG8DSN (1 << 16) /* PG8DSN */
-#define AFIO_HS_DSN_CFG1_PG5DSN (1 << 15) /* PG5DSN */
-#define AFIO_HS_DSN_CFG1_PG4DSN (1 << 14) /* PG4DSN */
-#define AFIO_HS_DSN_CFG1_PG2DSN (1 << 13) /* PG2DSN */
-#define AFIO_HS_DSN_CFG1_PG1DSN (1 << 12) /* PG1DSN */
-#define AFIO_HS_DSN_CFG1_PG0DSN (1 << 11) /* PG0DSN */
-#define AFIO_HS_DSN_CFG1_PF15DSN (1 << 10) /* PF15DSN */
-#define AFIO_HS_DSN_CFG1_PF14DSN (1 << 9) /* PF14DSN */
-#define AFIO_HS_DSN_CFG1_PF13DSN (1 << 8) /* PF13DSN */
-#define AFIO_HS_DSN_CFG1_PF12DSN (1 << 7) /* PF12DSN */
-#define AFIO_HS_DSN_CFG1_PF11DSN (1 << 6) /* PF11DSN */
-#define AFIO_HS_DSN_CFG1_PF5DSN (1 << 5) /* PF5DSN */
-#define AFIO_HS_DSN_CFG1_PF4DSN (1 << 4) /* PF4DSN */
-#define AFIO_HS_DSN_CFG1_PF3DSN (1 << 3) /* PF3DSN */
-#define AFIO_HS_DSN_CFG1_PF2DSN (1 << 2) /* PF2DSN */
-#define AFIO_HS_DSN_CFG1_PF1DSN (1 << 1) /* PF1DSN */
-#define AFIO_HS_DSN_CFG1_PF0DSN (1 << 0) /* PF0DSN */
+#define AFIO_HS_DSN_CFG1_PI0DSN                 (1 << 31)   /* PI0DSN */
+#define AFIO_HS_DSN_CFG1_PH15DSN                (1 << 30)   /* PH15DSN */
+#define AFIO_HS_DSN_CFG1_PH14DSN                (1 << 29)   /* PH14DSN */
+#define AFIO_HS_DSN_CFG1_PH13DSN                (1 << 28)   /* PH13DSN */
+#define AFIO_HS_DSN_CFG1_PH12DSN                (1 << 27)   /* PH12DSN */
+#define AFIO_HS_DSN_CFG1_PH11DSN                (1 << 26)   /* PH11DSN */
+#define AFIO_HS_DSN_CFG1_PH10DSN                (1 << 25)   /* PH10DSN */
+#define AFIO_HS_DSN_CFG1_PH9DSN                 (1 << 24)   /* PH9DSN */
+#define AFIO_HS_DSN_CFG1_PH8DSN                 (1 << 23)   /* PH8DSN */
+#define AFIO_HS_DSN_CFG1_PH7DSN                 (1 << 22)   /* PH7DSN */
+#define AFIO_HS_DSN_CFG1_PH6DSN                 (1 << 21)   /* PH6DSN */
+#define AFIO_HS_DSN_CFG1_PH5DSN                 (1 << 20)   /* PH5DSN */
+#define AFIO_HS_DSN_CFG1_PH3DSN                 (1 << 19)   /* PH3DSN */
+#define AFIO_HS_DSN_CFG1_PH2DSN                 (1 << 18)   /* PH2DSN */
+#define AFIO_HS_DSN_CFG1_PG15DSN                (1 << 17)   /* PG15DSN */
+#define AFIO_HS_DSN_CFG1_PG8DSN                 (1 << 16)   /* PG8DSN */
+#define AFIO_HS_DSN_CFG1_PG5DSN                 (1 << 15)   /* PG5DSN */
+#define AFIO_HS_DSN_CFG1_PG4DSN                 (1 << 14)   /* PG4DSN */
+#define AFIO_HS_DSN_CFG1_PG2DSN                 (1 << 13)   /* PG2DSN */
+#define AFIO_HS_DSN_CFG1_PG1DSN                 (1 << 12)   /* PG1DSN */
+#define AFIO_HS_DSN_CFG1_PG0DSN                 (1 << 11)   /* PG0DSN */
+#define AFIO_HS_DSN_CFG1_PF15DSN                (1 << 10)   /* PF15DSN */
+#define AFIO_HS_DSN_CFG1_PF14DSN                (1 << 9)    /* PF14DSN */
+#define AFIO_HS_DSN_CFG1_PF13DSN                (1 << 8)    /* PF13DSN */
+#define AFIO_HS_DSN_CFG1_PF12DSN                (1 << 7)    /* PF12DSN */
+#define AFIO_HS_DSN_CFG1_PF11DSN                (1 << 6)    /* PF11DSN */
+#define AFIO_HS_DSN_CFG1_PF5DSN                 (1 << 5)    /* PF5DSN */
+#define AFIO_HS_DSN_CFG1_PF4DSN                 (1 << 4)    /* PF4DSN */
+#define AFIO_HS_DSN_CFG1_PF3DSN                 (1 << 3)    /* PF3DSN */
+#define AFIO_HS_DSN_CFG1_PF2DSN                 (1 << 2)    /* PF2DSN */
+#define AFIO_HS_DSN_CFG1_PF1DSN                 (1 << 1)    /* PF1DSN */
+#define AFIO_HS_DSN_CFG1_PF0DSN                 (1 << 0)    /* PF0DSN */
 
 /******** Bit definition for AFIO_HS_DSN_CFG2 register  ********/
-#define AFIO_HS_DSN_CFG2_PI10DSN (1 << 8) /* PI10DSN */
-#define AFIO_HS_DSN_CFG2_PI9DSN (1 << 7) /* PI9DSN */
-#define AFIO_HS_DSN_CFG2_PI7DSN (1 << 6) /* PI7DSN */
-#define AFIO_HS_DSN_CFG2_PI6DSN (1 << 5) /* PI6DSN */
-#define AFIO_HS_DSN_CFG2_PI5DSN (1 << 4) /* PI5DSN */
-#define AFIO_HS_DSN_CFG2_PI4DSN (1 << 3) /* PI4DSN */
-#define AFIO_HS_DSN_CFG2_PI3DSN (1 << 2) /* PI3DSN */
-#define AFIO_HS_DSN_CFG2_PI2DSN (1 << 1) /* PI2DSN */
-#define AFIO_HS_DSN_CFG2_PI1DSN (1 << 0) /* PI1DSN */
+#define AFIO_HS_DSN_CFG2_PI10DSN                (1 << 8)    /* PI10DSN */
+#define AFIO_HS_DSN_CFG2_PI9DSN                 (1 << 7)    /* PI9DSN */
+#define AFIO_HS_DSN_CFG2_PI7DSN                 (1 << 6)    /* PI7DSN */
+#define AFIO_HS_DSN_CFG2_PI6DSN                 (1 << 5)    /* PI6DSN */
+#define AFIO_HS_DSN_CFG2_PI5DSN                 (1 << 4)    /* PI5DSN */
+#define AFIO_HS_DSN_CFG2_PI4DSN                 (1 << 3)    /* PI4DSN */
+#define AFIO_HS_DSN_CFG2_PI3DSN                 (1 << 2)    /* PI3DSN */
+#define AFIO_HS_DSN_CFG2_PI2DSN                 (1 << 1)    /* PI2DSN */
+#define AFIO_HS_DSN_CFG2_PI1DSN                 (1 << 0)    /* PI1DSN */
 
 /******** Bit definition for AFIO_HS_DSP_CFG0 register  ********/
-#define AFIO_HS_DSP_CFG0_PE15DSP (1 << 31) /* PE15DSP */
-#define AFIO_HS_DSP_CFG0_PE14DSP (1 << 30) /* PE14DSP */
-#define AFIO_HS_DSP_CFG0_PE13DSP (1 << 29) /* PE13DSP */
-#define AFIO_HS_DSP_CFG0_PE12DSP (1 << 28) /* PE12DSP */
-#define AFIO_HS_DSP_CFG0_PE11DSP (1 << 27) /* PE11DSP */
-#define AFIO_HS_DSP_CFG0_PE10DSP (1 << 26) /* PE10DSP */
-#define AFIO_HS_DSP_CFG0_PE9DSP (1 << 25) /* PE9DSP */
-#define AFIO_HS_DSP_CFG0_PE8DSP (1 << 24) /* PE8DSP */
-#define AFIO_HS_DSP_CFG0_PE7DSP (1 << 23) /* PE7DSP */
-#define AFIO_HS_DSP_CFG0_PE1DSP (1 << 22) /* PE1DSP */
-#define AFIO_HS_DSP_CFG0_PE0DSP (1 << 21) /* PE0DSP */
-#define AFIO_HS_DSP_CFG0_PD15DSP (1 << 20) /* PD15DSP */
-#define AFIO_HS_DSP_CFG0_PD14DSP (1 << 19) /* PD14DSP */
-#define AFIO_HS_DSP_CFG0_PD10DSP (1 << 18) /* PD10DSP */
-#define AFIO_HS_DSP_CFG0_PD9DSP (1 << 17) /* PD9DSP */
-#define AFIO_HS_DSP_CFG0_PD8DSP (1 << 16) /* PD8DSP */
-#define AFIO_HS_DSP_CFG0_PD2DSP (1 << 15) /* PD2DSP */
-#define AFIO_HS_DSP_CFG0_PD1DSP (1 << 14) /* PD1DSP */
-#define AFIO_HS_DSP_CFG0_PD0DSP (1 << 13) /* PD0DSP */
-#define AFIO_HS_DSP_CFG0_PC12DSP (1 << 12) /* PC12DSP */
-#define AFIO_HS_DSP_CFG0_PC5DSP (1 << 11) /* PC5DSP */
-#define AFIO_HS_DSP_CFG0_PC4DSP (1 << 10) /* PC4DSP */
-#define AFIO_HS_DSP_CFG0_PC3DSP (1 << 9) /* PC3DSP */
-#define AFIO_HS_DSP_CFG0_PC2DSP (1 << 8) /* PC2DSP */
-#define AFIO_HS_DSP_CFG0_PC0DSP (1 << 7) /* PC0DSP */
-#define AFIO_HS_DSP_CFG0_PB15DSP (1 << 6) /* PB15DSP */
-#define AFIO_HS_DSP_CFG0_PB14DSP (1 << 5) /* PB14DSP */
-#define AFIO_HS_DSP_CFG0_PB6DSP (1 << 4) /* PB6DSP */
-#define AFIO_HS_DSP_CFG0_PB5DSP (1 << 3) /* PB5DSP */
-#define AFIO_HS_DSP_CFG0_PA7DSP (1 << 2) /* PA7DSP */
-#define AFIO_HS_DSP_CFG0_PA5DSP (1 << 1) /* PA5DSP */
-#define AFIO_HS_DSP_CFG0_PA4DSP (1 << 0) /* PA4DSP */
+#define AFIO_HS_DSP_CFG0_PE15DSP                (1 << 31)   /* PE15DSP */
+#define AFIO_HS_DSP_CFG0_PE14DSP                (1 << 30)   /* PE14DSP */
+#define AFIO_HS_DSP_CFG0_PE13DSP                (1 << 29)   /* PE13DSP */
+#define AFIO_HS_DSP_CFG0_PE12DSP                (1 << 28)   /* PE12DSP */
+#define AFIO_HS_DSP_CFG0_PE11DSP                (1 << 27)   /* PE11DSP */
+#define AFIO_HS_DSP_CFG0_PE10DSP                (1 << 26)   /* PE10DSP */
+#define AFIO_HS_DSP_CFG0_PE9DSP                 (1 << 25)   /* PE9DSP */
+#define AFIO_HS_DSP_CFG0_PE8DSP                 (1 << 24)   /* PE8DSP */
+#define AFIO_HS_DSP_CFG0_PE7DSP                 (1 << 23)   /* PE7DSP */
+#define AFIO_HS_DSP_CFG0_PE1DSP                 (1 << 22)   /* PE1DSP */
+#define AFIO_HS_DSP_CFG0_PE0DSP                 (1 << 21)   /* PE0DSP */
+#define AFIO_HS_DSP_CFG0_PD15DSP                (1 << 20)   /* PD15DSP */
+#define AFIO_HS_DSP_CFG0_PD14DSP                (1 << 19)   /* PD14DSP */
+#define AFIO_HS_DSP_CFG0_PD10DSP                (1 << 18)   /* PD10DSP */
+#define AFIO_HS_DSP_CFG0_PD9DSP                 (1 << 17)   /* PD9DSP */
+#define AFIO_HS_DSP_CFG0_PD8DSP                 (1 << 16)   /* PD8DSP */
+#define AFIO_HS_DSP_CFG0_PD2DSP                 (1 << 15)   /* PD2DSP */
+#define AFIO_HS_DSP_CFG0_PD1DSP                 (1 << 14)   /* PD1DSP */
+#define AFIO_HS_DSP_CFG0_PD0DSP                 (1 << 13)   /* PD0DSP */
+#define AFIO_HS_DSP_CFG0_PC12DSP                (1 << 12)   /* PC12DSP */
+#define AFIO_HS_DSP_CFG0_PC5DSP                 (1 << 11)   /* PC5DSP */
+#define AFIO_HS_DSP_CFG0_PC4DSP                 (1 << 10)   /* PC4DSP */
+#define AFIO_HS_DSP_CFG0_PC3DSP                 (1 << 9)    /* PC3DSP */
+#define AFIO_HS_DSP_CFG0_PC2DSP                 (1 << 8)    /* PC2DSP */
+#define AFIO_HS_DSP_CFG0_PC0DSP                 (1 << 7)    /* PC0DSP */
+#define AFIO_HS_DSP_CFG0_PB15DSP                (1 << 6)    /* PB15DSP */
+#define AFIO_HS_DSP_CFG0_PB14DSP                (1 << 5)    /* PB14DSP */
+#define AFIO_HS_DSP_CFG0_PB6DSP                 (1 << 4)    /* PB6DSP */
+#define AFIO_HS_DSP_CFG0_PB5DSP                 (1 << 3)    /* PB5DSP */
+#define AFIO_HS_DSP_CFG0_PA7DSP                 (1 << 2)    /* PA7DSP */
+#define AFIO_HS_DSP_CFG0_PA5DSP                 (1 << 1)    /* PA5DSP */
+#define AFIO_HS_DSP_CFG0_PA4DSP                 (1 << 0)    /* PA4DSP */
 
 /******** Bit definition for AFIO_HS_DSP_CFG1 register  ********/
-#define AFIO_HS_DSP_CFG1_PI0DSP (1 << 31) /* PI0DSP */
-#define AFIO_HS_DSP_CFG1_PH15DSP (1 << 30) /* PH15DSP */
-#define AFIO_HS_DSP_CFG1_PH14DSP (1 << 29) /* PH14DSP */
-#define AFIO_HS_DSP_CFG1_PH13DSP (1 << 28) /* PH13DSP */
-#define AFIO_HS_DSP_CFG1_PH12DSP (1 << 27) /* PH12DSP */
-#define AFIO_HS_DSP_CFG1_PH11DSP (1 << 26) /* PH11DSP */
-#define AFIO_HS_DSP_CFG1_PH10DSP (1 << 25) /* PH10DSP */
-#define AFIO_HS_DSP_CFG1_PH9DSP (1 << 24) /* PH9DSP */
-#define AFIO_HS_DSP_CFG1_PH8DSP (1 << 23) /* PH8DSP */
-#define AFIO_HS_DSP_CFG1_PH7DSP (1 << 22) /* PH7DSP */
-#define AFIO_HS_DSP_CFG1_PH6DSP (1 << 21) /* PH6DSP */
-#define AFIO_HS_DSP_CFG1_PH5DSP (1 << 20) /* PH5DSP */
-#define AFIO_HS_DSP_CFG1_PH3DSP (1 << 19) /* PH3DSP */
-#define AFIO_HS_DSP_CFG1_PH2DSP (1 << 18) /* PH2DSP */
-#define AFIO_HS_DSP_CFG1_PG15DSP (1 << 17) /* PG15DSP */
-#define AFIO_HS_DSP_CFG1_PG8DSP (1 << 16) /* PG8DSP */
-#define AFIO_HS_DSP_CFG1_PG5DSP (1 << 15) /* PG5DSP */
-#define AFIO_HS_DSP_CFG1_PG4DSP (1 << 14) /* PG4DSP */
-#define AFIO_HS_DSP_CFG1_PG2DSP (1 << 13) /* PG2DSP */
-#define AFIO_HS_DSP_CFG1_PG1DSP (1 << 12) /* PG1DSP */
-#define AFIO_HS_DSP_CFG1_PG0DSP (1 << 11) /* PG0DSP */
-#define AFIO_HS_DSP_CFG1_PF15DSP (1 << 10) /* PF15DSP */
-#define AFIO_HS_DSP_CFG1_PF14DSP (1 << 9) /* PF14DSP */
-#define AFIO_HS_DSP_CFG1_PF13DSP (1 << 8) /* PF13DSP */
-#define AFIO_HS_DSP_CFG1_PF12DSP (1 << 7) /* PF12DSP */
-#define AFIO_HS_DSP_CFG1_PF11DSP (1 << 6) /* PF11DSP */
-#define AFIO_HS_DSP_CFG1_PF5DSP (1 << 5) /* PF5DSP */
-#define AFIO_HS_DSP_CFG1_PF4DSP (1 << 4) /* PF4DSP */
-#define AFIO_HS_DSP_CFG1_PF3DSP (1 << 3) /* PF3DSP */
-#define AFIO_HS_DSP_CFG1_PF2DSP (1 << 2) /* PF2DSP */
-#define AFIO_HS_DSP_CFG1_PF1DSP (1 << 1) /* PF1DSP */
-#define AFIO_HS_DSP_CFG1_PF0DSP (1 << 0) /* PF0DSP */
+#define AFIO_HS_DSP_CFG1_PI0DSP                 (1 << 31)   /* PI0DSP */
+#define AFIO_HS_DSP_CFG1_PH15DSP                (1 << 30)   /* PH15DSP */
+#define AFIO_HS_DSP_CFG1_PH14DSP                (1 << 29)   /* PH14DSP */
+#define AFIO_HS_DSP_CFG1_PH13DSP                (1 << 28)   /* PH13DSP */
+#define AFIO_HS_DSP_CFG1_PH12DSP                (1 << 27)   /* PH12DSP */
+#define AFIO_HS_DSP_CFG1_PH11DSP                (1 << 26)   /* PH11DSP */
+#define AFIO_HS_DSP_CFG1_PH10DSP                (1 << 25)   /* PH10DSP */
+#define AFIO_HS_DSP_CFG1_PH9DSP                 (1 << 24)   /* PH9DSP */
+#define AFIO_HS_DSP_CFG1_PH8DSP                 (1 << 23)   /* PH8DSP */
+#define AFIO_HS_DSP_CFG1_PH7DSP                 (1 << 22)   /* PH7DSP */
+#define AFIO_HS_DSP_CFG1_PH6DSP                 (1 << 21)   /* PH6DSP */
+#define AFIO_HS_DSP_CFG1_PH5DSP                 (1 << 20)   /* PH5DSP */
+#define AFIO_HS_DSP_CFG1_PH3DSP                 (1 << 19)   /* PH3DSP */
+#define AFIO_HS_DSP_CFG1_PH2DSP                 (1 << 18)   /* PH2DSP */
+#define AFIO_HS_DSP_CFG1_PG15DSP                (1 << 17)   /* PG15DSP */
+#define AFIO_HS_DSP_CFG1_PG8DSP                 (1 << 16)   /* PG8DSP */
+#define AFIO_HS_DSP_CFG1_PG5DSP                 (1 << 15)   /* PG5DSP */
+#define AFIO_HS_DSP_CFG1_PG4DSP                 (1 << 14)   /* PG4DSP */
+#define AFIO_HS_DSP_CFG1_PG2DSP                 (1 << 13)   /* PG2DSP */
+#define AFIO_HS_DSP_CFG1_PG1DSP                 (1 << 12)   /* PG1DSP */
+#define AFIO_HS_DSP_CFG1_PG0DSP                 (1 << 11)   /* PG0DSP */
+#define AFIO_HS_DSP_CFG1_PF15DSP                (1 << 10)   /* PF15DSP */
+#define AFIO_HS_DSP_CFG1_PF14DSP                (1 << 9)    /* PF14DSP */
+#define AFIO_HS_DSP_CFG1_PF13DSP                (1 << 8)    /* PF13DSP */
+#define AFIO_HS_DSP_CFG1_PF12DSP                (1 << 7)    /* PF12DSP */
+#define AFIO_HS_DSP_CFG1_PF11DSP                (1 << 6)    /* PF11DSP */
+#define AFIO_HS_DSP_CFG1_PF5DSP                 (1 << 5)    /* PF5DSP */
+#define AFIO_HS_DSP_CFG1_PF4DSP                 (1 << 4)    /* PF4DSP */
+#define AFIO_HS_DSP_CFG1_PF3DSP                 (1 << 3)    /* PF3DSP */
+#define AFIO_HS_DSP_CFG1_PF2DSP                 (1 << 2)    /* PF2DSP */
+#define AFIO_HS_DSP_CFG1_PF1DSP                 (1 << 1)    /* PF1DSP */
+#define AFIO_HS_DSP_CFG1_PF0DSP                 (1 << 0)    /* PF0DSP */
 
 /******** Bit definition for AFIO_HS_DSP_CFG2 register  ********/
-#define AFIO_HS_DSP_CFG2_PI10DSP (1 << 8) /* PI10DSP */
-#define AFIO_HS_DSP_CFG2_PI9DSP (1 << 7) /* PI9DSP */
-#define AFIO_HS_DSP_CFG2_PI7DSP (1 << 6) /* PI7DSP */
-#define AFIO_HS_DSP_CFG2_PI6DSP (1 << 5) /* PI6DSP */
-#define AFIO_HS_DSP_CFG2_PI5DSP (1 << 4) /* PI5DSP */
-#define AFIO_HS_DSP_CFG2_PI4DSP (1 << 3) /* PI4DSP */
-#define AFIO_HS_DSP_CFG2_PI3DSP (1 << 2) /* PI3DSP */
-#define AFIO_HS_DSP_CFG2_PI2DSP (1 << 1) /* PI2DSP */
-#define AFIO_HS_DSP_CFG2_PI1DSP (1 << 0) /* PI1DSP */
+#define AFIO_HS_DSP_CFG2_PI10DSP                (1 << 8)    /* PI10DSP */
+#define AFIO_HS_DSP_CFG2_PI9DSP                 (1 << 7)    /* PI9DSP */
+#define AFIO_HS_DSP_CFG2_PI7DSP                 (1 << 6)    /* PI7DSP */
+#define AFIO_HS_DSP_CFG2_PI6DSP                 (1 << 5)    /* PI6DSP */
+#define AFIO_HS_DSP_CFG2_PI5DSP                 (1 << 4)    /* PI5DSP */
+#define AFIO_HS_DSP_CFG2_PI4DSP                 (1 << 3)    /* PI4DSP */
+#define AFIO_HS_DSP_CFG2_PI3DSP                 (1 << 2)    /* PI3DSP */
+#define AFIO_HS_DSP_CFG2_PI2DSP                 (1 << 1)    /* PI2DSP */
+#define AFIO_HS_DSP_CFG2_PI1DSP                 (1 << 0)    /* PI1DSP */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_AFIO_H */

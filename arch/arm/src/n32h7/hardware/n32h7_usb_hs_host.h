@@ -33,1420 +33,3156 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_USB_HS_HOST_USBHS_HCFG_OFFSET 0x0 /* USBHS_HCFG */
-#define N32_USB_HS_HOST_USBHS_HFRI_OFFSET 0x4 /* USBHS_HFRI */
-#define N32_USB_HS_HOST_USBHS_HFNUM_OFFSET 0x8 /* USBHS_HFNUM */
-#define N32_USB_HS_HOST_USBHS_HPTXFQSTS_OFFSET 0x10 /* USBHS_HPTXFQSTS */
-#define N32_USB_HS_HOST_USBHS_HACHINT_OFFSET 0x14 /* USBHS_HACHINT */
-#define N32_USB_HS_HOST_USBHS_HACHINTEN_OFFSET 0x18 /* USBHS_HACHINTEN */
-#define N32_USB_HS_HOST_USBHS_HPCS_OFFSET 0x40 /* USBHS_HPCS */
-#define N32_USB_HS_HOST_USBHS_HCH0CTRL_OFFSET 0x100 /* USBHS_HCH0CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH1CTRL_OFFSET 0x120 /* USBHS_HCH1CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH2CTRL_OFFSET 0x140 /* USBHS_HCH2CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH3CTRL_OFFSET 0x160 /* USBHS_HCH3CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH4TRL_OFFSET 0x180 /* USBHS_HCH4CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH5CTRL_OFFSET 0x1A0 /* USBHS_HCH5CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH6CTRL_OFFSET 0x1C0 /* USBHS_HCH6CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH7CTRL_OFFSET 0x1E0 /* USBHS_HCH7CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH8CTRL_OFFSET 0x200 /* USBHS_HCH8CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH9CTRL_OFFSET 0x220 /* USBHS_HCH9CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH10CTRL_OFFSET 0x240 /* USBHS_HCH10CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH11CTRL_OFFSET 0x260 /* USBHS_HCH11CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH12CTRL_OFFSET 0x280 /* USBHS_HCH12CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH13CTRL_OFFSET 0x2A0 /* USBHS_HCH13CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH14CTRL_OFFSET 0x2C0 /* USBHS_HCH14CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH15CTRL_OFFSET 0x2E0 /* USBHS_HCH15CTRL */
-#define N32_USB_HS_HOST_USBHS_HCH0SCTRL_OFFSET 0x104 /* USBHS_HCH0SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH1SCTRL_OFFSET 0x124 /* USBHS_HCH1SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH2SCTRL_OFFSET 0x144 /* USBHS_HCH2SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH3SCTRL_OFFSET 0x164 /* USBHS_HCH3SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH4SCTRL_OFFSET 0x184 /* USBHS_HCH4SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH5SCTRL_OFFSET 0x1A4 /* USBHS_HCH5SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH6SCTRL_OFFSET 0x1C4 /* USBHS_HCH6SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH7SCTRL_OFFSET 0x1E4 /* USBHS_HCH7SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH8SCTRL_OFFSET 0x204 /* USBHS_HCH8SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH9SCTRL_OFFSET 0x224 /* USBHS_HCH9SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH10SCTRL_OFFSET 0x244 /* USBHS_HCH10SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH11SCTRL_OFFSET 0x264 /* USBHS_HCH11SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH12SCTRL_OFFSET 0x284 /* USBHS_HCH12SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH13SCTRL_OFFSET 0x2A4 /* USBHS_HCH13SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH14SCTRL_OFFSET 0x2C4 /* USBHS_HCH14SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH15SCTRL_OFFSET 0x2E4 /* USBHS_HCH15SCTRL */
-#define N32_USB_HS_HOST_USBHS_HCH0INTSTS_OFFSET 0x108 /* USBHS_HCH0INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH1INTSTS_OFFSET 0x128 /* USBHS_HCH1INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH2INTSTS_OFFSET 0x148 /* USBHS_HCH2INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH3INTSTS_OFFSET 0x168 /* USBHS_HCH3INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH4INTSTS_OFFSET 0x188 /* USBHS_HCH4INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH5INTSTS_OFFSET 0x1A8 /* USBHS_HCH5INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH6INTSTS_OFFSET 0x1C8 /* USBHS_HCH6INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH7INTSTS_OFFSET 0x1E8 /* USBHS_HCH7INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH8INTSTS_OFFSET 0x208 /* USBHS_HCH8INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH9INTSTS_OFFSET 0x228 /* USBHS_HCH9INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH10INTSTS_OFFSET 0x248 /* USBHS_HCH10INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH11INTSTS_OFFSET 0x268 /* USBHS_HCH11INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH12INTSTS_OFFSET 0x288 /* USBHS_HCH12INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH13INTSTS_OFFSET 0x2A8 /* USBHS_HCH13INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH14INTSTS_OFFSET 0x2C8 /* USBHS_HCH14INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH15INTSTS_OFFSET 0x2E8 /* USBHS_HCH15INTSTS */
-#define N32_USB_HS_HOST_USBHS_HCH0INTEN_OFFSET 0x10C /* USBHS_HCH0INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH1INTEN_OFFSET 0x12C /* USBHS_HCH1INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH2INTEN_OFFSET 0x14C /* USBHS_HCH2INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH3INTEN_OFFSET 0x16C /* USBHS_HCH3INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH4INTEN_OFFSET 0x18C /* USBHS_HCH4INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH5INTEN_OFFSET 0x1AC /* USBHS_HCH5INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH6INTEN_OFFSET 0x1CC /* USBHS_HCH6INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH7INTEN_OFFSET 0x1EC /* USBHS_HCH7INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH8INTEN_OFFSET 0x20C /* USBHS_HCH8INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH9INTEN_OFFSET 0x22C /* USBHS_HCH9INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH10INTEN_OFFSET 0x24C /* USBHS_HCH10INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH11INTEN_OFFSET 0x26C /* USBHS_HCH11INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH12INTEN_OFFSET 0x28C /* USBHS_HCH12INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH13INTEN_OFFSET 0x2AC /* USBHS_HCH13INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH14INTEN_OFFSET 0x2CC /* USBHS_HCH14NTEN */
-#define N32_USB_HS_HOST_USBHS_HCH15INTEN_OFFSET 0x2EC /* USBHS_HCH15INTEN */
-#define N32_USB_HS_HOST_USBHS_HCH0TXSIZ_OFFSET 0x110 /* USBHS_HCH0TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH1TXSIZ_OFFSET 0x130 /* USBHS_HCH1TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH2TXSIZ_OFFSET 0x150 /* USBHS_HCH2TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH3TXSIZ_OFFSET 0x170 /* USBHS_HCH3TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH4TXSIZ_OFFSET 0x190 /* USBHS_HCH4TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH5TXSIZ_OFFSET 0x1B0 /* USBHS_HCH5TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH6TXSIZ_OFFSET 0x1D0 /* USBHS_HCH6TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH7TXSIZ_OFFSET 0x1F0 /* USBHS_HCH7TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH8TXSIZ_OFFSET 0x210 /* USBHS_HCH8TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH9TXSIZ_OFFSET 0x230 /* USBHS_HCH9TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH10TXSIZ_OFFSET 0x250 /* USBHS_HCH10TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH11TXSIZ_OFFSET 0x270 /* USBHS_HCH11TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH12TXSIZ_OFFSET 0x290 /* USBHS_HCH12TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH13TXSIZ_OFFSET 0x2B0 /* USBHS_HCH13TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH14TXSIZ_OFFSET 0x2D0 /* USBHS_HCH14TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH15TXSIZ_OFFSET 0x2F0 /* USBHS_HCH15TXSIZ */
-#define N32_USB_HS_HOST_USBHS_HCH0DMADD_OFFSET 0x114 /* USBHS_HCH0DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH1DMADD_OFFSET 0x134 /* USBHS_HCH1DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH2DMADD_OFFSET 0x154 /* USBHS_HCH2DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH3DMADD_OFFSET 0x174 /* USBHS_HCH3DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH4DMADD_OFFSET 0x194 /* USBHS_HCH4DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH5DMADD_OFFSET 0x1B4 /* USBHS_HCH5DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH6DMADD_OFFSET 0x1D4 /* USBHS_HCH6DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH7DMADD_OFFSET 0x1F4 /* USBHS_HCH7DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH8DMADD_OFFSET 0x214 /* USBHS_HCH8DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH9DMADD_OFFSET 0x234 /* USBHS_HCH9DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH10DMADD_OFFSET 0x254 /* USBHS_HCH10DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH11DMADD_OFFSET 0x274 /* USBHS_HCH11DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH12DMADD_OFFSET 0x294 /* USBHS_HCH12DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH13DMADD_OFFSET 0x2B4 /* USBHS_HCH13DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH14DMADD_OFFSET 0x2D4 /* USBHS_HCH14DMADD */
-#define N32_USB_HS_HOST_USBHS_HCH15DMADD_OFFSET 0x2F4 /* USBHS_HCH15DMADD */
+#define N32_USB_HS_HOST_USBHS_HCFG_OFFSET               0x0     /* USBHS_HCFG
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HFRI_OFFSET               0x4     /* USBHS_HFRI
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HFNUM_OFFSET              0x8     /* USBHS_HFNUM
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HPTXFQSTS_OFFSET          0x10    /*
+                                                                 * USBHS_HPTXFQSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HACHINT_OFFSET            0x14    /*
+                                                                 * USBHS_HACHINT
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HACHINTEN_OFFSET          0x18    /*
+                                                                 * USBHS_HACHINTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HPCS_OFFSET               0x40    /* USBHS_HPCS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH0CTRL_OFFSET           0x100   /*
+                                                                 * USBHS_HCH0CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH1CTRL_OFFSET           0x120   /*
+                                                                 * USBHS_HCH1CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH2CTRL_OFFSET           0x140   /*
+                                                                 * USBHS_HCH2CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH3CTRL_OFFSET           0x160   /*
+                                                                 * USBHS_HCH3CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH4TRL_OFFSET            0x180   /*
+                                                                 * USBHS_HCH4CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH5CTRL_OFFSET           0x1A0   /*
+                                                                 * USBHS_HCH5CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH6CTRL_OFFSET           0x1C0   /*
+                                                                 * USBHS_HCH6CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH7CTRL_OFFSET           0x1E0   /*
+                                                                 * USBHS_HCH7CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH8CTRL_OFFSET           0x200   /*
+                                                                 * USBHS_HCH8CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH9CTRL_OFFSET           0x220   /*
+                                                                 * USBHS_HCH9CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH10CTRL_OFFSET          0x240   /*
+                                                                 * USBHS_HCH10CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH11CTRL_OFFSET          0x260   /*
+                                                                 * USBHS_HCH11CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH12CTRL_OFFSET          0x280   /*
+                                                                 * USBHS_HCH12CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH13CTRL_OFFSET          0x2A0   /*
+                                                                 * USBHS_HCH13CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH14CTRL_OFFSET          0x2C0   /*
+                                                                 * USBHS_HCH14CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH15CTRL_OFFSET          0x2E0   /*
+                                                                 * USBHS_HCH15CTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH0SCTRL_OFFSET          0x104   /*
+                                                                 * USBHS_HCH0SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH1SCTRL_OFFSET          0x124   /*
+                                                                 * USBHS_HCH1SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH2SCTRL_OFFSET          0x144   /*
+                                                                 * USBHS_HCH2SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH3SCTRL_OFFSET          0x164   /*
+                                                                 * USBHS_HCH3SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH4SCTRL_OFFSET          0x184   /*
+                                                                 * USBHS_HCH4SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH5SCTRL_OFFSET          0x1A4   /*
+                                                                 * USBHS_HCH5SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH6SCTRL_OFFSET          0x1C4   /*
+                                                                 * USBHS_HCH6SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH7SCTRL_OFFSET          0x1E4   /*
+                                                                 * USBHS_HCH7SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH8SCTRL_OFFSET          0x204   /*
+                                                                 * USBHS_HCH8SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH9SCTRL_OFFSET          0x224   /*
+                                                                 * USBHS_HCH9SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH10SCTRL_OFFSET         0x244   /*
+                                                                 * USBHS_HCH10SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH11SCTRL_OFFSET         0x264   /*
+                                                                 * USBHS_HCH11SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH12SCTRL_OFFSET         0x284   /*
+                                                                 * USBHS_HCH12SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH13SCTRL_OFFSET         0x2A4   /*
+                                                                 * USBHS_HCH13SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH14SCTRL_OFFSET         0x2C4   /*
+                                                                 * USBHS_HCH14SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH15SCTRL_OFFSET         0x2E4   /*
+                                                                 * USBHS_HCH15SCTRL
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH0INTSTS_OFFSET         0x108   /*
+                                                                 * USBHS_HCH0INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH1INTSTS_OFFSET         0x128   /*
+                                                                 * USBHS_HCH1INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH2INTSTS_OFFSET         0x148   /*
+                                                                 * USBHS_HCH2INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH3INTSTS_OFFSET         0x168   /*
+                                                                 * USBHS_HCH3INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH4INTSTS_OFFSET         0x188   /*
+                                                                 * USBHS_HCH4INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH5INTSTS_OFFSET         0x1A8   /*
+                                                                 * USBHS_HCH5INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH6INTSTS_OFFSET         0x1C8   /*
+                                                                 * USBHS_HCH6INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH7INTSTS_OFFSET         0x1E8   /*
+                                                                 * USBHS_HCH7INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH8INTSTS_OFFSET         0x208   /*
+                                                                 * USBHS_HCH8INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH9INTSTS_OFFSET         0x228   /*
+                                                                 * USBHS_HCH9INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH10INTSTS_OFFSET        0x248   /*
+                                                                 * USBHS_HCH10INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH11INTSTS_OFFSET        0x268   /*
+                                                                 * USBHS_HCH11INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH12INTSTS_OFFSET        0x288   /*
+                                                                 * USBHS_HCH12INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH13INTSTS_OFFSET        0x2A8   /*
+                                                                 * USBHS_HCH13INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH14INTSTS_OFFSET        0x2C8   /*
+                                                                 * USBHS_HCH14INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH15INTSTS_OFFSET        0x2E8   /*
+                                                                 * USBHS_HCH15INTSTS
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH0INTEN_OFFSET          0x10C   /*
+                                                                 * USBHS_HCH0INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH1INTEN_OFFSET          0x12C   /*
+                                                                 * USBHS_HCH1INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH2INTEN_OFFSET          0x14C   /*
+                                                                 * USBHS_HCH2INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH3INTEN_OFFSET          0x16C   /*
+                                                                 * USBHS_HCH3INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH4INTEN_OFFSET          0x18C   /*
+                                                                 * USBHS_HCH4INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH5INTEN_OFFSET          0x1AC   /*
+                                                                 * USBHS_HCH5INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH6INTEN_OFFSET          0x1CC   /*
+                                                                 * USBHS_HCH6INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH7INTEN_OFFSET          0x1EC   /*
+                                                                 * USBHS_HCH7INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH8INTEN_OFFSET          0x20C   /*
+                                                                 * USBHS_HCH8INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH9INTEN_OFFSET          0x22C   /*
+                                                                 * USBHS_HCH9INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH10INTEN_OFFSET         0x24C   /*
+                                                                 * USBHS_HCH10INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH11INTEN_OFFSET         0x26C   /*
+                                                                 * USBHS_HCH11INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH12INTEN_OFFSET         0x28C   /*
+                                                                 * USBHS_HCH12INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH13INTEN_OFFSET         0x2AC   /*
+                                                                 * USBHS_HCH13INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH14INTEN_OFFSET         0x2CC   /*
+                                                                 * USBHS_HCH14NTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH15INTEN_OFFSET         0x2EC   /*
+                                                                 * USBHS_HCH15INTEN
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH0TXSIZ_OFFSET          0x110   /*
+                                                                 * USBHS_HCH0TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH1TXSIZ_OFFSET          0x130   /*
+                                                                 * USBHS_HCH1TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH2TXSIZ_OFFSET          0x150   /*
+                                                                 * USBHS_HCH2TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH3TXSIZ_OFFSET          0x170   /*
+                                                                 * USBHS_HCH3TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH4TXSIZ_OFFSET          0x190   /*
+                                                                 * USBHS_HCH4TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH5TXSIZ_OFFSET          0x1B0   /*
+                                                                 * USBHS_HCH5TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH6TXSIZ_OFFSET          0x1D0   /*
+                                                                 * USBHS_HCH6TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH7TXSIZ_OFFSET          0x1F0   /*
+                                                                 * USBHS_HCH7TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH8TXSIZ_OFFSET          0x210   /*
+                                                                 * USBHS_HCH8TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH9TXSIZ_OFFSET          0x230   /*
+                                                                 * USBHS_HCH9TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH10TXSIZ_OFFSET         0x250   /*
+                                                                 * USBHS_HCH10TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH11TXSIZ_OFFSET         0x270   /*
+                                                                 * USBHS_HCH11TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH12TXSIZ_OFFSET         0x290   /*
+                                                                 * USBHS_HCH12TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH13TXSIZ_OFFSET         0x2B0   /*
+                                                                 * USBHS_HCH13TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH14TXSIZ_OFFSET         0x2D0   /*
+                                                                 * USBHS_HCH14TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH15TXSIZ_OFFSET         0x2F0   /*
+                                                                 * USBHS_HCH15TXSIZ
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH0DMADD_OFFSET          0x114   /*
+                                                                 * USBHS_HCH0DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH1DMADD_OFFSET          0x134   /*
+                                                                 * USBHS_HCH1DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH2DMADD_OFFSET          0x154   /*
+                                                                 * USBHS_HCH2DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH3DMADD_OFFSET          0x174   /*
+                                                                 * USBHS_HCH3DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH4DMADD_OFFSET          0x194   /*
+                                                                 * USBHS_HCH4DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH5DMADD_OFFSET          0x1B4   /*
+                                                                 * USBHS_HCH5DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH6DMADD_OFFSET          0x1D4   /*
+                                                                 * USBHS_HCH6DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH7DMADD_OFFSET          0x1F4   /*
+                                                                 * USBHS_HCH7DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH8DMADD_OFFSET          0x214   /*
+                                                                 * USBHS_HCH8DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH9DMADD_OFFSET          0x234   /*
+                                                                 * USBHS_HCH9DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH10DMADD_OFFSET         0x254   /*
+                                                                 * USBHS_HCH10DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH11DMADD_OFFSET         0x274   /*
+                                                                 * USBHS_HCH11DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH12DMADD_OFFSET         0x294   /*
+                                                                 * USBHS_HCH12DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH13DMADD_OFFSET         0x2B4   /*
+                                                                 * USBHS_HCH13DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH14DMADD_OFFSET         0x2D4   /*
+                                                                 * USBHS_HCH14DMADD
+                                                                 */
+#define N32_USB_HS_HOST_USBHS_HCH15DMADD_OFFSET         0x2F4   /*
+                                                                 * USBHS_HCH15DMADD
+                                                                 */
 
-#define N32_USB_HS1_HOST_USBHS_HCFG (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCFG_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HFRI (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HFRI_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HFNUM (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HFNUM_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HPTXFQSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HPTXFQSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HACHINT (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HACHINT_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HACHINTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HACHINTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HPCS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HPCS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH0CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH1CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH2CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH3CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH4TRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4TRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH5CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH6CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH7CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH8CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH9CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH10CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH11CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH12CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH13CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH14CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH15CTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15CTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH0SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH1SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH2SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH3SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH4SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH5SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH6SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH7SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH8SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH9SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH10SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH11SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH12SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH13SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH14SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH15SCTRL (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15SCTRL_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH0INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH1INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH2INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH3INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH4INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH5INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH6INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH7INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH8INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH9INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH10INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH11INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH12INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH13INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH14INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH15INTSTS (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15INTSTS_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH0INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH1INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH2INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH3INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH4INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH5INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH6INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH7INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH8INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH9INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH10INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH11INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH12INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH13INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH14INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH15INTEN (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15INTEN_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH0TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH1TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH2TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH3TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH4TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH5TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH6TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH7TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH8TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH9TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH10TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH11TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH12TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH13TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH14TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH15TXSIZ (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15TXSIZ_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH0DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH1DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH2DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH3DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH4DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH5DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH6DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH7DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH8DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH9DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH10DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH11DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH12DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH13DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH14DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14DMADD_OFFSET)
-#define N32_USB_HS1_HOST_USBHS_HCH15DMADD (N32_USB_HS1_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCFG                     (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCFG_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HFRI                     (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HFRI_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HFNUM                    (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HFNUM_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HPTXFQSTS                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HPTXFQSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HACHINT                  (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HACHINT_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HACHINTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HACHINTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HPCS                     (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HPCS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH0CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH1CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH2CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH3CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH4TRL                  (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4TRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH5CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH6CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH7CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH8CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH9CTRL                 (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH10CTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH11CTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH12CTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH13CTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH14CTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH15CTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15CTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH0SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH1SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH2SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH3SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH4SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH5SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH6SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH7SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH8SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH9SCTRL                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH10SCTRL               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH11SCTRL               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH12SCTRL               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH13SCTRL               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH14SCTRL               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH15SCTRL               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15SCTRL_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH0INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH1INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH2INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH3INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH4INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH5INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH6INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH7INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH8INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH9INTSTS               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH10INTSTS              (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH11INTSTS              (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH12INTSTS              (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH13INTSTS              (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH14INTSTS              (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH15INTSTS              (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15INTSTS_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH0INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH1INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH2INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH3INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH4INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH5INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH6INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH7INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH8INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH9INTEN                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH10INTEN               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH11INTEN               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH12INTEN               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH13INTEN               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH14INTEN               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH15INTEN               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15INTEN_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH0TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH1TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH2TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH3TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH4TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH5TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH6TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH7TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH8TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH9TXSIZ                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH10TXSIZ               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH11TXSIZ               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH12TXSIZ               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH13TXSIZ               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH14TXSIZ               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH15TXSIZ               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15TXSIZ_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH0DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH1DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH2DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH3DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH4DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH5DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH6DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH7DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH8DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH9DMADD                (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH10DMADD               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH11DMADD               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH12DMADD               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH13DMADD               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH14DMADD               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14DMADD_OFFSET)
+#define N32_USB_HS1_HOST_USBHS_HCH15DMADD               (N32_USB_HS1_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15DMADD_OFFSET)
 
-#define N32_USB_HS2_HOST_USBHS_HCFG (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCFG_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HFRI (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HFRI_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HFNUM (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HFNUM_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HPTXFQSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HPTXFQSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HACHINT (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HACHINT_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HACHINTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HACHINTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HPCS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HPCS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH0CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH1CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH2CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH3CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH4TRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4TRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH5CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH6CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH7CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH8CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH9CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH10CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH11CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH12CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH13CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH14CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH15CTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15CTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH0SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH1SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH2SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH3SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH4SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH5SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH6SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH7SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH8SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH9SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH10SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH11SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH12SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH13SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH14SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH15SCTRL (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15SCTRL_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH0INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH1INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH2INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH3INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH4INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH5INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH6INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH7INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH8INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH9INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH10INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH11INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH12INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH13INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH14INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH15INTSTS (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15INTSTS_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH0INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH1INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH2INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH3INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH4INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH5INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH6INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH7INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH8INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH9INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH10INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH11INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH12INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH13INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH14INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH15INTEN (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15INTEN_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH0TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH1TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH2TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH3TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH4TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH5TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH6TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH7TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH8TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH9TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH10TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH11TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH12TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH13TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH14TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH15TXSIZ (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15TXSIZ_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH0DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH0DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH1DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH1DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH2DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH2DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH3DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH3DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH4DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH4DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH5DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH5DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH6DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH6DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH7DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH7DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH8DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH8DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH9DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH9DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH10DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH10DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH11DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH11DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH12DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH12DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH13DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH13DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH14DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH14DMADD_OFFSET)
-#define N32_USB_HS2_HOST_USBHS_HCH15DMADD (N32_USB_HS2_HOST_BASE + N32_USB_HS_HOST_USBHS_HCH15DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCFG                     (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCFG_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HFRI                     (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HFRI_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HFNUM                    (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HFNUM_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HPTXFQSTS                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HPTXFQSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HACHINT                  (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HACHINT_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HACHINTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HACHINTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HPCS                     (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HPCS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH0CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH1CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH2CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH3CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH4TRL                  (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4TRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH5CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH6CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH7CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH8CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH9CTRL                 (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH10CTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH11CTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH12CTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH13CTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH14CTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH15CTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15CTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH0SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH1SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH2SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH3SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH4SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH5SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH6SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH7SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH8SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH9SCTRL                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH10SCTRL               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH11SCTRL               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH12SCTRL               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH13SCTRL               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH14SCTRL               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH15SCTRL               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15SCTRL_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH0INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH1INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH2INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH3INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH4INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH5INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH6INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH7INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH8INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH9INTSTS               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH10INTSTS              (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH11INTSTS              (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH12INTSTS              (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH13INTSTS              (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH14INTSTS              (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH15INTSTS              (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15INTSTS_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH0INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH1INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH2INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH3INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH4INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH5INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH6INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH7INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH8INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH9INTEN                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH10INTEN               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH11INTEN               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH12INTEN               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH13INTEN               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH14INTEN               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH15INTEN               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15INTEN_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH0TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH1TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH2TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH3TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH4TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH5TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH6TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH7TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH8TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH9TXSIZ                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH10TXSIZ               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH11TXSIZ               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH12TXSIZ               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH13TXSIZ               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH14TXSIZ               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH15TXSIZ               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15TXSIZ_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH0DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH0DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH1DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH1DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH2DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH2DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH3DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH3DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH4DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH4DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH5DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH5DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH6DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH6DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH7DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH7DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH8DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH8DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH9DMADD                (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH9DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH10DMADD               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH10DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH11DMADD               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH11DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH12DMADD               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH12DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH13DMADD               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH13DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH14DMADD               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH14DMADD_OFFSET)
+#define N32_USB_HS2_HOST_USBHS_HCH15DMADD               (N32_USB_HS2_HOST_BASE \
+                                                         +                     \
+                                                         N32_USB_HS_HOST_USBHS_HCH15DMADD_OFFSET)
 
 /******** Bit definition for USBHS_HCFG register  ********/
-#define USB_HS_HOST_USBHS_HCFG_SPSEL (1 << 2) /* SPSEL */
+#define USB_HS_HOST_USBHS_HCFG_SPSEL                    (1 << 2) /* SPSEL */
 
 /******** Bit definition for USBHS_HFRI register  ********/
-#define USB_HS_HOST_USBHS_HFRI_FRI_SHIFT (0)
-#define USB_HS_HOST_USBHS_HFRI_FRI_MASK (0xFFFF << USB_HS_HOST_USBHS_HFRI_FRI_SHIFT) /* FRI */
-#define USB_HS_HOST_USBHS_HFRI_DRLDEN (1 << 16) /* DRLDEN */
+#define USB_HS_HOST_USBHS_HFRI_FRI_SHIFT                (0)
+#define USB_HS_HOST_USBHS_HFRI_FRI_MASK                 (0xFFFF << \
+          USB_HS_HOST_USBHS_HFRI_FRI_SHIFT)                         /* FRI */
+#define USB_HS_HOST_USBHS_HFRI_DRLDEN                   (1 << 16)   /* DRLDEN
+                                                                     */
 
 /******** Bit definition for USBHS_HFNUM register  ********/
-#define USB_HS_HOST_USBHS_HFNUM_FRNUM_SHIFT (0)
-#define USB_HS_HOST_USBHS_HFNUM_FRNUM_MASK (0xFFFF << USB_HS_HOST_USBHS_HFNUM_FRNUM_SHIFT) /* FRNUM */
-#define USB_HS_HOST_USBHS_HFNUM_FRT_SHIFT (16)
-#define USB_HS_HOST_USBHS_HFNUM_FRT_MASK (0xFFFF << USB_HS_HOST_USBHS_HFNUM_FRT_SHIFT) /* FRT */
+#define USB_HS_HOST_USBHS_HFNUM_FRNUM_SHIFT             (0)
+#define USB_HS_HOST_USBHS_HFNUM_FRNUM_MASK              (0xFFFF << \
+          USB_HS_HOST_USBHS_HFNUM_FRNUM_SHIFT)                                             /*
+                                                                                            * FRNUM
+                                                                                            */
+#define USB_HS_HOST_USBHS_HFNUM_FRT_SHIFT               (16)
+#define USB_HS_HOST_USBHS_HFNUM_FRT_MASK                (0xFFFF << \
+          USB_HS_HOST_USBHS_HFNUM_FRT_SHIFT)                                           /*
+                                                                                        * FRT
+                                                                                        */
 
 /******** Bit definition for USBHS_HPTXFQSTS register  ********/
-#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXFSAVL_SHIFT (0)
-#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXFSAVL_MASK (0xFFFF << USB_HS_HOST_USBHS_HPTXFQSTS_PTXFSAVL_SHIFT) /* PTXFSAVL */
-#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQSAVL_SHIFT (16)
-#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQSAVL_MASK (0x7F << USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQSAVL_SHIFT) /* PTXRQSAVL */
-#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQTOP_SHIFT (23)
-#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQTOP_MASK (0x1FF << USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQTOP_SHIFT) /* PTXRQTOP */
+#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXFSAVL_SHIFT      (0)
+#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXFSAVL_MASK       (0xFFFF << \
+          USB_HS_HOST_USBHS_HPTXFQSTS_PTXFSAVL_SHIFT)                                                    /*
+                                                                                                          * PTXFSAVL
+                                                                                                          */
+#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQSAVL_SHIFT     (16)
+#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQSAVL_MASK      (0x7F << \
+          USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQSAVL_SHIFT)                                                   /*
+                                                                                                          * PTXRQSAVL
+                                                                                                          */
+#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQTOP_SHIFT      (23)
+#define USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQTOP_MASK       (0x1FF << \
+          USB_HS_HOST_USBHS_HPTXFQSTS_PTXRQTOP_SHIFT)                                                   /*
+                                                                                                         * PTXRQTOP
+                                                                                                         */
 
 /******** Bit definition for USBHS_HACHINT register  ********/
-#define USB_HS_HOST_USBHS_HACHINT_HACHINT_SHIFT (0)
-#define USB_HS_HOST_USBHS_HACHINT_HACHINT_MASK (0xFFFF << USB_HS_HOST_USBHS_HACHINT_HACHINT_SHIFT) /* HACHINT */
+#define USB_HS_HOST_USBHS_HACHINT_HACHINT_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HACHINT_HACHINT_MASK          (0xFFFF << \
+          USB_HS_HOST_USBHS_HACHINT_HACHINT_SHIFT)                                                 /*
+                                                                                                    * HACHINT
+                                                                                                    */
 
 /******** Bit definition for USBHS_HACHINTEN register  ********/
-#define USB_HS_HOST_USBHS_HACHINTEN_HACHINTEN_SHIFT (0)
-#define USB_HS_HOST_USBHS_HACHINTEN_HACHINTEN_MASK (0xFFFF << USB_HS_HOST_USBHS_HACHINTEN_HACHINTEN_SHIFT) /* HACHINTEN */
+#define USB_HS_HOST_USBHS_HACHINTEN_HACHINTEN_SHIFT     (0)
+#define USB_HS_HOST_USBHS_HACHINTEN_HACHINTEN_MASK      (0xFFFF << \
+          USB_HS_HOST_USBHS_HACHINTEN_HACHINTEN_SHIFT)                                                     /*
+                                                                                                            * HACHINTEN
+                                                                                                            */
 
 /******** Bit definition for USBHS_HPCS register  ********/
-#define USB_HS_HOST_USBHS_HPCS_PCSTS (1 << 0) /* PCSTS */
-#define USB_HS_HOST_USBHS_HPCS_PCDET (1 << 1) /* PCDET */
-#define USB_HS_HOST_USBHS_HPCS_PEN (1 << 2) /* PEN */
-#define USB_HS_HOST_USBHS_HPCS_PENC (1 << 3) /* PENC */
-#define USB_HS_HOST_USBHS_HPCS_POCA (1 << 4) /* POCA */
-#define USB_HS_HOST_USBHS_HPCS_POCC (1 << 5) /* POCC */
-#define USB_HS_HOST_USBHS_HPCS_PRES (1 << 6) /* PRES */
-#define USB_HS_HOST_USBHS_HPCS_PSUSP (1 << 7) /* PSUSP */
-#define USB_HS_HOST_USBHS_HPCS_PRST (1 << 8) /* PRST */
-#define USB_HS_HOST_USBHS_HPCS_PLSTS_SHIFT (10)
-#define USB_HS_HOST_USBHS_HPCS_PLSTS_MASK (0x3 << USB_HS_HOST_USBHS_HPCS_PLSTS_SHIFT) /* PLSTS */
-#define USB_HS_HOST_USBHS_HPCS_PPWR (1 << 12) /* PPWR */
-#define USB_HS_HOST_USBHS_HPCS_PTCTRL_SHIFT (13)
-#define USB_HS_HOST_USBHS_HPCS_PTCTRL_MASK (0xF << USB_HS_HOST_USBHS_HPCS_PTCTRL_SHIFT) /* PTCTRL */
-#define USB_HS_HOST_USBHS_HPCS_PSPD_SHIFT (17)
-#define USB_HS_HOST_USBHS_HPCS_PSPD_MASK (0x3 << USB_HS_HOST_USBHS_HPCS_PSPD_SHIFT) /* PSPD */
+#define USB_HS_HOST_USBHS_HPCS_PCSTS                    (1 << 0)    /* PCSTS
+                                                                     */
+#define USB_HS_HOST_USBHS_HPCS_PCDET                    (1 << 1)    /* PCDET
+                                                                     */
+#define USB_HS_HOST_USBHS_HPCS_PEN                      (1 << 2)    /* PEN */
+#define USB_HS_HOST_USBHS_HPCS_PENC                     (1 << 3)    /* PENC */
+#define USB_HS_HOST_USBHS_HPCS_POCA                     (1 << 4)    /* POCA */
+#define USB_HS_HOST_USBHS_HPCS_POCC                     (1 << 5)    /* POCC */
+#define USB_HS_HOST_USBHS_HPCS_PRES                     (1 << 6)    /* PRES */
+#define USB_HS_HOST_USBHS_HPCS_PSUSP                    (1 << 7)    /* PSUSP
+                                                                     */
+#define USB_HS_HOST_USBHS_HPCS_PRST                     (1 << 8)    /* PRST */
+#define USB_HS_HOST_USBHS_HPCS_PLSTS_SHIFT              (10)
+#define USB_HS_HOST_USBHS_HPCS_PLSTS_MASK               (0x3 << \
+          USB_HS_HOST_USBHS_HPCS_PLSTS_SHIFT)                       /* PLSTS
+                                                                     */
+#define USB_HS_HOST_USBHS_HPCS_PPWR                     (1 << 12)   /* PPWR */
+#define USB_HS_HOST_USBHS_HPCS_PTCTRL_SHIFT             (13)
+#define USB_HS_HOST_USBHS_HPCS_PTCTRL_MASK              (0xF << \
+          USB_HS_HOST_USBHS_HPCS_PTCTRL_SHIFT)                                          /*
+                                                                                         * PTCTRL
+                                                                                         */
+#define USB_HS_HOST_USBHS_HPCS_PSPD_SHIFT               (17)
+#define USB_HS_HOST_USBHS_HPCS_PSPD_MASK                (0x3 << \
+          USB_HS_HOST_USBHS_HPCS_PSPD_SHIFT)                                        /*
+                                                                                     * PSPD
+                                                                                     */
 
 /******** Bit definition for USBHS_HCH0CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH0CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH0CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH0CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH0CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH0CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH0CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH0CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH0CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH0CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH0CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH0CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH0CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH0CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH0CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH0CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH0CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH0CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH0CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH0CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH0CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH0CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH0CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH0CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH0CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH0CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH0CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH0CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH0CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH0CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH0CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH0CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH0CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH0CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH0CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH1CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH1CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH1CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH1CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH1CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH1CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH1CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH1CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH1CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH1CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH1CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH1CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH1CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH1CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH1CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH1CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH1CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH1CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH1CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH1CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH1CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH1CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH1CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH1CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH1CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH1CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH1CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH1CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH1CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH1CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH1CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH1CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH1CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH1CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH1CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH2CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH2CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH2CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH2CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH2CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH2CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH2CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH2CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH2CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH2CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH2CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH2CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH2CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH2CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH2CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH2CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH2CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH2CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH2CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH2CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH2CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH2CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH2CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH2CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH2CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH2CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH2CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH2CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH2CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH2CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH2CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH2CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH2CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH2CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH2CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH3CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH3CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH3CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH3CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH3CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH3CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH3CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH3CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH3CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH3CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH3CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH3CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH3CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH3CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH3CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH3CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH3CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH3CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH3CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH3CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH3CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH3CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH3CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH3CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH3CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH3CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH3CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH3CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH3CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH3CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH3CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH3CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH3CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH3CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH3CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH4TRL register  ********/
-#define USB_HS_HOST_USBHS_HCH4TRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH4TRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH4TRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH4TRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH4TRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH4TRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH4TRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH4TRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH4TRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH4TRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH4TRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH4TRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH4TRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH4TRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH4TRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH4TRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH4TRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH4TRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH4TRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH4TRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH4TRL_MPS_SHIFT             (0)
+#define USB_HS_HOST_USBHS_HCH4TRL_MPS_MASK              (0x7FF << \
+          USB_HS_HOST_USBHS_HCH4TRL_MPS_SHIFT)                                            /*
+                                                                                           * MPS
+                                                                                           */
+#define USB_HS_HOST_USBHS_HCH4TRL_EPNUM_SHIFT           (11)
+#define USB_HS_HOST_USBHS_HCH4TRL_EPNUM_MASK            (0xF << \
+          USB_HS_HOST_USBHS_HCH4TRL_EPNUM_SHIFT)                    /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TRL_EPDIR                 (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TRL_LSPDDEV               (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TRL_EPTYPE_SHIFT          (18)
+#define USB_HS_HOST_USBHS_HCH4TRL_EPTYPE_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH4TRL_EPTYPE_SHIFT)                                             /*
+                                                                                               * EPTYPE
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH4TRL_MCNT_SHIFT            (20)
+#define USB_HS_HOST_USBHS_HCH4TRL_MCNT_MASK             (0x3 << \
+          USB_HS_HOST_USBHS_HCH4TRL_MCNT_SHIFT)                                           /*
+                                                                                           * MCNT
+                                                                                           */
+#define USB_HS_HOST_USBHS_HCH4TRL_DEVADDR_SHIFT         (22)
+#define USB_HS_HOST_USBHS_HCH4TRL_DEVADDR_MASK          (0x7F << \
+          USB_HS_HOST_USBHS_HCH4TRL_DEVADDR_SHIFT)                  /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TRL_ODDFRM                (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TRL_CHDIS                 (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TRL_CHEN                  (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH5CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH5CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH5CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH5CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH5CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH5CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH5CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH5CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH5CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH5CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH5CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH5CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH5CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH5CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH5CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH5CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH5CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH5CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH5CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH5CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH5CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH5CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH5CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH5CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH5CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH5CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH5CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH5CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH5CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH5CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH5CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH5CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH5CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH5CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH5CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH6CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH6CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH6CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH6CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH6CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH6CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH6CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH6CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH6CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH6CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH6CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH6CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH6CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH6CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH6CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH6CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH6CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH6CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH6CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH6CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH6CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH6CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH6CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH6CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH6CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH6CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH6CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH6CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH6CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH6CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH6CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH6CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH6CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH6CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH6CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH7CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH7CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH7CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH7CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH7CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH7CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH7CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH7CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH7CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH7CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH7CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH7CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH7CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH7CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH7CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH7CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH7CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH7CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH7CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH7CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH7CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH7CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH7CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH7CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH7CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH7CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH7CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH7CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH7CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH7CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH7CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH7CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH7CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH7CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH7CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH8CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH8CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH8CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH8CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH8CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH8CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH8CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH8CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH8CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH8CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH8CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH8CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH8CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH8CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH8CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH8CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH8CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH8CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH8CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH8CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH8CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH8CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH8CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH8CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH8CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH8CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH8CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH8CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH8CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH8CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH8CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH8CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH8CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH8CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH8CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH9CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH9CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH9CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH9CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH9CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH9CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH9CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH9CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH9CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH9CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH9CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH9CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH9CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH9CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH9CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH9CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH9CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH9CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH9CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH9CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH9CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH9CTRL_MPS_SHIFT            (0)
+#define USB_HS_HOST_USBHS_HCH9CTRL_MPS_MASK             (0x7FF << \
+          USB_HS_HOST_USBHS_HCH9CTRL_MPS_SHIFT)                                             /*
+                                                                                             * MPS
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH9CTRL_EPNUM_SHIFT          (11)
+#define USB_HS_HOST_USBHS_HCH9CTRL_EPNUM_MASK           (0xF << \
+          USB_HS_HOST_USBHS_HCH9CTRL_EPNUM_SHIFT)                   /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9CTRL_EPDIR                (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9CTRL_LSPDDEV              (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9CTRL_EPTYPE_SHIFT         (18)
+#define USB_HS_HOST_USBHS_HCH9CTRL_EPTYPE_MASK          (0x3 << \
+          USB_HS_HOST_USBHS_HCH9CTRL_EPTYPE_SHIFT)                                              /*
+                                                                                                 * EPTYPE
+                                                                                                 */
+#define USB_HS_HOST_USBHS_HCH9CTRL_MCNT_SHIFT           (20)
+#define USB_HS_HOST_USBHS_HCH9CTRL_MCNT_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH9CTRL_MCNT_SHIFT)                                            /*
+                                                                                             * MCNT
+                                                                                             */
+#define USB_HS_HOST_USBHS_HCH9CTRL_DEVADDR_SHIFT        (22)
+#define USB_HS_HOST_USBHS_HCH9CTRL_DEVADDR_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH9CTRL_DEVADDR_SHIFT)                 /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9CTRL_ODDFRM               (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9CTRL_CHDIS                (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9CTRL_CHEN                 (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH10CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH10CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH10CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH10CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH10CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH10CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH10CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH10CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH10CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH10CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH10CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH10CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH10CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH10CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH10CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH10CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH10CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH10CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH10CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH10CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH10CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH10CTRL_MPS_SHIFT           (0)
+#define USB_HS_HOST_USBHS_HCH10CTRL_MPS_MASK            (0x7FF << \
+          USB_HS_HOST_USBHS_HCH10CTRL_MPS_SHIFT)                                              /*
+                                                                                               * MPS
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH10CTRL_EPNUM_SHIFT         (11)
+#define USB_HS_HOST_USBHS_HCH10CTRL_EPNUM_MASK          (0xF << \
+          USB_HS_HOST_USBHS_HCH10CTRL_EPNUM_SHIFT)                  /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10CTRL_EPDIR               (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10CTRL_LSPDDEV             (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10CTRL_EPTYPE_SHIFT        (18)
+#define USB_HS_HOST_USBHS_HCH10CTRL_EPTYPE_MASK         (0x3 << \
+          USB_HS_HOST_USBHS_HCH10CTRL_EPTYPE_SHIFT)                                               /*
+                                                                                                   * EPTYPE
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH10CTRL_MCNT_SHIFT          (20)
+#define USB_HS_HOST_USBHS_HCH10CTRL_MCNT_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH10CTRL_MCNT_SHIFT)                                             /*
+                                                                                               * MCNT
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH10CTRL_DEVADDR_SHIFT       (22)
+#define USB_HS_HOST_USBHS_HCH10CTRL_DEVADDR_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH10CTRL_DEVADDR_SHIFT)                /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10CTRL_ODDFRM              (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10CTRL_CHDIS               (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10CTRL_CHEN                (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH11CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH11CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH11CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH11CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH11CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH11CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH11CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH11CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH11CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH11CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH11CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH11CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH11CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH11CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH11CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH11CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH11CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH11CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH11CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH11CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH11CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH11CTRL_MPS_SHIFT           (0)
+#define USB_HS_HOST_USBHS_HCH11CTRL_MPS_MASK            (0x7FF << \
+          USB_HS_HOST_USBHS_HCH11CTRL_MPS_SHIFT)                                              /*
+                                                                                               * MPS
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH11CTRL_EPNUM_SHIFT         (11)
+#define USB_HS_HOST_USBHS_HCH11CTRL_EPNUM_MASK          (0xF << \
+          USB_HS_HOST_USBHS_HCH11CTRL_EPNUM_SHIFT)                  /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11CTRL_EPDIR               (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11CTRL_LSPDDEV             (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11CTRL_EPTYPE_SHIFT        (18)
+#define USB_HS_HOST_USBHS_HCH11CTRL_EPTYPE_MASK         (0x3 << \
+          USB_HS_HOST_USBHS_HCH11CTRL_EPTYPE_SHIFT)                                               /*
+                                                                                                   * EPTYPE
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH11CTRL_MCNT_SHIFT          (20)
+#define USB_HS_HOST_USBHS_HCH11CTRL_MCNT_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH11CTRL_MCNT_SHIFT)                                             /*
+                                                                                               * MCNT
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH11CTRL_DEVADDR_SHIFT       (22)
+#define USB_HS_HOST_USBHS_HCH11CTRL_DEVADDR_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH11CTRL_DEVADDR_SHIFT)                /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11CTRL_ODDFRM              (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11CTRL_CHDIS               (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11CTRL_CHEN                (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH12CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH12CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH12CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH12CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH12CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH12CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH12CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH12CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH12CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH12CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH12CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH12CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH12CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH12CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH12CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH12CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH12CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH12CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH12CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH12CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH12CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH12CTRL_MPS_SHIFT           (0)
+#define USB_HS_HOST_USBHS_HCH12CTRL_MPS_MASK            (0x7FF << \
+          USB_HS_HOST_USBHS_HCH12CTRL_MPS_SHIFT)                                              /*
+                                                                                               * MPS
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH12CTRL_EPNUM_SHIFT         (11)
+#define USB_HS_HOST_USBHS_HCH12CTRL_EPNUM_MASK          (0xF << \
+          USB_HS_HOST_USBHS_HCH12CTRL_EPNUM_SHIFT)                  /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12CTRL_EPDIR               (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12CTRL_LSPDDEV             (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12CTRL_EPTYPE_SHIFT        (18)
+#define USB_HS_HOST_USBHS_HCH12CTRL_EPTYPE_MASK         (0x3 << \
+          USB_HS_HOST_USBHS_HCH12CTRL_EPTYPE_SHIFT)                                               /*
+                                                                                                   * EPTYPE
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH12CTRL_MCNT_SHIFT          (20)
+#define USB_HS_HOST_USBHS_HCH12CTRL_MCNT_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH12CTRL_MCNT_SHIFT)                                             /*
+                                                                                               * MCNT
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH12CTRL_DEVADDR_SHIFT       (22)
+#define USB_HS_HOST_USBHS_HCH12CTRL_DEVADDR_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH12CTRL_DEVADDR_SHIFT)                /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12CTRL_ODDFRM              (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12CTRL_CHDIS               (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12CTRL_CHEN                (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH13CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH13CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH13CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH13CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH13CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH13CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH13CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH13CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH13CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH13CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH13CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH13CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH13CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH13CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH13CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH13CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH13CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH13CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH13CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH13CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH13CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH13CTRL_MPS_SHIFT           (0)
+#define USB_HS_HOST_USBHS_HCH13CTRL_MPS_MASK            (0x7FF << \
+          USB_HS_HOST_USBHS_HCH13CTRL_MPS_SHIFT)                                              /*
+                                                                                               * MPS
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH13CTRL_EPNUM_SHIFT         (11)
+#define USB_HS_HOST_USBHS_HCH13CTRL_EPNUM_MASK          (0xF << \
+          USB_HS_HOST_USBHS_HCH13CTRL_EPNUM_SHIFT)                  /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13CTRL_EPDIR               (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13CTRL_LSPDDEV             (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13CTRL_EPTYPE_SHIFT        (18)
+#define USB_HS_HOST_USBHS_HCH13CTRL_EPTYPE_MASK         (0x3 << \
+          USB_HS_HOST_USBHS_HCH13CTRL_EPTYPE_SHIFT)                                               /*
+                                                                                                   * EPTYPE
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH13CTRL_MCNT_SHIFT          (20)
+#define USB_HS_HOST_USBHS_HCH13CTRL_MCNT_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH13CTRL_MCNT_SHIFT)                                             /*
+                                                                                               * MCNT
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH13CTRL_DEVADDR_SHIFT       (22)
+#define USB_HS_HOST_USBHS_HCH13CTRL_DEVADDR_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH13CTRL_DEVADDR_SHIFT)                /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13CTRL_ODDFRM              (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13CTRL_CHDIS               (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13CTRL_CHEN                (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH14CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH14CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH14CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH14CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH14CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH14CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH14CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH14CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH14CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH14CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH14CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH14CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH14CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH14CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH14CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH14CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH14CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH14CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH14CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH14CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH14CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH14CTRL_MPS_SHIFT           (0)
+#define USB_HS_HOST_USBHS_HCH14CTRL_MPS_MASK            (0x7FF << \
+          USB_HS_HOST_USBHS_HCH14CTRL_MPS_SHIFT)                                              /*
+                                                                                               * MPS
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH14CTRL_EPNUM_SHIFT         (11)
+#define USB_HS_HOST_USBHS_HCH14CTRL_EPNUM_MASK          (0xF << \
+          USB_HS_HOST_USBHS_HCH14CTRL_EPNUM_SHIFT)                  /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14CTRL_EPDIR               (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14CTRL_LSPDDEV             (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14CTRL_EPTYPE_SHIFT        (18)
+#define USB_HS_HOST_USBHS_HCH14CTRL_EPTYPE_MASK         (0x3 << \
+          USB_HS_HOST_USBHS_HCH14CTRL_EPTYPE_SHIFT)                                               /*
+                                                                                                   * EPTYPE
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH14CTRL_MCNT_SHIFT          (20)
+#define USB_HS_HOST_USBHS_HCH14CTRL_MCNT_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH14CTRL_MCNT_SHIFT)                                             /*
+                                                                                               * MCNT
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH14CTRL_DEVADDR_SHIFT       (22)
+#define USB_HS_HOST_USBHS_HCH14CTRL_DEVADDR_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH14CTRL_DEVADDR_SHIFT)                /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14CTRL_ODDFRM              (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14CTRL_CHDIS               (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14CTRL_CHEN                (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH15CTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH15CTRL_MPS_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH15CTRL_MPS_MASK (0x7FF << USB_HS_HOST_USBHS_HCH15CTRL_MPS_SHIFT) /* MPS */
-#define USB_HS_HOST_USBHS_HCH15CTRL_EPNUM_SHIFT (11)
-#define USB_HS_HOST_USBHS_HCH15CTRL_EPNUM_MASK (0xF << USB_HS_HOST_USBHS_HCH15CTRL_EPNUM_SHIFT) /* EPNUM */
-#define USB_HS_HOST_USBHS_HCH15CTRL_EPDIR (1 << 15) /* EPDIR */
-#define USB_HS_HOST_USBHS_HCH15CTRL_LSPDDEV (1 << 17) /* LSPDDEV */
-#define USB_HS_HOST_USBHS_HCH15CTRL_EPTYPE_SHIFT (18)
-#define USB_HS_HOST_USBHS_HCH15CTRL_EPTYPE_MASK (0x3 << USB_HS_HOST_USBHS_HCH15CTRL_EPTYPE_SHIFT) /* EPTYPE */
-#define USB_HS_HOST_USBHS_HCH15CTRL_MCNT_SHIFT (20)
-#define USB_HS_HOST_USBHS_HCH15CTRL_MCNT_MASK (0x3 << USB_HS_HOST_USBHS_HCH15CTRL_MCNT_SHIFT) /* MCNT */
-#define USB_HS_HOST_USBHS_HCH15CTRL_DEVADDR_SHIFT (22)
-#define USB_HS_HOST_USBHS_HCH15CTRL_DEVADDR_MASK (0x7F << USB_HS_HOST_USBHS_HCH15CTRL_DEVADDR_SHIFT) /* DEVADDR */
-#define USB_HS_HOST_USBHS_HCH15CTRL_ODDFRM (1 << 29) /* ODDFRM */
-#define USB_HS_HOST_USBHS_HCH15CTRL_CHDIS (1 << 30) /* CHDIS */
-#define USB_HS_HOST_USBHS_HCH15CTRL_CHEN (1 << 31) /* CHEN */
+#define USB_HS_HOST_USBHS_HCH15CTRL_MPS_SHIFT           (0)
+#define USB_HS_HOST_USBHS_HCH15CTRL_MPS_MASK            (0x7FF << \
+          USB_HS_HOST_USBHS_HCH15CTRL_MPS_SHIFT)                                              /*
+                                                                                               * MPS
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH15CTRL_EPNUM_SHIFT         (11)
+#define USB_HS_HOST_USBHS_HCH15CTRL_EPNUM_MASK          (0xF << \
+          USB_HS_HOST_USBHS_HCH15CTRL_EPNUM_SHIFT)                  /* EPNUM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15CTRL_EPDIR               (1 << 15)   /* EPDIR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15CTRL_LSPDDEV             (1 << 17)   /* LSPDDEV
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15CTRL_EPTYPE_SHIFT        (18)
+#define USB_HS_HOST_USBHS_HCH15CTRL_EPTYPE_MASK         (0x3 << \
+          USB_HS_HOST_USBHS_HCH15CTRL_EPTYPE_SHIFT)                                               /*
+                                                                                                   * EPTYPE
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH15CTRL_MCNT_SHIFT          (20)
+#define USB_HS_HOST_USBHS_HCH15CTRL_MCNT_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH15CTRL_MCNT_SHIFT)                                             /*
+                                                                                               * MCNT
+                                                                                               */
+#define USB_HS_HOST_USBHS_HCH15CTRL_DEVADDR_SHIFT       (22)
+#define USB_HS_HOST_USBHS_HCH15CTRL_DEVADDR_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH15CTRL_DEVADDR_SHIFT)                /* DEVADDR
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15CTRL_ODDFRM              (1 << 29)   /* ODDFRM
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15CTRL_CHDIS               (1 << 30)   /* CHDIS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15CTRL_CHEN                (1 << 31)   /* CHEN */
 
 /******** Bit definition for USBHS_HCH0SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH0SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH0SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH0SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH0SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH0SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH0SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH0SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH0SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH0SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH0SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH0SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH0SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH0SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH0SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH0SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH0SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH0SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH0SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH0SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH0SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH1SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH1SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH1SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH1SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH1SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH1SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH1SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH1SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH1SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH1SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH1SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH1SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH1SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH1SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH1SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH1SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH1SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH1SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH1SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH1SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH1SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH2SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH2SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH2SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH2SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH2SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH2SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH2SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH2SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH2SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH2SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH2SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH2SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH2SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH2SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH2SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH2SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH2SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH2SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH2SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH2SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH2SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH3SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH3SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH3SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH3SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH3SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH3SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH3SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH3SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH3SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH3SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH3SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH3SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH3SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH3SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH3SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH3SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH3SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH3SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH3SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH3SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH3SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH4SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH4SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH4SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH4SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH4SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH4SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH4SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH4SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH4SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH4SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH4SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH4SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH4SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH4SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH4SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH4SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH4SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH4SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH4SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH4SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH4SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH5SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH5SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH5SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH5SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH5SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH5SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH5SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH5SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH5SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH5SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH5SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH5SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH5SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH5SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH5SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH5SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH5SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH5SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH5SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH5SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH5SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH6SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH6SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH6SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH6SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH6SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH6SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH6SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH6SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH6SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH6SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH6SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH6SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH6SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH6SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH6SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH6SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH6SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH6SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH6SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH6SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH6SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH7SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH7SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH7SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH7SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH7SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH7SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH7SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH7SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH7SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH7SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH7SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH7SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH7SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH7SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH7SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH7SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH7SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH7SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH7SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH7SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH7SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH8SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH8SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH8SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH8SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH8SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH8SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH8SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH8SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH8SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH8SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH8SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH8SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH8SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH8SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH8SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH8SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH8SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH8SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH8SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH8SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH8SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH9SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH9SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH9SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH9SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH9SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH9SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH9SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH9SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH9SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH9SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH9SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH9SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH9SCTRL_PRTADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH9SCTRL_PRTADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH9SCTRL_PRTADD_SHIFT)                                                /*
+                                                                                                    * PRTADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH9SCTRL_HUBADD_SHIFT        (7)
+#define USB_HS_HOST_USBHS_HCH9SCTRL_HUBADD_MASK         (0x7F << \
+          USB_HS_HOST_USBHS_HCH9SCTRL_HUBADD_SHIFT)                                                /*
+                                                                                                    * HUBADD
+                                                                                                    */
+#define USB_HS_HOST_USBHS_HCH9SCTRL_TRANPOS_SHIFT       (14)
+#define USB_HS_HOST_USBHS_HCH9SCTRL_TRANPOS_MASK        (0x3 << \
+          USB_HS_HOST_USBHS_HCH9SCTRL_TRANPOS_SHIFT)                /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9SCTRL_COMPSPLF            (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9SCTRL_SPLEN               (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH10SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH10SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH10SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH10SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH10SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH10SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH10SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH10SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH10SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH10SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH10SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH10SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH10SCTRL_PRTADD_SHIFT       (0)
+#define USB_HS_HOST_USBHS_HCH10SCTRL_PRTADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH10SCTRL_PRTADD_SHIFT)                                                 /*
+                                                                                                      * PRTADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH10SCTRL_HUBADD_SHIFT       (7)
+#define USB_HS_HOST_USBHS_HCH10SCTRL_HUBADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH10SCTRL_HUBADD_SHIFT)                                                 /*
+                                                                                                      * HUBADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH10SCTRL_TRANPOS_SHIFT      (14)
+#define USB_HS_HOST_USBHS_HCH10SCTRL_TRANPOS_MASK       (0x3 << \
+          USB_HS_HOST_USBHS_HCH10SCTRL_TRANPOS_SHIFT)               /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10SCTRL_COMPSPLF           (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10SCTRL_SPLEN              (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH11SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH11SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH11SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH11SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH11SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH11SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH11SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH11SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH11SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH11SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH11SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH11SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH11SCTRL_PRTADD_SHIFT       (0)
+#define USB_HS_HOST_USBHS_HCH11SCTRL_PRTADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH11SCTRL_PRTADD_SHIFT)                                                 /*
+                                                                                                      * PRTADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH11SCTRL_HUBADD_SHIFT       (7)
+#define USB_HS_HOST_USBHS_HCH11SCTRL_HUBADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH11SCTRL_HUBADD_SHIFT)                                                 /*
+                                                                                                      * HUBADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH11SCTRL_TRANPOS_SHIFT      (14)
+#define USB_HS_HOST_USBHS_HCH11SCTRL_TRANPOS_MASK       (0x3 << \
+          USB_HS_HOST_USBHS_HCH11SCTRL_TRANPOS_SHIFT)               /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11SCTRL_COMPSPLF           (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11SCTRL_SPLEN              (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH12SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH12SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH12SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH12SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH12SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH12SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH12SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH12SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH12SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH12SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH12SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH12SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH12SCTRL_PRTADD_SHIFT       (0)
+#define USB_HS_HOST_USBHS_HCH12SCTRL_PRTADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH12SCTRL_PRTADD_SHIFT)                                                 /*
+                                                                                                      * PRTADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH12SCTRL_HUBADD_SHIFT       (7)
+#define USB_HS_HOST_USBHS_HCH12SCTRL_HUBADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH12SCTRL_HUBADD_SHIFT)                                                 /*
+                                                                                                      * HUBADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH12SCTRL_TRANPOS_SHIFT      (14)
+#define USB_HS_HOST_USBHS_HCH12SCTRL_TRANPOS_MASK       (0x3 << \
+          USB_HS_HOST_USBHS_HCH12SCTRL_TRANPOS_SHIFT)               /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12SCTRL_COMPSPLF           (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12SCTRL_SPLEN              (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH13SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH13SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH13SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH13SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH13SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH13SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH13SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH13SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH13SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH13SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH13SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH13SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH13SCTRL_PRTADD_SHIFT       (0)
+#define USB_HS_HOST_USBHS_HCH13SCTRL_PRTADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH13SCTRL_PRTADD_SHIFT)                                                 /*
+                                                                                                      * PRTADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH13SCTRL_HUBADD_SHIFT       (7)
+#define USB_HS_HOST_USBHS_HCH13SCTRL_HUBADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH13SCTRL_HUBADD_SHIFT)                                                 /*
+                                                                                                      * HUBADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH13SCTRL_TRANPOS_SHIFT      (14)
+#define USB_HS_HOST_USBHS_HCH13SCTRL_TRANPOS_MASK       (0x3 << \
+          USB_HS_HOST_USBHS_HCH13SCTRL_TRANPOS_SHIFT)               /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13SCTRL_COMPSPLF           (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13SCTRL_SPLEN              (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH14SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH14SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH14SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH14SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH14SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH14SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH14SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH14SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH14SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH14SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH14SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH14SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH14SCTRL_PRTADD_SHIFT       (0)
+#define USB_HS_HOST_USBHS_HCH14SCTRL_PRTADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH14SCTRL_PRTADD_SHIFT)                                                 /*
+                                                                                                      * PRTADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH14SCTRL_HUBADD_SHIFT       (7)
+#define USB_HS_HOST_USBHS_HCH14SCTRL_HUBADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH14SCTRL_HUBADD_SHIFT)                                                 /*
+                                                                                                      * HUBADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH14SCTRL_TRANPOS_SHIFT      (14)
+#define USB_HS_HOST_USBHS_HCH14SCTRL_TRANPOS_MASK       (0x3 << \
+          USB_HS_HOST_USBHS_HCH14SCTRL_TRANPOS_SHIFT)               /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14SCTRL_COMPSPLF           (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14SCTRL_SPLEN              (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH15SCTRL register  ********/
-#define USB_HS_HOST_USBHS_HCH15SCTRL_PRTADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH15SCTRL_PRTADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH15SCTRL_PRTADD_SHIFT) /* PRTADD */
-#define USB_HS_HOST_USBHS_HCH15SCTRL_HUBADD_SHIFT (7)
-#define USB_HS_HOST_USBHS_HCH15SCTRL_HUBADD_MASK (0x7F << USB_HS_HOST_USBHS_HCH15SCTRL_HUBADD_SHIFT) /* HUBADD */
-#define USB_HS_HOST_USBHS_HCH15SCTRL_TRANPOS_SHIFT (14)
-#define USB_HS_HOST_USBHS_HCH15SCTRL_TRANPOS_MASK (0x3 << USB_HS_HOST_USBHS_HCH15SCTRL_TRANPOS_SHIFT) /* TRANPOS */
-#define USB_HS_HOST_USBHS_HCH15SCTRL_COMPSPLF (1 << 16) /* COMPSPLF */
-#define USB_HS_HOST_USBHS_HCH15SCTRL_SPLEN (1 << 31) /* SPLEN */
+#define USB_HS_HOST_USBHS_HCH15SCTRL_PRTADD_SHIFT       (0)
+#define USB_HS_HOST_USBHS_HCH15SCTRL_PRTADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH15SCTRL_PRTADD_SHIFT)                                                 /*
+                                                                                                      * PRTADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH15SCTRL_HUBADD_SHIFT       (7)
+#define USB_HS_HOST_USBHS_HCH15SCTRL_HUBADD_MASK        (0x7F << \
+          USB_HS_HOST_USBHS_HCH15SCTRL_HUBADD_SHIFT)                                                 /*
+                                                                                                      * HUBADD
+                                                                                                      */
+#define USB_HS_HOST_USBHS_HCH15SCTRL_TRANPOS_SHIFT      (14)
+#define USB_HS_HOST_USBHS_HCH15SCTRL_TRANPOS_MASK       (0x3 << \
+          USB_HS_HOST_USBHS_HCH15SCTRL_TRANPOS_SHIFT)               /* TRANPOS
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15SCTRL_COMPSPLF           (1 << 16)   /*
+                                                                     * COMPSPLF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15SCTRL_SPLEN              (1 << 31)   /* SPLEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH0INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH0INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH0INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH1INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH1INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH1INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH2INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH2INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH2INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH3INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH3INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH3INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH4INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH4INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH4INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH5INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH5INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH5INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH6INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH6INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH6INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH7INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH7INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH7INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH8INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH8INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH8INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH9INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH9INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH9INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_TXCFIF             (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_CHHTDIF            (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_AHBERRIF           (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_STALLIF            (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_NAKIF              (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_ACKIF              (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_NYETIF             (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_TXERRIF            (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_BBERRIF            (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_FOVRIF             (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTSTS_DTERRIF            (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH10INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH10INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH10INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_TXCFIF            (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_CHHTDIF           (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_AHBERRIF          (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_STALLIF           (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_NAKIF             (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_ACKIF             (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_NYETIF            (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_TXERRIF           (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_BBERRIF           (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_FOVRIF            (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTSTS_DTERRIF           (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH11INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH11INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH11INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_TXCFIF            (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_CHHTDIF           (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_AHBERRIF          (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_STALLIF           (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_NAKIF             (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_ACKIF             (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_NYETIF            (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_TXERRIF           (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_BBERRIF           (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_FOVRIF            (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTSTS_DTERRIF           (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH12INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH12INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH12INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_TXCFIF            (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_CHHTDIF           (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_AHBERRIF          (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_STALLIF           (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_NAKIF             (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_ACKIF             (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_NYETIF            (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_TXERRIF           (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_BBERRIF           (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_FOVRIF            (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTSTS_DTERRIF           (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH13INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH13INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH13INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_TXCFIF            (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_CHHTDIF           (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_AHBERRIF          (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_STALLIF           (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_NAKIF             (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_ACKIF             (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_NYETIF            (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_TXERRIF           (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_BBERRIF           (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_FOVRIF            (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTSTS_DTERRIF           (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH14INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH14INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH14INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_TXCFIF            (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_CHHTDIF           (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_AHBERRIF          (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_STALLIF           (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_NAKIF             (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_ACKIF             (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_NYETIF            (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_TXERRIF           (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_BBERRIF           (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_FOVRIF            (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTSTS_DTERRIF           (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH15INTSTS register  ********/
-#define USB_HS_HOST_USBHS_HCH15INTSTS_TXCFIF (1 << 0) /* TXCFIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_CHHTDIF (1 << 1) /* CHHTDIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_AHBERRIF (1 << 2) /* AHBERRIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_STALLIF (1 << 3) /* STALLIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_NAKIF (1 << 4) /* NAKIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_ACKIF (1 << 5) /* ACKIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_NYETIF (1 << 6) /* NYETIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_TXERRIF (1 << 7) /* TXERRIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_BBERRIF (1 << 8) /* BBERRIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_FOVRIF (1 << 9) /* FOVRIF */
-#define USB_HS_HOST_USBHS_HCH15INTSTS_DTERRIF (1 << 10) /* DTERRIF */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_TXCFIF            (1 << 0)    /* TXCFIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_CHHTDIF           (1 << 1)    /* CHHTDIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_AHBERRIF          (1 << 2)    /*
+                                                                     * AHBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_STALLIF           (1 << 3)    /* STALLIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_NAKIF             (1 << 4)    /* NAKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_ACKIF             (1 << 5)    /* ACKIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_NYETIF            (1 << 6)    /* NYETIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_TXERRIF           (1 << 7)    /* TXERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_BBERRIF           (1 << 8)    /* BBERRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_FOVRIF            (1 << 9)    /* FOVRIF
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTSTS_DTERRIF           (1 << 10)   /* DTERRIF
+                                                                     */
 
 /******** Bit definition for USBHS_HCH0INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH0INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH0INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH0INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH0INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH1INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH1INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH1INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH1INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH1INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH2INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH2INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH2INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH2INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH2INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH3INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH3INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH3INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH3INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH3INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH4INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH4INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH4INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH4INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH4INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH5INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH5INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH5INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH5INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH5INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH6INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH6INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH6INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH6INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH6INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH7INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH7INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH7INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH7INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH7INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH8INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH8INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH8INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH8INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH8INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH9INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH9INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH9INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH9INTEN_TXCIEN              (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_CHHTDIEN            (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_AHBERRIEN           (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_STALLIEN            (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_NAKIEN              (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_ACKIEN              (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_NYETIEN             (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_TXERRIEN            (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_BBERRIEN            (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_FOVRIEN             (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH9INTEN_DTERRIEN            (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH10INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH10INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH10INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH10INTEN_TXCIEN             (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_CHHTDIEN           (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_AHBERRIEN          (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_STALLIEN           (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_NAKIEN             (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_ACKIEN             (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_NYETIEN            (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_TXERRIEN           (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_BBERRIEN           (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_FOVRIEN            (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH10INTEN_DTERRIEN           (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH11INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH11INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH11INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH11INTEN_TXCIEN             (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_CHHTDIEN           (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_AHBERRIEN          (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_STALLIEN           (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_NAKIEN             (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_ACKIEN             (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_NYETIEN            (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_TXERRIEN           (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_BBERRIEN           (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_FOVRIEN            (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH11INTEN_DTERRIEN           (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH12INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH12INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH12INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH12INTEN_TXCIEN             (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_CHHTDIEN           (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_AHBERRIEN          (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_STALLIEN           (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_NAKIEN             (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_ACKIEN             (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_NYETIEN            (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_TXERRIEN           (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_BBERRIEN           (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_FOVRIEN            (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH12INTEN_DTERRIEN           (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH13INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH13INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH13INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH13INTEN_TXCIEN             (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_CHHTDIEN           (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_AHBERRIEN          (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_STALLIEN           (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_NAKIEN             (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_ACKIEN             (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_NYETIEN            (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_TXERRIEN           (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_BBERRIEN           (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_FOVRIEN            (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH13INTEN_DTERRIEN           (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH14INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH14INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH14INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH14INTEN_TXCIEN             (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_CHHTDIEN           (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_AHBERRIEN          (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_STALLIEN           (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_NAKIEN             (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_ACKIEN             (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_NYETIEN            (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_TXERRIEN           (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_BBERRIEN           (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_FOVRIEN            (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH14INTEN_DTERRIEN           (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH15INTEN register  ********/
-#define USB_HS_HOST_USBHS_HCH15INTEN_TXCIEN (1 << 0) /* TXCIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_CHHTDIEN (1 << 1) /* CHHTDIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_AHBERRIEN (1 << 2) /* AHBERRIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_STALLIEN (1 << 3) /* STALLIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_NAKIEN (1 << 4) /* NAKIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_ACKIEN (1 << 5) /* ACKIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_NYETIEN (1 << 6) /* NYETIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_TXERRIEN (1 << 7) /* TXERRIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_BBERRIEN (1 << 8) /* BBERRIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_FOVRIEN (1 << 9) /* FOVRIEN */
-#define USB_HS_HOST_USBHS_HCH15INTEN_DTERRIEN (1 << 10) /* DTERRIEN */
+#define USB_HS_HOST_USBHS_HCH15INTEN_TXCIEN             (1 << 0)    /* TXCIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_CHHTDIEN           (1 << 1)    /*
+                                                                     * CHHTDIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_AHBERRIEN          (1 << 2)    /*
+                                                                     * AHBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_STALLIEN           (1 << 3)    /*
+                                                                     * STALLIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_NAKIEN             (1 << 4)    /* NAKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_ACKIEN             (1 << 5)    /* ACKIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_NYETIEN            (1 << 6)    /* NYETIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_TXERRIEN           (1 << 7)    /*
+                                                                     * TXERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_BBERRIEN           (1 << 8)    /*
+                                                                     * BBERRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_FOVRIEN            (1 << 9)    /* FOVRIEN
+                                                                     */
+#define USB_HS_HOST_USBHS_HCH15INTEN_DTERRIEN           (1 << 10)   /*
+                                                                     * DTERRIEN
+                                                                     */
 
 /******** Bit definition for USBHS_HCH0TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH0TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH0TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH0TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH0TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH0TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH0TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH0TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH0TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH1TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH1TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH1TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH1TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH1TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH1TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH1TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH1TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH1TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH2TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH2TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH2TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH2TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH2TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH2TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH2TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH2TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH2TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH3TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH3TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH3TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH3TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH3TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH3TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH3TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH3TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH3TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH4TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH4TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH4TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH4TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH4TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH4TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH4TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH4TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH4TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH5TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH5TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH5TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH5TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH5TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH5TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH5TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH5TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH5TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH6TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH6TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH6TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH6TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH6TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH6TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH6TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH6TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH6TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH7TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH7TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH7TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH7TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH7TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH7TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH7TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH7TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH7TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH8TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH8TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH8TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH8TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH8TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH8TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH8TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH8TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH8TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH9TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH9TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH9TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH9TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH9TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_TXSIZ_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_TXSIZ_MASK          (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH9TXSIZ_TXSIZ_SHIFT)                                                  /*
+                                                                                                     * TXSIZ
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_PKCNT_SHIFT         (19)
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_PKCNT_MASK          (0x3FF << \
+          USB_HS_HOST_USBHS_HCH9TXSIZ_PKCNT_SHIFT)                                                /*
+                                                                                                   * PKCNT
+                                                                                                   */
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_PID_SHIFT           (29)
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_PID_MASK            (0x3 << \
+          USB_HS_HOST_USBHS_HCH9TXSIZ_PID_SHIFT)                    /* PID */
+#define USB_HS_HOST_USBHS_HCH9TXSIZ_DPING               (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH10TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH10TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH10TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH10TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH10TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_TXSIZ_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_TXSIZ_MASK         (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH10TXSIZ_TXSIZ_SHIFT)                                                   /*
+                                                                                                       * TXSIZ
+                                                                                                       */
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_PKCNT_SHIFT        (19)
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_PKCNT_MASK         (0x3FF << \
+          USB_HS_HOST_USBHS_HCH10TXSIZ_PKCNT_SHIFT)                                                 /*
+                                                                                                     * PKCNT
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_PID_SHIFT          (29)
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_PID_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH10TXSIZ_PID_SHIFT)                   /* PID */
+#define USB_HS_HOST_USBHS_HCH10TXSIZ_DPING              (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH11TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH11TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH11TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH11TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH11TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_TXSIZ_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_TXSIZ_MASK         (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH11TXSIZ_TXSIZ_SHIFT)                                                   /*
+                                                                                                       * TXSIZ
+                                                                                                       */
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_PKCNT_SHIFT        (19)
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_PKCNT_MASK         (0x3FF << \
+          USB_HS_HOST_USBHS_HCH11TXSIZ_PKCNT_SHIFT)                                                 /*
+                                                                                                     * PKCNT
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_PID_SHIFT          (29)
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_PID_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH11TXSIZ_PID_SHIFT)                   /* PID */
+#define USB_HS_HOST_USBHS_HCH11TXSIZ_DPING              (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH12TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH12TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH12TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH12TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH12TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_TXSIZ_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_TXSIZ_MASK         (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH12TXSIZ_TXSIZ_SHIFT)                                                   /*
+                                                                                                       * TXSIZ
+                                                                                                       */
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_PKCNT_SHIFT        (19)
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_PKCNT_MASK         (0x3FF << \
+          USB_HS_HOST_USBHS_HCH12TXSIZ_PKCNT_SHIFT)                                                 /*
+                                                                                                     * PKCNT
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_PID_SHIFT          (29)
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_PID_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH12TXSIZ_PID_SHIFT)                   /* PID */
+#define USB_HS_HOST_USBHS_HCH12TXSIZ_DPING              (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH13TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH13TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH13TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH13TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH13TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_TXSIZ_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_TXSIZ_MASK         (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH13TXSIZ_TXSIZ_SHIFT)                                                   /*
+                                                                                                       * TXSIZ
+                                                                                                       */
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_PKCNT_SHIFT        (19)
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_PKCNT_MASK         (0x3FF << \
+          USB_HS_HOST_USBHS_HCH13TXSIZ_PKCNT_SHIFT)                                                 /*
+                                                                                                     * PKCNT
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_PID_SHIFT          (29)
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_PID_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH13TXSIZ_PID_SHIFT)                   /* PID */
+#define USB_HS_HOST_USBHS_HCH13TXSIZ_DPING              (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH14TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH14TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH14TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH14TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH14TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_TXSIZ_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_TXSIZ_MASK         (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH14TXSIZ_TXSIZ_SHIFT)                                                   /*
+                                                                                                       * TXSIZ
+                                                                                                       */
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_PKCNT_SHIFT        (19)
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_PKCNT_MASK         (0x3FF << \
+          USB_HS_HOST_USBHS_HCH14TXSIZ_PKCNT_SHIFT)                                                 /*
+                                                                                                     * PKCNT
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_PID_SHIFT          (29)
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_PID_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH14TXSIZ_PID_SHIFT)                   /* PID */
+#define USB_HS_HOST_USBHS_HCH14TXSIZ_DPING              (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH15TXSIZ register  ********/
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_TXSIZ_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_TXSIZ_MASK (0x7FFFF << USB_HS_HOST_USBHS_HCH15TXSIZ_TXSIZ_SHIFT) /* TXSIZ */
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_PKCNT_SHIFT (19)
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_PKCNT_MASK (0x3FF << USB_HS_HOST_USBHS_HCH15TXSIZ_PKCNT_SHIFT) /* PKCNT */
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_PID_SHIFT (29)
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_PID_MASK (0x3 << USB_HS_HOST_USBHS_HCH15TXSIZ_PID_SHIFT) /* PID */
-#define USB_HS_HOST_USBHS_HCH15TXSIZ_DPING (1 << 31) /* DPING */
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_TXSIZ_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_TXSIZ_MASK         (0x7FFFF << \
+          USB_HS_HOST_USBHS_HCH15TXSIZ_TXSIZ_SHIFT)                                                   /*
+                                                                                                       * TXSIZ
+                                                                                                       */
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_PKCNT_SHIFT        (19)
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_PKCNT_MASK         (0x3FF << \
+          USB_HS_HOST_USBHS_HCH15TXSIZ_PKCNT_SHIFT)                                                 /*
+                                                                                                     * PKCNT
+                                                                                                     */
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_PID_SHIFT          (29)
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_PID_MASK           (0x3 << \
+          USB_HS_HOST_USBHS_HCH15TXSIZ_PID_SHIFT)                   /* PID */
+#define USB_HS_HOST_USBHS_HCH15TXSIZ_DPING              (1 << 31)   /* DPING
+                                                                     */
 
 /******** Bit definition for USBHS_HCH0DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH0DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH0DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH0DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH0DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH0DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH0DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH1DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH1DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH1DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH1DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH1DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH1DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH1DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH2DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH2DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH2DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH2DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH2DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH2DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH2DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH3DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH3DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH3DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH3DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH3DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH3DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH3DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH4DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH4DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH4DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH4DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH4DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH4DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH4DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH5DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH5DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH5DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH5DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH5DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH5DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH5DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH6DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH6DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH6DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH6DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH6DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH6DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH6DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH7DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH7DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH7DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH7DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH7DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH7DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH7DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH8DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH8DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH8DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH8DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH8DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH8DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH8DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH9DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH9DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH9DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH9DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH9DMADD_DMADD_SHIFT         (0)
+#define USB_HS_HOST_USBHS_HCH9DMADD_DMADD_MASK          (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH9DMADD_DMADD_SHIFT)                                                     /*
+                                                                                                        * DMADD
+                                                                                                        */
 
 /******** Bit definition for USBHS_HCH10DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH10DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH10DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH10DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH10DMADD_DMADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH10DMADD_DMADD_MASK         (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH10DMADD_DMADD_SHIFT)                                                      /*
+                                                                                                          * DMADD
+                                                                                                          */
 
 /******** Bit definition for USBHS_HCH11DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH11DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH11DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH11DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH11DMADD_DMADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH11DMADD_DMADD_MASK         (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH11DMADD_DMADD_SHIFT)                                                      /*
+                                                                                                          * DMADD
+                                                                                                          */
 
 /******** Bit definition for USBHS_HCH12DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH12DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH12DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH12DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH12DMADD_DMADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH12DMADD_DMADD_MASK         (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH12DMADD_DMADD_SHIFT)                                                      /*
+                                                                                                          * DMADD
+                                                                                                          */
 
 /******** Bit definition for USBHS_HCH13DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH13DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH13DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH13DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH13DMADD_DMADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH13DMADD_DMADD_MASK         (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH13DMADD_DMADD_SHIFT)                                                      /*
+                                                                                                          * DMADD
+                                                                                                          */
 
 /******** Bit definition for USBHS_HCH14DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH14DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH14DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH14DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH14DMADD_DMADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH14DMADD_DMADD_MASK         (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH14DMADD_DMADD_SHIFT)                                                      /*
+                                                                                                          * DMADD
+                                                                                                          */
 
 /******** Bit definition for USBHS_HCH15DMADD register  ********/
-#define USB_HS_HOST_USBHS_HCH15DMADD_DMADD_SHIFT (0)
-#define USB_HS_HOST_USBHS_HCH15DMADD_DMADD_MASK (0xFFFFFFFF << USB_HS_HOST_USBHS_HCH15DMADD_DMADD_SHIFT) /* DMADD */
+#define USB_HS_HOST_USBHS_HCH15DMADD_DMADD_SHIFT        (0)
+#define USB_HS_HOST_USBHS_HCH15DMADD_DMADD_MASK         (0xFFFFFFFF << \
+          USB_HS_HOST_USBHS_HCH15DMADD_DMADD_SHIFT)                                                      /*
+                                                                                                          * DMADD
+                                                                                                          */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_USB_HS_HOST_H */

@@ -33,22 +33,22 @@
  * Pre-processor Definitions
  ****************************************************************************/
 
-#define N32_TCMC_CTR_OFFSET 0x0 /* TCMC control register */
+#define N32_TCMC_CTR_OFFSET     0x0 /* TCMC control register */
 
-#define N32_TCMC_CTR (N32_TCMC_BASE + N32_TCMC_CTR_OFFSET)
+#define N32_TCMC_CTR            (N32_TCMC_BASE + N32_TCMC_CTR_OFFSET)
 
 /******** Bit definition for TCMC_CTR register  ********/
-#define TCMC_CTR_ARAM3S_SHIFT (28)
-#define TCMC_CTR_ARAM3S_MASK (0xF << TCMC_CTR_ARAM3S_SHIFT) /* ARAM3S */
-#define TCMC_CTR_ARAM2S_SHIFT (24)
-#define TCMC_CTR_ARAM2S_MASK (0xF << TCMC_CTR_ARAM2S_SHIFT) /* ARAM2S */
-#define TCMC_CTR_DTCMEWEN (1 << 23) /* DTCMEWEN */
-#define TCMC_CTR_DTCMS_SHIFT (16)
-#define TCMC_CTR_DTCMS_MASK (0xF << TCMC_CTR_DTCMS_SHIFT) /* DTCMS */
-#define TCMC_CTR_ITCMEWEN (1 << 15) /* ITCMEWEN */
-#define TCMC_CTR_ITCMS_SHIFT (8)
-#define TCMC_CTR_ITCMS_MASK (0xF << TCMC_CTR_ITCMS_SHIFT) /* ITCMS */
-#define TCMC_CTR_CSA (1 << 5) /* CSA */
-#define TCMC_CTR_ECCINJP (1 << 1) /* ECCINJP */
+#define TCMC_CTR_ARAM3S_SHIFT   (28)
+#define TCMC_CTR_ARAM3S_MASK    (0xF << TCMC_CTR_ARAM3S_SHIFT)  /* ARAM3S */
+#define TCMC_CTR_ARAM2S_SHIFT   (24)
+#define TCMC_CTR_ARAM2S_MASK    (0xF << TCMC_CTR_ARAM2S_SHIFT)  /* ARAM2S */
+#define TCMC_CTR_DTCMEWEN       (1 << 23)                       /* DTCMEWEN */
+#define TCMC_CTR_DTCMS_SHIFT    (16)
+#define TCMC_CTR_DTCMS_MASK     (0xF << TCMC_CTR_DTCMS_SHIFT)   /* DTCMS */
+#define TCMC_CTR_ITCMEWEN       (1 << 15)                       /* ITCMEWEN */
+#define TCMC_CTR_ITCMS_SHIFT    (8)
+#define TCMC_CTR_ITCMS_MASK     (0xF << TCMC_CTR_ITCMS_SHIFT)   /* ITCMS */
+#define TCMC_CTR_CSA            (1 << 5)                        /* CSA */
+#define TCMC_CTR_ECCINJP        (1 << 1)                        /* ECCINJP */
 
 #endif /* __ARCH_ARM_SRC_N32H7_HARDWARE_N32H7X3XX_TCMC_H */
